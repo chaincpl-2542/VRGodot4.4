@@ -7,6 +7,7 @@ public partial class Scene1FloorController : BaseFloorController
 	private double _timer = 0f;
 	private bool _playerInside = false;
 	private bool _isTrigger = false;
+	private bool _hasEnteredOnce = false; // Prevents re-triggering
 
 	// Audio nodes
 	private AudioStreamPlayer _enterSound;
@@ -22,7 +23,7 @@ public partial class Scene1FloorController : BaseFloorController
 		_enterSound = GetNode<AudioStreamPlayer>("EnterSound");
 		_ambientSound = GetNode<AudioStreamPlayer>("AmbientSound");
 
-		// AmbientSound should already be playing via Autoplay and Loop in the editor
+		// AmbientSound should already be looping via Autoplay + Loop
 
 		_area.Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
 		_area.Connect("body_exited", new Callable(this, nameof(OnBodyExited)));
@@ -43,7 +44,7 @@ public partial class Scene1FloorController : BaseFloorController
 
 			if (_timer >= 2.0f && !_isTrigger)
 			{
-				// Trigger fade-out only once
+				// Begin fade-out process
 				_isFadingOut = true;
 				_isTrigger = true;
 			}
@@ -64,11 +65,12 @@ public partial class Scene1FloorController : BaseFloorController
 
 	private void OnBodyEntered(Node3D body)
 	{
-		if (body.IsInGroup("Player"))
+		if (body.IsInGroup("Player") && !_hasEnteredOnce)
 		{
 			_playerInside = true;
 			_timer = 0;
 			_isTrigger = false;
+			_hasEnteredOnce = true;
 
 			GD.Print("Player entered the floor area!");
 
