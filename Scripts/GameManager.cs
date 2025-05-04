@@ -16,6 +16,10 @@ public partial class GameManager : Node
 	private AnimationPlayer _animationPlayer;
 	private Node _floorContainer;
 	private bool _isOpen = false;
+	
+	private AudioStreamPlayer3D _moveSound;
+	private AudioStreamPlayer3D _dingSound;
+
 
 	[Export]
 	public Node _currentFloor = null;
@@ -45,6 +49,10 @@ public partial class GameManager : Node
 		_animationPlayer = Elevator.GetNode<AnimationPlayer>("AnimationPlayer");
 		SetElevatorState(ElevatorState.Open);
 		_isOpen = true;
+		
+		_moveSound = Elevator.GetNode<AudioStreamPlayer3D>("ElevatorMoveSound");
+		_dingSound = Elevator.GetNode<AudioStreamPlayer3D>("ElevatorDingSound");
+
 	}
 	
 	private void LoadScenesFromFloder(string folderPath)
@@ -105,8 +113,16 @@ public partial class GameManager : Node
 	private async Task DelayLoadScene()
 	{
 		SetElevatorState(ElevatorState.Close);
-		var animationLength = _animationPlayer.GetAnimation("Close");
-		await Task.Delay((int)(animationLength.Length * 1000));
+
+		var animation = _animationPlayer.GetAnimation("Close");
+		float duration = animation != null ? animation.Length : 2.0f;
+
+	
+		_moveSound?.Play();
+
+		await Task.Delay((int)(duration * 1000));
+
+		_moveSound?.Stop();
 		_isOpen = false;
 	}
 
@@ -136,6 +152,9 @@ public partial class GameManager : Node
 		_floorContainer.AddChild(_currentFloor);
 		await Task.Delay(3000);
 		SetElevatorState(ElevatorState.Open);
+		
+		_dingSound?.Play();
+		
 		await Task.CompletedTask;
 	}
 	

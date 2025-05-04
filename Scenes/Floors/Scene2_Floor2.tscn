@@ -386,9 +386,11 @@ volume_db = -15.57
 
 [node name="GhostAppearSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_i1jey")
+volume_db = -10.0
 
 [node name="GhostVanishSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_vnwgi")
+volume_db = -10.0
 
 [editable path="SimpleFloor/Stair2"]
 [editable path="SimpleFloor/Light01"]

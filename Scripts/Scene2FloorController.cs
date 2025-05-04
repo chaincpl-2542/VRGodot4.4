@@ -12,6 +12,7 @@ public partial class Scene2FloorController : BaseFloorController
 	// Audio players
 	private AudioStreamPlayer _finishSound;
 	private AudioStreamPlayer _teleportSound;
+	
 
 	public override void _Ready()
 	{
