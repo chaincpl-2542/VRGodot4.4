@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bk10ug2j36i8r"]
+[gd_scene load_steps=30 format=3 uid="uid://bk10ug2j36i8r"]
 
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="1_cw5vt"]
 [ext_resource type="Script" uid="uid://37xaisjvtc8k" path="res://Scripts/Scene1FloorController.cs" id="1_embbr"]
@@ -10,6 +10,17 @@
 [ext_resource type="Material" uid="uid://c7smjhndbot3a" path="res://Materials/Number.tres" id="9_t7ew8"]
 [ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="10_lpas0"]
 [ext_resource type="AudioStream" uid="uid://c0fccpwoitun8" path="res://Sound/Dark Ambient Sound Effects - Scary Horror Sound Effects & Eerie Ambient Sounds.wav" id="10_t7ew8"]
+[ext_resource type="PackedScene" uid="uid://d2qoc048ajgwg" path="res://Models/CleanModelTscn/student_bag.tscn" id="11_tnbp7"]
+[ext_resource type="PackedScene" uid="uid://ct6rm0xdi4wla" path="res://Models/CleanModelTscn/book.tscn" id="13_62l5e"]
+[ext_resource type="PackedScene" uid="uid://dyojqhtmdo7el" path="res://Models/CleanModelTscn/pencil.tscn" id="14_v7r7m"]
+[ext_resource type="PackedScene" uid="uid://brhvebkafgu56" path="res://Models/CleanModelTscn/paper.tscn" id="15_3kjej"]
+[ext_resource type="PackedScene" uid="uid://b8g73wkpxdsxt" path="res://Models/CleanModelTscn/poster_3.tscn" id="16_62l5e"]
+[ext_resource type="PackedScene" uid="uid://d0agt0g57afqm" path="res://Models/CleanModelTscn/poster_2.tscn" id="17_v7r7m"]
+[ext_resource type="PackedScene" uid="uid://c3x7wvlap8ul4" path="res://Models/CleanModelTscn/metal_ball.tscn" id="18_3kjej"]
+[ext_resource type="PackedScene" uid="uid://dgrsa4vhk5aop" path="res://Models/CleanModelTscn/jar_of_glue.tscn" id="19_6kk4t"]
+[ext_resource type="PackedScene" uid="uid://skrc2vmekdxb" path="res://Models/CleanModelTscn/memo_paper.tscn" id="20_s7h73"]
+[ext_resource type="PackedScene" uid="uid://b30otix6hd1pw" path="res://Models/CleanModelTscn/newspaper.tscn" id="21_lxrwa"]
+[ext_resource type="PackedScene" uid="uid://bv0wy64hudybk" path="res://Nai/Cryptex.tscn" id="21_s7h73"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpas0"]
 albedo_color = Color(0.237322, 0.00900725, 0, 1)
@@ -22,6 +33,23 @@ albedo_color = Color(0.237322, 0.00900725, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lpas0"]
 material = SubResource("StandardMaterial3D_t7ew8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7h73"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_lxrwa"]
+text = "Friend message:
+Hey hurry up we’re already 
+at the storage room you’re 
+always so slow!
+
+Y’ know I heard that someone 
+died here a couple of years back
+
+If you’re late we’re leaving without you!
+"
+font = ExtResource("10_lpas0")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uk6cp"]
 size = Vector3(15.6099, 5.39844, 4.25537)
@@ -219,6 +247,11 @@ shadow_bias = 1.0
 shadow_opacity = 0.2
 omni_range = 10.0
 omni_attenuation = 0.8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SimpleFloor"]
+transform = Transform3D(0.565888, 0, 0.412033, 0, 0.7, 0, -0.412033, 0, 0.565888, -5.23265, 1.93122, -0.594272)
+material_override = SubResource("StandardMaterial3D_s7h73")
+mesh = SubResource("TextMesh_lxrwa")
 
 [node name="Board" parent="." instance=ExtResource("3_kl607")]
 transform = Transform3D(1.62952, 0, 0, 0, 1.37517, 0, 0, 0, 1, -7.46171, 1.15829, 9.36686)
@@ -466,6 +499,189 @@ stream = ExtResource("10_t7ew8")
 volume_db = -20.0
 autoplay = true
 
+[node name="StudentBag" parent="." instance=ExtResource("11_tnbp7")]
+transform = Transform3D(-0.104035, 0, -0.170812, 0, 0.2, 0, 0.170812, 0, -0.104035, 1.70632, 0.702995, 9.74524)
+
+[node name="StudentBag2" parent="." instance=ExtResource("11_tnbp7")]
+transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 1.71151, 0.702993, 22.2143)
+
+[node name="Book2" parent="." instance=ExtResource("13_62l5e")]
+transform = Transform3D(-0.129409, -3.16774e-09, 0.463644, -2.18557e-08, 0.28, 2.78825e-15, -0.482963, -1.18221e-08, -0.124233, 1.64011, -0.000146084, 7.90092)
+
+[node name="Book3" parent="." instance=ExtResource("13_62l5e")]
+transform = Transform3D(0.368892, 9.02983e-09, 0.324017, -2.18557e-08, 0.28, 3.10571e-15, -0.337518, -8.26189e-09, 0.354136, 1.64011, -0.000146084, 6.04596)
+
+[node name="Book4" parent="." instance=ExtResource("13_62l5e")]
+transform = Transform3D(-0.129409, -3.16774e-09, 0.463644, -2.18557e-08, 0.28, 2.78825e-15, -0.482963, -1.18221e-08, -0.124233, -5.12257, 1.21511, 16.6561)
+
+[node name="Book5" parent="." instance=ExtResource("13_62l5e")]
+transform = Transform3D(0.4294, 1.0511e-08, 0.24591, -2.18557e-08, 0.28, 3.10571e-15, -0.256156, -6.27028e-09, 0.412223, -8.97688, 1.21511, 18.5131)
+
+[node name="Pencil" parent="." instance=ExtResource("14_v7r7m")]
+transform = Transform3D(4.55426e-16, -6.93436e-09, -0.0660644, -0.0833595, -6.93437e-09, -1.02594e-23, -3.64376e-09, 0.15864, -2.88777e-09, -5.72726, 1.24012, 16.6859)
+
+[node name="Pencil2" parent="." instance=ExtResource("14_v7r7m")]
+transform = Transform3D(1.22518e-09, -0.0533412, -0.0622179, -0.0833595, -6.93437e-09, -6.52912e-24, -3.43161e-09, 0.149403, -0.0222135, -8.5136, 1.24012, 14.4417)
+
+[node name="Paper" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.5, -4.66498, 1.21511, 14.2636)
+
+[node name="Paper2" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(0.424421, 0, -0.264323, 0, 0.1, 0, 0.264323, 0, 0.424421, -5.37238, 1.21511, 14.5047)
+
+[node name="Paper3" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(0.453977, 0, 0.209536, 0, 0.1, 0, -0.209536, 0, 0.453977, -4.22884, 1.21511, 16.6202)
+
+[node name="Paper4" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(0.499965, 0, 0.00588165, 0, 0.1, 0, -0.00588165, 0, 0.499965, -6.5547, 1.21511, 16.6202)
+
+[node name="Paper5" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(0.499965, 0, 0.00588165, 0, 0.1, 0, -0.00588165, 0, 0.499965, -9.47764, 1.21511, 14.4088)
+
+[node name="Paper6" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(0.40298, 0, 0.295986, 0, 0.1, 0, -0.295986, 0, 0.40298, -9.26832, 1.21511, 16.6086)
+
+[node name="Poster3" parent="." instance=ExtResource("16_62l5e")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.25549, 0.607888, 10.449)
+
+[node name="Poster2" parent="." instance=ExtResource("17_v7r7m")]
+transform = Transform3D(-2.27e-08, 0, 0.999999, 0, 0.429875, 0, -0.519315, 0, -4.37114e-08, -2.11466, 1.33907, 16.7057)
+
+[node name="MetalBall" parent="." instance=ExtResource("18_3kjej")]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 1.84364, 0.702994, 14.6402)
+
+[node name="MetalBall2" parent="." instance=ExtResource("18_3kjej")]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 1.87023, 0.702994, 14.3147)
+
+[node name="MetalBall3" parent="." instance=ExtResource("18_3kjej")]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 1.61529, 0.702994, 14.4548)
+
+[node name="JarOfGlue" parent="." instance=ExtResource("19_6kk4t")]
+transform = Transform3D(-0.385, 0, 2.79753e-08, 0, 0.33, 0, -3.36578e-08, 0, -0.32, 1.86321, 0.702994, 15.058)
+
+[node name="Paper7" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 0, -2.18557e-08, 1.91069e-16, -0.5, 0.5, -4.37114e-09, -2.18557e-08, 2.00358, 1.84438, 6.98282)
+
+[node name="Paper8" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 1.05879e-22, 0.173222, -1.51436e-09, -0.469035, 0.469035, -4.10044e-09, 0.173222, 2.00358, 1.75397, 6.3268)
+
+[node name="Paper9" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 2.11758e-22, 0.0592973, -5.18393e-10, -0.496471, 0.496471, -4.34029e-09, 0.0592973, 2.00358, 2.03637, 6.55105)
+
+[node name="Paper10" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 4.23517e-22, -0.118538, 1.03629e-09, -0.485746, 0.485746, -4.24652e-09, -0.118538, 2.00358, 1.65716, 7.50884)
+
+[node name="Paper11" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, -4.31428e-16, 0.34179, -2.98802e-09, -0.364938, 0.364938, -3.19039e-09, 0.34179, 2.00358, 1.78807, 5.91014)
+
+[node name="Paper12" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 4.33665e-16, 0.328056, -2.86796e-09, -0.377332, 0.377332, -3.29874e-09, 0.328056, 2.00113, 2.02323, 7.31771)
+
+[node name="Paper13" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 1.05879e-22, 0.0527936, -4.61536e-10, 0.497205, -0.497205, 4.3467e-09, 0.0527936, 2.00358, 1.87952, 3.12724)
+
+[node name="Paper14" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 2.11758e-22, -0.12273, 1.07294e-09, 0.484703, -0.484703, 4.23741e-09, -0.12273, 2.00358, 1.90015, 3.78915)
+
+[node name="Paper15" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 4.23516e-22, -0.00654483, 5.72167e-11, 0.499957, -0.499957, 4.37076e-09, -0.00654483, 2.00358, 1.64301, 3.53633)
+
+[node name="Paper16" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, -4.31428e-16, 0.169164, -1.47888e-09, 0.470514, -0.470514, 4.11337e-09, 0.169164, 2.00358, 2.12123, 2.62393)
+
+[node name="Paper17" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 4.33665e-16, -0.301346, 2.63445e-09, 0.398987, -0.398987, 3.48805e-09, -0.301346, 2.00358, 1.82225, 4.19988)
+
+[node name="Paper18" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 8.67329e-16, -0.286381, 2.50362e-09, 0.409861, -0.409861, 3.58312e-09, -0.286381, 2.00113, 1.73702, 2.77535)
+
+[node name="Paper19" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 1.05879e-22, 0.0527936, -4.61536e-10, 0.497205, -0.497205, 4.3467e-09, 0.0527936, -2.18009, 1.87952, 16.3348)
+
+[node name="Paper20" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 2.11758e-22, -0.12273, 1.07294e-09, 0.484703, -0.484703, 4.23741e-09, -0.12273, -2.18009, 1.90015, 16.9967)
+
+[node name="Paper21" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 4.23516e-22, -0.00654483, 5.72167e-11, 0.499957, -0.499957, 4.37076e-09, -0.00654483, -2.18009, 1.64301, 16.7439)
+
+[node name="Paper22" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, -4.31428e-16, 0.169164, -1.47888e-09, 0.470514, -0.470514, 4.11337e-09, 0.169164, -2.18009, 2.12123, 15.8315)
+
+[node name="Paper23" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 4.33665e-16, -0.301346, 2.63445e-09, 0.398987, -0.398987, 3.48805e-09, -0.301346, -2.18009, 1.82225, 17.4074)
+
+[node name="Paper24" parent="." instance=ExtResource("15_3kjej")]
+transform = Transform3D(-2.18557e-08, -0.1, 8.67329e-16, -0.286381, 2.50362e-09, 0.409861, -0.409861, 3.58312e-09, -0.286381, -2.18254, 1.73702, 15.9829)
+
+[node name="MemoPaper" parent="." instance=ExtResource("20_s7h73")]
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -2.20917, 2.01157, 24.0525)
+
+[node name="MemoPaper2" parent="." instance=ExtResource("20_s7h73")]
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -2.20917, 2.17568, 24.7239)
+
+[node name="MemoPaper3" parent="." instance=ExtResource("20_s7h73")]
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -2.20917, 2.01353, 23.3943)
+
+[node name="MemoPaper4" parent="." instance=ExtResource("20_s7h73")]
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -2.20917, 1.5195, 23.6767)
+
+[node name="MemoPaper5" parent="." instance=ExtResource("20_s7h73")]
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -2.20917, 1.31687, 24.6674)
+
+[node name="MemoPaper6" parent="." instance=ExtResource("20_s7h73")]
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -2.20917, 2.22954, 23.0153)
+
+[node name="MemoPaper7" parent="." instance=ExtResource("20_s7h73")]
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -2.20917, 1.6352, 25.1132)
+
+[node name="Newspaper" parent="." instance=ExtResource("21_lxrwa")]
+transform = Transform3D(-3.4025e-08, 0, 5, -0.124438, 0.955004, -3.49394e-08, -0.768391, -0.15466, -2.15746e-07, -1.98004, 1.8989, 23.9146)
+
+[node name="CryptexController" parent="." instance=ExtResource("21_s7h73")]
+transform = Transform3D(0.5, 0, 0, 0, 0.403093, 0.295831, 0, -0.295831, 0.403093, -7.30014, 1.29751, 12.0263)
+
+[node name="IncreaseButton1 (Area3D)" parent="CryptexController/FirstNumber" index="1"]
+collision_layer = 65536
+
+[node name="MeshInstance3D" parent="CryptexController/FirstNumber/IncreaseButton1 (Area3D)/IncreaseNum" index="0"]
+layers = 3
+
+[node name="DecreaseButton1 (Area3D)" parent="CryptexController/FirstNumber" index="2"]
+collision_layer = 65536
+
+[node name="MeshInstance3D" parent="CryptexController/FirstNumber/DecreaseButton1 (Area3D)/DecreaseNum" index="0"]
+layers = 3
+
+[node name="IncreaseButton2 (Area3D)" parent="CryptexController/SecoundNumber" index="1"]
+collision_layer = 65536
+
+[node name="MeshInstance3D" parent="CryptexController/SecoundNumber/IncreaseButton2 (Area3D)/IncreaseNum" index="0"]
+layers = 3
+
+[node name="DecreaseButton2 (Area3D)" parent="CryptexController/SecoundNumber" index="2"]
+collision_layer = 65536
+
+[node name="MeshInstance3D" parent="CryptexController/SecoundNumber/DecreaseButton2 (Area3D)/DecreaseNum" index="0"]
+layers = 3
+
+[node name="IncreaseButton3 (Area3D)" parent="CryptexController/ThirdNumber" index="1"]
+collision_layer = 65536
+
+[node name="MeshInstance3D" parent="CryptexController/ThirdNumber/IncreaseButton3 (Area3D)/IncreaseNum" index="0"]
+layers = 3
+
+[node name="DecreaseButton3 (Area3D)" parent="CryptexController/ThirdNumber" index="2"]
+collision_layer = 65536
+
+[node name="MeshInstance3D" parent="CryptexController/ThirdNumber/DecreaseButton3 (Area3D)/DecreaseNum" index="0"]
+layers = 3
+
+[node name="StaticBody3D2" parent="CryptexController/Cryptex" index="0"]
+collision_layer = 65536
+
+[node name="CollisionShape3D" parent="CryptexController/Cryptex/StaticBody3D2" index="0"]
+disabled = true
+
 [editable path="SimpleFloor"]
 [editable path="SimpleFloor/Door5"]
 [editable path="SimpleFloor/Door6"]
@@ -475,3 +691,4 @@ autoplay = true
 [editable path="SimpleFloor/Light02"]
 [editable path="SimpleFloor/Light03"]
 [editable path="Board"]
+[editable path="CryptexController"]

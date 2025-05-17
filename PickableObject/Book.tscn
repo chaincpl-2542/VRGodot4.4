@@ -49,7 +49,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08pn4")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u7pb8"]
-size = Vector3(0.150391, 0.32251, 0.323242)
+size = Vector3(0.250244, 0.380859, 0.388672)
 
 [node name="Book" instance=ExtResource("1_l6aky")]
 picked_up_layer = 65537
@@ -68,6 +68,8 @@ skeleton = NodePath("")
 transform = Transform3D(0.338407, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="." index="3" node_paths=PackedStringArray("RootNode", "area")]
+collision_layer = 65537
+collision_mask = 65537
 script = ExtResource("4_oe8at")
 RootNode = NodePath("..")
 area = NodePath(".")

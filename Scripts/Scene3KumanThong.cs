@@ -68,21 +68,21 @@ public partial class Scene3KumanThong : BaseFloorController
 			"That soda is giving me enough energy to communicate\n" +
 			"to you from the outside.\n" +
 			"I’m not actually even in here.";
-		await ToSignal(GetTree().CreateTimer(5), "timeout");
+		await ToSignal(GetTree().CreateTimer(8), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
 			"It looks like you’re trapped in some kind of\n" +
 			"purgatory realm, and I think I know what’s\n" +
 			"keeping you in here… ";
-		await ToSignal(GetTree().CreateTimer(7), "timeout");
+		await ToSignal(GetTree().CreateTimer(8), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
 			"I don’t know why she chose you,\n" +
 			"but if you wanna get out of here,\n" +
 			"you might have to confront her yourself.";
-		await ToSignal(GetTree().CreateTimer(7), "timeout");
+		await ToSignal(GetTree().CreateTimer(8), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
@@ -92,7 +92,7 @@ public partial class Scene3KumanThong : BaseFloorController
 			"something very important to her.\n" +
 			"It's the deepest part of her psyche,\n" +
 			"so you’ll have to go step-by-step.";
-		await ToSignal(GetTree().CreateTimer(7), "timeout");
+		await ToSignal(GetTree().CreateTimer(8), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
