@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drqc6bgiqdng3"
-path="res://.godot/imported/teacherTable_15_Color.png-a17f7173ddfe5460a09355cd9a83135e.ctex"
+uid="uid://bdwxnhm3fknar"
+path="res://.godot/imported/grayscale-pixels-noise-mosaic-seamless-pattern-vector-14045897.jpg-4677f6594737c86c9fca16f37d01dd82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Table/teacherTable_15_Color.png"
-dest_files=["res://.godot/imported/teacherTable_15_Color.png-a17f7173ddfe5460a09355cd9a83135e.ctex"]
+source_file="res://grayscale-pixels-noise-mosaic-seamless-pattern-vector-14045897.jpg"
+dest_files=["res://.godot/imported/grayscale-pixels-noise-mosaic-seamless-pattern-vector-14045897.jpg-4677f6594737c86c9fca16f37d01dd82.ctex"]
 
 [params]
 

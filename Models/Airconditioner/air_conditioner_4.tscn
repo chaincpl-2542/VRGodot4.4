@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy8rvjulyljvp"]
+
+[ext_resource type="PackedScene" uid="uid://b7tkwy80t4c6d" path="res://Models/Airconditioner/AirConditioner_4.fbx" id="1_fjl18"]
+[ext_resource type="Texture2D" uid="uid://bq7x8lo4qf1e5" path="res://Models/Airconditioner/AirConditioner_4_Color.png" id="2_yjxjj"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://test.tres" id="3_0allu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf0po"]
+albedo_color = Color(0.779291, 0.779291, 0.779291, 1)
+albedo_texture = ExtResource("2_yjxjj")
+texture_filter = 0
+
+[node name="AirConditioner_4" instance=ExtResource("1_fjl18")]
+
+[node name="AirConditioner_4_001" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_kf0po")
+material_overlay = ExtResource("3_0allu")

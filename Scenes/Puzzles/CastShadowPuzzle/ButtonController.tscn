@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://isgin6idshf2"]
+[gd_scene load_steps=24 format=3 uid="uid://isgin6idshf2"]
 
 [ext_resource type="Script" uid="uid://btq4g8lck4ruc" path="res://Scripts/CastShadowPuzzleController.cs" id="1_g1i6p"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://test.tres" id="2_ugeie"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jm0gr"]
 size = Vector3(0.3, 0.1, 0.3)
@@ -92,14 +93,17 @@ shape = SubResource("BoxShape3D_jm0gr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0494009, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ButtonLeft/StaticBody3D"]
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("BoxMesh_jm0gr")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="ButtonLeft/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0207425, 0)
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("BoxMesh_6ln3o")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="ButtonLeft/StaticBody3D/MeshInstance3D2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0296203, 0)
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("TextMesh_jm0gr")
 skeleton = NodePath("../..")
 
@@ -121,14 +125,17 @@ shape = SubResource("BoxShape3D_6ln3o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0494009, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ButtonRight/StaticBody3D"]
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("BoxMesh_wpdx6")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="ButtonRight/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0207425, 0)
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("BoxMesh_vsiqc")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="ButtonRight/StaticBody3D/MeshInstance3D2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0296203, 0)
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("TextMesh_m1jx1")
 skeleton = NodePath("../..")
 
@@ -150,14 +157,17 @@ shape = SubResource("BoxShape3D_vl4h5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0494009, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ButtonUp/StaticBody3D"]
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("BoxMesh_4swoe")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="ButtonUp/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0207425, 0)
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("BoxMesh_42kad")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="ButtonUp/StaticBody3D/MeshInstance3D2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0296203, 0)
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("TextMesh_kn36u")
 skeleton = NodePath("../..")
 
@@ -179,14 +189,17 @@ shape = SubResource("BoxShape3D_uqvrj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0494009, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ButtonDown/StaticBody3D"]
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("BoxMesh_pc4y3")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="ButtonDown/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0207425, 0)
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("BoxMesh_0udbp")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="ButtonDown/StaticBody3D/MeshInstance3D2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0296203, 0)
+material_overlay = ExtResource("2_ugeie")
 mesh = SubResource("TextMesh_232s3")
 skeleton = NodePath("../..")
 

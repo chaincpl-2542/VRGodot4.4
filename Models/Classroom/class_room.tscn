@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3ynhdje3m5r3"]
+[gd_scene load_steps=19 format=3 uid="uid://c3ynhdje3m5r3"]
 
 [ext_resource type="PackedScene" uid="uid://c6yuu88sy01w6" path="res://Models/Classroom/ClassRoom2_461.fbx" id="1_xnwnx"]
 [ext_resource type="Material" uid="uid://bra55taik0qvn" path="res://Models/Classroom/Classroom.tres" id="2_giqsi"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://test.tres" id="3_fucn1"]
 [ext_resource type="PackedScene" uid="uid://cl0ltuo0te1i1" path="res://Models/Classroom/Windows/windows.tscn" id="3_giqsi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_giqsi"]
@@ -51,8 +52,10 @@ material = SubResource("StandardMaterial3D_fucn1")
 [node name="ClassRoom2_461_001" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0, 1.5, -7)
 material_override = ExtResource("2_giqsi")
+material_overlay = ExtResource("3_fucn1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ClassRoom2_461_001" index="0"]
+visible = false
 
 [node name="CollisionFloor" type="CollisionShape3D" parent="ClassRoom2_461_001/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.294, 7.169, 3.01057)

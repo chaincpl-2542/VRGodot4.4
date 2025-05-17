@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dhq0xfwxpel1r" path="res://Models/CleanModelTscn/insert_bookshelf.tscn" id="3_7af5d"]
 [ext_resource type="PackedScene" uid="uid://dojmkq5eymgqk" path="res://Models/Classroom/StairConnector/stair_connector.tscn" id="3_bk4oh"]
 [ext_resource type="Script" uid="uid://b7kp50bpqndll" path="res://Scripts/BookShelfInteraction.cs" id="3_yyyt2"]
-[ext_resource type="ArrayMesh" uid="uid://bgne7aoj26tun" path="res://Models/Light01.vox" id="4_cs01g"]
 [ext_resource type="PackedScene" uid="uid://dyesamjvdid0g" path="res://Models/Classroom/Stair/stair.tscn" id="4_plqna"]
 [ext_resource type="PackedScene" uid="uid://ct6rm0xdi4wla" path="res://Models/CleanModelTscn/book.tscn" id="5_1v63j"]
 [ext_resource type="Texture2D" uid="uid://bs08ukhnsex8d" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/bookshelf（full)/full bookshelf_13_Color.png" id="9_bk4oh"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://test.tres" id="10_nkeua"]
 [ext_resource type="ArrayMesh" uid="uid://bl32v8ualpuri" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/bookshelf（full)/full bookshelf_13.obj" id="10_plqna"]
 [ext_resource type="PackedScene" uid="uid://ccm70bu4r0y1s" path="res://Models/Board/board.tscn" id="10_wwdyp"]
 [ext_resource type="PackedScene" uid="uid://c3utpnc3y8hsa" path="res://Models/RoomTag/room_tag.tscn" id="12_3jjic"]
@@ -356,6 +356,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.4125, 27.2826, 0, -5.58647)
 [node name="FullBookshelf" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(0.200088, -2.64767e-08, 2.23518e-08, 2.34553e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, 1.02799, 0.10583, -0.396866)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -367,6 +368,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf4" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(0.200088, 5.00935e-09, 2.23518e-08, -1.15292e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, 3.03161, 0.10583, 1.75418)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -378,6 +380,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf16" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(0.200088, 5.00935e-09, 6.38331e-08, -1.15292e-08, 0.180079, 9.30957e-08, -1.49012e-08, -3.47054e-08, 0.571418, 3.03161, 0.10583, 0.596921)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -389,6 +392,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf5" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(0.200088, 5.00935e-09, 2.23518e-08, -1.15292e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, -0.968391, 0.10583, -0.396866)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -400,6 +404,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf7" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(-0.200088, 0, -1.74922e-08, 0, 0.180079, 0, 1.74922e-08, 0, -0.200088, -3.35948, 0.10583, 30.2137)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -411,6 +416,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf8" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(-0.200088, 0, -1.74922e-08, 0, 0.180079, 0, 1.74922e-08, 0, -0.200088, -1.3586, 0.10583, 30.2137)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -422,6 +428,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf9" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(-0.200088, 0, -1.74922e-08, 0, 0.180079, 0, 1.74922e-08, 0, -0.200088, 0.642273, 0.10583, 30.2138)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -433,6 +440,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf10" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(-0.200088, 0, -1.74922e-08, 0, 0.180079, 0, 1.74922e-08, 0, -0.200088, 2.64315, 0.10583, 30.2138)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -444,6 +452,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf11" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(-0.200088, 0, -1.74922e-08, 0, 0.180079, 0, 1.74922e-08, 0, -0.200088, 4.64403, 0.10583, 30.2138)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -455,6 +464,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf12" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(-0.200088, 0, -1.74922e-08, 0, 0.180079, 0, 1.74922e-08, 0, -0.200088, 6.64491, 0.10583, 30.2138)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -466,6 +476,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf13" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(-0.200088, 0, -1.74922e-08, 0, 0.180079, 0, 1.74922e-08, 0, -0.200088, 8.64578, 0.10583, 30.2138)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -477,6 +488,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf14" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(-0.200088, 0, -1.74922e-08, 0, 0.180079, 0, 1.74922e-08, 0, -0.200088, 10.6467, 0.10583, 30.2138)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -488,6 +500,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf15" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(-0.200088, 0, -1.74922e-08, 0, 0.180079, 0, 1.74922e-08, 0, -0.200088, 12.6475, 0.10583, 30.2138)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -499,6 +512,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf6" type="MeshInstance3D" parent="Library Floor2/BookshelfWall"]
 transform = Transform3D(0.240106, -2.64767e-08, 2.23518e-08, 2.81464e-08, 0.180079, 3.25984e-08, -1.78814e-08, -3.47054e-08, 0.200088, -3.16048, 0.10583, -0.396866)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -513,6 +527,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.4125, 36.3874, 0, -5.71401)
 [node name="FullBookshelf4" type="MeshInstance3D" parent="Library Floor2/BookshelfWall2"]
 transform = Transform3D(0.200088, 5.00935e-09, 2.23518e-08, -1.15292e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, -4.07318, 0.10583, 2.0818)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -524,6 +539,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf5" type="MeshInstance3D" parent="Library Floor2/BookshelfWall2"]
 transform = Transform3D(0.200088, 5.00935e-09, 2.23518e-08, -1.15292e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, -2.07318, 0.10583, 2.0818)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -535,6 +551,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf" type="MeshInstance3D" parent="Library Floor2/BookshelfWall2"]
 transform = Transform3D(-0.200088, 5.00935e-09, 2.23518e-08, 1.15292e-08, 0.180079, 3.25984e-08, 1.49012e-08, -3.47054e-08, 0.200088, -0.0767937, 0.10583, 2.0818)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -546,6 +563,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf3" type="MeshInstance3D" parent="Library Floor2/BookshelfWall2"]
 transform = Transform3D(-0.200088, 5.00935e-09, 8.42351e-08, 1.15292e-08, 0.180079, 1.2285e-07, 1.49012e-08, -3.47054e-08, 0.754052, -0.0767937, 0.10583, 0.650593)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -557,6 +575,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf2" type="MeshInstance3D" parent="Library Floor2/BookshelfWall2"]
 transform = Transform3D(-0.174007, 5.00935e-09, 2.23518e-08, 1.00264e-08, 0.180079, 3.25984e-08, 1.29589e-08, -3.47054e-08, 0.200088, 5.39368, 0.10583, 2.07695)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -571,6 +590,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.890
 [node name="FullBookshelf" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(0.153399, -2.64767e-08, 2.16233e-08, 1.79822e-08, 0.180079, 8.74613e-09, -9.43759e-09, -1.32383e-08, 0.200088, 3.20795, 0.10583, -0.171734)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -582,6 +602,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf5" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(-0.220097, 5.00935e-09, 1.78814e-08, 1.26821e-08, 0.180079, 2.60788e-08, 1.63913e-08, -3.47054e-08, 0.16007, 1.02248, 0.10583, -0.403835)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -593,6 +614,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf10" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(-6.77056e-09, 5.00935e-09, -0.16007, -3.58581e-08, 0.180079, -3.17701e-10, -0.220097, -3.47054e-08, 1.08845e-08, 1.91888, 0.10583, 0.850718)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -604,6 +626,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf11" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(-6.77056e-09, 5.00935e-09, -0.120053, -3.58581e-08, 0.180079, -2.38276e-10, -0.220097, -3.47054e-08, 8.16338e-09, -0.590227, 0.10583, 3.05169)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -615,6 +638,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf6" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(0.190659, -2.64767e-08, 1.78814e-08, 2.235e-08, 0.180079, 2.60788e-08, -1.4199e-08, -3.47054e-08, 0.16007, -1.04465, 0.10583, -0.403836)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -626,6 +650,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf2" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(0.198087, -2.64767e-08, 2.23518e-08, 2.32208e-08, 0.180079, 3.25984e-08, -1.47522e-08, -3.47054e-08, 0.200088, -6.83723, 0.10583, -0.351812)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -637,6 +662,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf3" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(-5.67536e-09, -2.64767e-08, 0.200088, -1.06859e-08, 0.180079, 2.34555e-08, -0.0480212, -3.47054e-08, -3.10979e-08, -5.53137, 0.10583, -0.289384)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -648,6 +674,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf7" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(0.18784, 5.00935e-09, 0.0850375, -3.25902e-08, 0.180079, 2.09518e-08, -0.10845, -3.47054e-08, 0.147289, -4.06719, 0.10583, 0.109537)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -659,6 +686,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf8" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(0.200088, -2.64767e-08, 2.23518e-08, 2.34553e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, -8.82833, 0.10583, -0.351811)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -670,6 +698,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf9" type="MeshInstance3D" parent="Library Floor2/BookshelfWall3"]
 transform = Transform3D(0.18058, -2.64767e-08, 2.23518e-08, 2.11684e-08, 0.180079, 3.25984e-08, -1.34483e-08, -3.47054e-08, 0.200088, -10.7171, 0.10583, -0.351811)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -684,6 +713,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, 27.2826, 0, -21.849)
 [node name="FullBookshelf" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(0.200088, -2.64767e-08, 2.23518e-08, 2.34553e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, 1.048, 0.10583, -0.211751)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -695,6 +725,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf4" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(-0.200088, 5.00935e-09, 2.23518e-08, 1.15292e-08, 0.180079, 3.25984e-08, 1.49012e-08, -3.47054e-08, 0.200088, 3.05162, 0.10583, -0.211751)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -706,6 +737,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf5" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(0.200088, 5.00935e-09, 2.23518e-08, -1.15292e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, -0.948385, 0.10583, -0.211751)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -717,6 +749,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf6" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(-0.198087, -2.64767e-08, 2.23518e-08, -2.32208e-08, 0.180079, 3.25984e-08, 1.47522e-08, -3.47054e-08, 0.200088, -2.88916, 0.10583, -0.211751)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -728,6 +761,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf7" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(0.171075, 5.00935e-09, 4.69387e-08, -9.85747e-09, 0.180079, 6.84567e-08, -1.27405e-08, -3.47054e-08, 0.420185, 11.504, 0.10583, 0.0403596)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -739,6 +773,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf11" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(0.210166, 5.00935e-09, 4.69387e-08, -1.21099e-08, 0.180079, 6.84567e-08, -1.56517e-08, -3.47054e-08, 0.420185, 13.6038, 0.105829, 0.082378)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -750,6 +785,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf10" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(0.171075, 5.00935e-09, 4.69387e-08, -9.85747e-09, 0.180079, 6.84567e-08, -1.27405e-08, -3.47054e-08, 0.420185, 9.78168, 0.10583, 0.0403598)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -761,6 +797,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf12" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(0.171075, 5.00935e-09, 4.69387e-08, -9.85747e-09, 0.180079, 6.84567e-08, -1.27405e-08, -3.47054e-08, 0.420185, 9.78168, 0.10583, 0.0403598)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -772,6 +809,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf8" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(0.200088, 5.00935e-09, 2.23518e-08, -1.15292e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, 7.03513, 0.105829, -0.211751)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -783,6 +821,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf9" type="MeshInstance3D" parent="Library Floor2/BookshelfWall4"]
 transform = Transform3D(-0.200088, -2.64767e-08, -4.85949e-09, -3.53818e-08, 0.180079, -4.45246e-08, -2.59107e-09, -3.47054e-08, -0.200088, 5.03513, 0.105831, -0.691963)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -797,6 +836,7 @@ transform = Transform3D(-4.37114e-08, 0, 0.3, 0, 1, 0, -1, 0, -1.31134e-08, 23.2
 [node name="FullBookshelf" type="MeshInstance3D" parent="Library Floor2/BookshelfWall5"]
 transform = Transform3D(0.200088, -2.64767e-08, 2.23518e-08, 2.34553e-08, 0.180079, 3.25984e-08, -1.49012e-08, -3.47054e-08, 0.200088, 1.24809, 0.10583, -0.171733)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -808,6 +848,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf4" type="MeshInstance3D" parent="Library Floor2/BookshelfWall5"]
 transform = Transform3D(0.187283, 5.00935e-09, -4.8595e-09, 3.7188e-10, 0.180079, -4.45246e-08, 2.42524e-09, -3.47054e-08, -0.200088, 3.02168, 0.10583, -0.691962)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -819,6 +860,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf7" type="MeshInstance3D" parent="Library Floor2/BookshelfWall5"]
 transform = Transform3D(1.70507e-08, 5.00935e-09, -0.242027, 9.03037e-08, 0.180079, -4.80363e-10, 0.554284, -3.47054e-08, 1.64574e-08, 10.5057, 0.10583, 1.76959)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -830,6 +872,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf11" type="MeshInstance3D" parent="Library Floor2/BookshelfWall5"]
 transform = Transform3D(0.210166, 5.00935e-09, 4.69387e-08, -1.21099e-08, 0.180079, 6.84567e-08, -1.56517e-08, -3.47054e-08, 0.420185, 13.6248, 0.105829, 0.082378)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -841,6 +884,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf15" type="MeshInstance3D" parent="Library Floor2/BookshelfWall5"]
 transform = Transform3D(-0.154472, 5.00935e-09, 4.69387e-08, 8.90077e-09, 0.180079, 6.84567e-08, 1.1504e-08, -3.47054e-08, 0.420185, 11.8552, 0.105829, 0.0823781)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -852,6 +896,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf10" type="MeshInstance3D" parent="Library Floor2/BookshelfWall5"]
 transform = Transform3D(0.171075, 5.00935e-09, 4.88162e-08, -9.85747e-09, 0.180079, 7.1195e-08, -1.27405e-08, -3.47054e-08, 0.436992, 9.28556, 0.10583, 0.112632)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -863,6 +908,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf12" type="MeshInstance3D" parent="Library Floor2/BookshelfWall5"]
 transform = Transform3D(0.171075, 5.00935e-09, 4.88162e-08, -9.85747e-09, 0.180079, 7.1195e-08, -1.27405e-08, -3.47054e-08, 0.436992, 7.57481, 0.10583, 0.112632)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -874,6 +920,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf13" type="MeshInstance3D" parent="Library Floor2/BookshelfWall5"]
 transform = Transform3D(0.171075, 5.00935e-09, 4.88162e-08, -9.85747e-09, 0.180079, 7.1195e-08, -1.27405e-08, -3.47054e-08, 0.436992, 5.86406, 0.10583, 0.112632)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -885,6 +932,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf14" type="MeshInstance3D" parent="Library Floor2/BookshelfWall5"]
 transform = Transform3D(0.171075, 5.00935e-09, 4.88162e-08, -9.85747e-09, 0.180079, 7.1195e-08, -1.27405e-08, -3.47054e-08, 0.436992, 4.1533, 0.10583, 0.112632)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -896,6 +944,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf2" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(6.15505e-09, 3.47054e-08, -0.200088, -1.15292e-08, 0.180079, 3.25984e-08, 0.200088, 5.00935e-09, 1.36056e-08, 42.4445, 0.105831, -3.74396)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -907,6 +956,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf4" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(6.15505e-09, 3.47054e-08, -0.200088, -1.15292e-08, 0.180079, 3.25984e-08, 0.200088, 5.00935e-09, 1.36056e-08, 42.4445, 0.105831, -1.74308)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -918,6 +968,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf3" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(6.15505e-09, 3.47054e-08, -0.200088, -1.15292e-08, 0.180079, 3.25984e-08, 0.200088, 5.00935e-09, 1.36056e-08, 42.4445, 0.105831, 4.68706)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -929,6 +980,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf5" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(6.15505e-09, 3.47054e-08, -0.200088, -1.15292e-08, 0.180079, 3.25984e-08, 0.200088, 5.00935e-09, 1.36056e-08, 42.4445, 0.105831, 6.68793)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -940,6 +992,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf7" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(6.15505e-09, 3.47054e-08, -0.200088, -1.15292e-08, 0.180079, 3.25984e-08, 0.200088, 5.00935e-09, 1.36056e-08, 42.4445, 0.105831, 2.67861)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../../root/@EditorNode@21340/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Library Floor/Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -951,6 +1004,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf10" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.220249, 3.47054e-08, -3.8876e-09, 3.58829e-08, 0.180079, -3.17696e-10, -2.85215e-09, 5.00936e-09, -0.16007, 40.8397, 0.10583, -15.5025)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -962,6 +1016,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf11" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.170403, 3.47054e-08, -3.8876e-09, 2.7762e-08, 0.180079, -3.17696e-10, -2.20666e-09, 5.00936e-09, -0.16007, 38.8741, 0.105831, -15.5025)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -973,6 +1028,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf26" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.167815, 3.47054e-08, 0.0277959, -3.65971e-08, 0.180079, -1.45125e-08, -0.0295902, 5.00936e-09, 0.157639, 36.8729, 0.105831, -17.0006)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -984,6 +1040,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf41" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.130537, 3.47054e-08, -0.072024, 1.70319e-08, 0.180079, 1.2929e-08, 0.109533, 5.00936e-09, -0.0858348, 38.9193, 0.105831, -18.1726)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -995,6 +1052,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf42" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(1.22935e-08, 3.47054e-08, 0.112049, -3.7219e-10, 0.180079, -2.49338e-08, -0.187444, 5.00936e-09, -2.79397e-09, 36.2832, 0.105832, -20.7242)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1006,6 +1064,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf43" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.139414, 3.47054e-08, 0.0333506, 2.36058e-08, 0.180079, -6.8053e-09, -0.0373558, 5.00936e-09, -0.124466, 36.9758, 0.105831, -19.4472)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1017,6 +1076,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf12" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(1.21656e-08, 3.47054e-08, 0.16007, -4.26328e-10, 0.180079, -3.56197e-08, -0.214708, 5.00935e-09, 3.10931e-09, 32.2227, 0.105832, -14.7752)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1028,6 +1088,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf33" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(1.27739e-08, 3.47054e-08, 0.16007, -4.47644e-10, 0.180079, -3.56197e-08, -0.225444, 5.00935e-09, 3.10931e-09, 32.2227, 0.105832, -18.8547)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1039,6 +1100,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf34" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.185943, 3.47054e-08, 0.0800352, 3.24227e-08, 0.180079, -1.63389e-08, -0.107354, 5.00935e-09, -0.138625, 33.2614, 0.105832, -17.0427)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1050,6 +1112,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf13" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.204484, 3.47054e-08, -1.01062e-08, -4.5503e-08, 0.180079, -9.22322e-09, 2.05246e-08, 5.00935e-09, 0.16007, 33.4768, 0.105832, -16.0406)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1061,6 +1124,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf32" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.204484, 3.47054e-08, -8.59028e-09, -4.5503e-08, 0.180079, -7.83973e-09, 2.05246e-08, 5.00935e-09, 0.13606, 33.4768, 0.105832, -20.1704)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1072,6 +1136,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf35" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.204484, 3.47054e-08, -3.30445e-10, 3.33145e-08, 0.180079, -2.70043e-11, -2.648e-09, 5.00935e-09, -0.013606, 33.4768, 0.105832, -20.252)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1083,6 +1148,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf14" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.244767, 3.47054e-08, -2.79907e-09, 3.98774e-08, 0.180079, -2.28742e-10, -3.16965e-09, 5.00935e-09, -0.115251, 35.8448, 0.105831, -6.20263)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1094,6 +1160,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf15" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.220291, 3.47054e-08, -7.27647e-09, 4.90204e-08, 0.180079, -6.64072e-09, -2.21111e-08, 5.00936e-09, 0.115251, 38.6473, 0.10583, -10.1442)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1105,6 +1172,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf36" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(3.49144e-08, 3.47054e-08, -0.115251, 1.39626e-08, 0.180079, 1.87767e-08, -0.24232, 5.00935e-09, -1.23142e-08, 39.6039, 0.10583, -8.7928)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1116,6 +1184,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf16" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.188348, 3.47054e-08, -7.27647e-09, 4.19124e-08, 0.180079, -6.64072e-09, -1.8905e-08, 5.00936e-09, 0.115251, 33.3009, 0.105831, -11.8499)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1127,6 +1196,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf17" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-8.40422e-09, 3.47054e-08, 0.115251, 2.94523e-10, 0.180079, -2.56462e-08, 0.148324, 5.00935e-09, 2.2387e-09, 30.4196, 0.105832, -6.78051)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1138,6 +1208,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf18" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.134428, 3.47054e-08, 0.0487071, -2.85841e-08, 0.180079, -1.57273e-08, -0.0626846, 5.00936e-09, 0.104453, 29.6514, 0.105832, -10.4893)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1149,6 +1220,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf19" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(9.24464e-09, 3.47054e-08, 0.115251, -3.23975e-10, 0.180079, -2.56462e-08, -0.163157, 5.00935e-09, 2.2387e-09, 28.9675, 0.105832, -9.24715)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1160,6 +1232,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf25" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.18763, 3.47054e-08, -2.79907e-09, 3.05687e-08, 0.180079, -2.28744e-10, -2.42975e-09, 5.00935e-09, -0.115251, 31.2043, 0.105831, -7.85185)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1171,6 +1244,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf40" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.18763, 3.47054e-08, -2.79907e-09, 3.05687e-08, 0.180079, -2.28744e-10, -2.42975e-09, 5.00935e-09, -0.115251, 27.6769, 0.105832, -7.85185)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1182,6 +1256,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf37" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(4.65441e-09, 3.47054e-08, -0.115251, -8.7183e-09, 0.180079, 1.87767e-08, 0.151305, 5.00935e-09, 7.83684e-09, 30.132, 0.105832, -12.6922)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1193,6 +1268,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf38" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.131034, 3.47054e-08, -0.0576254, 1.86394e-08, 0.180079, 1.04475e-08, 0.0756526, 5.00935e-09, -0.0998101, 29.3933, 0.105832, -11.4229)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1204,6 +1280,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf39" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.131034, 3.47054e-08, 0.0201689, -2.76581e-08, 0.180079, -6.06092e-09, -0.0756526, 5.00936e-09, 0.0349335, 29.3933, 0.105832, -11.4229)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1215,6 +1292,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf20" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.138683, 3.47054e-08, -7.27647e-09, -3.08606e-08, 0.180079, -6.64072e-09, 1.392e-08, 5.00935e-09, 0.115251, 30.3649, 0.105832, -16.0366)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1226,6 +1304,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf27" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.216346, 3.47054e-08, -1.11759e-08, -4.81426e-08, 0.180079, -6.64072e-09, 2.6077e-08, 5.00935e-09, 0.115251, 29.9988, 0.105832, -20.0703)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1237,6 +1316,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf28" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(2.12342e-08, 3.47054e-08, -0.115251, 1.18427e-08, 0.180079, 1.87767e-08, -0.205529, 5.00935e-09, -5.58794e-09, 31.2542, 0.105832, -19.2561)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1248,6 +1328,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf29" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-2.23517e-08, 3.47054e-08, -0.115251, -1.2466e-08, 0.180079, 1.87767e-08, 0.216346, 5.00935e-09, -5.58794e-09, 31.2542, 0.105831, -17.1986)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1259,6 +1340,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf30" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.216346, 3.47054e-08, 1.06257e-08, 3.5247e-08, 0.180079, -2.28748e-10, -3.18085e-08, 5.00935e-09, -0.115251, 30.0211, 0.105832, -16.6224)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1270,6 +1352,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf31" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.216346, 3.47054e-08, 1.06257e-08, -3.5247e-08, 0.180079, -2.28748e-10, 3.18085e-08, 5.00935e-09, -0.115251, 27.8576, 0.105832, -16.6224)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1281,6 +1364,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf24" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.163157, 3.47054e-08, -7.27647e-09, -3.63066e-08, 0.180079, -6.64072e-09, 1.63765e-08, 5.00935e-09, 0.115251, 28.8696, 0.105832, -16.0366)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1292,6 +1376,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf23" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.190752, 3.47054e-08, 0.0576254, -4.02632e-08, 0.180079, -1.73169e-08, -0.110131, 5.00935e-09, 0.0998101, 27.0341, 0.105832, -15.4691)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1303,6 +1388,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf21" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(0.0422281, 3.47054e-08, -0.155853, -1.73849e-08, 0.180079, 2.40661e-08, 0.157597, 5.00935e-09, 0.0417607, 31.4109, 0.105831, -15.1508)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1314,6 +1400,7 @@ shape = SubResource("ConvexPolygonShape3D_igwkf")
 [node name="FullBookshelf22" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-0.221649, 3.47054e-08, 1.45757e-08, 3.61109e-08, 0.180079, -1.92146e-10, -4.16245e-08, 5.00935e-09, -0.0968106, 24.5104, 0.105832, -6.18604)
 material_override = SubResource("StandardMaterial3D_kqd4g")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("10_plqna")
 skeleton = NodePath("../Big Classroom/ClassRoom With Big Library - Fixed_541_001")
 
@@ -1328,6 +1415,7 @@ transform = Transform3D(1.00044, 0, 1.20792e-13, 0, 1.00044, 0, -1.20792e-13, 0,
 [node name="ClassRoom With Big Library - Fixed_541_001" type="MeshInstance3D" parent="Library Floor2/Big Classroom"]
 transform = Transform3D(1.19209e-07, -1, -1.49012e-07, -2.98023e-08, -1.19209e-07, 1, -1, -5.96046e-08, 1.61559e-27, 22.5, -4.76371e-07, -2.39503)
 material_override = SubResource("StandardMaterial3D_igwkf")
+material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("ArrayMesh_x5hcu")
 skeleton = NodePath("")
 
@@ -1368,6 +1456,7 @@ transform = Transform3D(-3.29943e-08, 0, 0.882854, 0, 1, 0, -0.754822, 0, -3.859
 [node name="ClassRoom With Big Library_Maze_1_001" type="MeshInstance3D" parent="Library Floor2/LibraryMaze/ClassRoom With Big Library_Maze_1"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 1, 0, -1, -1.19209e-07, 1.71667, -4.76837e-07, -4.71244)
 material_override = SubResource("StandardMaterial3D_wk3g7")
+material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("ArrayMesh_o68go")
 skeleton = NodePath("")
 
@@ -1378,7 +1467,7 @@ shape = SubResource("ConcavePolygonShape3D_kqd4g")
 
 [node name="Light06" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.381477, 3.72039, -4.76125)
-mesh = ExtResource("4_cs01g")
+material_overlay = ExtResource("10_nkeua")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Library Floor2/Light06"]
@@ -1391,7 +1480,7 @@ omni_attenuation = 1.654
 
 [node name="Light07" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.80207, 3.81216, -4.76125)
-mesh = ExtResource("4_cs01g")
+material_overlay = ExtResource("10_nkeua")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Library Floor2/Light07"]
@@ -1404,7 +1493,7 @@ omni_attenuation = 1.654
 
 [node name="Light08" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.1202, 3.72665, -4.63357)
-mesh = ExtResource("4_cs01g")
+material_overlay = ExtResource("10_nkeua")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Library Floor2/Light08"]
@@ -1417,7 +1506,7 @@ omni_attenuation = 1.654
 
 [node name="Light09" type="MeshInstance3D" parent="Library Floor2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 28.3177, 3.72665, 0.528239)
-mesh = ExtResource("4_cs01g")
+material_overlay = ExtResource("10_nkeua")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Library Floor2/Light09"]
@@ -1438,6 +1527,7 @@ InsertSound = NodePath("InsertSound")
 
 [node name="InsertBookshelf" parent="BookShelfInteraction" instance=ExtResource("3_7af5d")]
 transform = Transform3D(0.15, 0, 9.53592e-09, 0, 0.15, 0, -9.53592e-09, 0, 0.15, 0, 0, 0)
+material_overlay = ExtResource("10_nkeua")
 skeleton = NodePath("../..")
 
 [node name="Book" parent="BookShelfInteraction/InsertBookshelf" instance=ExtResource("5_1v63j")]
@@ -1455,6 +1545,7 @@ visible = false
 [node name="Candle2" type="MeshInstance3D" parent="BookShelfInteraction/InsertBookshelf"]
 transform = Transform3D(-1.89842e-07, 0, -1.11111, 0, 2.22222, 0, 1.11111, 0, -1.89842e-07, 2.60654, 10.1779, 1.16954)
 material_override = SubResource("StandardMaterial3D_c1lxy")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("26_hcj1w")
 skeleton = NodePath("../../..")
 
@@ -1465,6 +1556,7 @@ shape = SubResource("ConcavePolygonShape3D_w0qiy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BookShelfInteraction/InsertBookshelf/Candle2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.95, -0.0506897)
+material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("BoxMesh_83i8a")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="BookShelfInteraction/InsertBookshelf/Candle2/MeshInstance3D"]
@@ -1476,6 +1568,7 @@ omni_attenuation = 2.0
 
 [node name="InsertBookshelf2" parent="BookShelfInteraction" instance=ExtResource("3_7af5d")]
 transform = Transform3D(0.15, 0, 9.53592e-09, 0, 0.15, 0, -9.53592e-09, 0, 0.15, 1.5, 1.12923e-08, 0)
+material_overlay = ExtResource("10_nkeua")
 skeleton = NodePath("../..")
 
 [node name="Book3" parent="BookShelfInteraction/InsertBookshelf2" instance=ExtResource("5_1v63j")]
@@ -1514,10 +1607,12 @@ stream = ExtResource("24_nkeua")
 
 [node name="WorkshopTable" parent="." instance=ExtResource("17_6c666")]
 transform = Transform3D(-0.235, 0, 2.05444e-08, 0, 0.235, 0, -2.05444e-08, 0, -0.235, 13.5436, 0.00747412, 46.1801)
+material_overlay = ExtResource("10_nkeua")
 
 [node name="Candle2" type="MeshInstance3D" parent="WorkshopTable"]
 transform = Transform3D(2.34043, 0, -1.48788e-07, 0, 2.34043, 0, 1.48788e-07, 0, 2.34043, 3.97267, 5.27062, -2.19276)
 material_override = SubResource("StandardMaterial3D_c1lxy")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("26_hcj1w")
 skeleton = NodePath("../..")
 
@@ -1528,11 +1623,13 @@ shape = SubResource("ConcavePolygonShape3D_w0qiy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorkshopTable/Candle2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.95, -0.0506897)
+material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("BoxMesh_83i8a")
 
 [node name="Candle3" type="MeshInstance3D" parent="WorkshopTable"]
 transform = Transform3D(2.34043, 0, -1.48788e-07, 0, 2.34043, 0, 1.48788e-07, 0, 2.34043, -3.67258, 5.27062, -2.67958)
 material_override = SubResource("StandardMaterial3D_c1lxy")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("26_hcj1w")
 skeleton = NodePath("../..")
 
@@ -1543,6 +1640,7 @@ shape = SubResource("ConcavePolygonShape3D_w0qiy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorkshopTable/Candle3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.95, -0.0506897)
+material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("BoxMesh_83i8a")
 
 [node name="MysticSymblo" type="Node3D" parent="WorkshopTable" node_paths=PackedStringArray("RootNode", "area")]
@@ -1580,16 +1678,19 @@ transform = Transform3D(-0.818079, 0, -0.575105, 0, 1, 0, 0.575105, 0, -0.818079
 [node name="Guman Tong_3_001" type="MeshInstance3D" parent="Kuman Tong_3"]
 transform = Transform3D(0.17904, 0.111417, 4.87016e-09, 0, -1.09278e-08, 0.25, 0.0891333, -0.2238, -9.78256e-09, 0, -4.76837e-07, 0)
 material_override = ExtResource("27_hcj1w")
+material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("ArrayMesh_oye2x")
 skeleton = NodePath("")
 
 [node name="DialogueText" type="MeshInstance3D" parent="Kuman Tong_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.0528768, 0, 1.70543, 0)
+material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("TextMesh_042be")
 
 [node name="Candle" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.4, 0, -3.01992e-08, 0, -0.2, -1.63085, -0.0120967, 57.2835)
 material_override = SubResource("StandardMaterial3D_c1lxy")
+material_overlay = ExtResource("10_nkeua")
 mesh = ExtResource("26_hcj1w")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Candle"]
@@ -1599,6 +1700,7 @@ shape = SubResource("ConcavePolygonShape3D_w0qiy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Candle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.95, -0.0506897)
+material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("BoxMesh_83i8a")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Candle/MeshInstance3D"]
@@ -1610,6 +1712,7 @@ omni_attenuation = 2.0
 
 [node name="WorkshopTable2" parent="." instance=ExtResource("17_6c666")]
 transform = Transform3D(-0.235, 0, 2.05444e-08, 0, 0.235, 0, -2.05444e-08, 0, -0.235, -6.15198, 0.0235752, 54.385)
+material_overlay = ExtResource("10_nkeua")
 
 [node name="Chair" parent="WorkshopTable2" instance=ExtResource("29_042be")]
 transform = Transform3D(-5, 0, -7.54979e-07, 0, 5, 0, 7.54979e-07, 0, -5, -0.345167, 1.3411e-06, 5.79486)
@@ -1625,6 +1728,7 @@ transform = Transform3D(-4.32339, 0, -2.51163, 0, 5, 0, 2.51163, 0, -4.32339, -0
 
 [node name="WorkshopTable3" parent="." instance=ExtResource("17_6c666")]
 transform = Transform3D(-0.235, 0, 2.05444e-08, 0, 0.235, 0, -2.05444e-08, 0, -0.235, -6.15198, 0.0235752, 41.6047)
+material_overlay = ExtResource("10_nkeua")
 
 [node name="Chair" parent="WorkshopTable3" instance=ExtResource("29_042be")]
 transform = Transform3D(-5, 0, -7.54979e-07, 0, 5, 0, 7.54979e-07, 0, -5, -0.345167, 1.3411e-06, 5.79486)
@@ -1640,6 +1744,7 @@ transform = Transform3D(-4.32339, 0, -2.51163, 0, 5, 0, 2.51163, 0, -4.32339, -0
 
 [node name="WorkshopTable5" parent="." instance=ExtResource("17_6c666")]
 transform = Transform3D(-0.235, 0, 2.05444e-08, 0, 0.235, 0, -2.05444e-08, 0, -0.235, -6.15198, 0.0235752, 41.6047)
+material_overlay = ExtResource("10_nkeua")
 
 [node name="Chair" parent="WorkshopTable5" instance=ExtResource("29_042be")]
 transform = Transform3D(-5, 0, -7.54979e-07, 0, 5, 0, 7.54979e-07, 0, -5, -0.345167, 1.3411e-06, 5.79486)
@@ -1655,6 +1760,7 @@ transform = Transform3D(-4.32339, 0, -2.51163, 0, 5, 0, 2.51163, 0, -4.32339, -0
 
 [node name="WorkshopTable6" parent="." instance=ExtResource("17_6c666")]
 transform = Transform3D(-0.235, 0, 2.05444e-08, 0, 0.235, 0, -2.05444e-08, 0, -0.235, -8.07554, 0.0235754, 44.8501)
+material_overlay = ExtResource("10_nkeua")
 
 [node name="Chair" parent="WorkshopTable6" instance=ExtResource("29_042be")]
 transform = Transform3D(-5, 0, -7.54979e-07, 0, 5, 0, 7.54979e-07, 0, -5, -0.345167, 1.3411e-06, 5.79486)
@@ -1670,6 +1776,7 @@ transform = Transform3D(-4.32339, 0, -2.51163, 0, 5, 0, 2.51163, 0, -4.32339, -0
 
 [node name="WorkshopTable7" parent="." instance=ExtResource("17_6c666")]
 transform = Transform3D(-0.22951, 0, -0.0504988, 0, 0.235, 0, 0.0504988, 0, -0.22951, -8.07554, 0.0235754, 51.224)
+material_overlay = ExtResource("10_nkeua")
 
 [node name="Chair" parent="WorkshopTable7" instance=ExtResource("29_042be")]
 transform = Transform3D(-5, 0, -7.54979e-07, 0, 5, 0, 7.54979e-07, 0, -5, -0.345167, 1.3411e-06, 5.79486)
@@ -1685,6 +1792,7 @@ transform = Transform3D(-4.32339, 0, -2.51163, 0, 5, 0, 2.51163, 0, -4.32339, -0
 
 [node name="WorkshopTable4" parent="." instance=ExtResource("17_6c666")]
 transform = Transform3D(-0.211954, 0, -0.101492, 0, 0.235, 0, 0.101492, 0, -0.211954, -6.15198, 0.0235752, 47.7572)
+material_overlay = ExtResource("10_nkeua")
 
 [node name="Chair" parent="WorkshopTable4" instance=ExtResource("29_042be")]
 transform = Transform3D(-5, 0, -7.54979e-07, 0, 5, 0, 7.54979e-07, 0, -5, -0.345167, 1.3411e-06, 5.79486)
@@ -1701,6 +1809,7 @@ transform = Transform3D(-4.32339, 0, -2.51163, 0, 5, 0, 2.51163, 0, -4.32339, -0
 [node name="FloorNumber" type="MeshInstance3D" parent="."]
 transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, -3.29671, 1.85353, 8.9394)
 material_override = ExtResource("30_7djjy")
+material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("TextMesh_3jjic")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

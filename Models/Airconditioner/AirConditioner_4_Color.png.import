@@ -3,21 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq7x8lo4qf1e5"
-path.s3tc="res://.godot/imported/AirConditioner_4_Color.png-b42b0c4239217c5ebf0f6c0e55681af8.s3tc.ctex"
-path.etc2="res://.godot/imported/AirConditioner_4_Color.png-b42b0c4239217c5ebf0f6c0e55681af8.etc2.ctex"
+path="res://.godot/imported/AirConditioner_4_Color.png-b42b0c4239217c5ebf0f6c0e55681af8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Models/Airconditioner/AirConditioner_4_Color.png"
-dest_files=["res://.godot/imported/AirConditioner_4_Color.png-b42b0c4239217c5ebf0f6c0e55681af8.s3tc.ctex", "res://.godot/imported/AirConditioner_4_Color.png-b42b0c4239217c5ebf0f6c0e55681af8.etc2.ctex"]
+dest_files=["res://.godot/imported/AirConditioner_4_Color.png-b42b0c4239217c5ebf0f6c0e55681af8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

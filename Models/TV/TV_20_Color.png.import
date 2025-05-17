@@ -3,21 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq3e2twl5vutw"
-path.s3tc="res://.godot/imported/TV_20_Color.png-553808358c31bc209fb2c465859fa9ca.s3tc.ctex"
-path.etc2="res://.godot/imported/TV_20_Color.png-553808358c31bc209fb2c465859fa9ca.etc2.ctex"
+path="res://.godot/imported/TV_20_Color.png-553808358c31bc209fb2c465859fa9ca.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Models/TV/TV_20_Color.png"
-dest_files=["res://.godot/imported/TV_20_Color.png-553808358c31bc209fb2c465859fa9ca.s3tc.ctex", "res://.godot/imported/TV_20_Color.png-553808358c31bc209fb2c465859fa9ca.etc2.ctex"]
+dest_files=["res://.godot/imported/TV_20_Color.png-553808358c31bc209fb2c465859fa9ca.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

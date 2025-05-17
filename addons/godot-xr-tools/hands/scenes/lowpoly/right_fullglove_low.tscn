@@ -63,34 +63,34 @@ size = Vector3(0.01, 0.015, 0.01)
 [sub_resource type="BoxMesh" id="BoxMesh_usbux"]
 size = Vector3(0.01, 0.015, 0.01)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_swmod"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t1cog"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vq0yy"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xdmiy"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_65tsc"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6rsg1"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t1cog"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_usbux"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_xdmiy"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_f1lin"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6rsg1"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_d8os2"]
 graph_offset = Vector2(-552.664, 107.301)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_swmod")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_t1cog")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_vq0yy")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_xdmiy")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_65tsc")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_6rsg1")
 nodes/Grip/position = Vector2(0, 40)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_t1cog")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_usbux")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_xdmiy")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_f1lin")
 nodes/Trigger/position = Vector2(-360, 40)
 node_connections = [&"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1", &"output", 0, &"Grip"]
 
@@ -132,7 +132,14 @@ transform = Transform3D(0.540829, -0.840813, 0.0231736, 0.0826268, 0.0805242, 0.
 bone_name = "Index_Tip_R"
 bone_idx = 9
 
-[node name="RigidBody3D" type="Area3D" parent="Hand_low_R/Armature/Skeleton3D/BoneAttachment3D"]
+[node name="RigidBody3D" type="RigidBody3D" parent="Hand_low_R/Armature/Skeleton3D/BoneAttachment3D"]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hand_low_R/Armature/Skeleton3D/BoneAttachment3D/RigidBody3D"]
 shape = SubResource("SphereShape3D_vq0yy")
@@ -390,7 +397,7 @@ mesh = SubResource("BoxMesh_usbux")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Hand_low_R")
-tree_root = SubResource("AnimationNodeBlendTree_6rsg1")
+tree_root = SubResource("AnimationNodeBlendTree_d8os2")
 anim_player = NodePath("../Hand_low_R/AnimationPlayer")
 parameters/Grip/blend_amount = 0.0
 parameters/Trigger/blend_amount = 0.0

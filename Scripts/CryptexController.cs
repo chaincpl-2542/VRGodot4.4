@@ -50,13 +50,6 @@ public partial class CryptexController : Node3D
 		DecreaseButton2.BodyEntered += OnDecreaseButton2;
 		IncreaseButton3.BodyEntered += OnIncreaseButton3;
 		DecreaseButton3.BodyEntered += OnDecreaseButton3;
-		
-		IncreaseButton1.Monitoring = true;
-		DecreaseButton1.Monitoring = true;
-		IncreaseButton2.Monitoring = true;
-		DecreaseButton2.Monitoring = true;
-		IncreaseButton3.Monitoring = true;
-		DecreaseButton3.Monitoring = true;
 
 		SetProcessInput(true);
 	}
@@ -72,7 +65,6 @@ public partial class CryptexController : Node3D
 
 	public void ChangeNumber(int position, int change)
 	{
-		GD.Print("Change number");
 		if (_isUnlocked) return;
 
 		if (position >= 0 && position < _codeNumbers.Length)

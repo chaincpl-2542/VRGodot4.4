@@ -3,21 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://g018oijvd7kp"
-path.s3tc="res://.godot/imported/GreenBook_7_Color.png-7272e731993f4fa4e0a2b356932ee0e8.s3tc.ctex"
-path.etc2="res://.godot/imported/GreenBook_7_Color.png-7272e731993f4fa4e0a2b356932ee0e8.etc2.ctex"
+path="res://.godot/imported/GreenBook_7_Color.png-7272e731993f4fa4e0a2b356932ee0e8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Models/Book/Book2/GreenBook_7_Color.png"
-dest_files=["res://.godot/imported/GreenBook_7_Color.png-7272e731993f4fa4e0a2b356932ee0e8.s3tc.ctex", "res://.godot/imported/GreenBook_7_Color.png-7272e731993f4fa4e0a2b356932ee0e8.etc2.ctex"]
+dest_files=["res://.godot/imported/GreenBook_7_Color.png-7272e731993f4fa4e0a2b356932ee0e8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

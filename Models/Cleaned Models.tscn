@@ -1,6 +1,7 @@
-[gd_scene load_steps=110 format=4 uid="uid://cnm878dygy3rf"]
+[gd_scene load_steps=111 format=4 uid="uid://cnm878dygy3rf"]
 
 [ext_resource type="Texture2D" uid="uid://dqv1qrbd2m1h" path="res://Models/3D - Vox Cleaner Edited (No Character)/Teacher Chair/Teacher Chair_94_Color.png" id="1_6vv5a"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://test.tres" id="1_8wiq8"]
 [ext_resource type="PackedScene" uid="uid://d2qoc048ajgwg" path="res://Models/CleanModelTscn/student_bag.tscn" id="1_rw5dg"]
 [ext_resource type="ArrayMesh" uid="uid://c5kjheim7q853" path="res://Models/3D - Vox Cleaner Edited (No Character)/Teacher Chair/Teacher Chair_94.obj" id="2_iuaxu"]
 [ext_resource type="PackedScene" uid="uid://bpe446qvcatg3" path="res://Models/CleanModelTscn/speaker.tscn" id="4_8wiq8"]
@@ -291,6 +292,7 @@ data = PackedVector3Array(-0.2, 0.2, 0.2, -0.1, 0.1, 0.2, -0.2, 0.1, 0.2, -0.1, 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 material_override = SubResource("StandardMaterial3D_kksub")
+material_overlay = ExtResource("1_8wiq8")
 mesh = SubResource("PlaneMesh_qsuc7")
 metadata/_edit_lock_ = true
 
@@ -302,9 +304,11 @@ shape = SubResource("BoxShape3D_f0xl7")
 
 [node name="StudentBag" parent="." instance=ExtResource("1_rw5dg")]
 transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -11.103, 0, -1.67043)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Desk With Chair On TOP" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, -8.74228e-08, -1.04216e-14, 0, -1.19209e-07, 1, -8.74228e-08, 1, 1.19209e-07, -8.41242, -1.19209e-07, -1.73708)
+material_overlay = ExtResource("1_8wiq8")
 mesh = SubResource("ArrayMesh_41o3u")
 skeleton = NodePath("")
 
@@ -336,6 +340,7 @@ shape = SubResource("BoxShape3D_r4ayc")
 
 [node name="Chair" type="MeshInstance3D" parent="Desk With Chair On TOP"]
 transform = Transform3D(-0.8, 0, 6.99382e-08, 7.10543e-15, 0.8, 1.30336e-07, -6.99382e-08, 1.30336e-07, -0.8, 0.00492191, 0.364032, 1.76461)
+material_overlay = ExtResource("1_8wiq8")
 mesh = SubResource("ArrayMesh_p0ts0")
 skeleton = NodePath("")
 
@@ -367,6 +372,7 @@ shape = SubResource("BoxShape3D_t8xan")
 
 [node name="Desk" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, -8.74228e-08, -1.04216e-14, 0, -1.19209e-07, 1, -8.74228e-08, 1, 1.19209e-07, -7.04188, -1.19209e-07, -1.73708)
+material_overlay = ExtResource("1_8wiq8")
 mesh = SubResource("ArrayMesh_41o3u")
 skeleton = NodePath("")
 
@@ -398,6 +404,7 @@ shape = SubResource("BoxShape3D_r4ayc")
 
 [node name="Chair2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.8, 6.99382e-08, 1.39876e-07, 1.39876e-07, -3.49691e-08, 0.8, 6.99382e-08, 0.8, 3.49691e-08, -7.04871, -0.00628984, -1.14335)
+material_overlay = ExtResource("1_8wiq8")
 mesh = SubResource("ArrayMesh_p0ts0")
 skeleton = NodePath("")
 
@@ -429,16 +436,20 @@ shape = SubResource("BoxShape3D_t8xan")
 
 [node name="Speaker" parent="." instance=ExtResource("4_8wiq8")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -12.1096, 0.0811558, -1.96313)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Ranaad Ake" parent="." instance=ExtResource("5_ug2pu")]
 transform = Transform3D(-2.825, 0, 4.26563e-07, 0, 2.825, 0, -4.26563e-07, 0, -2.825, -14.0825, 0.00446916, -0.720885)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="WorkshopTable" parent="." instance=ExtResource("6_jorly")]
 transform = Transform3D(-0.235, 0, 3.5484e-08, 0, 0.235, 0, -3.5484e-08, 0, -0.235, -4.26697, -0.00374621, -1.59171)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="WorkshopTable2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.235, 0, 2.05444e-08, 0, 0.235, 0, -2.05444e-08, 0, -0.235, -4.26179, -0.00374621, 1.22784)
 material_override = SubResource("StandardMaterial3D_b1mxk")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("14_bsirv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WorkshopTable2"]
@@ -448,61 +459,80 @@ shape = SubResource("ConcavePolygonShape3D_8jdxe")
 
 [node name="WhiteBoard" parent="." instance=ExtResource("9_f8ai7")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -4.12797, 1.07445, 2.37331)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Theatre Chair" parent="." instance=ExtResource("10_cxg5p")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -18.675, 0.0241352, -1.74438)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Stage" parent="." instance=ExtResource("11_sp51m")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -14.5294, 0.02527, 0.0874548)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="South East Asian Straw Hat" parent="." instance=ExtResource("12_kuyq0")]
 transform = Transform3D(-0.3, 0, 4.52987e-08, 0, 0.3, 0, -4.52987e-08, 0, -0.3, -21.8363, 0.0684922, -1.50609)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Straw Hat" parent="." instance=ExtResource("13_8o2hw")]
 transform = Transform3D(-0.345776, -0.054209, 5.28485e-08, -0.054209, 0.345776, 1.85171e-15, -5.22107e-08, -8.18533e-09, -0.35, -22.2848, 0.0694391, -1.52577)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Safe" parent="." instance=ExtResource("14_ifra0")]
 transform = Transform3D(-0.35, 0, 5.28485e-08, 0, 0.35, 0, -5.28485e-08, 0, -0.35, -1.38652, 0, 2.19488)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="ReagentBottle" parent="." instance=ExtResource("15_e4h8j")]
 transform = Transform3D(-0.55, 0, 8.30477e-08, 0, 0.55, 0, -8.30477e-08, 0, -0.55, -3.49679, 1.24647, -1.51709)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="JarOfGlue" parent="." instance=ExtResource("16_88rlq")]
 transform = Transform3D(-0.385, 0, 4.83187e-08, 0, 0.33, 0, -5.81334e-08, 0, -0.32, -3.6562, 1.24175, -1.7713)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="PropGun" parent="." instance=ExtResource("17_mrfni")]
 transform = Transform3D(-0.436, 0, 6.58342e-08, 0, 0.853, 0, -6.58342e-08, 0, -0.436, -5.04077, 1.23961, -2.08211)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="ProjectorGround" parent="." instance=ExtResource("18_hyxdo")]
 transform = Transform3D(-0.511, 0, 7.71589e-08, 0, 0.511, 0, -7.71589e-08, 0, -0.511, -1.12034, 3.70611, -0.809275)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Projector" parent="." instance=ExtResource("19_dd84v")]
 transform = Transform3D(-1.15, 0, 1.73645e-07, 0, 1.15, 0, -1.73645e-07, 0, -1.15, -2.06302, 3.77436, -0.809275)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="PropBottle" parent="." instance=ExtResource("20_vmh6p")]
 transform = Transform3D(-0.9, 0, 1.35896e-07, 0, 0.9, 0, -1.35896e-07, 0, -0.9, -3.89367, 1.25175, -1.44926)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="MirrorBox" parent="." instance=ExtResource("21_oy7dd")]
 transform = Transform3D(-0.85, 0, 1.28346e-07, 0, 0.85, 0, -1.28346e-07, 0, -0.85, -0.811324, -0.00128973, -1.49982)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Mirror" parent="." instance=ExtResource("22_kxg68")]
 transform = Transform3D(-1, 1.3965e-07, 5.74255e-08, 0, 0.380312, -0.924858, -1.50996e-07, -0.924858, -0.380312, -0.138214, 0.367209, -2.31454)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="MetalBall" parent="." instance=ExtResource("23_2m0gv")]
 transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -4.11124, 1.2446, -1.87703)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="LibraryTable" parent="." instance=ExtResource("24_f0ic8")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 5.9986, -0.00949895, -1.74888)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="HandCrankController + Key" parent="." instance=ExtResource("25_4al6g")]
 transform = Transform3D(-0.8, 0, 1.20797e-07, 0, 0.8, 0, -1.20797e-07, 0, -0.8, -4.76236, 1.24441, -1.27173)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Fan(handhold)" parent="." instance=ExtResource("26_ib3cj")]
 transform = Transform3D(-0.330757, 0.0623965, 0.018079, 0.0753434, 0.31104, 0.0432162, -0.0228653, 0.122314, -0.11912, -15.6185, 0.637188, -2.98679)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Cryptex" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.51372e-08, -0.3, 4.47299e-08, -0.21165, -2.10212e-08, -0.212613, 0.212613, -4.22848e-08, -0.21165, 6.65696, 1.34584, -1.75556)
 material_override = SubResource("StandardMaterial3D_e4h8j")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("79_8o2hw")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Cryptex"]
@@ -513,6 +543,7 @@ shape = SubResource("ConcavePolygonShape3D_ifra0")
 [node name="LaserMachine + ControlBox" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, -3.49691e-08, 0, 0.2, 0, 3.49691e-08, 0, 0.2, 2.00101, -0.00213164, -1.71675)
 material_override = SubResource("StandardMaterial3D_l8hdu")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("64_sa1ip")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LaserMachine + ControlBox"]
@@ -522,16 +553,19 @@ shape = SubResource("ConcavePolygonShape3D_8wiq8")
 
 [node name="ControlBox - Interectable" parent="LaserMachine + ControlBox" instance=ExtResource("31_bwxkw")]
 transform = Transform3D(-1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, -1.92473, 2.52247, -2.78539)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="ControlBox - Ok" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.2, 1.74846e-08, -7.64274e-16, 0, -8.74228e-09, -0.2, -1.74846e-08, -0.2, 8.74228e-09, 2.60846, 0.502363, -2.27383)
 material_override = SubResource("StandardMaterial3D_hyxdo")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("78_8o2hw")
 skeleton = NodePath("../LaserMachine + ControlBox/ControlBox - Interectable")
 
 [node name="Lid" type="MeshInstance3D" parent="ControlBox - Ok"]
 transform = Transform3D(0.9, 0, 0, 0, -0.0683287, 0.657135, 0, -0.073015, -0.614958, 0, 2.08582, -2.44619)
 material_override = SubResource("StandardMaterial3D_dd84v")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("80_ifra0")
 skeleton = NodePath("../..")
 
@@ -548,11 +582,13 @@ shape = SubResource("ConcavePolygonShape3D_hyxdo")
 [node name="ControlBox - Ng" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.2, 1.74846e-08, -7.64274e-16, 0, -8.74228e-09, -0.2, -1.74846e-08, -0.2, 8.74228e-09, 3.53427, 0.502363, -2.27383)
 material_override = SubResource("StandardMaterial3D_mrfni")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("79_e4h8j")
 
 [node name="Lid" type="MeshInstance3D" parent="ControlBox - Ng"]
 transform = Transform3D(0.9, 0, 0, 0, -0.0695349, 0.646805, 0, -0.0718673, -0.625814, 0.0129976, 1.98843, -2.36828)
 material_override = SubResource("StandardMaterial3D_dd84v")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("80_ifra0")
 skeleton = NodePath("../..")
 
@@ -568,25 +604,32 @@ shape = SubResource("ConcavePolygonShape3D_vmh6p")
 
 [node name="ClosedBox" parent="." instance=ExtResource("38_xet67")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 7.24805, -0.00330317, -2.42332)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="OpenBox" parent="." instance=ExtResource("39_5cifu")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 8.04045, -0.00272989, -2.15409)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Box" parent="." instance=ExtResource("40_tobfn")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 8.80911, 0.00342286, -2.41967)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="InsertBookshelf" parent="." instance=ExtResource("41_4cidc")]
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 2.83624, 0.00465882, 2.18173)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="FullBookshelf" parent="." instance=ExtResource("42_k3wi0")]
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 5.18688, 0.00278628, 2.17906)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Book" parent="." instance=ExtResource("43_cpef2")]
 transform = Transform3D(-0.129409, -3.16775e-09, 0.463644, -2.18557e-08, 0.28, 5.24973e-14, -0.482963, -1.18221e-08, -0.124233, 5.90617, 4.00437, 2.01995)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="BluePrint" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.369421, -0.0153889, 3.19093e-08, -0.0180741, 0.314536, 0, -3.22958e-08, -1.34534e-09, -0.365, -4.94911, 1.12921, 1.28958)
 material_override = SubResource("StandardMaterial3D_k3wi0")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("96_tobfn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BluePrint"]
@@ -597,6 +640,7 @@ shape = SubResource("ConcavePolygonShape3D_4cidc")
 [node name="BenchVise" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 1.90719e-08, 0, 0.3, 0, -1.90719e-08, 0, 0.3, -3.45368, 0.767511, 1.10341)
 material_override = SubResource("StandardMaterial3D_awvcj")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("98_k3wi0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BenchVise"]
@@ -606,19 +650,24 @@ shape = SubResource("ConcavePolygonShape3D_cpef2")
 
 [node name="AlcoholLamp47" parent="." instance=ExtResource("48_awvcj")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.210204, 3.65222, -1.08422)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Poster1" parent="." instance=ExtResource("49_yfgs0")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 7.65216, 0.49, 1.71956)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Poster2" parent="." instance=ExtResource("50_pjjka")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 9.71907, 0.49, 1.67514)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Poster3" parent="." instance=ExtResource("51_a6o5f")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 11.9122, 0.49, 1.63722)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="RanaadAkePoster" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.588, 2.9789, 2.13424)
 material_override = SubResource("StandardMaterial3D_53grg")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("108_u7ar1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="RanaadAkePoster"]
@@ -628,46 +677,60 @@ shape = SubResource("ConvexPolygonShape3D_kjlg1")
 
 [node name="Painting1" parent="." instance=ExtResource("54_i3pf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3778, 2.98183, 2.17234)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Painting2" parent="." instance=ExtResource("55_0atki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2495, 2.9941, 2.16281)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Painting3" parent="." instance=ExtResource("56_vagie")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1168, 3.00135, 2.13021)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Painting4" parent="." instance=ExtResource("57_rvar8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.99491, 2.98763, 2.14545)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="NewsBoard" parent="." instance=ExtResource("58_u7ar1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7415, 4.25384, 2.15781)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="MonkMarking" parent="." instance=ExtResource("59_5evbb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.99447, 4.25023, 2.15096)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="GreenBoard" parent="." instance=ExtResource("60_l1d6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7171, 4.25515, 2.15611)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Annoucment" parent="." instance=ExtResource("61_75et5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3517, 4.258, 2.15408)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Pencil" parent="." instance=ExtResource("62_jk6a4")]
 transform = Transform3D(4.55426e-16, -6.93437e-09, -0.0660644, -0.0833595, -6.93437e-09, -2.34708e-16, -3.64376e-09, 0.15864, -2.88777e-09, -7.24805, 1.23341, -1.72277)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="MemoPaper" parent="." instance=ExtResource("63_53grg")]
 transform = Transform3D(0.41, 0, 0, 0, 0.082, 0, 0, 0, 0.41, -7.36334, 1.20095, -1.79052)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Paper" parent="." instance=ExtResource("64_wsaya")]
 transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.5, -7.02472, 1.20762, -1.60345)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Locker" parent="." instance=ExtResource("65_yaryk")]
 transform = Transform3D(-1.14139, 0, -1.15404e-07, 0, 1.16984, 0, 1.72345e-07, 0, -0.764287, 0.328387, -0.00609827, 2.34399)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="TeacherTable" parent="." instance=ExtResource("66_0n8gb")]
 transform = Transform3D(-0.675, 0, 1.01922e-07, 0, 0.675, 0, -1.01922e-07, 0, -0.675, -7.28711, -0.011801, 1.18755)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="TeacherChair" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.7296, 0, 0.952725, 0, 1.2, 0, -0.952725, 0, 0.7296, -7.63279, -0.0124605, 0.499002)
 material_override = SubResource("StandardMaterial3D_wocy1")
+material_overlay = ExtResource("1_8wiq8")
 mesh = ExtResource("2_iuaxu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="TeacherChair"]
@@ -677,12 +740,257 @@ shape = SubResource("ConcavePolygonShape3D_iuaxu")
 
 [node name="TeacherChair2" parent="." instance=ExtResource("69_nrg3k")]
 transform = Transform3D(-1.2, 0, 1.81195e-07, 0, 1.2, 0, -1.81195e-07, 0, -1.2, -9.8695, 0, -1.62473)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Old Chair" parent="." instance=ExtResource("70_qlrfu")]
 transform = Transform3D(-0.72523, 0, 0.688506, 0, 1, 0, -0.688506, 0, -0.72523, -15.749, -0.0676513, -2.78849)
+material_overlay = ExtResource("1_8wiq8")
 
 [node name="Library Floor" parent="." instance=ExtResource("125_vdt40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5619, 9.08997, 28.8794)
+
+[node name="Light01" parent="Library Floor/Light01" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="Light01" parent="Library Floor/Light04" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="Light01" parent="Library Floor/Light05" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="Light01" parent="Library Floor/Light02" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="Light01" parent="Library Floor/Light03" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf" parent="Library Floor/BookshelfWall" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf4" parent="Library Floor/BookshelfWall" index="1"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf5" parent="Library Floor/BookshelfWall" index="2"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf6" parent="Library Floor/BookshelfWall" index="3"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf4" parent="Library Floor/BookshelfWall2" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf5" parent="Library Floor/BookshelfWall2" index="1"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf" parent="Library Floor/BookshelfWall2" index="2"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="InsertBookshelf" parent="Library Floor/BookshelfWall2" index="3"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf6" parent="Library Floor/BookshelfWall2" index="4"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf" parent="Library Floor/BookshelfWall3" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf5" parent="Library Floor/BookshelfWall3" index="1"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf10" parent="Library Floor/BookshelfWall3" index="2"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf11" parent="Library Floor/BookshelfWall3" index="3"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf6" parent="Library Floor/BookshelfWall3" index="4"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf2" parent="Library Floor/BookshelfWall3" index="5"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf3" parent="Library Floor/BookshelfWall3" index="6"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf7" parent="Library Floor/BookshelfWall3" index="7"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf8" parent="Library Floor/BookshelfWall3" index="8"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf9" parent="Library Floor/BookshelfWall3" index="9"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf" parent="Library Floor/BookshelfWall4" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf4" parent="Library Floor/BookshelfWall4" index="1"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf5" parent="Library Floor/BookshelfWall4" index="2"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf6" parent="Library Floor/BookshelfWall4" index="3"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf7" parent="Library Floor/BookshelfWall4" index="4"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf11" parent="Library Floor/BookshelfWall4" index="5"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf10" parent="Library Floor/BookshelfWall4" index="6"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf12" parent="Library Floor/BookshelfWall4" index="7"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf8" parent="Library Floor/BookshelfWall4" index="8"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf9" parent="Library Floor/BookshelfWall4" index="9"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf" parent="Library Floor/BookshelfWall5" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf4" parent="Library Floor/BookshelfWall5" index="1"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf7" parent="Library Floor/BookshelfWall5" index="2"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf11" parent="Library Floor/BookshelfWall5" index="3"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf15" parent="Library Floor/BookshelfWall5" index="4"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf10" parent="Library Floor/BookshelfWall5" index="5"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf12" parent="Library Floor/BookshelfWall5" index="6"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf13" parent="Library Floor/BookshelfWall5" index="7"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf14" parent="Library Floor/BookshelfWall5" index="8"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf2" parent="Library Floor" index="29"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf3" parent="Library Floor" index="30"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf10" parent="Library Floor" index="31"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf11" parent="Library Floor" index="32"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf26" parent="Library Floor" index="33"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf41" parent="Library Floor" index="34"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf42" parent="Library Floor" index="35"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf43" parent="Library Floor" index="36"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf12" parent="Library Floor" index="37"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf33" parent="Library Floor" index="38"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf34" parent="Library Floor" index="39"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf13" parent="Library Floor" index="40"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf32" parent="Library Floor" index="41"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf35" parent="Library Floor" index="42"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf14" parent="Library Floor" index="43"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf15" parent="Library Floor" index="44"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf36" parent="Library Floor" index="45"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf16" parent="Library Floor" index="46"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf17" parent="Library Floor" index="47"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf18" parent="Library Floor" index="48"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf19" parent="Library Floor" index="49"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf25" parent="Library Floor" index="50"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf40" parent="Library Floor" index="51"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf37" parent="Library Floor" index="52"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf38" parent="Library Floor" index="53"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf39" parent="Library Floor" index="54"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf20" parent="Library Floor" index="55"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf27" parent="Library Floor" index="56"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf28" parent="Library Floor" index="57"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf29" parent="Library Floor" index="58"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf30" parent="Library Floor" index="59"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf31" parent="Library Floor" index="60"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf24" parent="Library Floor" index="61"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf23" parent="Library Floor" index="62"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf21" parent="Library Floor" index="63"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="FullBookshelf22" parent="Library Floor" index="64"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="ClassRoom With Big Library - Fixed_541_001" parent="Library Floor/Big Classroom" index="0"]
+material_overlay = ExtResource("1_8wiq8")
+
+[node name="ClassRoom With Big Library_Maze_1_001" parent="Library Floor/LibraryMaze/ClassRoom With Big Library_Maze_1" index="0"]
+material_overlay = ExtResource("1_8wiq8")
 
 [editable path="Library Floor"]
 [editable path="Library Floor/Light01"]
