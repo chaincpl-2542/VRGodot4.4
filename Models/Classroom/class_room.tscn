@@ -115,38 +115,47 @@ shape = SubResource("BoxShape3D_bms0h")
 
 [node name="Lable" type="MeshInstance3D" parent="ClassRoom2_461_001" index="1"]
 transform = Transform3D(5.61119, 0, 0, 0, 0.116606, -4.80664e-15, 0, -8.88178e-16, 0.407919, 0.301268, 4.54914, 1.20666)
+material_overlay = ExtResource("3_fucn1")
 mesh = SubResource("BoxMesh_fucn1")
 
 [node name="Lable4" type="MeshInstance3D" parent="ClassRoom2_461_001" index="2"]
 transform = Transform3D(14.965, 0, 0, 0, 0.116606, -3.55271e-15, 0, -8.88178e-16, 0.407919, 0.301268, 14.4252, 1.20666)
+material_overlay = ExtResource("3_fucn1")
 mesh = SubResource("BoxMesh_fucn1")
 
 [node name="Lable7" type="MeshInstance3D" parent="ClassRoom2_461_001" index="3"]
 transform = Transform3D(14.965, 0, 0, 0, 0.116606, -3.55271e-15, 0, -8.88178e-16, 0.407919, 0.301268, 0.0964689, 1.20666)
+material_overlay = ExtResource("3_fucn1")
 mesh = SubResource("BoxMesh_fucn1")
 
 [node name="Lable8" type="MeshInstance3D" parent="ClassRoom2_461_001" index="4"]
 transform = Transform3D(14.965, 0, 0, 0, 0.116606, -3.55271e-15, 0, -8.88178e-16, 0.407919, 0.301268, 0.0964689, 0.210692)
+material_overlay = ExtResource("3_fucn1")
 mesh = SubResource("BoxMesh_fucn1")
 
 [node name="Lable5" type="MeshInstance3D" parent="ClassRoom2_461_001" index="5"]
 transform = Transform3D(-4.29581e-07, -0.116606, 0, 9.82768, -5.09702e-09, 0, 0, 0, 0.407919, 7.74223, 9.47071, 1.20666)
+material_overlay = ExtResource("3_fucn1")
 mesh = SubResource("BoxMesh_fucn1")
 
 [node name="Lable6" type="MeshInstance3D" parent="ClassRoom2_461_001" index="6"]
 transform = Transform3D(-4.29581e-07, -0.116606, 0, 9.82768, -5.09702e-09, 0, 0, 0, 0.407919, -7.15113, 9.47071, 1.20666)
+material_overlay = ExtResource("3_fucn1")
 mesh = SubResource("BoxMesh_fucn1")
 
 [node name="Lable2" type="MeshInstance3D" parent="ClassRoom2_461_001" index="7"]
 transform = Transform3D(3.02015, 0, 0, 0, 0.116606, -4.80664e-15, 0, -8.88178e-16, 0.407919, 6.29875, 4.54914, 1.20666)
+material_overlay = ExtResource("3_fucn1")
 mesh = SubResource("BoxMesh_fucn1")
 
 [node name="Lable3" type="MeshInstance3D" parent="ClassRoom2_461_001" index="8"]
 transform = Transform3D(3.02426, 0, 0, 0, 0.116606, -4.80664e-15, 0, -8.88178e-16, 0.407919, -5.69653, 4.54914, 1.20666)
+material_overlay = ExtResource("3_fucn1")
 mesh = SubResource("BoxMesh_fucn1")
 
 [node name="Lable12" type="MeshInstance3D" parent="ClassRoom2_461_001" index="9"]
 transform = Transform3D(-4.78939e-08, 1.06304, -1.78307e-08, -1.09569, -4.6467e-08, 4.86276e-08, 1.30616e-07, 4.64671e-08, 0.407919, 0.309882, 14.6259, 1.21347)
+material_overlay = ExtResource("3_fucn1")
 mesh = SubResource("BoxMesh_lha0m")
 skeleton = NodePath("../..")
 

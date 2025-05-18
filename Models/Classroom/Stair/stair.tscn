@@ -19,7 +19,7 @@ material = SubResource("StandardMaterial3D_bhkdg")
 [node name="Stair" instance=ExtResource("1_bhkdg")]
 
 [node name="Stair_001" parent="." index="0"]
-transform = Transform3D(-1, 1.50996e-07, -2.05921e-14, 0, 5.96046e-08, 1.44904, 1.50996e-07, 1, -1.72739e-07, 0, 0, 0)
+transform = Transform3D(-1.01, 1.50996e-07, 9.56374e-15, 0, -4.37114e-08, 1.449, 1.52506e-07, 1, 6.33378e-08, 0, 0, 0)
 material_override = ExtResource("2_s5thw")
 material_overlay = ExtResource("3_s5thw")
 

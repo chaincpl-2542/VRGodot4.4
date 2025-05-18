@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://oviup6m4001l"]
 
-[ext_resource type="Texture2D" uid="uid://bdwxnhm3fknar" path="res://grayscale-pixels-noise-mosaic-seamless-pattern-vector-14045897.jpg" id="1_umafu"]
+[ext_resource type="Texture2D" uid="uid://cqiu0jl6fyohg" path="res://new_noise_texture_2d.tres" id="1_umafu"]
 
 [sub_resource type="Shader" id="Shader_umafu"]
 code = "shader_type spatial;
@@ -129,9 +129,9 @@ shader_parameter/albedo_floor = Color(0.847474, 0.847474, 0.847474, 1)
 shader_parameter/texture_albedo_floor = ExtResource("1_umafu")
 shader_parameter/ground_threshold = 0.8
 shader_parameter/blend_smoothness = 0.1
-shader_parameter/transparency = 0.04
+shader_parameter/transparency = 0.06
 shader_parameter/uv1_blend_sharpness = 1.0
-shader_parameter/uv1_scale = Vector3(0.3, 0.3, 0.3)
+shader_parameter/uv1_scale = Vector3(0.4, 0.4, 0.4)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv_global = true
 shader_parameter/use_uv_on_wall = false

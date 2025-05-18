@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bosp3baam0wet"]
+[gd_scene load_steps=8 format=3 uid="uid://bosp3baam0wet"]
 
 [ext_resource type="PackedScene" uid="uid://cpbpmqwodbd22" path="res://Models/Desk/Desk_14.fbx" id="1_o2w6v"]
 [ext_resource type="Material" uid="uid://oviup6m4001l" path="res://test.tres" id="2_bn003"]
+[ext_resource type="Texture2D" uid="uid://1jpuh08hxuao" path="res://Models/Desk/Desk_14_Color.png" id="2_r4ayc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4ayc"]
+albedo_texture = ExtResource("2_r4ayc")
+texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o2w6v"]
 size = Vector3(1, 1, 0.392578)
@@ -15,6 +20,7 @@ size = Vector3(0.0977783, 0.0991211, 0.69458)
 [node name="Desk_14" instance=ExtResource("1_o2w6v")]
 
 [node name="Desk_14_001" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_r4ayc")
 material_overlay = ExtResource("2_bn003")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Desk_14_001" index="0"]

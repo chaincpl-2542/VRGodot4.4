@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://box148mntjlle"]
+[gd_scene load_steps=91 format=3 uid="uid://box148mntjlle"]
 
 [ext_resource type="Script" uid="uid://dfqshe4brfxvb" path="res://Scripts/Scene4FloorController.cs" id="1_461ft"]
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="2_xxsgf"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://bv14xk3mk3v2h" path="res://Nai/Scenes/end_particles.tscn" id="25_uqh4o"]
 [ext_resource type="Script" uid="uid://60y7cgxskrky" path="res://Nai/Scripts/vise.gd" id="28_10clf"]
 [ext_resource type="AudioStream" uid="uid://ih1k1t7m6w2j" path="res://Sound/laser-beam-76426.mp3" id="31_cap18"]
+[ext_resource type="Texture2D" uid="uid://cqiu0jl6fyohg" path="res://new_noise_texture_2d.tres" id="32_gonp4"]
 [ext_resource type="AudioStream" uid="uid://u1b8crsgt1cf" path="res://Sound/electronic-door-opening-102496.mp3" id="33_knnep"]
 [ext_resource type="PackedScene" uid="uid://dyojqhtmdo7el" path="res://Models/CleanModelTscn/pencil.tscn" id="33_q36wp"]
 [ext_resource type="AudioStream" uid="uid://bni42xxlidby8" path="res://Sound/open-door-sound-247415.mp3" id="34_ctbu0"]
@@ -68,6 +69,142 @@ albedo_color = Color(0.237322, 0.00900725, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8w1p6"]
 material = SubResource("StandardMaterial3D_l244x")
+
+[sub_resource type="Shader" id="Shader_gonp4"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx, vertex_lighting;
+
+uniform vec4 albedo_ceiling : source_color;
+uniform sampler2D texture_albedo_ceiling : source_color, filter_nearest, repeat_enable;
+
+uniform vec4 albedo_wall : source_color;
+uniform sampler2D texture_albedo_wall : source_color, filter_nearest, repeat_enable;
+
+uniform vec4 albedo_floor : source_color;
+uniform sampler2D texture_albedo_floor : source_color, filter_nearest, repeat_enable;
+
+uniform float ground_threshold : hint_range(0.0, 1.0, 0.01) = 0.8;
+uniform float blend_smoothness : hint_range(0.0, 1.0, 0.01) = 0.1; // Controle de suavidade da transição
+
+// Transparency slider
+uniform float transparency : hint_range(0.0, 1.0, 0.01) = 0.5; // Transparency control (0 = opaque, 1 = fully transparent)
+
+varying vec3 uv1_triplanar_pos;
+varying vec2 uv1;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+
+varying vec3 vertex_normal;
+
+uniform bool uv_global = true;
+
+void vertex() {
+    vertex_normal = NORMAL;
+    ROUGHNESS = 0.0;
+
+    vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+
+    TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+    TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+    TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+    TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+
+    BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+    BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+    BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+    BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+
+    uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+    if (uv_global) {
+        uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
+    } else {
+        uv1_triplanar_pos = vec4(VERTEX, 1.0).xyz * uv1_scale + uv1_offset;
+    }
+
+    uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+    uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+
+    uv1 = UV;
+}
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+    vec4 samp = vec4(0.0);
+    samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+    samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+    samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+
+    return samp;
+}
+
+const vec4 ZERO = vec4(0.0, 0.0, 0.0, 0.0);
+
+uniform bool use_uv_on_wall = false;
+uniform bool use_uv_on_floor = false;
+uniform bool use_uv_on_ceiling = false;
+
+void fragment() {
+    vec4 albedo_tex_floor = vec4(0.0);
+    if (use_uv_on_floor) {
+        albedo_tex_floor = texture(texture_albedo_floor, UV * uv1_scale.xy + uv1_offset.xy);
+    } else {
+        albedo_tex_floor = triplanar_texture(texture_albedo_floor, uv1_power_normal, uv1_triplanar_pos);
+    }
+
+    vec4 albedo_tex_wall = vec4(0.0);
+    if (use_uv_on_wall) {
+        albedo_tex_wall = texture(texture_albedo_wall, UV * uv1_scale.xy + uv1_offset.xy);
+    } else {
+        albedo_tex_wall = triplanar_texture(texture_albedo_wall, uv1_power_normal, uv1_triplanar_pos);
+    }
+
+    vec4 albedo_tex_ceiling = vec4(0.0);
+    if (use_uv_on_ceiling) {
+        albedo_tex_ceiling = texture(texture_albedo_ceiling, UV * uv1_scale.xy + uv1_offset.xy);
+    } else {
+        albedo_tex_ceiling = triplanar_texture(texture_albedo_ceiling, uv1_power_normal, uv1_triplanar_pos);
+    }
+
+    float blend_factor_floor = smoothstep(ground_threshold - blend_smoothness, ground_threshold + blend_smoothness, vertex_normal.y);
+    float blend_factor_ceiling = smoothstep(ground_threshold - blend_smoothness, ground_threshold + blend_smoothness, -vertex_normal.y);
+
+    vec4 albedo_tex = mix(mix(albedo_tex_wall, albedo_tex_floor, blend_factor_floor), albedo_tex_ceiling, blend_factor_ceiling);
+    vec4 albedo_color = mix(mix(albedo_wall, albedo_floor, blend_factor_floor), albedo_ceiling, blend_factor_ceiling);
+
+    // Apply transparency slider by adjusting alpha
+    albedo_color.a *= transparency;
+
+    ALBEDO = albedo_color.rgb * albedo_tex.rgb;
+    ALPHA = albedo_color.a; // Set the final alpha value
+
+    METALLIC = 0.0;
+    SPECULAR = 0.0;
+    ROUGHNESS = 0.0;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7dt07"]
+render_priority = 0
+shader = SubResource("Shader_gonp4")
+shader_parameter/albedo_ceiling = Color(0.758192, 0.758192, 0.758191, 1)
+shader_parameter/texture_albedo_ceiling = ExtResource("32_gonp4")
+shader_parameter/albedo_wall = Color(0.737193, 0.737193, 0.737193, 1)
+shader_parameter/texture_albedo_wall = ExtResource("32_gonp4")
+shader_parameter/albedo_floor = Color(0.847474, 0.847474, 0.847474, 1)
+shader_parameter/texture_albedo_floor = ExtResource("32_gonp4")
+shader_parameter/ground_threshold = 0.8
+shader_parameter/blend_smoothness = 0.1
+shader_parameter/transparency = 0.15
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv_global = true
+shader_parameter/use_uv_on_wall = false
+shader_parameter/use_uv_on_floor = false
+shader_parameter/use_uv_on_ceiling = false
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faw17"]
 transparency = 2
@@ -165,6 +302,142 @@ emission_enabled = true
 emission = Color(1, 0, 0, 1)
 emission_energy_multiplier = 16.0
 
+[sub_resource type="Shader" id="Shader_umafu"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx, vertex_lighting;
+
+uniform vec4 albedo_ceiling : source_color;
+uniform sampler2D texture_albedo_ceiling : source_color, filter_nearest, repeat_enable;
+
+uniform vec4 albedo_wall : source_color;
+uniform sampler2D texture_albedo_wall : source_color, filter_nearest, repeat_enable;
+
+uniform vec4 albedo_floor : source_color;
+uniform sampler2D texture_albedo_floor : source_color, filter_nearest, repeat_enable;
+
+uniform float ground_threshold : hint_range(0.0, 1.0, 0.01) = 0.8;
+uniform float blend_smoothness : hint_range(0.0, 1.0, 0.01) = 0.1; // Controle de suavidade da transição
+
+// Transparency slider
+uniform float transparency : hint_range(0.0, 1.0, 0.01) = 0.5; // Transparency control (0 = opaque, 1 = fully transparent)
+
+varying vec3 uv1_triplanar_pos;
+varying vec2 uv1;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+
+varying vec3 vertex_normal;
+
+uniform bool uv_global = true;
+
+void vertex() {
+    vertex_normal = NORMAL;
+    ROUGHNESS = 0.0;
+
+    vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+
+    TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+    TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+    TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+    TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+
+    BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+    BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+    BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+    BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+
+    uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+    if (uv_global) {
+        uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
+    } else {
+        uv1_triplanar_pos = vec4(VERTEX, 1.0).xyz * uv1_scale + uv1_offset;
+    }
+
+    uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+    uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+
+    uv1 = UV;
+}
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+    vec4 samp = vec4(0.0);
+    samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+    samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+    samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+
+    return samp;
+}
+
+const vec4 ZERO = vec4(0.0, 0.0, 0.0, 0.0);
+
+uniform bool use_uv_on_wall = false;
+uniform bool use_uv_on_floor = false;
+uniform bool use_uv_on_ceiling = false;
+
+void fragment() {
+    vec4 albedo_tex_floor = vec4(0.0);
+    if (use_uv_on_floor) {
+        albedo_tex_floor = texture(texture_albedo_floor, UV * uv1_scale.xy + uv1_offset.xy);
+    } else {
+        albedo_tex_floor = triplanar_texture(texture_albedo_floor, uv1_power_normal, uv1_triplanar_pos);
+    }
+
+    vec4 albedo_tex_wall = vec4(0.0);
+    if (use_uv_on_wall) {
+        albedo_tex_wall = texture(texture_albedo_wall, UV * uv1_scale.xy + uv1_offset.xy);
+    } else {
+        albedo_tex_wall = triplanar_texture(texture_albedo_wall, uv1_power_normal, uv1_triplanar_pos);
+    }
+
+    vec4 albedo_tex_ceiling = vec4(0.0);
+    if (use_uv_on_ceiling) {
+        albedo_tex_ceiling = texture(texture_albedo_ceiling, UV * uv1_scale.xy + uv1_offset.xy);
+    } else {
+        albedo_tex_ceiling = triplanar_texture(texture_albedo_ceiling, uv1_power_normal, uv1_triplanar_pos);
+    }
+
+    float blend_factor_floor = smoothstep(ground_threshold - blend_smoothness, ground_threshold + blend_smoothness, vertex_normal.y);
+    float blend_factor_ceiling = smoothstep(ground_threshold - blend_smoothness, ground_threshold + blend_smoothness, -vertex_normal.y);
+
+    vec4 albedo_tex = mix(mix(albedo_tex_wall, albedo_tex_floor, blend_factor_floor), albedo_tex_ceiling, blend_factor_ceiling);
+    vec4 albedo_color = mix(mix(albedo_wall, albedo_floor, blend_factor_floor), albedo_ceiling, blend_factor_ceiling);
+
+    // Apply transparency slider by adjusting alpha
+    albedo_color.a *= transparency;
+
+    ALBEDO = albedo_color.rgb * albedo_tex.rgb;
+    ALPHA = albedo_color.a; // Set the final alpha value
+
+    METALLIC = 0.0;
+    SPECULAR = 0.0;
+    ROUGHNESS = 0.0;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5bhom"]
+render_priority = 0
+shader = SubResource("Shader_umafu")
+shader_parameter/albedo_ceiling = Color(0.758192, 0.758192, 0.758191, 1)
+shader_parameter/texture_albedo_ceiling = ExtResource("32_gonp4")
+shader_parameter/albedo_wall = Color(0.737193, 0.737193, 0.737193, 1)
+shader_parameter/texture_albedo_wall = ExtResource("32_gonp4")
+shader_parameter/albedo_floor = Color(0.847474, 0.847474, 0.847474, 1)
+shader_parameter/texture_albedo_floor = ExtResource("32_gonp4")
+shader_parameter/ground_threshold = 0.8
+shader_parameter/blend_smoothness = 0.1
+shader_parameter/transparency = 0.15
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv_global = true
+shader_parameter/use_uv_on_wall = false
+shader_parameter/use_uv_on_floor = false
+shader_parameter/use_uv_on_ceiling = false
+
 [sub_resource type="Animation" id="Animation_s1vnp"]
 resource_name = "LightSwing"
 length = 2.0
@@ -237,9 +510,8 @@ emission_enabled = true
 emission = Color(1, 0, 0, 1)
 emission_energy_multiplier = 16.0
 
-[node name="Scene4_Floor3" type="Node3D" node_paths=PackedStringArray("_area")]
+[node name="Scene4_Floor3" type="Node3D"]
 script = ExtResource("1_461ft")
-_area = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.3784)
@@ -573,27 +845,27 @@ omni_attenuation = 2.096
 
 [node name="Paper" parent="SimpleFloor" instance=ExtResource("5_m1bbf")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.1, 0, -0.5, 0, -2.18557e-08, 0.521433, 1.30926, 1.40034)
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 
 [node name="Paper2" parent="SimpleFloor" instance=ExtResource("5_m1bbf")]
 transform = Transform3D(0.172649, 0, 0.469247, 0, 0.1, 0, -0.469247, 0, 0.172649, 0.481331, 1.30926, 5.97703)
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 
 [node name="Paper3" parent="SimpleFloor" instance=ExtResource("5_m1bbf")]
 transform = Transform3D(-0.363281, 0, 0.34355, 0, 0.1, 0, -0.34355, 0, -0.363281, -1.66591, 1.31511, 4.48984)
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 
 [node name="Paper4" parent="SimpleFloor" instance=ExtResource("5_m1bbf")]
 transform = Transform3D(0.495485, 0, 0.067045, 0, 0.1, 0, -0.067045, 0, 0.495485, -1.59898, 1.31511, 0.40769)
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 
 [node name="Paper5" parent="SimpleFloor" instance=ExtResource("5_m1bbf")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.1, 0, -0.5, 0, -2.18557e-08, 4.74697, 1.30926, 1.50127)
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 
 [node name="Paper6" parent="SimpleFloor" instance=ExtResource("5_m1bbf")]
 transform = Transform3D(0.223786, 0, 0.447124, 0, 0.1, 0, -0.447124, 0, 0.223786, 4.82732, 1.31529, 1.16694)
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 
 [node name="WorkshopTable" parent="SimpleFloor" instance=ExtResource("6_1bps0")]
 transform = Transform3D(0.228623, 0, 0.054373, 0, 0.235, 0, -0.054373, 0, 0.228623, 28.5362, 0.100665, 6.16597)
@@ -617,11 +889,10 @@ material_overlay = ExtResource("45_ctbu0")
 
 [node name="Paper7" parent="SimpleFloor" instance=ExtResource("5_m1bbf")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.1, 0, -0.5, 0, -2.18557e-08, 26.367, 1.15056, 1.94873)
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 
 [node name="Pencil" parent="SimpleFloor" instance=ExtResource("33_q36wp")]
 transform = Transform3D(-2.42256e-09, 0.105472, 0.0493485, -0.0833595, -6.93437e-09, 1.74664e-15, 2.7218e-09, -0.1185, 0.043923, 25.7314, 1.17557, 1.91209)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Poster1" parent="SimpleFloor" instance=ExtResource("8_5omtg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.8958, 0.999551, -0.549957)
@@ -1172,10 +1443,8 @@ visible = false
 material_overlay = ExtResource("45_ctbu0")
 script = ExtResource("28_10clf")
 
-[node name="CryptexController" parent="." node_paths=PackedStringArray("TickSound", "UnlockSound") instance=ExtResource("10_t5ekp")]
+[node name="CryptexController" parent="." instance=ExtResource("10_t5ekp")]
 transform = Transform3D(0.5, 0, 0, 0, 0.403093, 0.295831, 0, -0.295831, 0.403093, -7.30014, 1.29751, 12.0263)
-TickSound = NodePath("../TickSound")
-UnlockSound = NodePath("../UnlockSound")
 
 [node name="FirstNumberText" parent="CryptexController/FirstNumber/Number" index="0"]
 material_overlay = ExtResource("45_ctbu0")
@@ -1227,7 +1496,7 @@ layers = 3
 material_overlay = ExtResource("45_ctbu0")
 
 [node name="Cryptex" parent="CryptexController" index="3"]
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_5bhom")
 
 [node name="KeyCardReader" parent="." node_paths=PackedStringArray("doorToOpen", "KeycardSound", "DoorOpenSound") instance=ExtResource("10_6bls3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.30068, 1.59661, 43.896)
@@ -1312,31 +1581,24 @@ transform = Transform3D(0.651766, -1.00691, -0.0364231, 0.0889158, 0.0142692, 1.
 
 [node name="Pencil" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(4.55426e-16, -6.93436e-09, -0.0660644, -0.0833595, -6.93437e-09, -1.02594e-23, -3.64376e-09, 0.15864, -2.88777e-09, -5.58743, 1.24012, 20.8639)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Pencil2" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(2.05582e-09, -0.0895052, -0.0545451, -0.0833595, -6.93437e-09, -6.52912e-24, -3.00842e-09, 0.130979, -0.0372738, -8.89413, 1.24012, 20.861)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Pencil3" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(4.55426e-16, -6.93436e-09, -0.0660644, -0.0833595, -6.93437e-09, -1.02594e-23, -3.64376e-09, 0.15864, -2.88777e-09, -10.4671, 1.23427, 16.7764)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Pencil4" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(3.63609e-09, -0.158306, 0.00428515, -0.0833595, -6.93437e-09, -6.52912e-24, 2.36346e-10, -0.0102899, -0.0659253, -9.65983, 1.24012, 14.1753)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Pencil5" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(-2.67379e-09, 0.11641, -0.0448818, -0.0833595, -6.93437e-09, -6.52912e-24, -2.47544e-09, 0.107774, 0.0484781, -5.62189, 1.24012, 16.5723)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Pencil6" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(2.9691e-09, -0.129267, 0.0382962, -0.0833595, -6.93437e-09, -6.52912e-24, 2.11221e-09, -0.0919603, -0.0538322, -7.41375, 1.24012, 11.5328)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Pencil7" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(-2.66336e-09, 0.115956, -0.0450853, -0.0833595, -6.93437e-09, -6.52912e-24, -2.48667e-09, 0.108263, 0.0482889, -7.024, 1.24012, 11.1599)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Painting4" parent="." instance=ExtResource("34_fudck")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0672, 2.08725, 9.81884)
@@ -1372,19 +1634,17 @@ material_overlay = ExtResource("45_ctbu0")
 
 [node name="Paper" parent="." instance=ExtResource("5_m1bbf")]
 transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.5, -3.7834, 1.24617, 46.7905)
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 
 [node name="Pencil8" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(2.99327e-09, -0.130319, -0.0376726, -0.0833595, -6.93437e-09, -6.52912e-24, -2.07782e-09, 0.0904629, -0.0542704, -4.0329, 1.27117, 46.0479)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Pencil9" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(-1.81802e-09, 0.0791521, -0.0572538, -0.0833595, -6.93437e-09, -6.52912e-24, -3.15781e-09, 0.137483, 0.0329623, -11.017, 1.27117, 45.0606)
-material_overlay = ExtResource("45_ctbu0")
 
 [node name="Paper2" parent="." instance=ExtResource("5_m1bbf")]
 transform = Transform3D(0.194723, 0, -0.460525, 0, 0.1, 0, 0.460525, 0, 0.194723, -10.9959, 1.24617, 44.291)
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 
 [node name="Old Chair" parent="." instance=ExtResource("43_461ft")]
 transform = Transform3D(0.56178, 0, 0.827286, 0, 1, 0, -0.827286, 0, 0.56178, -10.8601, 0.000664079, 50.1271)
@@ -1400,14 +1660,14 @@ transform = Transform3D(-3.4025e-08, 0, -5, 0, 0.967446, 0, 0.778402, 0, -2.1855
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.4025e-08, 0, -5, 0, 0.967446, 0, 0.778402, 0, -2.18557e-07, 2.00021, 1.84544, 4.23866)
 material_override = ExtResource("45_l244x")
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 mesh = SubResource("QuadMesh_h6adr")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.4025e-08, 0, -5, 0, 0.967446, 0, 0.778402, 0, -2.18557e-07, 2.00021, 1.84544, 2.48117)
 material_override = ExtResource("45_l244x")
-material_overlay = ExtResource("45_ctbu0")
+material_overlay = SubResource("ShaderMaterial_7dt07")
 mesh = SubResource("QuadMesh_h6adr")
 skeleton = NodePath("")
 

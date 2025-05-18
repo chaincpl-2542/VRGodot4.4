@@ -32,9 +32,9 @@ size = Vector3(1, 1.83649, 1.31494)
 
 [node name="MainScene" type="Node3D" node_paths=PackedStringArray("_currentFloor", "Elevator")]
 script = ExtResource("1_7rqgy")
+_currentFloor = NodePath("Scene1_Floor4")
 FloorContainerPath = NodePath("ElevatorContainer")
 SceneList = Array[PackedScene]([ExtResource("4_7rqgy"), ExtResource("3_y4jh7"), ExtResource("4_f140w"), ExtResource("5_0iob3"), ExtResource("6_0iob3"), ExtResource("7_8ju71"), ExtResource("8_xb4mg"), ExtResource("9_6t1o7")])
-_currentFloor = NodePath("Scene1_Floor4")
 Elevator = NodePath("Elevator")
 
 [node name="Elevator" parent="." instance=ExtResource("1_hpc76")]
@@ -47,33 +47,6 @@ environment = SubResource("Environment_7rqgy")
 
 [node name="Scene1_Floor4" parent="." instance=ExtResource("4_7rqgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, 0, 0.195)
-
-[node name="Lable" parent="Scene1_Floor4/SimpleFloor/ClassRoom/ClassRoom2_461_001" index="1"]
-material_overlay = ExtResource("11_xb4mg")
-
-[node name="Lable4" parent="Scene1_Floor4/SimpleFloor/ClassRoom/ClassRoom2_461_001" index="2"]
-material_overlay = ExtResource("11_xb4mg")
-
-[node name="Lable7" parent="Scene1_Floor4/SimpleFloor/ClassRoom/ClassRoom2_461_001" index="3"]
-material_overlay = ExtResource("11_xb4mg")
-
-[node name="Lable8" parent="Scene1_Floor4/SimpleFloor/ClassRoom/ClassRoom2_461_001" index="4"]
-material_overlay = ExtResource("11_xb4mg")
-
-[node name="Lable5" parent="Scene1_Floor4/SimpleFloor/ClassRoom/ClassRoom2_461_001" index="5"]
-material_overlay = ExtResource("11_xb4mg")
-
-[node name="Lable6" parent="Scene1_Floor4/SimpleFloor/ClassRoom/ClassRoom2_461_001" index="6"]
-material_overlay = ExtResource("11_xb4mg")
-
-[node name="Lable2" parent="Scene1_Floor4/SimpleFloor/ClassRoom/ClassRoom2_461_001" index="7"]
-material_overlay = ExtResource("11_xb4mg")
-
-[node name="Lable3" parent="Scene1_Floor4/SimpleFloor/ClassRoom/ClassRoom2_461_001" index="8"]
-material_overlay = ExtResource("11_xb4mg")
-
-[node name="Lable12" parent="Scene1_Floor4/SimpleFloor/ClassRoom/ClassRoom2_461_001" index="9"]
-material_overlay = ExtResource("11_xb4mg")
 
 [node name="Stair" parent="Scene1_Floor4/SimpleFloor" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1728, -7.19997, 5.6)

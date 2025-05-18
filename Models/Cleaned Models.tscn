@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=4 uid="uid://cnm878dygy3rf"]
+[gd_scene load_steps=114 format=4 uid="uid://cnm878dygy3rf"]
 
 [ext_resource type="Texture2D" uid="uid://dqv1qrbd2m1h" path="res://Models/3D - Vox Cleaner Edited (No Character)/Teacher Chair/Teacher Chair_94_Color.png" id="1_6vv5a"]
 [ext_resource type="Material" uid="uid://oviup6m4001l" path="res://test.tres" id="1_8wiq8"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://857a1sl6qoog" path="res://Models/CleanModelTscn/library_table.tscn" id="24_f0ic8"]
 [ext_resource type="PackedScene" uid="uid://mt6j74f58jh1" path="res://Models/CleanModelTscn/hand_crank_controller_+_key.tscn" id="25_4al6g"]
 [ext_resource type="PackedScene" uid="uid://ceml4oojpcx1v" path="res://Models/CleanModelTscn/fan(handhold).tscn" id="26_ib3cj"]
+[ext_resource type="Texture2D" uid="uid://cqiu0jl6fyohg" path="res://new_noise_texture_2d.tres" id="29_ug2pu"]
 [ext_resource type="PackedScene" uid="uid://bmwo1q3l2mnnm" path="res://Models/CleanModelTscn/control_box___interectable.tscn" id="31_bwxkw"]
 [ext_resource type="PackedScene" uid="uid://bi0tmm1flhrqa" path="res://Models/CleanModelTscn/closed_box.tscn" id="38_xet67"]
 [ext_resource type="PackedScene" uid="uid://1xwf3vg2egft" path="res://Models/CleanModelTscn/open_box.tscn" id="39_5cifu"]
@@ -208,6 +209,142 @@ metallic = 1.0
 metallic_specular = 0.92
 roughness = 0.48
 texture_filter = 0
+
+[sub_resource type="Shader" id="Shader_umafu"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx, vertex_lighting;
+
+uniform vec4 albedo_ceiling : source_color;
+uniform sampler2D texture_albedo_ceiling : source_color, filter_nearest, repeat_enable;
+
+uniform vec4 albedo_wall : source_color;
+uniform sampler2D texture_albedo_wall : source_color, filter_nearest, repeat_enable;
+
+uniform vec4 albedo_floor : source_color;
+uniform sampler2D texture_albedo_floor : source_color, filter_nearest, repeat_enable;
+
+uniform float ground_threshold : hint_range(0.0, 1.0, 0.01) = 0.8;
+uniform float blend_smoothness : hint_range(0.0, 1.0, 0.01) = 0.1; // Controle de suavidade da transição
+
+// Transparency slider
+uniform float transparency : hint_range(0.0, 1.0, 0.01) = 0.5; // Transparency control (0 = opaque, 1 = fully transparent)
+
+varying vec3 uv1_triplanar_pos;
+varying vec2 uv1;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+
+varying vec3 vertex_normal;
+
+uniform bool uv_global = true;
+
+void vertex() {
+    vertex_normal = NORMAL;
+    ROUGHNESS = 0.0;
+
+    vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+
+    TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+    TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+    TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+    TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+
+    BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+    BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+    BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+    BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+
+    uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+    if (uv_global) {
+        uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
+    } else {
+        uv1_triplanar_pos = vec4(VERTEX, 1.0).xyz * uv1_scale + uv1_offset;
+    }
+
+    uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+    uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+
+    uv1 = UV;
+}
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+    vec4 samp = vec4(0.0);
+    samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+    samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+    samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+
+    return samp;
+}
+
+const vec4 ZERO = vec4(0.0, 0.0, 0.0, 0.0);
+
+uniform bool use_uv_on_wall = false;
+uniform bool use_uv_on_floor = false;
+uniform bool use_uv_on_ceiling = false;
+
+void fragment() {
+    vec4 albedo_tex_floor = vec4(0.0);
+    if (use_uv_on_floor) {
+        albedo_tex_floor = texture(texture_albedo_floor, UV * uv1_scale.xy + uv1_offset.xy);
+    } else {
+        albedo_tex_floor = triplanar_texture(texture_albedo_floor, uv1_power_normal, uv1_triplanar_pos);
+    }
+
+    vec4 albedo_tex_wall = vec4(0.0);
+    if (use_uv_on_wall) {
+        albedo_tex_wall = texture(texture_albedo_wall, UV * uv1_scale.xy + uv1_offset.xy);
+    } else {
+        albedo_tex_wall = triplanar_texture(texture_albedo_wall, uv1_power_normal, uv1_triplanar_pos);
+    }
+
+    vec4 albedo_tex_ceiling = vec4(0.0);
+    if (use_uv_on_ceiling) {
+        albedo_tex_ceiling = texture(texture_albedo_ceiling, UV * uv1_scale.xy + uv1_offset.xy);
+    } else {
+        albedo_tex_ceiling = triplanar_texture(texture_albedo_ceiling, uv1_power_normal, uv1_triplanar_pos);
+    }
+
+    float blend_factor_floor = smoothstep(ground_threshold - blend_smoothness, ground_threshold + blend_smoothness, vertex_normal.y);
+    float blend_factor_ceiling = smoothstep(ground_threshold - blend_smoothness, ground_threshold + blend_smoothness, -vertex_normal.y);
+
+    vec4 albedo_tex = mix(mix(albedo_tex_wall, albedo_tex_floor, blend_factor_floor), albedo_tex_ceiling, blend_factor_ceiling);
+    vec4 albedo_color = mix(mix(albedo_wall, albedo_floor, blend_factor_floor), albedo_ceiling, blend_factor_ceiling);
+
+    // Apply transparency slider by adjusting alpha
+    albedo_color.a *= transparency;
+
+    ALBEDO = albedo_color.rgb * albedo_tex.rgb;
+    ALPHA = albedo_color.a; // Set the final alpha value
+
+    METALLIC = 0.0;
+    SPECULAR = 0.0;
+    ROUGHNESS = 0.0;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jorly"]
+render_priority = 0
+shader = SubResource("Shader_umafu")
+shader_parameter/albedo_ceiling = Color(0.758192, 0.758192, 0.758191, 1)
+shader_parameter/texture_albedo_ceiling = ExtResource("29_ug2pu")
+shader_parameter/albedo_wall = Color(0.737193, 0.737193, 0.737193, 1)
+shader_parameter/texture_albedo_wall = ExtResource("29_ug2pu")
+shader_parameter/albedo_floor = Color(0.847474, 0.847474, 0.847474, 1)
+shader_parameter/texture_albedo_floor = ExtResource("29_ug2pu")
+shader_parameter/ground_threshold = 0.8
+shader_parameter/blend_smoothness = 0.1
+shader_parameter/transparency = 0.08
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv_global = true
+shader_parameter/use_uv_on_wall = false
+shader_parameter/use_uv_on_floor = false
+shader_parameter/use_uv_on_ceiling = false
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ifra0"]
 data = PackedVector3Array(0.1, 3.4, 0.3, 0.3, 3.5, 0.3, 0.3, 3.4, 0.3, 0.1, 3.5, 0.3, 0.3, 3.5, 0.3, 0.1, 3.4, 0.3, -0.1, 3.5, -0.3, -0.3, 3.4, -0.3, -0.1, 3.4, -0.3, -0.3, 3.5, -0.3, -0.3, 3.4, -0.3, -0.1, 3.5, -0.3, -0.2, 1.1, 0.5, 0.2, 3.4, 0.5, 0.2, 1.1, 0.5, -0.2, 3.4, 0.5, 0.2, 3.4, 0.5, -0.2, 1.1, 0.5, -0.4, 1.1, 0.2, -0.4, 3.4, 0.4, -0.4, 1.1, 0.4, -0.4, 3.4, 0.2, -0.4, 3.4, 0.4, -0.4, 1.1, 0.2, -0.2, 1.1, -0.4, -0.4, 3.4, -0.4, -0.4, 1.1, -0.4, -0.2, 3.4, -0.4, -0.4, 3.4, -0.4, -0.2, 1.1, -0.4, 0.3, 1.1, -0.1, 0.3, 1, -0.3, 0.3, 1, -0.1, 0.3, 1.1, -0.3, 0.3, 1, -0.3, 0.3, 1.1, -0.1, 0.1, 1.1, -0.3, 0.1, 1, -0.4, 0.1, 1, -0.3, 0.1, 1.1, -0.4, 0.1, 1, -0.4, 0.1, 1.1, -0.3, -0.4, 3.5, 0.1, -0.3, 3.4, 0.1, -0.4, 3.4, 0.1, -0.3, 3.5, 0.1, -0.3, 3.4, 0.1, -0.4, 3.5, 0.1, -0.3, 3.5, -0.1, -0.4, 3.4, -0.1, -0.3, 3.4, -0.1, -0.4, 3.5, -0.1, -0.4, 3.4, -0.1, -0.3, 3.5, -0.1, -0.1, 1.1, 0.4, 0.1, 1, 0.4, -0.1, 1, 0.4, 0.1, 1.1, 0.4, 0.1, 1, 0.4, -0.1, 1.1, 0.4, -0.3, 3.4, 0.3, -0.1, 3.4, 0.4, -0.2, 3.4, 0.4, -0.1, 3.4, 0.3, -0.1, 3.4, 0.4, -0.3, 3.4, 0.3, -0.4, 3.4, 0.4, -0.3, 3.4, 0.3, -0.2, 3.4, 0.4, -0.4, 3.4, 0.2, -0.3, 3.4, 0.3, -0.4, 3.4, 0.4, -0.4, 3.4, 0.1, -0.3, 3.4, 0.3, -0.4, 3.4, 0.2, -0.3, 3.4, 0.1, -0.3, 3.4, 0.3, -0.4, 3.4, 0.1, -0.5, 3.4, 0.2, -0.4, 3.4, 0.1, -0.4, 3.4, 0.2, -0.4, 3.4, -0.1, -0.4, 3.4, 0.1, -0.5, 3.4, 0.2, 0.2, 3.4, 0.5, -0.2, 3.4, 0.4, -0.1, 3.4, 0.4, -0.2, 3.4, 0.5, -0.2, 3.4, 0.4, 0.2, 3.4, 0.5, 0.1, 3.4, 0.4, 0.2, 3.4, 0.5, -0.1, 3.4, 0.4, 0.1, 3.4, 0.3, 0.2, 3.4, 0.5, 0.1, 3.4, 0.4, 0.2, 3.4, 0.4, 0.2, 3.4, 0.5, 0.1, 3.4, 0.3, 0.3, 3.4, 0.3, 0.2, 3.4, 0.4, 0.1, 3.4, 0.3, 0.2, 3.4, 0.4, 0.3, 3.4, 0.3, 0.4, 3.4, 0.4, 0.4, 3.4, 0.4, 0.3, 3.4, 0.3, 0.4, 3.4, 0.2, 0.3, 3.4, 0.3, 0.4, 3.4, 0.1, 0.4, 3.4, 0.2, 0.3, 3.4, 0.1, 0.4, 3.4, 0.1, 0.3, 3.4, 0.3, 0.4, 3.4, 0.2, 0.4, 3.4, 0.1, 0.5, 3.4, -0.2, 0.5, 3.4, 0.2, 0.4, 3.4, 0.2, 0.5, 3.4, -0.2, 0.4, 3.4, 0.1, 0.4, 3.4, -0.1, 0.5, 3.4, -0.2, 0.5, 3.4, -0.2, 0.4, 3.4, -0.1, 0.4, 3.4, -0.2, 0.4, 3.4, -0.1, 0.3, 3.4, -0.3, 0.4, 3.4, -0.2, 0.3, 3.4, -0.1, 0.3, 3.4, -0.3, 0.4, 3.4, -0.1, 0.4, 3.4, -0.2, 0.3, 3.4, -0.3, 0.4, 3.4, -0.4, 0.2, 3.4, -0.4, 0.4, 3.4, -0.4, 0.3, 3.4, -0.3, 0.1, 3.4, -0.4, 0.2, 3.4, -0.4, 0.3, 3.4, -0.3, 0.1, 3.4, -0.3, 0.1, 3.4, -0.4, 0.3, 3.4, -0.3, -0.2, 3.4, -0.5, 0.2, 3.4, -0.4, 0.1, 3.4, -0.4, 0.2, 3.4, -0.5, 0.2, 3.4, -0.4, -0.2, 3.4, -0.5, -0.1, 3.4, -0.4, -0.2, 3.4, -0.5, 0.1, 3.4, -0.4, -0.2, 3.4, -0.5, -0.1, 3.4, -0.4, -0.2, 3.4, -0.4, -0.1, 3.4, -0.4, -0.3, 3.4, -0.3, -0.2, 3.4, -0.4, -0.1, 3.4, -0.3, -0.3, 3.4, -0.3, -0.1, 3.4, -0.4, -0.2, 3.4, -0.4, -0.3, 3.4, -0.3, -0.4, 3.4, -0.4, -0.4, 3.4, -0.4, -0.3, 3.4, -0.3, -0.4, 3.4, -0.2, -0.3, 3.4, -0.3, -0.4, 3.4, -0.1, -0.4, 3.4, -0.2, -0.3, 3.4, -0.1, -0.4, 3.4, -0.1, -0.3, 3.4, -0.3, -0.4, 3.4, -0.2, -0.4, 3.4, -0.1, -0.5, 3.4, 0.2, -0.5, 3.4, -0.2, -0.4, 3.4, -0.2, -0.5, 3.4, 0.2, 0.3, 3.5, 0.3, 0.3, 3.4, 0.1, 0.3, 3.4, 0.3, 0.3, 3.5, 0.1, 0.3, 3.4, 0.1, 0.3, 3.5, 0.3, -0.2, 1.1, 0.4, -0.2, 3.4, 0.5, -0.2, 1.1, 0.5, -0.2, 3.4, 0.4, -0.2, 3.4, 0.5, -0.2, 1.1, 0.4, 0.1, 3.5, 0.3, -0.1, 3.5, -0.3, 0.3, 3.5, -0.1, 0.3, 3.5, 0.3, 0.1, 3.5, 0.3, 0.3, 3.5, 0.1, 0.3, 3.5, 0.1, 0.1, 3.5, 0.3, 0.3, 3.5, -0.1, 0.4, 3.5, 0.1, 0.3, 3.5, 0.1, 0.3, 3.5, -0.1, 0.4, 3.5, -0.1, 0.4, 3.5, 0.1, 0.3, 3.5, -0.1, 0.1, 3.5, 0.4, -0.1, 3.5, -0.3, 0.1, 3.5, 0.3, -0.1, 3.5, 0.4, -0.1, 3.5, 0.3, 0.1, 3.5, 0.4, -0.1, 3.5, 0.3, -0.1, 3.5, -0.3, 0.1, 3.5, 0.4, 0.3, 3.5, -0.3, 0.3, 3.5, -0.1, 0.1, 3.5, -0.3, 0.1, 3.5, -0.3, 0.3, 3.5, -0.1, -0.1, 3.5, -0.3, 0.1, 3.5, -0.4, 0.1, 3.5, -0.3, -0.1, 3.5, -0.3, -0.1, 3.5, -0.4, 0.1, 3.5, -0.4, -0.1, 3.5, -0.3, -0.3, 3.5, 0.1, -0.1, 3.5, -0.3, -0.1, 3.5, 0.3, -0.3, 3.5, 0.3, -0.3, 3.5, 0.1, -0.1, 3.5, 0.3, -0.3, 3.5, -0.1, -0.1, 3.5, -0.3, -0.3, 3.5, 0.1, -0.3, 3.5, -0.3, -0.1, 3.5, -0.3, -0.3, 3.5, -0.1, -0.4, 3.5, 0.1, -0.3, 3.5, -0.1, -0.3, 3.5, 0.1, -0.4, 3.5, -0.1, -0.3, 3.5, -0.1, -0.4, 3.5, 0.1, 0.1, 1.1, 0.3, 0.3, 1, 0.3, 0.1, 1, 0.3, 0.3, 1.1, 0.3, 0.3, 1, 0.3, 0.1, 1.1, 0.3, -0.1, 3.4, 0.3, -0.1, 3.5, 0.4, -0.1, 3.4, 0.4, -0.1, 3.5, 0.3, -0.1, 3.5, 0.4, -0.1, 3.4, 0.3, 0.3, 3.5, -0.3, 0.1, 3.4, -0.3, 0.3, 3.4, -0.3, 0.1, 3.5, -0.3, 0.1, 3.4, -0.3, 0.3, 3.5, -0.3, 0.2, 1.1, -0.5, -0.2, 3.4, -0.5, -0.2, 1.1, -0.5, 0.2, 3.4, -0.5, -0.2, 3.4, -0.5, 0.2, 1.1, -0.5, -0.5, 3.4, -0.2, -0.5, 1.1, 0.2, -0.5, 1.1, -0.2, -0.5, 3.4, 0.2, -0.5, 1.1, 0.2, -0.5, 3.4, -0.2, -0.2, 1.1, -0.5, -0.2, 3.4, -0.4, -0.2, 1.1, -0.4, -0.2, 3.4, -0.5, -0.2, 3.4, -0.4, -0.2, 1.1, -0.5, -0.1, 1, -0.4, -0.1, 1.1, -0.3, -0.1, 1, -0.3, -0.1, 1.1, -0.4, -0.1, 1.1, -0.3, -0.1, 1, -0.4, 0.1, 1.1, -0.4, -0.1, 1, -0.4, 0.1, 1, -0.4, -0.1, 1.1, -0.4, -0.1, 1, -0.4, 0.1, 1.1, -0.4, -0.3, 1, 0.3, -0.3, 1.1, 0.1, -0.3, 1.1, 0.3, -0.3, 1, 0.1, -0.3, 1.1, 0.1, -0.3, 1, 0.3, -0.3, 3.4, -0.1, -0.3, 3.5, -0.3, -0.3, 3.5, -0.1, -0.3, 3.4, -0.3, -0.3, 3.5, -0.3, -0.3, 3.4, -0.1, 0.4, 1, 0.1, 0.4, 1.1, -0.1, 0.4, 1, -0.1, 0.4, 1.1, 0.1, 0.4, 1.1, -0.1, 0.4, 1, 0.1, -0.3, 3.5, 0.3, -0.1, 3.4, 0.3, -0.3, 3.4, 0.3, -0.1, 3.5, 0.3, -0.1, 3.4, 0.3, -0.3, 3.5, 0.3, -0.4, 3.4, -0.2, -0.4, 1.1, -0.4, -0.4, 3.4, -0.4, -0.4, 1.1, -0.2, -0.4, 1.1, -0.4, -0.4, 3.4, -0.2, 0.4, 1.1, -0.4, 0.2, 3.4, -0.4, 0.2, 1.1, -0.4, 0.4, 3.4, -0.4, 0.2, 3.4, -0.4, 0.4, 1.1, -0.4, -0.3, 1, 0.3, -0.1, 1.1, 0.3, -0.1, 1, 0.3, -0.3, 1.1, 0.3, -0.1, 1.1, 0.3, -0.3, 1, 0.3, 0.3, 1.1, 0.3, 0.3, 1, 0.1, 0.3, 1, 0.3, 0.3, 1.1, 0.1, 0.3, 1, 0.1, 0.3, 1.1, 0.3, -0.1, 1.1, -0.3, -0.3, 1, -0.3, -0.1, 1, -0.3, -0.3, 1.1, -0.3, -0.3, 1, -0.3, -0.1, 1.1, -0.3, -0.3, 1.1, -0.1, -0.4, 1, -0.1, -0.3, 1, -0.1, -0.4, 1.1, -0.1, -0.4, 1, -0.1, -0.3, 1.1, -0.1, -0.4, 3.4, 0.1, -0.4, 3.5, -0.1, -0.4, 3.5, 0.1, -0.4, 3.4, -0.1, -0.4, 3.5, -0.1, -0.4, 3.4, 0.1, -0.3, 3.4, 0.3, -0.3, 3.5, 0.1, -0.3, 3.5, 0.3, -0.3, 3.4, 0.1, -0.3, 3.5, 0.1, -0.3, 3.4, 0.3, 0.2, 1.1, -0.4, 0.2, 3.4, -0.5, 0.2, 1.1, -0.5, 0.2, 3.4, -0.4, 0.2, 3.4, -0.5, 0.2, 1.1, -0.4, 0.4, 1.1, -0.2, 0.5, 3.4, -0.2, 0.4, 3.4, -0.2, 0.5, 1.1, -0.2, 0.5, 3.4, -0.2, 0.4, 1.1, -0.2, 0.1, 1, -0.3, -0.1, 1, -0.3, 0.3, 1, 0.1, 0.1, 1, -0.4, -0.1, 1, -0.3, 0.1, 1, -0.3, -0.1, 1, -0.4, -0.1, 1, -0.3, 0.1, 1, -0.4, 0.3, 1, -0.3, 0.1, 1, -0.3, 0.3, 1, -0.1, 0.3, 1, -0.1, 0.1, 1, -0.3, 0.3, 1, 0.1, 0.4, 1, -0.1, 0.3, 1, -0.1, 0.3, 1, 0.1, 0.4, 1, 0.1, 0.4, 1, -0.1, 0.3, 1, 0.1, -0.3, 1, -0.3, -0.3, 1, -0.1, -0.1, 1, -0.3, -0.3, 1, -0.1, -0.1, 1, 0.3, -0.1, 1, -0.3, -0.1, 1, 0.3, 0.3, 1, 0.1, -0.1, 1, -0.3, 0.3, 1, 0.3, 0.3, 1, 0.1, 0.1, 1, 0.3, 0.1, 1, 0.3, 0.3, 1, 0.1, -0.1, 1, 0.3, 0.1, 1, 0.4, 0.1, 1, 0.3, -0.1, 1, 0.3, -0.1, 1, 0.4, 0.1, 1, 0.4, -0.1, 1, 0.3, -0.3, 1, 0.1, -0.1, 1, 0.3, -0.3, 1, -0.1, -0.3, 1, 0.3, -0.1, 1, 0.3, -0.3, 1, 0.1, -0.4, 1, -0.1, -0.3, 1, 0.1, -0.3, 1, -0.1, -0.4, 1, 0.1, -0.3, 1, 0.1, -0.4, 1, -0.1, 0.5, 1.1, 0.2, 0.5, 3.4, -0.2, 0.5, 1.1, -0.2, 0.5, 3.4, 0.2, 0.5, 3.4, -0.2, 0.5, 1.1, 0.2, 0.2, 1.1, 0.5, 0.2, 3.4, 0.4, 0.2, 1.1, 0.4, 0.2, 3.4, 0.5, 0.2, 3.4, 0.4, 0.2, 1.1, 0.5, 0.1, 3.5, -0.4, -0.1, 3.4, -0.4, 0.1, 3.4, -0.4, -0.1, 3.5, -0.4, -0.1, 3.4, -0.4, 0.1, 3.5, -0.4, -0.4, 1, 0.1, -0.4, 1.1, -0.1, -0.4, 1.1, 0.1, -0.4, 1, -0.1, -0.4, 1.1, -0.1, -0.4, 1, 0.1, -0.4, 1.1, -0.2, -0.5, 3.4, -0.2, -0.5, 1.1, -0.2, -0.4, 3.4, -0.2, -0.5, 3.4, -0.2, -0.4, 1.1, -0.2, -0.4, 1.1, 0.2, -0.5, 3.4, 0.2, -0.4, 3.4, 0.2, -0.5, 1.1, 0.2, -0.5, 3.4, 0.2, -0.4, 1.1, 0.2, 0.4, 3.5, -0.1, 0.3, 3.4, -0.1, 0.4, 3.4, -0.1, 0.3, 3.5, -0.1, 0.3, 3.4, -0.1, 0.4, 3.5, -0.1, 0.3, 3.4, -0.1, 0.3, 3.5, -0.3, 0.3, 3.4, -0.3, 0.3, 3.5, -0.1, 0.3, 3.5, -0.3, 0.3, 3.4, -0.1, -0.1, 3.4, -0.4, -0.1, 3.5, -0.3, -0.1, 3.4, -0.3, -0.1, 3.5, -0.4, -0.1, 3.5, -0.3, -0.1, 3.4, -0.4, 0.4, 1.1, -0.2, 0.4, 3.4, -0.4, 0.4, 1.1, -0.4, 0.4, 3.4, -0.2, 0.4, 3.4, -0.4, 0.4, 1.1, -0.2, 0.4, 1.1, 0.4, 0.4, 3.4, 0.2, 0.4, 1.1, 0.2, 0.4, 3.4, 0.4, 0.4, 3.4, 0.2, 0.4, 1.1, 0.4, 0.1, 1.1, -0.4, 0.2, 1.1, -0.5, -0.1, 1.1, -0.4, 0.2, 1.1, -0.4, 0.2, 1.1, -0.5, 0.1, 1.1, -0.4, -0.2, 1.1, -0.4, -0.1, 1.1, -0.4, 0.2, 1.1, -0.5, -0.2, 1.1, -0.5, -0.2, 1.1, -0.4, 0.2, 1.1, -0.5, -0.3, 1.1, -0.3, -0.1, 1.1, -0.4, -0.2, 1.1, -0.4, -0.1, 1.1, -0.3, -0.1, 1.1, -0.4, -0.3, 1.1, -0.3, -0.4, 1.1, -0.4, -0.3, 1.1, -0.3, -0.2, 1.1, -0.4, -0.4, 1.1, -0.2, -0.3, 1.1, -0.3, -0.4, 1.1, -0.4, -0.4, 1.1, -0.1, -0.3, 1.1, -0.3, -0.4, 1.1, -0.2, -0.3, 1.1, -0.1, -0.3, 1.1, -0.3, -0.4, 1.1, -0.1, -0.5, 1.1, -0.2, -0.4, 1.1, -0.1, -0.4, 1.1, -0.2, -0.4, 1.1, 0.1, -0.4, 1.1, -0.1, -0.5, 1.1, -0.2, -0.4, 1.1, 0.2, -0.4, 1.1, 0.1, -0.5, 1.1, -0.2, -0.5, 1.1, 0.2, -0.4, 1.1, 0.2, -0.5, 1.1, -0.2, -0.3, 1.1, 0.3, -0.4, 1.1, 0.1, -0.4, 1.1, 0.2, -0.3, 1.1, 0.1, -0.4, 1.1, 0.1, -0.3, 1.1, 0.3, -0.4, 1.1, 0.4, -0.3, 1.1, 0.3, -0.4, 1.1, 0.2, -0.2, 1.1, 0.4, -0.3, 1.1, 0.3, -0.4, 1.1, 0.4, -0.1, 1.1, 0.3, -0.3, 1.1, 0.3, -0.2, 1.1, 0.4, -0.2, 1.1, 0.5, -0.1, 1.1, 0.3, -0.2, 1.1, 0.4, -0.1, 1.1, 0.4, -0.1, 1.1, 0.3, -0.2, 1.1, 0.5, -0.1, 1.1, 0.4, -0.2, 1.1, 0.5, 0.1, 1.1, 0.4, -0.2, 1.1, 0.5, 0.2, 1.1, 0.4, 0.1, 1.1, 0.4, 0.2, 1.1, 0.5, 0.2, 1.1, 0.4, -0.2, 1.1, 0.5, 0.1, 1.1, 0.4, 0.2, 1.1, 0.4, 0.3, 1.1, 0.3, 0.1, 1.1, 0.3, 0.1, 1.1, 0.4, 0.3, 1.1, 0.3, 0.2, 1.1, 0.4, 0.4, 1.1, 0.4, 0.3, 1.1, 0.3, 0.4, 1.1, 0.2, 0.3, 1.1, 0.3, 0.4, 1.1, 0.4, 0.4, 1.1, 0.1, 0.3, 1.1, 0.3, 0.4, 1.1, 0.2, 0.3, 1.1, 0.1, 0.3, 1.1, 0.3, 0.4, 1.1, 0.1, 0.5, 1.1, -0.2, 0.4, 1.1, 0.1, 0.4, 1.1, 0.2, 0.5, 1.1, 0.2, 0.5, 1.1, -0.2, 0.4, 1.1, 0.2, 0.4, 1.1, -0.1, 0.4, 1.1, 0.1, 0.5, 1.1, -0.2, 0.5, 1.1, -0.2, 0.4, 1.1, -0.2, 0.4, 1.1, -0.1, 0.4, 1.1, -0.1, 0.4, 1.1, -0.2, 0.3, 1.1, -0.3, 0.3, 1.1, -0.1, 0.4, 1.1, -0.1, 0.3, 1.1, -0.3, 0.4, 1.1, -0.2, 0.4, 1.1, -0.4, 0.3, 1.1, -0.3, 0.4, 1.1, -0.4, 0.2, 1.1, -0.4, 0.3, 1.1, -0.3, 0.3, 1.1, -0.3, 0.2, 1.1, -0.4, 0.1, 1.1, -0.4, 0.1, 1.1, -0.3, 0.3, 1.1, -0.3, 0.1, 1.1, -0.4, 0.1, 1.1, 0.4, 0.1, 1, 0.3, 0.1, 1, 0.4, 0.1, 1.1, 0.3, 0.1, 1, 0.3, 0.1, 1.1, 0.4, -0.2, 1.1, 0.4, -0.4, 3.4, 0.4, -0.2, 3.4, 0.4, -0.4, 1.1, 0.4, -0.4, 3.4, 0.4, -0.2, 1.1, 0.4, 0.1, 3.5, 0.4, 0.1, 3.4, 0.3, 0.1, 3.4, 0.4, 0.1, 3.5, 0.3, 0.1, 3.4, 0.3, 0.1, 3.5, 0.4, 0.4, 1.1, -0.1, 0.3, 1, -0.1, 0.4, 1, -0.1, 0.3, 1.1, -0.1, 0.3, 1, -0.1, 0.4, 1.1, -0.1, 0.2, 3.4, 0.4, 0.4, 1.1, 0.4, 0.2, 1.1, 0.4, 0.4, 3.4, 0.4, 0.4, 1.1, 0.4, 0.2, 3.4, 0.4, 0.3, 3.5, 0.1, 0.4, 3.4, 0.1, 0.3, 3.4, 0.1, 0.4, 3.5, 0.1, 0.4, 3.4, 0.1, 0.3, 3.5, 0.1, -0.1, 3.5, 0.4, 0.1, 3.4, 0.4, -0.1, 3.4, 0.4, 0.1, 3.5, 0.4, 0.1, 3.4, 0.4, -0.1, 3.5, 0.4, 0.5, 1.1, 0.2, 0.4, 3.4, 0.2, 0.5, 3.4, 0.2, 0.4, 1.1, 0.2, 0.4, 3.4, 0.2, 0.5, 1.1, 0.2, -0.1, 1, 0.3, -0.1, 1.1, 0.4, -0.1, 1, 0.4, -0.1, 1.1, 0.3, -0.1, 1.1, 0.4, -0.1, 1, 0.3, 0.3, 1.1, 0.1, 0.4, 1, 0.1, 0.3, 1, 0.1, 0.4, 1.1, 0.1, 0.4, 1, 0.1, 0.3, 1.1, 0.1, 0.4, 3.4, 0.1, 0.4, 3.5, -0.1, 0.4, 3.4, -0.1, 0.4, 3.5, 0.1, 0.4, 3.5, -0.1, 0.4, 3.4, 0.1, 0.1, 3.5, -0.3, 0.1, 3.4, -0.4, 0.1, 3.4, -0.3, 0.1, 3.5, -0.4, 0.1, 3.4, -0.4, 0.1, 3.5, -0.3, 0.3, 1.1, -0.3, 0.1, 1, -0.3, 0.3, 1, -0.3, 0.1, 1.1, -0.3, 0.1, 1, -0.3, 0.3, 1.1, -0.3, -0.4, 1.1, 0.1, -0.3, 1, 0.1, -0.4, 1, 0.1, -0.3, 1.1, 0.1, -0.3, 1, 0.1, -0.4, 1.1, 0.1, -0.3, 1, -0.1, -0.3, 1.1, -0.3, -0.3, 1.1, -0.1, -0.3, 1, -0.3, -0.3, 1.1, -0.3, -0.3, 1, -0.1)
@@ -479,7 +616,6 @@ material_overlay = ExtResource("1_8wiq8")
 
 [node name="Safe" parent="." instance=ExtResource("14_ifra0")]
 transform = Transform3D(-0.35, 0, 5.28485e-08, 0, 0.35, 0, -5.28485e-08, 0, -0.35, -1.38652, 0, 2.19488)
-material_overlay = ExtResource("1_8wiq8")
 
 [node name="ReagentBottle" parent="." instance=ExtResource("15_e4h8j")]
 transform = Transform3D(-0.55, 0, 8.30477e-08, 0, 0.55, 0, -8.30477e-08, 0, -0.55, -3.49679, 1.24647, -1.51709)
@@ -532,7 +668,7 @@ material_overlay = ExtResource("1_8wiq8")
 [node name="Cryptex" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.51372e-08, -0.3, 4.47299e-08, -0.21165, -2.10212e-08, -0.212613, 0.212613, -4.22848e-08, -0.21165, 6.65696, 1.34584, -1.75556)
 material_override = SubResource("StandardMaterial3D_e4h8j")
-material_overlay = ExtResource("1_8wiq8")
+material_overlay = SubResource("ShaderMaterial_jorly")
 mesh = ExtResource("79_8o2hw")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Cryptex"]
@@ -553,7 +689,6 @@ shape = SubResource("ConcavePolygonShape3D_8wiq8")
 
 [node name="ControlBox - Interectable" parent="LaserMachine + ControlBox" instance=ExtResource("31_bwxkw")]
 transform = Transform3D(-1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, -1.92473, 2.52247, -2.78539)
-material_overlay = ExtResource("1_8wiq8")
 
 [node name="ControlBox - Ok" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.2, 1.74846e-08, -7.64274e-16, 0, -8.74228e-09, -0.2, -1.74846e-08, -0.2, 8.74228e-09, 2.60846, 0.502363, -2.27383)
@@ -624,7 +759,6 @@ material_overlay = ExtResource("1_8wiq8")
 
 [node name="Book" parent="." instance=ExtResource("43_cpef2")]
 transform = Transform3D(-0.129409, -3.16775e-09, 0.463644, -2.18557e-08, 0.28, 5.24973e-14, -0.482963, -1.18221e-08, -0.124233, 5.90617, 4.00437, 2.01995)
-material_overlay = ExtResource("1_8wiq8")
 
 [node name="BluePrint" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.369421, -0.0153889, 3.19093e-08, -0.0180741, 0.314536, 0, -3.22958e-08, -1.34534e-09, -0.365, -4.94911, 1.12921, 1.28958)
@@ -713,11 +847,9 @@ material_overlay = ExtResource("1_8wiq8")
 
 [node name="MemoPaper" parent="." instance=ExtResource("63_53grg")]
 transform = Transform3D(0.41, 0, 0, 0, 0.082, 0, 0, 0, 0.41, -7.36334, 1.20095, -1.79052)
-material_overlay = ExtResource("1_8wiq8")
 
 [node name="Paper" parent="." instance=ExtResource("64_wsaya")]
 transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.5, -7.02472, 1.20762, -1.60345)
-material_overlay = ExtResource("1_8wiq8")
 
 [node name="Locker" parent="." instance=ExtResource("65_yaryk")]
 transform = Transform3D(-1.14139, 0, -1.15404e-07, 0, 1.16984, 0, 1.72345e-07, 0, -0.764287, 0.328387, -0.00609827, 2.34399)

@@ -665,7 +665,6 @@ skeleton = NodePath("../..")
 
 [node name="ControlBox - Interectable" parent="SimpleFloor" instance=ExtResource("27_t8gjh")]
 transform = Transform3D(-8.74228e-09, 0.2, -8.74228e-09, 0, -8.74228e-09, -0.2, -0.2, -8.74228e-09, 3.82137e-16, 46.0357, 1.88899, -7.81503)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../../..")
 
 [node name="Box" parent="SimpleFloor" instance=ExtResource("28_0a576")]
@@ -703,7 +702,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-0.75076, 0.255527, -4.29353e-07, 0.205596, 0.93309, 5.77265e-08, 6.68418e-08, -1.11695e-08, -5, 51.0808, 1.9569, -1.20382)
 
 [node name="NewsBoard" parent="SimpleFloor" instance=ExtResource("32_x3qqh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 55.6745, 1.84297, -7.15631)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 56.0735, 1.84297, -7.15631)
 material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../..")
 
@@ -858,7 +857,6 @@ material_overlay = ExtResource("6_pcrto")
 
 [node name="Paper" parent="SimpleFloor" instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.1, 0, -0.5, 0, -2.18557e-08, 52.3162, 1.3355, -4.77941)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../..")
 
 [node name="Pencil" parent="SimpleFloor" instance=ExtResource("48_jjdr1")]
@@ -873,22 +871,18 @@ skeleton = NodePath("../..")
 
 [node name="Paper2" parent="SimpleFloor" instance=ExtResource("47_3soe3")]
 transform = Transform3D(-0.256351, 0, 0.429283, 0, 0.1, 0, -0.429283, 0, -0.256351, 50.2841, 1.3355, -4.31777)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../..")
 
 [node name="Paper3" parent="SimpleFloor" instance=ExtResource("47_3soe3")]
 transform = Transform3D(-0.495192, 0, 0.0691717, 0, 0.1, 0, -0.0691717, 0, -0.495192, 50.8421, 1.3355, -3.83511)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../..")
 
 [node name="Paper4" parent="SimpleFloor" instance=ExtResource("47_3soe3")]
 transform = Transform3D(-0.495192, 0, 0.0691717, 0, 0.1, 0, -0.0691717, 0, -0.495192, 47.5588, 1.3355, -3.51848)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../..")
 
 [node name="Paper5" parent="SimpleFloor" instance=ExtResource("47_3soe3")]
 transform = Transform3D(-0.172215, 0, 0.469406, 0, 0.1, 0, -0.469406, 0, -0.172215, 47.9139, 1.3355, -3.10778)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../..")
 
 [node name="Board8" parent="SimpleFloor" instance=ExtResource("11_t6aw0")]
@@ -915,8 +909,8 @@ shape = SubResource("BoxShape3D_eiqug")
 [node name="EventAreaGhost" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostNode3D", "floorCheck")]
 visible = false
 script = ExtResource("21_th1ia")
-MaxTimer = 3.0
 _area = NodePath("Area3D")
+MaxTimer = 3.0
 ghostNode3D = NodePath("../Nang_Rum_1")
 floorCheck = NodePath("../EventAreaFloorCheck")
 
@@ -954,177 +948,142 @@ transform = Transform3D(0.69092, 0.722931, -3.16003e-08, 0, -4.37114e-08, -1, -0
 
 [node name="Paper" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 0, -2.18557e-08, 1.91069e-16, -0.5, 0.5, -4.37114e-09, -2.18557e-08, -2.2083, 1.86719, 47.176)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper2" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 0, 0.0789325, -6.9005e-10, -0.49373, 0.49373, -4.31633e-09, 0.0789325, -2.2083, 1.71068, 46.7694)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper3" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -2.80425e-16, -0.166138, 1.45243e-09, -0.471591, 0.471591, -4.12278e-09, -0.166138, -2.2083, 1.83262, 46.1546)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper4" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -5.60849e-16, -0.0444732, 3.88797e-10, -0.498018, 0.498018, -4.35381e-09, -0.0444732, -2.2083, 1.99553, 45.7604)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper5" parent="." instance=ExtResource("47_3soe3")]
-transform = Transform3D(-2.18557e-08, -0.1, -5.60849e-16, -0.0444732, 3.88797e-10, -0.498018, 0.498018, -4.35381e-09, -0.0444732, -2.2083, 2.03153, 46.4273)
-material_overlay = ExtResource("6_pcrto")
+transform = Transform3D(-2.18557e-08, -0.1, -5.60849e-16, -0.0444732, 3.88797e-10, -0.498018, 0.498018, -4.35381e-09, -0.0444732, -2.20737, 2.03153, 46.4273)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper6" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 0, 0.0749316, -6.55073e-10, 0.494353, -0.494353, 4.32178e-09, 0.0749316, -2.2083, 2.03947, 38.3063)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper7" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -2.80425e-16, -0.00404911, 3.53986e-11, 0.499984, -0.499984, 4.371e-09, -0.00404912, -2.2083, 2.13328, 38.7318)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper8" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -5.60849e-16, 0.234936, -2.05388e-09, 0.441367, -0.441367, 3.85856e-09, 0.234936, -2.2083, 1.92056, 39.3214)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper9" parent="." instance=ExtResource("47_3soe3")]
-transform = Transform3D(-2.18557e-08, -0.1, -7.904e-17, 0.118606, -1.03688e-09, 0.485729, -0.485729, 4.24638e-09, 0.118606, -2.2083, 1.70043, 39.6867)
-material_overlay = ExtResource("6_pcrto")
+transform = Transform3D(-2.18557e-08, -0.1, -7.904e-17, 0.118606, -1.03688e-09, 0.485729, -0.485729, 4.24638e-09, 0.118606, -2.20902, 1.70043, 39.6867)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper10" parent="." instance=ExtResource("47_3soe3")]
-transform = Transform3D(-2.18557e-08, -0.1, -7.904e-17, 0.118606, -1.03688e-09, 0.485729, -0.485729, 4.24638e-09, 0.118606, -2.2083, 1.76477, 39.022)
-material_overlay = ExtResource("6_pcrto")
+transform = Transform3D(-2.18557e-08, -0.1, -7.904e-17, 0.118606, -1.03688e-09, 0.485729, -0.485729, 4.24638e-09, 0.118606, -2.2064, 1.76477, 39.022)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper11" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 2.66211e-16, -0.201301, 1.75983e-09, 0.457687, -0.457687, 4.00123e-09, -0.201301, -2.2083, 1.64104, 30.8063)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper12" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -2.5504e-16, -0.27103, 2.36942e-09, 0.42017, -0.42017, 3.67324e-09, -0.27103, -2.2083, 1.948, 31.1155)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper13" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 4.46353e-16, -0.0377853, 3.30329e-10, 0.49857, -0.49857, 4.35864e-09, -0.0377852, -2.2083, 2.08393, 31.7275)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper14" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -1.5808e-16, -0.159794, 1.39696e-09, 0.473778, -0.473778, 4.1419e-09, -0.159794, -2.2083, 2.09348, 32.1538)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper15" parent="." instance=ExtResource("47_3soe3")]
-transform = Transform3D(-2.18557e-08, -0.1, -1.5808e-16, -0.159794, 1.39696e-09, 0.473778, -0.473778, 4.1419e-09, -0.159794, -2.2083, 1.79206, 31.5579)
-material_overlay = ExtResource("6_pcrto")
+transform = Transform3D(-2.18557e-08, -0.1, -1.5808e-16, -0.159794, 1.39696e-09, 0.473778, -0.473778, 4.1419e-09, -0.159794, -2.20003, 1.79206, 31.5579)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper16" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 5.32421e-16, 0.0343994, -3.00729e-10, 0.498815, -0.498815, 4.36078e-09, 0.0343994, -2.2083, 1.98141, 23.4907)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper17" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -1.25645e-15, -0.0447774, 3.91456e-10, 0.497991, -0.497991, 4.35358e-09, -0.0447774, -2.2083, 2.10957, 23.9071)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper18" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 2.04941e-16, 0.198189, -1.73263e-09, 0.459044, -0.459044, 4.01309e-09, 0.198189, -2.2083, 1.94561, 24.5121)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper19" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -1.69258e-16, 0.0786309, -6.87413e-10, 0.493778, -0.493778, 4.31675e-09, 0.0786309, -2.2083, 1.75598, 24.8941)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper20" parent="." instance=ExtResource("47_3soe3")]
-transform = Transform3D(-2.18557e-08, -0.1, -1.69258e-16, 0.0786309, -6.87413e-10, 0.493778, -0.493778, 4.31675e-09, 0.0786309, -2.2083, 1.76594, 24.2263)
-material_overlay = ExtResource("6_pcrto")
+transform = Transform3D(-2.18557e-08, -0.1, -1.69258e-16, 0.0786309, -6.87413e-10, 0.493778, -0.493778, 4.31675e-09, 0.0786309, -2.20756, 1.76594, 24.2263)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper21" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 7.32564e-16, -0.0594879, 5.2006e-10, -0.496449, 0.496449, -4.34009e-09, -0.059488, -2.2083, 1.80604, 17.1623)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper22" parent="." instance=ExtResource("47_3soe3")]
-transform = Transform3D(-2.18557e-08, -0.1, -1.18599e-15, 0.0196299, -1.71609e-10, -0.499615, 0.499615, -4.36777e-09, 0.0196299, -2.2083, 1.69902, 16.74)
-material_overlay = ExtResource("6_pcrto")
+transform = Transform3D(-2.18557e-08, -0.1, -1.18599e-15, 0.0196299, -1.71609e-10, -0.499615, 0.499615, -4.36777e-09, 0.0196299, -2.20453, 1.69902, 16.74)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper23" parent="." instance=ExtResource("47_3soe3")]
-transform = Transform3D(-2.18557e-08, -0.1, 1.11399e-15, -0.221066, 1.93262e-09, -0.448475, 0.448475, -3.92069e-09, -0.221066, -2.2083, 1.89325, 16.144)
-material_overlay = ExtResource("6_pcrto")
+transform = Transform3D(-2.18557e-08, -0.1, 1.11399e-15, -0.221066, 1.93262e-09, -0.448475, 0.448475, -3.92069e-09, -0.221066, -2.20543, 1.89325, 16.144)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper24" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 1.00048e-16, -0.103409, 9.04034e-10, -0.48919, 0.48919, -4.27663e-09, -0.10341, -2.2083, 2.10189, 15.772)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper25" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 1.00048e-16, -0.103409, 9.04034e-10, -0.48919, 0.48919, -4.27663e-09, -0.10341, -2.2083, 2.0583, 16.4384)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper26" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 7.32564e-16, -0.0594879, 5.2006e-10, -0.496449, 0.496449, -4.34009e-09, -0.059488, 2.0169, 1.80604, 7.37671)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper27" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -1.18599e-15, 0.0196299, -1.71609e-10, -0.499615, 0.499615, -4.36777e-09, 0.0196299, 2.0169, 1.69902, 6.95438)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper28" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 1.11399e-15, -0.221066, 1.93262e-09, -0.448475, 0.448475, -3.92069e-09, -0.221066, 2.0169, 1.89325, 6.35837)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper29" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 1.00048e-16, -0.103409, 9.04034e-10, -0.48919, 0.48919, -4.27663e-09, -0.10341, 2.0169, 2.10189, 5.98644)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper30" parent="." instance=ExtResource("47_3soe3")]
-transform = Transform3D(-2.18557e-08, -0.1, 1.00048e-16, -0.103409, 9.04034e-10, -0.48919, 0.48919, -4.27663e-09, -0.10341, 2.0169, 2.0583, 6.65283)
-material_overlay = ExtResource("6_pcrto")
+transform = Transform3D(-2.18557e-08, -0.1, 1.00048e-16, -0.103409, 9.04034e-10, -0.48919, 0.48919, -4.27663e-09, -0.10341, 2.00895, 2.0583, 6.65283)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper31" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 3.29824e-16, 0.0547198, -4.78375e-10, 0.496997, -0.496997, 4.34489e-09, 0.0547198, 2.0169, 1.96449, 2.63962)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper32" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, -1.64817e-15, -0.0244248, 2.13528e-10, 0.499403, -0.499403, 4.36592e-09, -0.0244248, 2.0169, 2.07556, 3.0609)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper33" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 2.21592e-15, 0.216751, -1.8949e-09, 0.450576, -0.450576, 3.93907e-09, 0.216751, 2.0169, 1.88706, 3.65875)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper34" parent="." instance=ExtResource("47_3soe3")]
 transform = Transform3D(-2.18557e-08, -0.1, 2.64193e-16, 0.098709, -8.62941e-10, 0.49016, -0.49016, 4.28511e-09, 0.098709, 2.0169, 1.682, 4.03266)
-material_overlay = ExtResource("6_pcrto")
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="Paper35" parent="." instance=ExtResource("47_3soe3")]
-transform = Transform3D(-2.18557e-08, -0.1, 2.64193e-16, 0.098709, -8.62941e-10, 0.49016, -0.49016, 4.28511e-09, 0.098709, 2.0169, 1.7192, 3.36589)
-material_overlay = ExtResource("6_pcrto")
+transform = Transform3D(-2.18557e-08, -0.1, 2.64193e-16, 0.098709, -8.62941e-10, 0.49016, -0.49016, 4.28511e-09, 0.098709, 2.00127, 1.7192, 3.36589)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
 [node name="DoorSymbol" type="Node3D" parent="." node_paths=PackedStringArray("symbolNode3D", "area", "animationPlayer")]

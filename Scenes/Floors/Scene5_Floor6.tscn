@@ -1678,7 +1678,6 @@ transform = Transform3D(-0.818079, 0, -0.575105, 0, 1, 0, 0.575105, 0, -0.818079
 [node name="Guman Tong_3_001" type="MeshInstance3D" parent="Kuman Tong_3"]
 transform = Transform3D(0.17904, 0.111417, 4.87016e-09, 0, -1.09278e-08, 0.25, 0.0891333, -0.2238, -9.78256e-09, 0, -4.76837e-07, 0)
 material_override = ExtResource("27_hcj1w")
-material_overlay = ExtResource("10_nkeua")
 mesh = SubResource("ArrayMesh_oye2x")
 skeleton = NodePath("")
 

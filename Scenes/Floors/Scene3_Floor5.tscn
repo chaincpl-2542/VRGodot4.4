@@ -196,15 +196,10 @@ shadow_opacity = 0.2
 omni_range = 10.0
 omni_attenuation = 2.324
 
-[node name="Kuman Tong_3" type="Node3D" parent="SimpleFloor" node_paths=PackedStringArray("area", "offerNode3D", "dialogue", "OfferSound", "LaughSound", "ClueSound")]
+[node name="Kuman Tong_3" type="Node3D" parent="SimpleFloor" node_paths=PackedStringArray("area")]
 transform = Transform3D(0.998326, 0, -0.0578427, 0, 1, 0, 0.0578427, 0, 0.998326, -8.26926, 0.105958, -6.31888)
 script = ExtResource("5_31cuc")
 area = NodePath("Area3D")
-offerNode3D = NodePath("../../PickableObject/CollisionShape3D/PropBottle")
-dialogue = NodePath("DialogueText")
-OfferSound = NodePath("OfferSound")
-LaughSound = NodePath("LaughSound")
-ClueSound = NodePath("ClueSound")
 
 [node name="Guman Tong_3_001" type="MeshInstance3D" parent="SimpleFloor/Kuman Tong_3"]
 transform = Transform3D(0.2, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, -4.76837e-07, 0)
@@ -281,14 +276,12 @@ material_overlay = ExtResource("3_jpk4g")
 
 [node name="Paper2" parent="SimpleFloor" instance=ExtResource("9_0m4j3")]
 transform = Transform3D(0.5, 0, 0, 0, -4.37114e-09, -0.5, 0, 0.1, -2.18557e-08, -6.02398, 1.86554, -2.30274)
-material_overlay = ExtResource("3_jpk4g")
 
 [node name="Paper3" parent="SimpleFloor" instance=ExtResource("9_0m4j3")]
 transform = Transform3D(0.462978, 3.23655e-10, -0.188815, -0.188815, 1.65068e-09, -0.462978, 1.61828e-09, 0.1, 8.25338e-09, -5.30391, 1.81914, -2.30274)
-material_overlay = ExtResource("3_jpk4g")
 
 [node name="MemoPaper" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -6.74016, 2.37868, 1.78912)
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -6.7391, 2.37868, 1.78912)
 
 [node name="MemoPaper2" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
 transform = Transform3D(-2.17887e-08, -0.082, -4.2218e-10, 0.400342, -4.27331e-09, 0.0884678, -0.0884678, 8.57846e-10, 0.400342, -6.74016, 2.15417, 1.78912)
@@ -318,7 +311,7 @@ transform = Transform3D(-1.6955e-08, -0.082, -2.60894e-11, 0.409403, -3.38578e-0
 transform = Transform3D(-1.6955e-08, -0.082, -2.60894e-11, 0.409403, -3.38578e-09, -0.0221152, 0.0221151, -1.88119e-10, 0.409403, -6.74016, 1.83241, -0.246369)
 
 [node name="MemoPaper10" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-1.62809e-08, -0.082, -7.52678e-11, 0.408278, -3.24112e-09, -0.0375371, 0.037537, -3.13106e-10, 0.408278, -6.74016, 1.71493, -0.172728)
+transform = Transform3D(-1.62809e-08, -0.082, -7.52678e-11, 0.408278, -3.24112e-09, -0.0375371, 0.037537, -3.13106e-10, 0.408278, -6.737, 1.71493, -0.172728)
 
 [node name="MemoPaper11" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
 transform = Transform3D(-8.28471e-09, -0.082, -2.81157e-09, 0.345679, -1.09463e-09, -0.220468, 0.220468, -1.36508e-09, 0.345679, -6.74016, 2.5005, -0.217417)
@@ -360,49 +353,49 @@ transform = Transform3D(-1.69775e-08, -0.082, -2.48921e-11, 0.409431, -3.39052e-
 transform = Transform3D(-1.40525e-08, -0.082, -4.22652e-10, 0.400331, -2.72597e-09, -0.0885167, 0.0885167, -6.89307e-10, 0.400331, -6.74016, 2.31859, 0.430577)
 
 [node name="MemoPaper25" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -6.71025, 1.39287, 4.46913)
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -6.70891, 1.39287, 4.46913)
 
 [node name="MemoPaper29" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
 transform = Transform3D(-2.23744e-08, -0.082, -5.61954e-10, 0.397144, -4.36248e-09, 0.101866, -0.101866, 1.00293e-09, 0.397144, -6.71025, 1.4689, 4.54966)
 
 [node name="MemoPaper30" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-2.23744e-08, -0.082, -5.61954e-10, 0.397144, -4.36248e-09, 0.101866, -0.101866, 1.00293e-09, 0.397144, -6.71025, 1.4689, 4.45052)
+transform = Transform3D(-2.23744e-08, -0.082, -5.61954e-10, 0.397144, -4.36248e-09, 0.101866, -0.101866, 1.00293e-09, 0.397144, -6.71606, 1.4689, 4.45052)
 
 [node name="MemoPaper31" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
 transform = Transform3D(-2.23744e-08, -0.082, -5.61954e-10, 0.397144, -4.36248e-09, 0.101866, -0.101866, 1.00293e-09, 0.397144, -6.71025, 0.841852, 4.48844)
 
 [node name="MemoPaper32" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-1.9243e-08, -0.082, -4.87734e-11, 0.408884, -3.83884e-09, 0.0302275, -0.0302275, 2.74011e-10, 0.408884, -6.71025, 0.931616, 4.60869)
+transform = Transform3D(-1.9243e-08, -0.082, -4.87734e-11, 0.408884, -3.83884e-09, 0.0302275, -0.0302275, 2.74011e-10, 0.408884, -6.71148, 0.931616, 4.60869)
 
 [node name="MemoPaper33" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
 transform = Transform3D(-1.42467e-08, -0.082, -3.80844e-10, 0.401287, -2.77316e-09, -0.0840745, 0.0840745, -6.58835e-10, 0.401287, -6.71025, 1.03026, 4.69192)
 
 [node name="MemoPaper39" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-6.59076e-09, -0.082, -4.03653e-09, 0.317655, -5.10847e-10, -0.259221, 0.259221, -1.45887e-09, 0.317655, -6.71025, 1.18582, 4.70843)
+transform = Transform3D(-6.59076e-09, -0.082, -4.03653e-09, 0.317655, -5.10847e-10, -0.259221, 0.259221, -1.45887e-09, 0.317655, -6.71836, 1.18582, 4.70843)
 
 [node name="MemoPaper40" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
 transform = Transform3D(-2.23006e-09, -0.082, -9.26373e-09, 0.198071, 1.40673e-09, -0.358982, 0.358982, -1.28558e-09, 0.198071, -6.71025, 0.989112, 3.79212)
 
 [node name="MemoPaper34" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-1.97673e-08, -0.082, -9.52856e-11, 0.40782, -3.9344e-09, 0.0422233, -0.0422233, 3.88184e-10, 0.40782, -6.71025, 0.769864, 4.36435)
+transform = Transform3D(-1.97673e-08, -0.082, -9.52856e-11, 0.40782, -3.9344e-09, 0.0422233, -0.0422233, 3.88184e-10, 0.40782, -6.71046, 0.769864, 4.36435)
 
 [node name="MemoPaper35" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-2.45051e-08, -0.082, -1.253e-09, 0.381335, -4.65042e-09, 0.150612, -0.150612, 1.56729e-09, 0.381335, -6.71025, 0.766192, 4.22007)
+transform = Transform3D(-2.45051e-08, -0.082, -1.253e-09, 0.381335, -4.65042e-09, 0.150612, -0.150612, 1.56729e-09, 0.381335, -6.71052, 0.766192, 4.22007)
 
 [node name="MemoPaper36" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-2.24422e-08, -0.082, -5.79494e-10, 0.396743, -4.37254e-09, 0.103418, -0.103418, 1.02e-09, 0.396743, -6.71025, 0.773216, 4.0959)
+transform = Transform3D(-2.24422e-08, -0.082, -5.79494e-10, 0.396743, -4.37254e-09, 0.103418, -0.103418, 1.02e-09, 0.396743, -6.70895, 0.773216, 4.0959)
 
 [node name="MemoPaper37" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
 transform = Transform3D(-1.7405e-08, -0.082, -7.44826e-12, 0.40983, -3.47951e-09, -0.0118198, 0.0118198, -1.01843e-10, 0.40983, -6.71025, 0.82219, 3.96996)
 
 [node name="MemoPaper38" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-1.89902e-08, -0.082, -3.18785e-11, 0.409271, -3.79166e-09, 0.0244442, -0.0244442, 2.20073e-10, 0.409271, -6.71025, 0.85953, 3.83714)
+transform = Transform3D(-1.89902e-08, -0.082, -3.18785e-11, 0.409271, -3.79166e-09, 0.0244442, -0.0244442, 2.20073e-10, 0.409271, -6.70673, 0.85953, 3.83714)
 
 [node name="MemoPaper26" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -6.71025, 1.34026, 3.97424)
+transform = Transform3D(-1.79217e-08, -0.082, 0, 0.41, -3.58433e-09, 0, 0, 0, 0.41, -6.73454, 1.34026, 3.97424)
 
 [node name="MemoPaper27" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
-transform = Transform3D(-2.09465e-08, -0.082, -2.57113e-10, 0.404118, -4.13788e-09, 0.0692006, -0.0692006, 6.56393e-10, 0.404118, -6.71025, 1.40163, 3.97424)
+transform = Transform3D(-2.09465e-08, -0.082, -2.57113e-10, 0.404118, -4.13788e-09, 0.0692006, -0.0692006, 6.56393e-10, 0.404118, -6.70846, 1.40163, 3.97424)
 
 [node name="MemoPaper28" parent="SimpleFloor" instance=ExtResource("16_v57wi")]
 transform = Transform3D(-1.72765e-08, -0.082, -1.16156e-11, 0.409734, -3.45298e-09, -0.0147593, 0.0147593, -1.26707e-10, 0.409734, -6.71025, 1.34868, 3.86524)
