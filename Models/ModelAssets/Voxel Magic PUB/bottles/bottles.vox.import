@@ -1,0 +1,18 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions.To.Mesh"
+type="Mesh"
+uid="uid://brvwiqa86t5ap"
+path="res://.godot/imported/bottles.vox-7e3330c199afa5040afc783635e660ec.mesh"
+
+[deps]
+
+source_file="res://Models/ModelAssets/Voxel Magic PUB/bottles/bottles.vox"
+dest_files=["res://.godot/imported/bottles.vox-7e3330c199afa5040afc783635e660ec.mesh"]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false
+FirstKeyframeOnly=true

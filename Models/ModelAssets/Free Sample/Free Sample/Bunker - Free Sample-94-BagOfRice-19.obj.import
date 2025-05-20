@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmw5w4sgd4qny"
+path="res://.godot/imported/Bunker - Free Sample-94-BagOfRice-19.obj-1a4e867ff3d397d293d631bc9a622a35.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bunker - Free Sample-94-BagOfRice-19.obj-1a4e867ff3d397d293d631bc9a622a35.mesh"]
+
+source_file="res://Models/ModelAssets/Free Sample/Free Sample/Bunker - Free Sample-94-BagOfRice-19.obj"
+dest_files=["res://.godot/imported/Bunker - Free Sample-94-BagOfRice-19.obj-1a4e867ff3d397d293d631bc9a622a35.mesh", "res://.godot/imported/Bunker - Free Sample-94-BagOfRice-19.obj-1a4e867ff3d397d293d631bc9a622a35.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

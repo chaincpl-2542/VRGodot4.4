@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://i2q0p8eejs7b"
+path.s3tc="res://.godot/imported/Bunker - Free Sample-16-Bottle_Pink-2.png-e6400729fc563bd03c72380559863969.s3tc.ctex"
+path.etc2="res://.godot/imported/Bunker - Free Sample-16-Bottle_Pink-2.png-e6400729fc563bd03c72380559863969.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://Models/ModelAssets/Free Sample/Free Sample/Bunker - Free Sample-16-Bottle_Pink-2.png"
+dest_files=["res://.godot/imported/Bunker - Free Sample-16-Bottle_Pink-2.png-e6400729fc563bd03c72380559863969.s3tc.ctex", "res://.godot/imported/Bunker - Free Sample-16-Bottle_Pink-2.png-e6400729fc563bd03c72380559863969.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

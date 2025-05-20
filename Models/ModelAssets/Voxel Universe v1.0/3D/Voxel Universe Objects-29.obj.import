@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cbpviefhn0hyr"
+path="res://.godot/imported/Voxel Universe Objects-29.obj-3ba4829ec70743949cae85b9c7fe3ebf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Voxel Universe Objects-29.obj-3ba4829ec70743949cae85b9c7fe3ebf.mesh"]
+
+source_file="res://Models/ModelAssets/Voxel Universe v1.0/3D/Voxel Universe Objects-29.obj"
+dest_files=["res://.godot/imported/Voxel Universe Objects-29.obj-3ba4829ec70743949cae85b9c7fe3ebf.mesh", "res://.godot/imported/Voxel Universe Objects-29.obj-3ba4829ec70743949cae85b9c7fe3ebf.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

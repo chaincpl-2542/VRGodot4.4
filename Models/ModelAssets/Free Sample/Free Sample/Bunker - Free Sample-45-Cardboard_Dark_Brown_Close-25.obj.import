@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b21dxe72lu5w3"
+path="res://.godot/imported/Bunker - Free Sample-45-Cardboard_Dark_Brown_Close-25.obj-f0c936d96937b173435513e2d2c600bf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bunker - Free Sample-45-Cardboard_Dark_Brown_Close-25.obj-f0c936d96937b173435513e2d2c600bf.mesh"]
+
+source_file="res://Models/ModelAssets/Free Sample/Free Sample/Bunker - Free Sample-45-Cardboard_Dark_Brown_Close-25.obj"
+dest_files=["res://.godot/imported/Bunker - Free Sample-45-Cardboard_Dark_Brown_Close-25.obj-f0c936d96937b173435513e2d2c600bf.mesh", "res://.godot/imported/Bunker - Free Sample-45-Cardboard_Dark_Brown_Close-25.obj-f0c936d96937b173435513e2d2c600bf.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

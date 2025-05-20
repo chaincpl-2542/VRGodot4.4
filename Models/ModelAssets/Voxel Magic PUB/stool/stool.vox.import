@@ -1,0 +1,18 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions.To.Mesh"
+type="Mesh"
+uid="uid://byp5l0ymour71"
+path="res://.godot/imported/stool.vox-d79b0fa03772034c75802e58b4a678b4.mesh"
+
+[deps]
+
+source_file="res://Models/ModelAssets/Voxel Magic PUB/stool/stool.vox"
+dest_files=["res://.godot/imported/stool.vox-d79b0fa03772034c75802e58b4a678b4.mesh"]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false
+FirstKeyframeOnly=true

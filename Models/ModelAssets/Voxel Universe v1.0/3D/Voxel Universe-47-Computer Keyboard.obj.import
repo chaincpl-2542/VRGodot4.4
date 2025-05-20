@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dympjru0bys06"
+path="res://.godot/imported/Voxel Universe-47-Computer Keyboard.obj-f8d9c9fd4d9a33d116465b60e488b6f6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Voxel Universe-47-Computer Keyboard.obj-f8d9c9fd4d9a33d116465b60e488b6f6.mesh"]
+
+source_file="res://Models/ModelAssets/Voxel Universe v1.0/3D/Voxel Universe-47-Computer Keyboard.obj"
+dest_files=["res://.godot/imported/Voxel Universe-47-Computer Keyboard.obj-f8d9c9fd4d9a33d116465b60e488b6f6.mesh", "res://.godot/imported/Voxel Universe-47-Computer Keyboard.obj-f8d9c9fd4d9a33d116465b60e488b6f6.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

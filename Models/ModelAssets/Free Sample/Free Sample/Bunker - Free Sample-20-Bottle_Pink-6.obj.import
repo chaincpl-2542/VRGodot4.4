@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dn7q5wvdl8la0"
+path="res://.godot/imported/Bunker - Free Sample-20-Bottle_Pink-6.obj-62e97113532056f95c4430595db6b68e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bunker - Free Sample-20-Bottle_Pink-6.obj-62e97113532056f95c4430595db6b68e.mesh"]
+
+source_file="res://Models/ModelAssets/Free Sample/Free Sample/Bunker - Free Sample-20-Bottle_Pink-6.obj"
+dest_files=["res://.godot/imported/Bunker - Free Sample-20-Bottle_Pink-6.obj-62e97113532056f95c4430595db6b68e.mesh", "res://.godot/imported/Bunker - Free Sample-20-Bottle_Pink-6.obj-62e97113532056f95c4430595db6b68e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

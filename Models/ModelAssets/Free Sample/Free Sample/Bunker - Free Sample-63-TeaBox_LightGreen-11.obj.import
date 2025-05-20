@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://usd71e2r8lte"
+path="res://.godot/imported/Bunker - Free Sample-63-TeaBox_LightGreen-11.obj-6c9465b816991c075cf43d4483111927.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bunker - Free Sample-63-TeaBox_LightGreen-11.obj-6c9465b816991c075cf43d4483111927.mesh"]
+
+source_file="res://Models/ModelAssets/Free Sample/Free Sample/Bunker - Free Sample-63-TeaBox_LightGreen-11.obj"
+dest_files=["res://.godot/imported/Bunker - Free Sample-63-TeaBox_LightGreen-11.obj-6c9465b816991c075cf43d4483111927.mesh", "res://.godot/imported/Bunker - Free Sample-63-TeaBox_LightGreen-11.obj-6c9465b816991c075cf43d4483111927.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

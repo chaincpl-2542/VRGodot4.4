@@ -1,0 +1,18 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions.To.Mesh"
+type="Mesh"
+uid="uid://ertrijvxmf61"
+path="res://.godot/imported/tree.vox-0d5e6b486b604059feb0c5032c0c33d9.mesh"
+
+[deps]
+
+source_file="res://Models/ModelAssets/Voxel Magic PUB/tree/tree.vox"
+dest_files=["res://.godot/imported/tree.vox-0d5e6b486b604059feb0c5032c0c33d9.mesh"]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false
+FirstKeyframeOnly=true

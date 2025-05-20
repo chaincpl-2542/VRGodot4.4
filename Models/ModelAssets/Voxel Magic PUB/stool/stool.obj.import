@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://pi0p2kqemm8w"
+path="res://.godot/imported/stool.obj-d4a9860bab40432f23322a280c41b488.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stool.obj-d4a9860bab40432f23322a280c41b488.mesh"]
+
+source_file="res://Models/ModelAssets/Voxel Magic PUB/stool/stool.obj"
+dest_files=["res://.godot/imported/stool.obj-d4a9860bab40432f23322a280c41b488.mesh", "res://.godot/imported/stool.obj-d4a9860bab40432f23322a280c41b488.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

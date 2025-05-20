@@ -1,0 +1,18 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions.To.Mesh"
+type="Mesh"
+uid="uid://cwcid00h7j7ij"
+path="res://.godot/imported/table.vox-ca65fe77acbddd01a1f595276cf02886.mesh"
+
+[deps]
+
+source_file="res://Models/ModelAssets/Voxel Magic PUB/table/table.vox"
+dest_files=["res://.godot/imported/table.vox-ca65fe77acbddd01a1f595276cf02886.mesh"]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false
+FirstKeyframeOnly=true
