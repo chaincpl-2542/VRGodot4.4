@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnkbsj15vsop4"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_uwwdp"]
+[ext_resource type="ArrayMesh" uid="uid://diaxy26ebnwjn" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Milk2.obj" id="2_56fvr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l2wqc"]
+size = Vector3(0.223633, 0.450623, 0.193115)
+
+[node name="Milk2" instance=ExtResource("1_uwwdp")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00830078, 0.00991821, 0)
+shape = SubResource("BoxShape3D_l2wqc")
+
+[node name="Milk2" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
+mesh = ExtResource("2_56fvr")

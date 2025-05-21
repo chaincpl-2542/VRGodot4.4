@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bme1uh42lhaeo"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_p7iyt"]
+[ext_resource type="ArrayMesh" uid="uid://dcjayygjbpssr" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Book2.obj" id="2_1s2mb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gdebh"]
+size = Vector3(0.282837, 0.0634766, 0.421631)
+
+[node name="Book2" instance=ExtResource("1_p7iyt")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0149536, 0, 0)
+shape = SubResource("BoxShape3D_gdebh")
+
+[node name="Book2" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, -0.0870255, 0, 0)
+mesh = ExtResource("2_1s2mb")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx7mrm3mdm4f8"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_k0ctj"]
+[ext_resource type="ArrayMesh" uid="uid://ss1y6rwj6n03" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Camera.obj" id="2_y7q14"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i0rm4"]
+size = Vector3(0.210022, 0.152344, 0.180542)
+
+[node name="Camera" instance=ExtResource("1_k0ctj")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192871, -0.00823975, 0.00668335)
+shape = SubResource("BoxShape3D_i0rm4")
+
+[node name="Camera" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
+mesh = ExtResource("2_y7q14")

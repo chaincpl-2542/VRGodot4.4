@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://s7lg48drbppx"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_ywqgu"]
+[ext_resource type="ArrayMesh" uid="uid://dutgni0sih7ua" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/bat.obj" id="2_lmodk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r785a"]
+height = 1.01855
+radius = 0.0600586
+
+[node name="Bat" instance=ExtResource("1_ywqgu")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0957031, 0)
+shape = SubResource("CylinderShape3D_r785a")
+
+[node name="Bat" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+mesh = ExtResource("2_lmodk")

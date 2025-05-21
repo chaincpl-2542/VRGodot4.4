@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmawad2wij744"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_235xn"]
+[ext_resource type="ArrayMesh" uid="uid://b42ajtxuolku" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Duck.obj" id="2_lw0eo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n2er6"]
+size = Vector3(0.0722656, 0.09375, 0.104492)
+
+[node name="Duck" instance=ExtResource("1_235xn")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000976562, 0)
+shape = SubResource("BoxShape3D_n2er6")
+
+[node name="Duck" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, -0.12, 0, 0.12, -5.24537e-09, 0, 0, 0)
+mesh = ExtResource("2_lw0eo")

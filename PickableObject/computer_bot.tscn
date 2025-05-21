@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwgkqf4utergo"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_uo7st"]
+[ext_resource type="ArrayMesh" uid="uid://u3ixyhcf2udg" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/computerBot.obj" id="2_po34s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qteoq"]
+size = Vector3(0.463379, 0.57135, 0.476807)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qtkpd"]
+size = Vector3(0.0556641, 0.236755, 0.0541992)
+
+[node name="ComputerBot" instance=ExtResource("1_uo7st")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00219727, 0.118744, 0)
+shape = SubResource("BoxShape3D_qteoq")
+
+[node name="ComputerBot" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0)
+mesh = ExtResource("2_po34s")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.535797, 0.00366211)
+shape = SubResource("BoxShape3D_qtkpd")

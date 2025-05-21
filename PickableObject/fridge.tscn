@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn7x858ygvf2p"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_uxou1"]
+[ext_resource type="ArrayMesh" uid="uid://btna2fxaes54h" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Fridge.obj" id="2_48k6l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xnaa2"]
+size = Vector3(1.34485, 2.37067, 1.40308)
+
+[node name="Fridge" instance=ExtResource("1_uxou1")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012146, 0.483734, 0.0604248)
+shape = SubResource("BoxShape3D_xnaa2")
+
+[node name="Fridge" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(-2.18557e-08, 0.5, -2.60655e-08, 0, -2.18557e-08, -0.59631, -0.5, -2.18557e-08, 1.13936e-15, 0, 0, 0.662832)
+mesh = ExtResource("2_48k6l")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hervmeep5x8g"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_7xss6"]
+[ext_resource type="ArrayMesh" uid="uid://nqrxxicwkbmv" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/GameBoy.obj" id="2_xqlgd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pe7s2"]
+size = Vector3(0.131836, 0.0488281, 0.20433)
+
+[node name="GameBoy" instance=ExtResource("1_7xss6")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00634766, -0.0172653)
+shape = SubResource("BoxShape3D_pe7s2")
+
+[node name="GameBoy" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0, 0)
+mesh = ExtResource("2_xqlgd")

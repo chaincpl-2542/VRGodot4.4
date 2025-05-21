@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg03te84iwf0m"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_eywu7"]
+[ext_resource type="ArrayMesh" uid="uid://ct0si16fqdqap" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/BreadStick.obj" id="2_5kghj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7k0ha"]
+size = Vector3(0.14624, 0.703125, 0.119141)
+
+[node name="BreadStick" instance=ExtResource("1_eywu7")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00341797, 0)
+shape = SubResource("BoxShape3D_7k0ha")
+
+[node name="BreadStick" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, -0.0428746)
+mesh = ExtResource("2_5kghj")

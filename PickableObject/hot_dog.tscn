@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b48vnr20qgc3l"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_dt8k2"]
+[ext_resource type="ArrayMesh" uid="uid://lx01ejkcfkif" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/HotDog.obj" id="2_vclhk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jaqie"]
+size = Vector3(0.119507, 0.0955811, 0.340088)
+
+[node name="HotDog" instance=ExtResource("1_dt8k2")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 1.39612e-10, 2.24065e-13, -1.39612e-10, 0.999995, 0.00319395, 2.24065e-13, -0.00319395, 0.999995, -0.000305176, -0.0337524, 0)
+shape = SubResource("BoxShape3D_jaqie")
+
+[node name="HotDog" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, -0.12, 0, 0.12, -5.24537e-09, 0, 0, 0)
+mesh = ExtResource("2_vclhk")

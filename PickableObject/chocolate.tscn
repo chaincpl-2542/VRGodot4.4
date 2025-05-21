@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dknronltajinf"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_5l66j"]
+[ext_resource type="ArrayMesh" uid="uid://dqwmpnjp0l0ax" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Chocolate.obj" id="2_yhhbg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swsa4"]
+size = Vector3(0.0996094, 0.0202637, 0.209961)
+
+[node name="Chocolate" instance=ExtResource("1_5l66j")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00500488, 0)
+shape = SubResource("BoxShape3D_swsa4")
+
+[node name="Chocolate" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0)
+mesh = ExtResource("2_yhhbg")

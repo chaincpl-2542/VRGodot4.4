@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://duxle5aqh462g"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_q5mfc"]
+[ext_resource type="ArrayMesh" uid="uid://cr31r5tppwtey" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Menu.obj" id="2_y01uu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5yfaf"]
+size = Vector3(0.179688, 0.0601807, 0.288452)
+
+[node name="BookMenu" instance=ExtResource("1_q5mfc")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000976562, 0.00421143, 0.0109253)
+shape = SubResource("BoxShape3D_5yfaf")
+
+[node name="Menu" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, -0.12, 0, 0.12, -5.24537e-09, 0, 0, 0)
+mesh = ExtResource("2_y01uu")
