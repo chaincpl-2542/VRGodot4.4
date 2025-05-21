@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2pqyc3y6o0hq"
+path="res://.godot/imported/Cardboard_Dark_Brown_Close-13.obj-24dbf2533affb536bb2efd1aeef41171.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cardboard_Dark_Brown_Close-13.obj-24dbf2533affb536bb2efd1aeef41171.mesh"]
+
+source_file="res://Models/ModelAssets/Free Sample/Export/Cardboard_Dark_Brown_Close-13.obj"
+dest_files=["res://.godot/imported/Cardboard_Dark_Brown_Close-13.obj-24dbf2533affb536bb2efd1aeef41171.mesh", "res://.godot/imported/Cardboard_Dark_Brown_Close-13.obj-24dbf2533affb536bb2efd1aeef41171.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

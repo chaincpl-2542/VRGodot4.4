@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bt3te7mxi24qy"
+path="res://.godot/imported/TeaBox_LightGreen-10.obj-601f747aea0460ba1a6e5477909cbc20.mesh"
+
+[deps]
+
+files=["res://.godot/imported/TeaBox_LightGreen-10.obj-601f747aea0460ba1a6e5477909cbc20.mesh"]
+
+source_file="res://Models/ModelAssets/Free Sample/Export/TeaBox_LightGreen-10.obj"
+dest_files=["res://.godot/imported/TeaBox_LightGreen-10.obj-601f747aea0460ba1a6e5477909cbc20.mesh", "res://.godot/imported/TeaBox_LightGreen-10.obj-601f747aea0460ba1a6e5477909cbc20.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

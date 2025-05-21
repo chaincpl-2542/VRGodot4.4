@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c7tgs5yy6r3ux"
+path="res://.godot/imported/Face_007.obj-b7394060cb5ef1d0b1f2392237b66959.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Face_007.obj-b7394060cb5ef1d0b1f2392237b66959.mesh"]
+
+source_file="res://Models/ModelAssets/Voxel Universe v1.0/Export/Face_007.obj"
+dest_files=["res://.godot/imported/Face_007.obj-b7394060cb5ef1d0b1f2392237b66959.mesh", "res://.godot/imported/Face_007.obj-b7394060cb5ef1d0b1f2392237b66959.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
