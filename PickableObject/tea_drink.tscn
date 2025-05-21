@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcl3n8ne3qbnk"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_mv6eu"]
+[ext_resource type="ArrayMesh" uid="uid://d3r3i3m2x0agi" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Drink_Tea.obj" id="2_pf1gg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47gm3"]
+size = Vector3(0.0797119, 0.160645, 0.0791016)
+
+[node name="TeaDrink" instance=ExtResource("1_mv6eu")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00323486, 0.0114746, 0)
+shape = SubResource("BoxShape3D_47gm3")
+
+[node name="DrinkTea" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0)
+mesh = ExtResource("2_pf1gg")

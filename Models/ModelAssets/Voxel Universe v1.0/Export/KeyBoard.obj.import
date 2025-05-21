@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgk55yahrvx22"
+path="res://.godot/imported/KeyBoard.obj-f8400ad04f453de045f896bf0b581bfe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/KeyBoard.obj-f8400ad04f453de045f896bf0b581bfe.mesh"]
+
+source_file="res://Models/ModelAssets/Voxel Universe v1.0/Export/KeyBoard.obj"
+dest_files=["res://.godot/imported/KeyBoard.obj-f8400ad04f453de045f896bf0b581bfe.mesh", "res://.godot/imported/KeyBoard.obj-f8400ad04f453de045f896bf0b581bfe.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

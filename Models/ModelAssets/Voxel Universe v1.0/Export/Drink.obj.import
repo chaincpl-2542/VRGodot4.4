@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c3ifhnk4psqqp"
+path="res://.godot/imported/Drink.obj-4b90092038a081e32300815d8a3eca6c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Drink.obj-4b90092038a081e32300815d8a3eca6c.mesh"]
+
+source_file="res://Models/ModelAssets/Voxel Universe v1.0/Export/Drink.obj"
+dest_files=["res://.godot/imported/Drink.obj-4b90092038a081e32300815d8a3eca6c.mesh", "res://.godot/imported/Drink.obj-4b90092038a081e32300815d8a3eca6c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

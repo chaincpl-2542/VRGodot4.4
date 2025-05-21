@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://4bh5bvr6jtpr"]
+[gd_scene load_steps=7 format=3 uid="uid://4bh5bvr6jtpr"]
 
 [ext_resource type="PackedScene" uid="uid://dctg30c4awlad" path="res://Models/Door/Door.fbx" id="1_bfksg"]
 [ext_resource type="Material" uid="uid://cas656vn073e2" path="res://Models/Door/Door.tres" id="2_gmaqu"]
+[ext_resource type="ArrayMesh" uid="uid://b777ewu6sy6rp" path="res://Models/ModelAssets/Free Sample/Export/Wall_Container_Blue-1.obj" id="2_niy75"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xswh3"]
+size = Vector3(0.25, 0.1, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gmaqu"]
 size = Vector3(1.50208, 2.50208, 0.102173)
@@ -11,11 +15,20 @@ size = Vector3(0.108429, 0.102081, 0.297852)
 
 [node name="Door" instance=ExtResource("1_bfksg")]
 
-[node name="Door_001" parent="." index="0"]
+[node name="WallContainerBlue-1" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(2.38836e-15, 5.46392e-08, 1.5, -2.0365e-07, -1.25, 6.55671e-08, 1.25, -2.0365e-07, 7.81619e-15, -0.0866472, 1.23659, -0.0371794)
+mesh = ExtResource("2_niy75")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WallContainerBlue-1" index="0"]
+transform = Transform3D(1, -1.42109e-14, 0, 1.42109e-14, 1, -1.01873e-21, 0, -7.07453e-22, 1, 2.98023e-08, 0.174779, 0.403332)
+mesh = SubResource("BoxMesh_xswh3")
+
+[node name="Door_001" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0, 0, 0)
+visible = false
 material_override = ExtResource("2_gmaqu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0477905, 1.24982, -0.0513306)
