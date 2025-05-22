@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b331qq5txp78d"
+path="res://.godot/imported/Bunker - Free Sample-7-Bottle_Blue-6.png-0f4a643a8269b7d465cc55d99ea2462e.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Models/ModelAssets/Free Sample/Export/Bunker - Free Sample-7-Bottle_Blue-6.png"
+dest_files=["res://.godot/imported/Bunker - Free Sample-7-Bottle_Blue-6.png-0f4a643a8269b7d465cc55d99ea2462e.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
