@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdxt84n3f5hyl"]
+[gd_scene load_steps=18 format=3 uid="uid://bdxt84n3f5hyl"]
 
 [ext_resource type="Script" uid="uid://tbh5wu80s6x6" path="res://Scripts/GameManager.cs" id="1_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://dinmhn3cmls06" path="res://Scenes/Elevator.tscn" id="1_hpc76"]
@@ -28,6 +28,13 @@ tonemap_mode = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rqgy"]
 size = Vector3(1, 1.83649, 1.31494)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_8ju71"]
+radius = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_xb4mg"]
+radius = 0.05
+height = 0.1
+
 [node name="MainScene" type="Node3D" node_paths=PackedStringArray("_currentFloor", "Elevator")]
 script = ExtResource("1_7rqgy")
 _currentFloor = NodePath("Scene1_Floor4")
@@ -54,7 +61,33 @@ collision_mask = 65537
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.418243, -0.12915)
 shape = SubResource("BoxShape3D_7rqgy")
 
-[node name="Character" parent="." groups=["Player", "PlayerHand"] instance=ExtResource("14_5qxwa")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0668522, 0.000665265, 13.3889)
+[node name="Character" parent="." groups=["Player"] instance=ExtResource("14_5qxwa")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.29945, 0.000943422, 13.3037)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Character/Head/Camera" index="0" groups=["KeyCard", "PlayerHand"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119095, -1.32804)
+collision_layer = 65536
+collision_mask = 65536
+gravity_scale = 0.0
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character/Head/Camera/RigidBody3D" groups=["KeyCard", "PlayerHand"]]
+shape = SubResource("SphereShape3D_8ju71")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Character/Head/Camera/RigidBody3D"]
+mesh = SubResource("SphereMesh_xb4mg")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="Character/Head/Camera" index="1" groups=["Offer"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119095, -1.32804)
+collision_layer = 65536
+collision_mask = 65536
+gravity_scale = 0.0
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character/Head/Camera/RigidBody3D2" groups=["Offer"]]
+shape = SubResource("SphereShape3D_8ju71")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Character/Head/Camera/RigidBody3D2"]
+mesh = SubResource("SphereMesh_xb4mg")
 
 [editable path="Character"]

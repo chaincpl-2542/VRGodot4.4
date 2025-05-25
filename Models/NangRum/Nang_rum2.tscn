@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc0ch7yndgd5f"]
+
+[ext_resource type="PackedScene" uid="uid://dyp5ltk30gjmo" path="res://Models/NangRum/T-Pose.fbx" id="1_iol0p"]
+
+[node name="T-Pose" instance=ExtResource("1_iol0p")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)

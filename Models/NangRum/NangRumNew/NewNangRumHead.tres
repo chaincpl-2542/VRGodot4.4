@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dw476t82koafh"]
+
+[ext_resource type="Texture2D" uid="uid://b0mxdnh3nqvp" path="res://Models/NangRum/NangRumNew/Nung Rum New Head_5_Color.png" id="1_g8ged"]
+
+[resource]
+albedo_texture = ExtResource("1_g8ged")
+texture_filter = 0

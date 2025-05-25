@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh05qxodw7t8r"]
+
+[ext_resource type="PackedScene" uid="uid://casoclai6y4uu" path="res://Models/NangRum/NangRumNew/Nung Rum New Head_3.fbx" id="1_ig5se"]
+[ext_resource type="Material" uid="uid://f44wbjrxogs3" path="res://Models/NangRum/NangRumNew/NewNangRumBody.tres" id="2_xyjjj"]
+
+[node name="Nung Rum New Head_3" instance=ExtResource("1_ig5se")]
+
+[node name="Nung Rum New Head_3_001" parent="." index="0"]
+material_override = ExtResource("2_xyjjj")

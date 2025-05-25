@@ -1,11 +1,14 @@
-[gd_scene load_steps=21 format=4 uid="uid://b52o3vypq51bv"]
+[gd_scene load_steps=24 format=4 uid="uid://b52o3vypq51bv"]
 
 [ext_resource type="PackedScene" uid="uid://2v2hglatu86o" path="res://Models/NangRum/Nang_Rum_1.fbx" id="1_a85s4"]
 [ext_resource type="Material" uid="uid://brivgmhax0mk6" path="res://Models/NangRum/NangRum.tres" id="2_00pcf"]
 [ext_resource type="Material" uid="uid://q81oaim3vbg6" path="res://Models/NewNungRum/NungrumHead.tres" id="3_ktblh"]
 [ext_resource type="Texture2D" uid="uid://wpykhrra5n12" path="res://Models/NewNungRum/Nung Rum_Head_3_Color.png" id="4_1d5nw"]
 [ext_resource type="Material" uid="uid://c5a4posc878kr" path="res://Models/NewNungRum/NungrumBody.tres" id="5_38g6t"]
+[ext_resource type="PackedScene" uid="uid://dji2pam1gvhl6" path="res://Models/NangRum/NangRumNew/NewNangRumHead.tscn" id="5_tgiir"]
 [ext_resource type="Texture2D" uid="uid://b0lmox7wy27cc" path="res://Models/NewNungRum/Nung Rum_Body_2_Color.png" id="6_tgiir"]
+[ext_resource type="PackedScene" uid="uid://bh05qxodw7t8r" path="res://Models/NangRum/NangRumNew/NewNangRumBody.tscn" id="8_hdd04"]
+[ext_resource type="PackedScene" uid="uid://bl0di1erfq081" path="res://Models/NangRum/NangRumNew/NewNangRumTail.tscn" id="9_tgiir"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3imbv"]
 resource_name = "Nung Rum_Head_3_Material"
@@ -93,6 +96,7 @@ emission_shape = 2
 emission_sphere_radius = 1.0
 gravity = Vector3(0, 4, 0)
 scale_min = 0.1
+scale_max = 0.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1d5nw"]
 albedo_color = Color(0.3, 0.02, 0, 1)
@@ -205,18 +209,32 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Nung Rum_Head_3_001" type="MeshInstance3D" parent="Nung Rum_Head_3" index="0"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 1, 0, -1, -1.19209e-07, 0, 0.599999, 0)
+visible = false
 material_override = ExtResource("3_ktblh")
 mesh = SubResource("ArrayMesh_e8pd3")
 skeleton = NodePath("")
+
+[node name="Nung Rum New Head_5" parent="Nung Rum_Head_3" index="1" instance=ExtResource("5_tgiir")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Nung Rum_Body_2" type="Node3D" parent="." index="2"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Nung Rum_Body_2_001" type="MeshInstance3D" parent="Nung Rum_Body_2" index="0"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 1, 0, -1, -1.19209e-07, 0, -3.57628e-07, 0)
+visible = false
 material_override = ExtResource("5_38g6t")
 mesh = SubResource("ArrayMesh_722e7")
 skeleton = NodePath("")
+
+[node name="Nung Rum New Head_3" parent="Nung Rum_Body_2" index="1" instance=ExtResource("8_hdd04")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
+
+[node name="Nung Rum New Head_4" parent="Nung Rum_Body_2" index="2" instance=ExtResource("9_tgiir")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Nung Rum New Head_5" parent="Nung Rum_Body_2" index="3" instance=ExtResource("9_tgiir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.572854, 0.332352)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3"]
 amount = 30
