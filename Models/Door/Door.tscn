@@ -16,7 +16,7 @@ size = Vector3(0.108429, 0.102081, 0.297852)
 [node name="Door" instance=ExtResource("1_bfksg")]
 
 [node name="WallContainerBlue-1" type="MeshInstance3D" parent="." index="0"]
-transform = Transform3D(2.38836e-15, 5.46392e-08, 1.5, -2.0365e-07, -1.25, 6.55671e-08, 1.25, -2.0365e-07, 7.81619e-15, -0.0866472, 1.23659, -0.0371794)
+transform = Transform3D(2.38836e-15, 5.46392e-08, 1.55976, -2.0365e-07, -1.25, 6.81794e-08, 1.25, -2.0365e-07, 8.1276e-15, -0.0866472, 1.23659, -0.0371794)
 mesh = ExtResource("2_niy75")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WallContainerBlue-1" index="0"]

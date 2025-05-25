@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccm70bu4r0y1s"]
+[gd_scene load_steps=5 format=3 uid="uid://ccm70bu4r0y1s"]
 
 [ext_resource type="PackedScene" uid="uid://oe5oc8rfnrd2" path="res://Models/Board/Board.fbx" id="1_lk2qf"]
 [ext_resource type="Material" uid="uid://dnt8akbyoosdi" path="res://Models/Board/Board.tres" id="2_1epo5"]
+[ext_resource type="ArrayMesh" uid="uid://cko2wfhw14lc2" path="res://Models/ModelAssets/Free Sample/Export/Documents_colored-2.obj" id="3_anypx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0k73p"]
 size = Vector3(3.00781, 1.50238, 0.108093)
@@ -17,3 +18,11 @@ material_override = ExtResource("2_1epo5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.752289, -0.0470886)
 shape = SubResource("BoxShape3D_0k73p")
+
+[node name="DocumentsColored-6" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0.769772, 0.725201, -0.114166)
+mesh = ExtResource("3_anypx")
+
+[node name="DocumentsColored-7" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, -0.652912, 0.803845, -0.114934)
+mesh = ExtResource("3_anypx")

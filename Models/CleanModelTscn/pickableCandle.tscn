@@ -6,7 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c0afh7gcy7gd2" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Reagent Bottle_/Reagent Bottle_79.obj" id="4_tvh8v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_574mf"]
-size = Vector3(0.14856, 0.495972, 0.148376)
+size = Vector3(0.0557557, 0.194763, 0.0529631)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1lxy"]
 albedo_texture = ExtResource("2_574mf")
@@ -29,11 +29,11 @@ size = Vector3(0.11, 0.11, 0.11)
 [node name="PickableObject" instance=ExtResource("1_5yyg6")]
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142822, 0.252014, 0.0184631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00688174, 0.10141, 0.00516512)
 shape = SubResource("BoxShape3D_574mf")
 
 [node name="Candle" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(-0.3, 0, 4.52987e-08, 0, 0.55, 0, -4.52987e-08, 0, -0.3, 0, 0, 0)
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 0.2, 0, -1.50996e-08, 0, -0.1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_c1lxy")
 mesh = ExtResource("4_tvh8v")
 

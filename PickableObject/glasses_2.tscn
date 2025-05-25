@@ -4,14 +4,14 @@
 [ext_resource type="ArrayMesh" uid="uid://c3ueqeuvn35r8" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Glasses2.obj" id="2_fvewq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0soh5"]
-size = Vector3(0.193115, 0.0602417, 0.0957031)
+size = Vector3(0.239258, 0.0751953, 0.118652)
 
 [node name="Glasses2" instance=ExtResource("1_g76bf")]
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.05176e-05, -0.0117188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.05176e-05, -0.0129395)
 shape = SubResource("BoxShape3D_0soh5")
 
 [node name="Glasses2" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, -0.12, 0, 0.12, -5.24537e-09, 0, 0, 0)
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
 mesh = ExtResource("2_fvewq")

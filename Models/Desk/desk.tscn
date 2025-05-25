@@ -13,6 +13,9 @@ size = Vector3(0.0977783, 0.0991211, 0.69458)
 
 [node name="Desk_14" instance=ExtResource("1_o2w6v")]
 
+[node name="Desk_14_001" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 0.818827, 0, -1, -9.76118e-08, 0, -1.19209e-07, 0)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Desk_14_001" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Desk_14_001/StaticBody3D" index="0"]
