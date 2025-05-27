@@ -51,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1.07881, 0, 0, 0, 1, 0, -0.210048, 0.142914)
 environment = SubResource("Environment_7rqgy")
 
 [node name="Scene1_Floor4" parent="." instance=ExtResource("4_7rqgy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, 0, 0.195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.195)
 
 [node name="Area3D" type="Area3D" parent="Scene1_Floor4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.859781, 0)

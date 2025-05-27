@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bx5sj0j2jlmkd"]
+
+[ext_resource type="Texture2D" uid="uid://b14frfbulqkpa" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper_24_Color.png" id="1_5sdbe"]
+
+[resource]
+albedo_texture = ExtResource("1_5sdbe")
+texture_filter = 0

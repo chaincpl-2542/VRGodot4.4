@@ -59,49 +59,39 @@ public partial class Scene3KumanThong : BaseFloorController
 		dialogueText.Text = string.Empty;
 
 		ClueSound?.Play();
-		dialogueText.Text = "Good....";
-		await ToSignal(GetTree().CreateTimer(3), "timeout");
-
-		ClueSound?.Play();
-		dialogueText.Text =
-			"Ahh! Thanks! Alright, read carefully.\n" +
-			"That soda is giving me enough energy to communicate\n" +
-			"to you from the outside.\n" +
-			"I’m not actually even in here.";
+		dialogueText.Text = "Ahh! Thanks! Alright, listen carefully.\n" +
+		                    "It looks like you’re trapped in some\n" +
+		                    "kind of purgatory mental realm.\n" +
+		                    "That Talisman paper at the storage room\n";
 		await ToSignal(GetTree().CreateTimer(5), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
-			"It looks like you’re trapped in some kind of\n" +
-			"purgatory realm, and I think I know what’s\n" +
-			"keeping you in here… ";
-		await ToSignal(GetTree().CreateTimer(7), "timeout");
+			"doesn’t work anymore doesn’t it? It was\n" +
+			"there for a reason,\n" +
+			"there’s something in there that’s doing this.";
+		await ToSignal(GetTree().CreateTimer(5), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
-			"I don’t know why she chose you,\n" +
-			"but if you wanna get out of here,\n" +
-			"you might have to confront her yourself.";
-		await ToSignal(GetTree().CreateTimer(7), "timeout");
+			"But to get out of a situation,\n" +
+			"you gotta understand what’s\n" +
+			"causing it first.";
+		await ToSignal(GetTree().CreateTimer(5), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
-			"But before you do that,\n" +
-			"you’ll have to go inside the storage room,\n" +
-			"there is something in there,\n" +
-			"something very important to her.\n" +
-			"It's the deepest part of her psyche,\n" +
-			"so you’ll have to go step-by-step.";
-		await ToSignal(GetTree().CreateTimer(7), "timeout");
+			"I’m sensing something cryptic on the 3rd floor…\n" +
+			"A lot of it too! But I think there’s\n" +
+			"only one of them that’s solvable!";
+		await ToSignal(GetTree().CreateTimer(5), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
-			"You’ll first have to go to the big room\n" +
-			"at the end of the 3rd floor. There,\n" +
-			"you will find a cryptex, the only\n" +
-			"cryptex you can open! As for the password…\n" +
-			"There might be clues in the other rooms\n" +
-			"that are related to it. Good luck!";
+			"You can look in the other rooms for\n" +
+			"the passcode clues. I’ll see if I can\n" +
+			"figure something out. Good luck\n" +
+			"on your part!";
 
 		Scene3FloorController.Instance.OnFinishFloor();
 	}

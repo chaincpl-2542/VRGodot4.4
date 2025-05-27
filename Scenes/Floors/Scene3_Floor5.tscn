@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://cghew80d8e872"]
+[gd_scene load_steps=69 format=4 uid="uid://cghew80d8e872"]
 
 [ext_resource type="Script" uid="uid://c4g00y14fo4ng" path="res://Scripts/Scene3FloorController.cs" id="1_1pypn"]
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="2_rf3u7"]
@@ -28,7 +28,6 @@
 [ext_resource type="AudioStream" uid="uid://bqw5oykfvjp4g" path="res://Sound/flickeringlight-90411.mp3" id="26_lwbmd"]
 [ext_resource type="ArrayMesh" uid="uid://c6544dt4ff37w" path="res://Models/ModelAssets/Free Sample/Export/Shelf-3.obj" id="27_1bkuw"]
 [ext_resource type="ArrayMesh" uid="uid://gj6p5bxgpf1k" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Carpet.obj" id="28_rvy0a"]
-[ext_resource type="PackedScene" uid="uid://duxle5aqh462g" path="res://PickableObject/book_menu.tscn" id="29_716ba"]
 [ext_resource type="PackedScene" uid="uid://d2qoc048ajgwg" path="res://Models/CleanModelTscn/student_bag.tscn" id="30_0054s"]
 [ext_resource type="PackedScene" uid="uid://bme1uh42lhaeo" path="res://PickableObject/book_2.tscn" id="31_lx0tv"]
 [ext_resource type="PackedScene" uid="uid://dwo1hjdkq5bqt" path="res://PickableObject/book2.tscn" id="32_o51rd"]
@@ -823,9 +822,6 @@ volume_db = -4.0
 stream = ExtResource("26_lwbmd")
 autoplay = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_utcyi")
-
 [node name="Shelf-10" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.384698, 0.923042, 1.68157e-08, 4.37114e-08, 1.91069e-15, -1, -0.923042, 0.384698, -4.03475e-08, -1.85757, 0.358515, 21.4076)
 mesh = ExtResource("27_1bkuw")
@@ -869,9 +865,6 @@ shape = SubResource("ConcavePolygonShape3D_utcyi")
 [node name="Carpet3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.567815, 0.456065, 1.32136e-08, 0, -3.29734e-08, 0.5, 0.430979, -0.600865, -1.74089e-08, -1.64347, -0.0196235, 13.0633)
 mesh = ExtResource("28_rvy0a")
-
-[node name="BookMenu" parent="." instance=ExtResource("29_716ba")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.86569, 0.826868, -6.6)
 
 [node name="StudentBag" parent="." instance=ExtResource("30_0054s")]
 transform = Transform3D(0.0244674, 0, -0.198498, 0, 0.2, 0, 0.198498, 0, 0.0244674, 1.67478, 0.706375, 14.1769)
