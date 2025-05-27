@@ -1,0 +1,124 @@
+[gd_scene load_steps=13 format=3 uid="uid://uhnj1xgnmy66"]
+
+[ext_resource type="Script" uid="uid://cpkarkkjxe5yb" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_xmbal"]
+[ext_resource type="Material" uid="uid://bx5sj0j2jlmkd" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper.tres" id="2_453f1"]
+[ext_resource type="ArrayMesh" uid="uid://dxiouqr50vdvn" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper_24.obj" id="3_hhn5v"]
+[ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="4_fxtsd"]
+[ext_resource type="AudioStream" uid="uid://bij5nrfimcitv" path="res://Sound/Daily3.mp3" id="5_453f1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7cyn"]
+size = Vector3(0.398193, 0.00509642, 0.570312)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cjd5"]
+emission_enabled = true
+emission = Color(0.41, 0.41, 0.41, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_8c7qs"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "     I’ve been thinking about dying. 
+
+     I want to finish this thing fast. There are so 
+many stories to tell, and things to do. But it’s not 
+ready. Not now. I need to keep working on 
+S.N.N.Y and L.O.A. I’m not good enough yet. 
+Dialogue is too melodramatic. The pacing sucks…
+
+     But if I die right now… How would people remember
+me? A walking contradiction? A theater kid who’s
+hiding herself from the audience.
+
+     Would anyone even find these notes if I’m gone? 
+
+     Would you even read all of this? 
+
+     Can my parents guess my password? 
+
+     Is reincarnation even real, or is it just 
+nothing? Nothing happens after.
+"
+font = ExtResource("4_fxtsd")
+font_size = 5
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_txdvc"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "1/2"
+font = ExtResource("4_fxtsd")
+font_size = 10
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_mxigw"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "2/2"
+font = ExtResource("4_fxtsd")
+font_size = 10
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_p5iea"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "     After all this time, I’m still in here the most.
+There's a Buddhist story that said strong
+attachment can affect a person’s last
+moments of consciousness before death,
+in ways that lead them to being reincarnated
+as some kind of animal or entity in
+anenvironment that the person was very
+attached to.
+
+     A monk can get reincarnated as a mite in 
+his yellow robe if he was attached to the 
+robe enough.
+
+     What would I become?"
+font = ExtResource("4_fxtsd")
+font_size = 5
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_c4yib"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "20/05/2019
+"
+font = ExtResource("4_fxtsd")
+font_size = 5
+horizontal_alignment = 0
+
+[node name="Daily03" type="RigidBody3D" node_paths=PackedStringArray("daily_audio")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_xmbal")
+is_daily = true
+daily_audio = NodePath("AudioStreamPlayer3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.00633, 0, 0, 0, 1.00633, 0, 0, 0, 1.00633, 0, 0.00348081, 0)
+shape = SubResource("BoxShape3D_l7cyn")
+
+[node name="Paper24" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.0559007, 0, 0, 0, 0.573084, 0, 0, 0)
+material_override = ExtResource("2_453f1")
+mesh = ExtResource("3_hhn5v")
+
+[node name="Text" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, -0.177219, 0.00466609, 8.80376e-10)
+mesh = SubResource("TextMesh_8c7qs")
+
+[node name="Text4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, 0.137444, 0.00466609, 0.267584)
+mesh = SubResource("TextMesh_txdvc")
+
+[node name="Text5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.25, -2.18557e-08, -2.53526e-09, 1.09278e-08, 4.77671e-16, -0.058, 2.18557e-08, -0.25, 1.1082e-16, -0.137651, -5.15016e-05, 0.267584)
+mesh = SubResource("TextMesh_mxigw")
+
+[node name="Text3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.25, -2.18557e-08, 2.2164e-16, 0, -1.09278e-08, -0.058, 2.18557e-08, -0.25, 2.53526e-09, 0.16592, -0.000338074, -0.100061)
+mesh = SubResource("TextMesh_p5iea")
+
+[node name="Text2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, 0.0851083, 0.00466609, -0.258102)
+mesh = SubResource("TextMesh_c4yib")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_453f1")

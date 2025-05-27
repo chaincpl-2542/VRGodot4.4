@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6lmxa377omv8"]
+
+[ext_resource type="Script" uid="uid://cpkarkkjxe5yb" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_ws7qt"]
+[ext_resource type="Material" uid="uid://bx5sj0j2jlmkd" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper.tres" id="2_ruf23"]
+[ext_resource type="ArrayMesh" uid="uid://dxiouqr50vdvn" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper_24.obj" id="3_kh6vv"]
+[ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="4_47w5p"]
+[ext_resource type="AudioStream" uid="uid://bna4c4ov4f6fe" path="res://Sound/Daily1.mp3" id="5_ruf23"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7cyn"]
+size = Vector3(0.398193, 0.00509642, 0.570312)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cjd5"]
+emission_enabled = true
+emission = Color(0.41, 0.41, 0.41, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_hum77"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "     I want to finish this by 2020.
+
+     I walked back and forth 8 times in the hallway,
+but I finally signed up for the drama arts club!
+
+     So, four lights (for now): key, fill, back,
+background. Combined 1 amp lights vs 76 amps
+school probably won’t start a fire, but I wanted to
+check anyway for safety’s sake.
+
+Also, stage light idea: use the school projector
+to create overlay images on the stage, it will 
+probably also allow me to create shadow puppet
+number countdown too, that would be pretty
+unique! I’ll try to make stencils. Maybe those
+other students would even think it’s cool. I know
+people say you shouldn’t care, and I don’t care
+about them, but…Why do I keep thinking about
+how they would react?
+
+     I’ve seen stage shows use lasers before,
+maybe this could add an interesting effect in a
+traditional Thai stage show! I think there’s one in
+the workshop room. "
+font = ExtResource("4_47w5p")
+font_size = 5
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_4cjd5"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "14/09/2018"
+font = ExtResource("4_47w5p")
+font_size = 5
+horizontal_alignment = 0
+
+[node name="Daily01" type="RigidBody3D" node_paths=PackedStringArray("daily_audio")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_ws7qt")
+is_daily = true
+daily_audio = NodePath("AudioStreamPlayer3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.00633, 0, 0, 0, 1.00633, 0, 0, 0, 1.00633, 0, 0.00348081, 0)
+shape = SubResource("BoxShape3D_l7cyn")
+
+[node name="Paper24" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.0559007, 0, 0, 0, 0.573084, 0, 0, 0)
+material_override = ExtResource("2_ruf23")
+mesh = ExtResource("3_kh6vv")
+
+[node name="Text" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, -0.177219, 0.00466609, 8.80376e-10)
+mesh = SubResource("TextMesh_hum77")
+
+[node name="Text2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, 0.0851083, 0.00466609, -0.258102)
+mesh = SubResource("TextMesh_4cjd5")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_ruf23")

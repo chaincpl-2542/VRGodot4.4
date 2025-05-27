@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://cukrs05v6up1q"]
+
+[ext_resource type="Script" uid="uid://cpkarkkjxe5yb" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_11nes"]
+[ext_resource type="Material" uid="uid://bx5sj0j2jlmkd" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper.tres" id="2_qi7vd"]
+[ext_resource type="ArrayMesh" uid="uid://dxiouqr50vdvn" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper_24.obj" id="3_onedn"]
+[ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="4_mpelo"]
+[ext_resource type="AudioStream" uid="uid://dftd3fds8rtyy" path="res://Sound/Daily2.mp3" id="5_qi7vd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7cyn"]
+size = Vector3(0.398193, 0.00509642, 0.570312)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cjd5"]
+emission_enabled = true
+emission = Color(0.41, 0.41, 0.41, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_uh11o"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "     Ok… This laser is way more powerful than I
+thought. Such a shame. Would’ve been great for
+the S.N.N.Y., can’t think of a real title just yet
+though.
+
+     I wrote all my ideas down in these papers, my
+phone, my tablet. I have 967 notes for the play by
+now, and I’ve never shared any single one to a
+single soul. But funnily enough, I've always
+imagined that you are reading this.
+
+     It’s not for you, but it is.
+
+     I keep doing this thing, as if I’m on stage,
+like there’s someone watching. Then Inotice
+I’m doing it. Then I notice the act of noticing
+that I’m doing it. And it just keeps going
+and I can’t stop it sometimes. Like layers
+that just keep building up.
+     There’s no one here. I know there’s no one
+here.But I can’t shake the feeling that you’re
+always watching. I’m watching myself
+through your eyes."
+font = ExtResource("4_mpelo")
+font_size = 5
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_fw0so"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "1/2"
+font = ExtResource("4_mpelo")
+font_size = 10
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_1vw8s"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "2/2"
+font = ExtResource("4_mpelo")
+font_size = 10
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_p4ha6"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "     …My ideas are still underbaked. I need to
+study more about traditional Thai dances at
+the library, so maybe I can come up with new
+ones for the play! Is that too lofty? I joined
+the club cause maybe I can feel safe enough
+to talk to people, but… I’m still hiding myself
+in the library. For now."
+font = ExtResource("4_mpelo")
+font_size = 5
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_grneu"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "01/10/2018
+"
+font = ExtResource("4_mpelo")
+font_size = 5
+horizontal_alignment = 0
+
+[node name="Daily02" type="RigidBody3D" node_paths=PackedStringArray("daily_audio")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_11nes")
+is_daily = true
+daily_audio = NodePath("AudioStreamPlayer3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.00633, 0, 0, 0, 1.00633, 0, 0, 0, 1.00633, 0, 0.00348081, 0)
+shape = SubResource("BoxShape3D_l7cyn")
+
+[node name="Paper24" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.0559007, 0, 0, 0, 0.573084, 0, 0, 0)
+material_override = ExtResource("2_qi7vd")
+mesh = ExtResource("3_onedn")
+
+[node name="Text" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, -0.177219, 0.00466609, 0.0147095)
+mesh = SubResource("TextMesh_uh11o")
+
+[node name="Text4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, 0.137444, 0.00466609, 0.267584)
+mesh = SubResource("TextMesh_fw0so")
+
+[node name="Text5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.25, -2.18557e-08, -2.53526e-09, 1.09278e-08, 4.77671e-16, -0.058, 2.18557e-08, -0.25, 1.1082e-16, -0.137651, -5.15016e-05, 0.267584)
+mesh = SubResource("TextMesh_1vw8s")
+
+[node name="Text3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.25, -2.18557e-08, 2.2164e-16, 0, -1.09278e-08, -0.058, 2.18557e-08, -0.25, 2.53526e-09, 0.16592, -0.000338078, -0.184235)
+mesh = SubResource("TextMesh_p4ha6")
+
+[node name="Text2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, 0.0851083, 0.00466609, -0.258102)
+mesh = SubResource("TextMesh_grneu")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_qi7vd")

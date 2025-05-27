@@ -1,10 +1,8 @@
-[gd_scene load_steps=138 format=4 uid="uid://box148mntjlle"]
+[gd_scene load_steps=134 format=4 uid="uid://box148mntjlle"]
 
 [ext_resource type="Script" uid="uid://dfqshe4brfxvb" path="res://Scripts/Scene4FloorController.cs" id="1_461ft"]
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="2_xxsgf"]
-[ext_resource type="PackedScene" uid="uid://c36w77w0d5rki" path="res://PickableObject/Daily.tscn" id="3_m0lqr"]
 [ext_resource type="Script" uid="uid://dcesawlra4w4v" path="res://Scripts/BlinkingLightDark.cs" id="3_yhnbb"]
-[ext_resource type="Material" uid="uid://bx5sj0j2jlmkd" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper.tres" id="4_4cjd5"]
 [ext_resource type="PackedScene" uid="uid://ccm70bu4r0y1s" path="res://Models/Board/board.tscn" id="4_p1u02"]
 [ext_resource type="PackedScene" uid="uid://brhvebkafgu56" path="res://Models/CleanModelTscn/paper.tscn" id="5_m1bbf"]
 [ext_resource type="PackedScene" uid="uid://dikrxbxrdty82" path="res://Models/CleanModelTscn/workshop_table.tscn" id="6_1bps0"]
@@ -100,40 +98,6 @@ albedo_color = Color(0.237322, 0.00900725, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8w1p6"]
 material = SubResource("StandardMaterial3D_l244x")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cjd5"]
-emission_enabled = true
-emission = Color(0.41, 0.41, 0.41, 1)
-
-[sub_resource type="TextMesh" id="TextMesh_hum77"]
-material = SubResource("StandardMaterial3D_4cjd5")
-text = "     I want to finish this by 2020.
-
-     I walked back and forth 8 times in the hallway,
-but I finally signed up for the drama arts club!
-
-     So, four lights (for now): key, fill, back,
-background. Combined 1 amp lights vs 76 amps
-school probably won’t start a fire, but I wanted to
-check anyway for safety’s sake.
-
-Also, stage light idea: use the school projector
-to create overlay images on the stage, it will 
-probably also allow me to create shadow puppet
-number countdown too, that would be pretty
-unique! I’ll try to make stencils. Maybe those
-other students would even think it’s cool. I know
-people say you shouldn’t care, and I don’t care
-about them, but…Why do I keep thinking about
-how they would react?
-
-     I’ve seen stage shows use lasers before,
-maybe this could add an interesting effect in a
-traditional Thai stage show! I think there’s one in
-the workshop room. "
-font = ExtResource("6_12kyy")
-font_size = 5
-horizontal_alignment = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faw17"]
 transparency = 2
@@ -535,9 +499,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hum77")
 
-[node name="Scene4_Floor3" type="Node3D" node_paths=PackedStringArray("_area")]
+[node name="Scene4_Floor3" type="Node3D"]
 script = ExtResource("1_461ft")
-_area = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.3784)
@@ -664,16 +627,6 @@ transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 
 
 [node name="DocumentsColored-7" parent="SimpleFloor/Board6" index="3"]
 transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, -0.652912, 0.803845, 0.117772)
-
-[node name="Daily" parent="SimpleFloor/Board6" index="4" instance=ExtResource("3_m0lqr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.46233, 0.146369, -9.87251)
-
-[node name="Paper24" parent="SimpleFloor/Board6/Daily" index="1"]
-material_override = ExtResource("4_4cjd5")
-
-[node name="Text" type="MeshInstance3D" parent="SimpleFloor/Board6/Daily"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.23129, 0, -1, -1.011e-08, -0.177219, 0.0155082, 0)
-mesh = SubResource("TextMesh_hum77")
 
 [node name="Board7" parent="SimpleFloor" index="16"]
 transform = Transform3D(-0.942525, 0.334136, -8.49105e-08, 0.334136, 0.942525, 1.46055e-08, 8.49105e-08, -1.46055e-08, -1, -9.61634, 0.664889, -6.91406)
@@ -1360,13 +1313,11 @@ transform = Transform3D(-0.0927029, 0, -0.177218, 0, 0.2, 0, 0.177218, 0, -0.092
 [node name="LaserReceiver" parent="LaserPuzzle/Safebox/Pivot/Cap" index="1" instance=ExtResource("9_q72ci")]
 transform = Transform3D(8, 0, -1.19209e-07, 0, 8, 0, 2.38419e-07, 0, 3, -0.784134, 6.18023, 1.08654)
 
-[node name="LaserReceiver" parent="LaserPuzzle/Safebox/Pivot/Cap/LaserReceiver/Body/ReceiverPoint" index="0" node_paths=PackedStringArray("CapPivot", "book", "rayCastlaser1", "rayCastlaser2", "_animPlayer")]
+[node name="LaserReceiver" parent="LaserPuzzle/Safebox/Pivot/Cap/LaserReceiver/Body/ReceiverPoint" index="0" node_paths=PackedStringArray("CapPivot", "book", "_animPlayer")]
 collision_layer = 65537
 collision_mask = 65537
 CapPivot = NodePath("../../../..")
 book = NodePath("../../../../../../../../Book")
-rayCastlaser1 = NodePath("../../../../../../../LaserGun/Laser1")
-rayCastlaser2 = NodePath("../../../../../../../../Mirror/RayCast3D")
 _animPlayer = NodePath("../../../../../../AnimationPlayer")
 
 [node name="LaserGun" type="MeshInstance3D" parent="LaserPuzzle"]
@@ -1577,7 +1528,7 @@ transform = Transform3D(3.63609e-09, -0.158306, 0.00428515, -0.0833595, -6.93437
 transform = Transform3D(-2.67379e-09, 0.11641, -0.0448818, -0.0833595, -6.93437e-09, -6.52912e-24, -2.47544e-09, 0.107774, 0.0484781, -5.62189, 1.02388, 16.5723)
 
 [node name="Pencil6" parent="." instance=ExtResource("33_q36wp")]
-transform = Transform3D(2.9691e-09, -0.129267, 0.0382962, -0.0833595, -6.93437e-09, -6.52912e-24, 2.11221e-09, -0.0919603, -0.0538322, -7.41375, 1.23589, 11.7127)
+transform = Transform3D(2.9691e-09, -0.129267, 0.0382962, -0.0833595, -6.93437e-09, -6.52912e-24, 2.11221e-09, -0.0919603, -0.0538322, -7.67121, 1.23589, 11.5442)
 
 [node name="Pencil7" parent="." instance=ExtResource("33_q36wp")]
 transform = Transform3D(-2.66336e-09, 0.115956, -0.0450853, -0.0833595, -6.93437e-09, -6.52912e-24, -2.48667e-09, 0.108263, 0.0482889, -7.024, 1.23589, 11.3398)
@@ -2738,7 +2689,6 @@ transform = Transform3D(-0.819952, 0, -0.572432, 0, 1, 0, 0.572432, 0, -0.819952
 
 [editable path="SimpleFloor"]
 [editable path="SimpleFloor/Board6"]
-[editable path="SimpleFloor/Board6/Daily"]
 [editable path="SimpleFloor/Door"]
 [editable path="SimpleFloor/Door2"]
 [editable path="SimpleFloor/Door3"]

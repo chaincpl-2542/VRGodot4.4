@@ -824,15 +824,13 @@ collision_mask = 65537
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7861, 32.4016)
 shape = SubResource("BoxShape3D_eiqug")
 
-[node name="EventAreaGhost" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostNode3D", "floorCheck", "_animPlayer", "_nodeArray")]
+[node name="EventAreaGhost" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostNode3D", "floorCheck")]
 visible = false
 script = ExtResource("27_i6vpu")
 _area = NodePath("Area3D")
 MaxTimer = 3.0
 ghostNode3D = NodePath("../Nang_Rum_1")
 floorCheck = NodePath("../EventAreaFloorCheck")
-_animPlayer = NodePath("../Nang_Rum_1/AnimationPlayer")
-_nodeArray = [NodePath("../SimpleFloor/Light01/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light04/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light05/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light02/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light03/Light01/OmniLight3D")]
 
 [node name="Area3D" type="Area3D" parent="EventAreaGhost"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.3784)
@@ -1074,24 +1072,31 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 
 [node name="Book6" parent="." instance=ExtResource("61_l5dep")]
 transform = Transform3D(0.765865, 0, 0.643001, 0, 1, 0, -0.643001, 0, 0.765865, 1.81961, 0.758232, 9.81708)
+is_daily = null
 
 [node name="Book7" parent="." instance=ExtResource("61_l5dep")]
 transform = Transform3D(0.765865, 0, 0.643001, 0, 1, 0, -0.643001, 0, 0.765865, 1.81961, 0.758232, 26.8266)
+is_daily = null
 
 [node name="Duck" parent="." instance=ExtResource("62_tptma")]
 transform = Transform3D(0.506831, 0, -0.862045, 0, 1, 0, 0.862045, 0, 0.506831, 1.86099, 0.764779, 10.9893)
+is_daily = null
 
 [node name="Glasses3" parent="." instance=ExtResource("63_pjhac")]
 transform = Transform3D(-0.373733, 0, -0.927536, 0, 1, 0, 0.927536, 0, -0.373733, 1.75055, 0.740132, 16.1845)
+is_daily = null
 
 [node name="Money" parent="." instance=ExtResource("64_b834s")]
 transform = Transform3D(0.958755, 0, 0.284233, 0, 1, 0, -0.284233, 0, 0.958755, 1.82348, 0.706559, 10.6724)
+is_daily = null
 
 [node name="Money2" parent="." instance=ExtResource("64_b834s")]
 transform = Transform3D(0.963626, 0, -0.267255, 0, 1, 0, 0.267255, 0, 0.963626, 1.70066, 0.706564, 10.8452)
+is_daily = null
 
 [node name="Phone3" parent="." instance=ExtResource("65_eaxfx")]
 transform = Transform3D(-0.570069, 0, -0.821597, 0, 1, 0, 0.821597, 0, -0.570069, 1.72379, 0.71883, 12.4547)
+is_daily = null
 
 [node name="StudentBag2" parent="." instance=ExtResource("45_8t5rh")]
 transform = Transform3D(-2.14569e-08, 0, -0.2, 0, 0.2, 0, 0.2, 0, -2.14569e-08, 1.9059, 0.688137, 30.189)
@@ -1478,15 +1483,19 @@ mesh = SubResource("ArrayMesh_lqr06")
 
 [node name="PizzaBox" parent="." instance=ExtResource("68_lqr06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78218, 0.797637, 27.7657)
+is_daily = null
 
 [node name="RedWater" parent="." instance=ExtResource("69_yed7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00969, 0.838755, 38.2821)
+is_daily = null
 
 [node name="SnackBar" parent="." instance=ExtResource("70_nq6bx")]
 transform = Transform3D(0.793693, 0, -0.608318, 0, 1, 0, 0.608318, 0, 0.793693, 1.68929, 0.725314, 44.6507)
+is_daily = null
 
 [node name="TeaDrink" parent="." instance=ExtResource("71_h11fi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96921, 0.771533, 39.5076)
+is_daily = null
 
 [editable path="SimpleFloor/Light01"]
 [editable path="SimpleFloor/Light04"]

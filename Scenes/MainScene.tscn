@@ -53,11 +53,11 @@ environment = SubResource("Environment_7rqgy")
 [node name="Scene1_Floor4" parent="." instance=ExtResource("4_7rqgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.195)
 
-[node name="Area3D" type="Area3D" parent="Scene1_Floor4"]
+[node name="Area3D2" type="Area3D" parent="Scene1_Floor4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.859781, 0)
 collision_mask = 65537
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scene1_Floor4/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scene1_Floor4/Area3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.418243, -0.12915)
 shape = SubResource("BoxShape3D_7rqgy")
 

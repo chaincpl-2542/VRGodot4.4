@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0f6ddai74xpl"]
+
+[ext_resource type="Script" uid="uid://cpkarkkjxe5yb" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_iroxm"]
+[ext_resource type="Material" uid="uid://bx5sj0j2jlmkd" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper.tres" id="2_8opkq"]
+[ext_resource type="ArrayMesh" uid="uid://dxiouqr50vdvn" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper_24.obj" id="3_eftby"]
+[ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="4_1dvy4"]
+[ext_resource type="AudioStream" uid="uid://djnlfjxrkoow6" path="res://Sound/Daily4.mp3" id="5_8opkq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7cyn"]
+size = Vector3(0.398193, 0.00509642, 0.570312)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cjd5"]
+emission_enabled = true
+emission = Color(0.41, 0.41, 0.41, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_04r6n"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "     I think I did it! Whoo! My own project to show
+to people. I think I have enough courage to talk
+to my club about this. Tomorrow afternoon, I’ll
+set up the lights and show them the script too.
+
+     All this time and you’re still here, you are the
+one that makes me think hard about the projects
+all the time. Improving it over and over again.
+
+     When this high is gone, will I realize it sucks? 
+Again?
+
+     Will you like it? And if you don't, will I still like it?
+
+     I don’t know anymore. 
+
+     I wish I could just stop thinking about you.
+
+     Audience in mind is such a curse. 
+
+     You’re haunting me, 
+     and I can’t live without you.
+"
+font = ExtResource("4_1dvy4")
+font_size = 5
+horizontal_alignment = 0
+
+[sub_resource type="TextMesh" id="TextMesh_fd856"]
+material = SubResource("StandardMaterial3D_4cjd5")
+text = "28/11/2019"
+font = ExtResource("4_1dvy4")
+font_size = 5
+horizontal_alignment = 0
+
+[node name="Daily04" type="RigidBody3D" node_paths=PackedStringArray("daily_audio")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_iroxm")
+is_daily = true
+daily_audio = NodePath("AudioStreamPlayer3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.00633, 0, 0, 0, 1.00633, 0, 0, 0, 1.00633, 0, 0.00348081, 0)
+shape = SubResource("BoxShape3D_l7cyn")
+
+[node name="Paper24" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.0559007, 0, 0, 0, 0.573084, 0, 0, 0)
+material_override = ExtResource("2_8opkq")
+mesh = ExtResource("3_eftby")
+
+[node name="Text" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, -0.177219, 0.00466609, 8.80376e-10)
+mesh = SubResource("TextMesh_04r6n")
+
+[node name="Text2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.058, 0, -0.25, -2.53526e-09, 0.0851083, 0.00466609, -0.258102)
+mesh = SubResource("TextMesh_fd856")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_8opkq")

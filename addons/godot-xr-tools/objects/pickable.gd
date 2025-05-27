@@ -2,7 +2,6 @@
 class_name XRToolsPickable
 extends RigidBody3D
 
-
 ## XR Tools Pickable Object
 ##
 ## This script allows a [RigidBody3D] to be picked up by an
@@ -115,6 +114,25 @@ var _highlighted : bool = false
 @onready var original_collision_mask : int = collision_mask
 @onready var original_collision_layer : int = collision_layer
 
+@export var is_daily: bool = false
+@export var daily_audio: AudioStreamPlayer3D
+var _was_held := false
+
+func _process(delta):
+	if not is_daily:
+		return
+
+	var is_held = is_picked_up()
+
+	if is_held and not _was_held:
+		if daily_audio and not daily_audio.playing:
+			daily_audio.play()
+
+	elif not is_held and _was_held:
+		if daily_audio and daily_audio.playing:
+			daily_audio.stop()
+
+	_was_held = is_held
 
 # Add support for is_xr_class on XRTools classes
 func is_xr_class(name : String) -> bool:
