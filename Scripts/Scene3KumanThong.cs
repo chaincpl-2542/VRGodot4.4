@@ -11,14 +11,25 @@ public partial class Scene3KumanThong : BaseFloorController
 	[Export] public AudioStreamPlayer3D LaughSound;
 	[Export] public AudioStreamPlayer3D ClueSound;
 
+	[Export] public AudioStreamPlayer3D KumanSound1;
+	[Export] public AudioStreamPlayer3D KumanSound2;
+	[Export] public AudioStreamPlayer3D KumanSound3;
+
+	[Export] public Area3D areaTrigger;
+	[Export] public Node3D kumanParent;
+	
 	private TextMesh dialogueText;
 	private bool _triggered = false;
+	private bool _firstTriggered = false;
 
 	public override void _Ready()
 	{
+		kumanParent.Visible = false;
 		SetProcess(true);
 		dialogueText = dialogue.Mesh as TextMesh;
+		areaTrigger.Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
 		area.Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
+		dialogueText.Text = "";
 	}
 
 	public override void _Input(InputEvent @event)
@@ -45,6 +56,14 @@ public partial class Scene3KumanThong : BaseFloorController
 
 			SimulateOffering();
 		}
+		
+		if (body.IsInGroup("Player") && !_firstTriggered)
+		{
+			_firstTriggered = true;
+			GD.Print("Player triggered!");
+			kumanParent.Visible = true;
+			ShowHint();
+		}
 	}
 
 	private void SimulateOffering()
@@ -52,6 +71,16 @@ public partial class Scene3KumanThong : BaseFloorController
 		OfferSound?.Play();
 		LaughSound?.Play();
 		ShowHintDelay();
+	}
+
+	private async void ShowHint()
+	{
+		await ToSignal(GetTree().CreateTimer(5), "timeout2");
+		KumanSound1?.Play();
+		dialogueText.Text =
+			"I am not the one doing this. \n" +
+			"I can help you, but first \n" +
+			"please give me something to drink.";
 	}
 
 	private async void ShowHintDelay()

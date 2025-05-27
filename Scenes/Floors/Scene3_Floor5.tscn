@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://cghew80d8e872"]
+[gd_scene load_steps=72 format=4 uid="uid://cghew80d8e872"]
 
 [ext_resource type="Script" uid="uid://c4g00y14fo4ng" path="res://Scripts/Scene3FloorController.cs" id="1_1pypn"]
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="2_rf3u7"]
@@ -8,8 +8,11 @@
 [ext_resource type="Material" uid="uid://e781x18efxo7" path="res://Models/KuManThong/KuManThong.tres" id="6_ql8dy"]
 [ext_resource type="Texture2D" uid="uid://lfh6l3vmyvo7" path="res://Models/KuManThong/Guman Tong_3_Color.png" id="7_kc07e"]
 [ext_resource type="AudioStream" uid="uid://bksqsvijjffoe" path="res://Sound/Hit_Anvil.wav" id="8_4eoc2"]
+[ext_resource type="AudioStream" uid="uid://bwkdv3lcjl4fp" path="res://Sound/Kuman1.mp3" id="9_50eiv"]
 [ext_resource type="AudioStream" uid="uid://dopovomi56uin" path="res://Sound/Horror Kid Laugh (Layered with Echo) - Sound Effect for editing.wav" id="9_w7imd"]
+[ext_resource type="AudioStream" uid="uid://oml6rh62go45" path="res://Sound/Kuman2.mp3" id="10_0ufsh"]
 [ext_resource type="ArrayMesh" uid="uid://bgne7aoj26tun" path="res://Models/Light01.vox" id="10_ye1u8"]
+[ext_resource type="AudioStream" uid="uid://evdqbqv1y4xn" path="res://Sound/Kuman3.mp3" id="11_ql8dy"]
 [ext_resource type="PackedScene" uid="uid://4bh5bvr6jtpr" path="res://Models/Door/Door.tscn" id="11_rxbic"]
 [ext_resource type="PackedScene" uid="uid://brhvebkafgu56" path="res://Models/CleanModelTscn/paper.tscn" id="12_blvcm"]
 [ext_resource type="PackedScene" uid="uid://skrc2vmekdxb" path="res://Models/CleanModelTscn/memo_paper.tscn" id="13_hukd6"]
@@ -97,9 +100,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jalhk")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u6agb"]
-size = Vector3(1, 1.62518, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5k57"]
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -109,6 +109,9 @@ material = SubResource("StandardMaterial3D_f5k57")
 text = "I am not the one doing this. 
 I can help you, but first 
 please give me something to drink."
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u6agb"]
+size = Vector3(2.2522, 1.62518, 4.35352)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_31cuc"]
 size = Vector3(14.8738, 4.06842, 1)
@@ -277,16 +280,22 @@ omni_attenuation = 2.336
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.1857, 1.20686, 4.3957)
 collision_layer = 65541
 picked_up_layer = 65537
+second_hand_grab = 0
 
-[node name="Kuman Tong_3" type="Node3D" parent="SimpleFloor" node_paths=PackedStringArray("area", "offerNode3D", "dialogue", "OfferSound", "LaughSound", "ClueSound")]
-transform = Transform3D(0.998326, 0, -0.0578427, 0, 1, 0, 0.0578427, 0, 0.998326, -8.26926, 0.105958, -6.31888)
+[node name="Kuman Tong_3" type="Node3D" parent="SimpleFloor" node_paths=PackedStringArray("area", "offerNode3D", "dialogue", "OfferSound", "LaughSound", "ClueSound", "KumanSound1", "KumanSound2", "KumanSound3", "areaTrigger", "kumanParent")]
+transform = Transform3D(0.999302, 0, -0.0373761, 0, 1, 0, 0.0373761, 0, 0.999302, -8.26926, 1.04148, -6.31888)
 script = ExtResource("5_0ufsh")
 area = NodePath("Area3D")
 offerNode3D = NodePath("../PickableObject")
-dialogue = NodePath("DialogueText")
+dialogue = NodePath("Guman Tong_3_001/DialogueText")
 OfferSound = NodePath("OfferSound")
 LaughSound = NodePath("LaughSound")
 ClueSound = NodePath("ClueSound")
+KumanSound1 = NodePath("KumanSound1")
+KumanSound2 = NodePath("KumanSound2")
+KumanSound3 = NodePath("KumanSound3")
+areaTrigger = NodePath("AreaTrigger")
+kumanParent = NodePath("Guman Tong_3_001")
 
 [node name="Guman Tong_3_001" type="MeshInstance3D" parent="SimpleFloor/Kuman Tong_3"]
 transform = Transform3D(0.2, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, -4.76837e-07, 0)
@@ -294,7 +303,20 @@ material_override = ExtResource("6_ql8dy")
 mesh = SubResource("ArrayMesh_oye2x")
 skeleton = NodePath("")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="SimpleFloor/Kuman Tong_3/Guman Tong_3_001"]
+transform = Transform3D(5, 2.96038e-16, 0, -1.49012e-08, -1.74845e-07, -4, -4.44089e-16, 4, -1.74845e-07, 0.0472984, -1.01188, 1.61912)
+light_color = Color(1, 0.686275, 0.117647, 1)
+light_energy = 0.191
+omni_range = 2.297
+omni_attenuation = 5.69
+
+[node name="DialogueText" type="MeshInstance3D" parent="SimpleFloor/Kuman Tong_3/Guman Tong_3_001"]
+transform = Transform3D(5, 5.55111e-16, 9.31323e-10, -1.49012e-08, -1.74845e-07, -0.211507, 0, 4, -9.24523e-09, 0, -4.76837e-07, 6.82172)
+mesh = SubResource("TextMesh_3fasx")
+skeleton = NodePath("../..")
+
 [node name="Area3D" type="Area3D" parent="SimpleFloor/Kuman Tong_3"]
+transform = Transform3D(1, 1.10945e-16, 7.45058e-09, 1.62837e-16, 1, -3.55271e-15, 0, -4.14959e-18, 1, 0, 0, 0)
 collision_layer = 65537
 collision_mask = 65537
 
@@ -302,9 +324,32 @@ collision_mask = 65537
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.312592, 0)
 shape = SubResource("BoxShape3D_u6agb")
 
-[node name="DialogueText" type="MeshInstance3D" parent="SimpleFloor/Kuman Tong_3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.0528768, 0, 1.70543, 0)
-mesh = SubResource("TextMesh_3fasx")
+[node name="AreaTrigger" type="Area3D" parent="SimpleFloor/Kuman Tong_3"]
+transform = Transform3D(1, 2.21889e-16, 1.11759e-08, 3.25674e-16, 1, -7.10543e-15, 0, -8.29917e-18, 1, 0, 0, 0)
+collision_layer = 65537
+collision_mask = 65537
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SimpleFloor/Kuman Tong_3/AreaTrigger"]
+transform = Transform3D(0.999991, 0, 9.31323e-08, 5.39984e-21, 1, -2.79389e-20, -2.45869e-07, 0, 0.999991, -0.626096, 0.312592, 1.67676)
+shape = SubResource("BoxShape3D_u6agb")
+
+[node name="KumanSound1" type="AudioStreamPlayer3D" parent="SimpleFloor/Kuman Tong_3"]
+transform = Transform3D(-0.0578427, 0, 0.998325, 0, 1, 0, -0.998325, 0, -0.0578427, 0, 0, 0)
+stream = ExtResource("9_50eiv")
+volume_db = -5.0
+max_distance = 5.0
+
+[node name="KumanSound2" type="AudioStreamPlayer3D" parent="SimpleFloor/Kuman Tong_3"]
+transform = Transform3D(-0.0578427, 0, 0.998325, 0, 1, 0, -0.998325, 0, -0.0578427, 0, 0, 0)
+stream = ExtResource("10_0ufsh")
+volume_db = -5.0
+max_distance = 5.0
+
+[node name="KumanSound3" type="AudioStreamPlayer3D" parent="SimpleFloor/Kuman Tong_3"]
+transform = Transform3D(-0.0578427, 0, 0.998325, 0, 1, 0, -0.998325, 0, -0.0578427, 0, 0, 0)
+stream = ExtResource("11_ql8dy")
+volume_db = -5.0
+max_distance = 5.0
 
 [node name="OfferSound" type="AudioStreamPlayer3D" parent="SimpleFloor/Kuman Tong_3"]
 transform = Transform3D(-0.0578427, 0, 0.998325, 0, 1, 0, -0.998325, 0, -0.0578427, -7.79596, -0.0059581, 1.97311)
@@ -637,15 +682,19 @@ transform = Transform3D(-0.216303, 0, -0.976326, 0, 1, 0, 0.976326, 0, -0.216303
 
 [node name="Calculator" parent="SimpleFloor" instance=ExtResource("15_nqrgx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.35204, 0.119078, 4.7326)
+second_hand_grab = 0
 
 [node name="Calculator2" parent="SimpleFloor" instance=ExtResource("15_nqrgx")]
 transform = Transform3D(0.661731, 0, 0.749742, 0, 1, 0, -0.749742, 0, 0.661731, -4.58435, 1.07792, 4.78426)
+second_hand_grab = 0
 
 [node name="Coffee" parent="SimpleFloor" instance=ExtResource("16_dt0s3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.98621, 1.136, 4.84642)
+second_hand_grab = 0
 
 [node name="EnergyDrick" parent="SimpleFloor" instance=ExtResource("17_q47a0")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.52286, 0.195665, 3.59757)
+second_hand_grab = 0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.373257, 22.64)
@@ -874,27 +923,35 @@ transform = Transform3D(-0.0636992, 0, -0.189585, 0, 0.2, 0, 0.189585, 0, -0.063
 
 [node name="Book5" parent="." instance=ExtResource("31_lx0tv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80902, 0.752626, 9.79551)
+second_hand_grab = 0
 
 [node name="Book6" parent="." instance=ExtResource("32_o51rd")]
 transform = Transform3D(0.765865, 0, 0.643001, 0, 1, 0, -0.643001, 0, 0.765865, 1.81961, 0.83493, 9.81258)
+second_hand_grab = 0
 
 [node name="Book7" parent="." instance=ExtResource("31_lx0tv")]
 transform = Transform3D(0.766426, 0, -0.642333, 0, 1, 0, 0.642333, 0, 0.766426, 1.81574, 0.928409, 9.79411)
+second_hand_grab = 0
 
 [node name="Book8" parent="." instance=ExtResource("32_o51rd")]
 transform = Transform3D(1, 0, 0.000872672, 0, 1, 0, -0.000872672, 0, 1, 1.81289, 1.01071, 9.81399)
+second_hand_grab = 0
 
 [node name="Duck" parent="." instance=ExtResource("33_51qqh")]
 transform = Transform3D(0.506831, 0, -0.862045, 0, 1, 0, 0.862045, 0, 0.506831, 1.86099, 0.764779, 10.9893)
+second_hand_grab = 0
 
 [node name="Money" parent="." instance=ExtResource("34_v43lp")]
 transform = Transform3D(0.958755, 0, 0.284233, 0, 1, 0, -0.284233, 0, 0.958755, 1.82348, 0.706559, 10.6724)
+second_hand_grab = 0
 
 [node name="Money2" parent="." instance=ExtResource("34_v43lp")]
 transform = Transform3D(0.963626, 0, -0.267255, 0, 1, 0, 0.267255, 0, 0.963626, 1.70066, 0.706564, 10.8452)
+second_hand_grab = 0
 
 [node name="Phone3" parent="." instance=ExtResource("35_yj8wo")]
 transform = Transform3D(-0.570069, 0, -0.821597, 0, 1, 0, 0.821597, 0, -0.570069, 1.72379, 0.71883, 12.4547)
+second_hand_grab = 0
 
 [node name="Dirt-10" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -4.07883, -0.0168994, 10.3079)
@@ -1550,15 +1607,19 @@ mesh = SubResource("ArrayMesh_ns60u")
 
 [node name="Bat" parent="." instance=ExtResource("37_v1iul")]
 transform = Transform3D(0.0944457, -0.02124, 0.995303, -0.0384703, 0.998948, 0.0249683, -0.994786, -0.0406477, 0.0935292, -5.47386, 0.516078, 9.54453)
+second_hand_grab = 0
 
 [node name="BoxBrown" parent="." instance=ExtResource("38_ciqo5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43071, 0.220953, 9.80107)
+second_hand_grab = 0
 
 [node name="BoxBrown2" parent="." instance=ExtResource("38_ciqo5")]
 transform = Transform3D(0.879906, 0, -0.475148, 0, 1, 0, 0.475148, 0, 0.879906, -9.98674, 0.220953, 10.3909)
+second_hand_grab = 0
 
 [node name="EnergyDrick" parent="." instance=ExtResource("17_q47a0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6436, 1.62882, 13.5657)
+second_hand_grab = 0
 
 [node name="Fridge" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.34641, 0.2, 1.31134e-08, -8.47033e-23, -1.74846e-08, 0.6, 0.2, 0.34641, 2.27131e-08, -9.70903, 1.68216, 13.117)
@@ -1578,51 +1639,67 @@ transform = Transform3D(3.01992e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, 3.01992e-08, -1
 
 [node name="Book" parent="." instance=ExtResource("32_o51rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07928, 1.8192, 10.7575)
+second_hand_grab = 0
 
 [node name="Book2" parent="." instance=ExtResource("31_lx0tv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.11951, 0.742477, 13.3772)
+second_hand_grab = 0
 
 [node name="Burger" parent="." instance=ExtResource("42_intlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.07699, 0.0864275, 9.7813)
+second_hand_grab = 0
 
 [node name="Camera" parent="." instance=ExtResource("43_ex6wo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10416, 0.0847658, 14.0613)
+second_hand_grab = 0
 
 [node name="Chocolate" parent="." instance=ExtResource("44_74w18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36347, 0.0150397, 14.8311)
+second_hand_grab = 0
 
 [node name="Cola" parent="." instance=ExtResource("45_cl6dn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.77816, 0.0794986, 10.8617)
+second_hand_grab = 0
 
 [node name="Duck2" parent="." instance=ExtResource("33_51qqh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.87424, 0.0589391, 13.2039)
+second_hand_grab = 0
 
 [node name="EnergyDrick2" parent="." instance=ExtResource("17_q47a0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.24096, 0.095665, 11.6078)
+second_hand_grab = 0
 
 [node name="Food" parent="." instance=ExtResource("46_purmc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27581, 0.0186654, 9.94159)
+second_hand_grab = 0
 
 [node name="GameBoy" parent="." instance=ExtResource("47_lnhfy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.73674, 0.0308795, 12.6482)
+second_hand_grab = 0
 
 [node name="HotDog" parent="." instance=ExtResource("48_8buvr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.64691, 0.0819383, 9.88567)
+second_hand_grab = 0
 
 [node name="Milk" parent="." instance=ExtResource("49_pxyk2")]
 transform = Transform3D(1, 0, 0, 0, 0.965804, 0.259274, 0, -0.259274, 0.965804, -6.69754, 1.17836, 13.6545)
+second_hand_grab = 0
 
 [node name="Milk2" parent="." instance=ExtResource("50_u6i0q")]
 transform = Transform3D(0.945325, -0.326129, 0, 0.326129, 0.945325, 0, 0, 0, 1, -5.65687, 1.26829, 10.9319)
+second_hand_grab = 0
 
 [node name="PizzaBox" parent="." instance=ExtResource("51_arjj4")]
 transform = Transform3D(0.672302, 0, -0.740277, 0, 1, 0, 0.740277, 0, 0.672302, -5.81392, 0.830451, 13.2648)
+second_hand_grab = 0
 
 [node name="Pizza" parent="." instance=ExtResource("52_mwbcw")]
 transform = Transform3D(0.920129, 0.391615, 0, -0.391615, 0.920129, 0, 0, 0, 1, -5.80855, 0.599717, 10.1993)
+second_hand_grab = 0
 
 [node name="SnackBar" parent="." instance=ExtResource("53_u0oby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17926, 0.0229838, 14.3902)
+second_hand_grab = 0
 
 [node name="AirConditioner_4" parent="." instance=ExtResource("54_rf3u7")]
 transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, -11.3099, 3.18457, 12.6047)

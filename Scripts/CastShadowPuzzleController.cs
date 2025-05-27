@@ -14,8 +14,8 @@ public partial class CastShadowPuzzleController : Node3D
 
 	private HashSet<string> activeDirections = new HashSet<string>();
 
-	private AudioStreamPlayer3D RotateStartSound;
-	private AudioStreamPlayer3D RotateLoopSound;
+	[Export] public AudioStreamPlayer3D RotateStartSound;
+	[Export] public AudioStreamPlayer3D RotateLoopSound;
 
 	private bool wasRotatingLastFrame = false;
 	private bool puzzleSolved = false;

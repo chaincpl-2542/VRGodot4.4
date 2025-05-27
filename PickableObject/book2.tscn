@@ -4,14 +4,14 @@
 [ext_resource type="ArrayMesh" uid="uid://qt07ilbpcjw4" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Book.obj" id="2_jkphn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8vbi3"]
-size = Vector3(0.422363, 0.0595703, 0.285278)
+size = Vector3(0.31723, 0.0465088, 0.203613)
 
 [node name="Book" instance=ExtResource("1_n3ivx")]
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00317383, 0, 0.00320434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00541684, 0.000793457, -0.0195007)
 shape = SubResource("BoxShape3D_8vbi3")
 
 [node name="Book" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, -0.100665)
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, -0.100665)
 mesh = ExtResource("2_jkphn")

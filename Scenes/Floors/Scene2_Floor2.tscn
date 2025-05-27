@@ -824,13 +824,17 @@ collision_mask = 65537
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7861, 32.4016)
 shape = SubResource("BoxShape3D_eiqug")
 
-[node name="EventAreaGhost" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostNode3D", "floorCheck")]
+[node name="EventAreaGhost" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostNode3D", "floorCheck", "_animPlayer", "_nodeArray", "FlickerLights", "GhostSound")]
 visible = false
 script = ExtResource("27_i6vpu")
 _area = NodePath("Area3D")
 MaxTimer = 3.0
 ghostNode3D = NodePath("../Nang_Rum_1")
 floorCheck = NodePath("../EventAreaFloorCheck")
+_animPlayer = NodePath("../Nang_Rum_1/AnimationPlayer")
+_nodeArray = [NodePath("../SimpleFloor/Light03/Light03/OmniLight3D"), NodePath("../SimpleFloor/Light03/Light02/OmniLight3D"), NodePath("../SimpleFloor/Light03/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light02/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light05/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light04/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light01/Light01/OmniLight3D")]
+FlickerLights = [NodePath("../SimpleFloor/Light03/Light03/OmniLight3D"), NodePath("../SimpleFloor/Light03/Light02/OmniLight3D"), NodePath("../SimpleFloor/Light03/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light02/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light05/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light04/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light01/Light01/OmniLight3D")]
+GhostSound = NodePath("../Nang_Rum_1/AudioStreamPlayer3D3")
 
 [node name="Area3D" type="Area3D" parent="EventAreaGhost"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.3784)

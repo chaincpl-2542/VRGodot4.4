@@ -70,7 +70,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xv5vg"]
-size = Vector3(1.65625, 0.700684, 1.80078)
+size = Vector3(1.65625, 0.700684, 2.11084)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3geoe"]
 size = Vector3(0.085968, 2.38025, 2.25684)
@@ -112,9 +112,11 @@ libraries = {
 next/Close = &"RESET"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 65537
+collision_mask = 65537
 
 [node name="FloorCollision" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.149658, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.149658, -0.15503)
 shape = SubResource("BoxShape3D_xv5vg")
 
 [node name="WallCollision" type="CollisionShape3D" parent="StaticBody3D"]

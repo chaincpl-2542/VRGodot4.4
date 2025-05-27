@@ -3,15 +3,13 @@ using System;
 
 public partial class Scene1FloorController : BaseFloorController
 {
-	private Area3D _area;
+	[Export] public Area3D _area;
 	private double _timer = 0f;
 	private bool _playerInside = false;
 	private bool _isTrigger = false;
 	
 	public override void _Ready()
 	{
-		_area = GetNode<Area3D>("Area3D");
-
 		_area.Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
 		_area.Connect("body_exited", new Callable(this, nameof(OnBodyExited)));
 		SetProcess(true);
