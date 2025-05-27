@@ -92,14 +92,14 @@ public partial class Scene3KumanThong : BaseFloorController
 		                    "It looks like you’re trapped in some\n" +
 		                    "kind of purgatory mental realm.\n" +
 		                    "That Talisman paper at the storage room\n";
-		await ToSignal(GetTree().CreateTimer(5), "timeout");
+		await ToSignal(GetTree().CreateTimer(11.5), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
 			"doesn’t work anymore doesn’t it? It was\n" +
 			"there for a reason,\n" +
 			"there’s something in there that’s doing this.";
-		await ToSignal(GetTree().CreateTimer(5), "timeout");
+		await ToSignal(GetTree().CreateTimer(7), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
@@ -113,7 +113,7 @@ public partial class Scene3KumanThong : BaseFloorController
 			"I’m sensing something cryptic on the 3rd floor…\n" +
 			"A lot of it too! But I think there’s\n" +
 			"only one of them that’s solvable!";
-		await ToSignal(GetTree().CreateTimer(5), "timeout");
+		await ToSignal(GetTree().CreateTimer(9), "timeout");
 
 		ClueSound?.Play();
 		dialogueText.Text =
@@ -121,6 +121,7 @@ public partial class Scene3KumanThong : BaseFloorController
 			"the passcode clues. I’ll see if I can\n" +
 			"figure something out. Good luck\n" +
 			"on your part!";
+		await ToSignal(GetTree().CreateTimer(8), "timeout");
 
 		Scene3FloorController.Instance.OnFinishFloor();
 	}
