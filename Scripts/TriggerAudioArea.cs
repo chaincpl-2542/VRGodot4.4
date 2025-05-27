@@ -4,6 +4,7 @@ public partial class TriggerAudioArea : Area3D
 {
     [Export] public AudioStreamPlayer3D Audio;
     [Export] public Node3D DialogText;
+    private bool isPlay = false;
 
     public override void _Ready()
     {
@@ -14,10 +15,14 @@ public partial class TriggerAudioArea : Area3D
     {
         if (body.IsInGroup("Player"))
         {
-            if (Audio != null && !Audio.Playing)
+            if (!isPlay)
             {
-                Audio.Play();
-                DialogText.Visible = true;
+                if (Audio != null && !Audio.Playing)
+                {
+                    Audio.Play();
+                    DialogText.Visible = true;
+                    isPlay = true;
+                }
             }
         }
     }
