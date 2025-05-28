@@ -23,7 +23,11 @@ public partial class CryptexController : Node3D
 
 	[Export] public float delay = 3.0f;
 	[Export] public PackedScene keyCard;
+	[Export] public PackedScene dailyNote;
 
+	[Export] public Node3D keyCardSpawnPoint;
+	[Export] public Node3D dailyNoteSpawnPoint;
+	
 	// 🔊 Sound Effects
 	[Export] public AudioStreamPlayer3D TickSound;
 	[Export] public AudioStreamPlayer3D UnlockSound;
@@ -123,6 +127,12 @@ public partial class CryptexController : Node3D
 			Node3D cardInstance = keyCard.Instantiate<Node3D>();
 			GetParent().AddChild(cardInstance);
 			cardInstance.GlobalTransform = this.GlobalTransform;
+		}
+
+		if (dailyNote != null)
+		{
+			Node3D noteInstance = dailyNote.Instantiate<Node3D>();
+			GetParent().AddChild(noteInstance);
 		}
 	}
 

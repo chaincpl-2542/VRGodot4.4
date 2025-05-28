@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class BookShelfInteraction : Node
+public partial class BookShelfInteraction : Node3D
 {
 	[Export] public Node3D BookNode;
 	[Export] public Area3D area;

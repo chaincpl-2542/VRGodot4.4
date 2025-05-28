@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmvbg6icmjpkq"]
+
+[ext_resource type="Material" uid="uid://ckqw7vfn4ut2a" path="res://addons/godot-xr-tools/materials/EmitWhite.tres" id="1_6wrvm"]
+[ext_resource type="Material" uid="uid://cs3vnatjcr1s" path="res://addons/godot-xr-tools/materials/EmitYellow.tres" id="2_i4x7u"]
+
+[sub_resource type="Curve" id="Curve_ssirh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.23605, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2xbvh"]
+curve = SubResource("Curve_ssirh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1pnhb"]
+emission_shape_scale = Vector3(0.3, 0.3, 0.3)
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 0.999998
+radial_accel_max = 0.999998
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_2xbvh")
+
+[sub_resource type="BoxMesh" id="BoxMesh_h5xi8"]
+material = ExtResource("1_6wrvm")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_02jbs"]
+emission_shape_scale = Vector3(0.3, 0.3, 0.3)
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 0.999998
+radial_accel_max = 0.999998
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_2xbvh")
+
+[sub_resource type="BoxMesh" id="BoxMesh_p6js5"]
+material = ExtResource("2_i4x7u")
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="SpawnParticle" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 200
+lifetime = 0.7
+one_shot = true
+visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
+process_material = SubResource("ParticleProcessMaterial_1pnhb")
+draw_pass_1 = SubResource("BoxMesh_h5xi8")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.7
+one_shot = true
+visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
+process_material = SubResource("ParticleProcessMaterial_02jbs")
+draw_pass_1 = SubResource("BoxMesh_p6js5")

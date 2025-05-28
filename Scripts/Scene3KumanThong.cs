@@ -60,7 +60,6 @@ public partial class Scene3KumanThong : BaseFloorController
 		if (body.IsInGroup("Player") && !_firstTriggered)
 		{
 			_firstTriggered = true;
-			GD.Print("Player triggered!");
 			kumanParent.Visible = true;
 			ShowHint();
 		}
@@ -73,9 +72,8 @@ public partial class Scene3KumanThong : BaseFloorController
 		ShowHintDelay();
 	}
 
-	private async void ShowHint()
+	private void ShowHint()
 	{
-		await ToSignal(GetTree().CreateTimer(5), "timeout2");
 		KumanSound1?.Play();
 		dialogueText.Text =
 			"I am not the one doing this. \n" +
@@ -86,36 +84,32 @@ public partial class Scene3KumanThong : BaseFloorController
 	private async void ShowHintDelay()
 	{
 		dialogueText.Text = string.Empty;
-
-		ClueSound?.Play();
+		KumanSound2?.Play();
 		dialogueText.Text = "Ahh! Thanks! Alright, listen carefully.\n" +
 		                    "It looks like you’re trapped in some\n" +
 		                    "kind of purgatory mental realm.\n" +
 		                    "That Talisman paper at the storage room\n";
-		await ToSignal(GetTree().CreateTimer(11.5), "timeout");
+		await ToSignal(GetTree().CreateTimer(12), "timeout");
 
-		ClueSound?.Play();
 		dialogueText.Text =
 			"doesn’t work anymore doesn’t it? It was\n" +
 			"there for a reason,\n" +
 			"there’s something in there that’s doing this.";
-		await ToSignal(GetTree().CreateTimer(7), "timeout");
+		await ToSignal(GetTree().CreateTimer(7.5), "timeout");
 
-		ClueSound?.Play();
 		dialogueText.Text =
 			"But to get out of a situation,\n" +
 			"you gotta understand what’s\n" +
 			"causing it first.";
 		await ToSignal(GetTree().CreateTimer(5), "timeout");
-
-		ClueSound?.Play();
+		
+		KumanSound3?.Play();
 		dialogueText.Text =
 			"I’m sensing something cryptic on the 3rd floor…\n" +
 			"A lot of it too! But I think there’s\n" +
 			"only one of them that’s solvable!";
 		await ToSignal(GetTree().CreateTimer(9), "timeout");
 
-		ClueSound?.Play();
 		dialogueText.Text =
 			"You can look in the other rooms for\n" +
 			"the passcode clues. I’ll see if I can\n" +

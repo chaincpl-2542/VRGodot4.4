@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MysticSymbolPickup : Node
+public partial class MysticSymbolPickup : Node3D
 {
 	[Export] public Node RootNode;
 	[Export] public Area3D area;
