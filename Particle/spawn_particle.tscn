@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmvbg6icmjpkq"]
+[gd_scene load_steps=10 format=3 uid="uid://dmvbg6icmjpkq"]
 
 [ext_resource type="Material" uid="uid://ckqw7vfn4ut2a" path="res://addons/godot-xr-tools/materials/EmitWhite.tres" id="1_6wrvm"]
+[ext_resource type="Script" uid="uid://c2abg7vr3ugwn" path="res://Scripts/PlayParticle.cs" id="1_cqttu"]
 [ext_resource type="Material" uid="uid://cs3vnatjcr1s" path="res://addons/godot-xr-tools/materials/EmitYellow.tres" id="2_i4x7u"]
 
 [sub_resource type="Curve" id="Curve_ssirh"]
@@ -41,6 +42,7 @@ material = ExtResource("2_i4x7u")
 size = Vector3(0.2, 0.2, 0.2)
 
 [node name="SpawnParticle" type="Node3D"]
+script = ExtResource("1_cqttu")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false

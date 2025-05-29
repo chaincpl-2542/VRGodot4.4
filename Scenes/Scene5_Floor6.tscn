@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://do7fn1eakgnci"]
+[gd_scene load_steps=100 format=4 uid="uid://do7fn1eakgnci"]
 
 [ext_resource type="Script" uid="uid://bmnjq5edyvf4x" path="res://Scripts/Scene5FloorController.cs" id="1_yspnc"]
 [ext_resource type="PackedScene" uid="uid://c3ynhdje3m5r3" path="res://Models/Classroom/class_room.tscn" id="2_vat50"]
@@ -37,7 +37,9 @@
 [ext_resource type="Material" uid="uid://c7smjhndbot3a" path="res://Materials/Number.tres" id="30_7djjy"]
 [ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="31_72eoj"]
 [ext_resource type="AudioStream" uid="uid://da5nf0h4xp4wp" path="res://Sound/Ominous Suspense Music - Silent Shadows.wav" id="33_3jjic"]
+[ext_resource type="PackedScene" uid="uid://chku4rmwfl5p7" path="res://Particle/pickup_particle.tscn" id="33_aoqjn"]
 [ext_resource type="PackedScene" uid="uid://byc817nbfg7oj" path="res://PickableObject/Book.tscn" id="34_ebm1h"]
+[ext_resource type="PackedScene" uid="uid://uhnj1xgnmy66" path="res://PickableObject/daily_03.tscn" id="35_6mjf5"]
 [ext_resource type="PackedScene" uid="uid://dwo1hjdkq5bqt" path="res://PickableObject/book2.tscn" id="37_afinc"]
 [ext_resource type="Texture2D" uid="uid://bi7flkdlqqm4v" path="res://Models/ModelAssets/Free Sample/Export/Bunker - Free Sample-80-Dirt-10.png" id="37_q257d"]
 [ext_resource type="PackedScene" uid="uid://bme1uh42lhaeo" path="res://PickableObject/book_2.tscn" id="38_6flq3"]
@@ -2376,9 +2378,8 @@ skeleton = NodePath("")
 [node name="BlueBook_6" type="Node3D" parent="BookShelfInteraction/InsertBookshelf/Book3"]
 transform = Transform3D(0.338407, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
-[node name="Script" type="Node3D" parent="BookShelfInteraction/InsertBookshelf/Book3" node_paths=PackedStringArray("RootNode", "area")]
+[node name="Script" type="Node3D" parent="BookShelfInteraction/InsertBookshelf/Book3" node_paths=PackedStringArray("area")]
 script = ExtResource("26_stt4t")
-RootNode = NodePath("")
 area = NodePath("../Area3D")
 
 [node name="Area3D" type="Area3D" parent="BookShelfInteraction/InsertBookshelf/Book3"]
@@ -2449,6 +2450,9 @@ shape = SubResource("BoxShape3D_spun6")
 transform = Transform3D(-3.64262e-08, 0, 0.833333, 0, 0.833333, 0, -0.833333, 0, -3.64262e-08, 0, 0, 0)
 stream = ExtResource("24_nkeua")
 
+[node name="Daily03" parent="." instance=ExtResource("35_6mjf5")]
+transform = Transform3D(-0.983132, 0, 0.182905, -3.55271e-15, 1, 0, -0.182905, 1.06581e-14, -0.98313, 13.1196, 1.25368, 46.0899)
+
 [node name="WorkshopTable" parent="." instance=ExtResource("17_6c666")]
 transform = Transform3D(-0.235, 0, 1.43884e-08, 0, 0.235, 0, -2.05444e-08, 0, -0.164584, 13.5436, 0.00747412, 46.383)
 
@@ -2482,11 +2486,24 @@ shape = SubResource("ConcavePolygonShape3D_w0qiy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.95, -0.0506897)
 mesh = SubResource("BoxMesh_83i8a")
 
-[node name="MysticSymblo" type="Node3D" parent="WorkshopTable" node_paths=PackedStringArray("RootNode", "area")]
+[node name="MysticSymblo" type="Node3D" parent="WorkshopTable" node_paths=PackedStringArray("RootNode", "area", "particle", "particleNode")]
 transform = Transform3D(-4.25532, -3.72013e-07, 1.62612e-14, 0, -1.86006e-07, -4.25532, 5.31176e-07, -6.07592, 2.65587e-07, 0, 5.308, 1.23297)
 script = ExtResource("25_72eoj")
 RootNode = NodePath(".")
 area = NodePath("Area3D")
+particle = NodePath("PickupParticle")
+particleNode = NodePath("PickupParticle/GPUParticles3D")
+
+[node name="PickupParticle" parent="WorkshopTable/MysticSymblo" node_paths=PackedStringArray("Particles1", "Particles2") instance=ExtResource("33_aoqjn")]
+transform = Transform3D(-1, 1.4593e-13, 8.74231e-08, -8.74231e-08, -1.31134e-07, -1, -1.34466e-13, -1, 1.31134e-07, 0, -0.192886, 0)
+Particles1 = NodePath("GPUParticles3D")
+Particles2 = NodePath("GPUParticles3D2")
+
+[node name="GPUParticles3D2" parent="WorkshopTable/MysticSymblo/PickupParticle" index="1"]
+emitting = true
+
+[node name="MeshInstance3D" parent="WorkshopTable/MysticSymblo/PickupParticle" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.21, 0, 0.2, 0)
 
 [node name="NewMysticSymblo" parent="WorkshopTable/MysticSymblo" instance=ExtResource("18_yspnc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.317963, 0)
@@ -3279,3 +3296,5 @@ transform = Transform3D(-2.14569e-08, 0, -0.2, 0, 0.2, 0, 0.2, 0, -2.14569e-08, 
 
 [node name="StudentBag3" parent="." instance=ExtResource("51_32smn")]
 transform = Transform3D(-0.2, -8.74228e-09, 3.01992e-08, 3.01992e-08, 3.82137e-16, 0.2, -8.74228e-09, 0.2, 9.37912e-16, 1.9059, 0.837753, 46.7023)
+
+[editable path="WorkshopTable/MysticSymblo/PickupParticle"]

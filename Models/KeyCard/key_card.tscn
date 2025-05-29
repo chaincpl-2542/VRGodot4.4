@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="2_1vpia"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bmugq"]
-size = Vector3(0.3, 0.15, 0.01)
+size = Vector3(0.3, 0.15, 0.0214844)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a8vfh"]
 size = Vector3(0.3, 0.15, 0.01)
@@ -29,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 0.994263, 0.106958, 0, -0.106958, 0.994263, 
 picked_up_layer = 65537
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000687018, 2.98023e-08, 6.79493e-05)
+transform = Transform3D(0.8, 0, 0, 0, 0.799998, 2.68221e-07, 0, -2.68221e-07, 0.799998, -0.000687018, 2.98019e-08, 6.79494e-05)
 shape = SubResource("BoxShape3D_bmugq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" index="0"]

@@ -11,7 +11,6 @@ public partial class Scene6FloorController : BaseFloorController
 	
 	public override void _Ready()
 	{
-		_area = null;
 		if (Instance == null)
 		{
 			Instance = this;

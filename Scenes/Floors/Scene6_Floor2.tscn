@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=4 uid="uid://c8rvtqfnkv2h5"]
+[gd_scene load_steps=105 format=4 uid="uid://c8rvtqfnkv2h5"]
 
 [ext_resource type="Script" uid="uid://b27xntabce4uk" path="res://Scripts/Scene6FloorController.cs" id="1_f8poe"]
 [ext_resource type="PackedScene" uid="uid://c3ynhdje3m5r3" path="res://Models/Classroom/class_room.tscn" id="2_yoxqy"]
@@ -53,6 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://dxvocfau8o35b" path="res://Models/CleanModelTscn/new_mystic_symblo.tscn" id="50_5thcb"]
 [ext_resource type="Material" uid="uid://dpkjuqnek1j32" path="res://Materials/Mark.tres" id="51_t8gjh"]
 [ext_resource type="Material" uid="uid://c7smjhndbot3a" path="res://Materials/Number.tres" id="53_f8poe"]
+[ext_resource type="PackedScene" uid="uid://chku4rmwfl5p7" path="res://Particle/pickup_particle.tscn" id="53_y4iq3"]
 [ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="54_pcrto"]
 [ext_resource type="AudioStream" uid="uid://c0fccpwoitun8" path="res://Sound/Dark Ambient Sound Effects - Scary Horror Sound Effects & Eerie Ambient Sounds.wav" id="55_pcrto"]
 [ext_resource type="Texture2D" uid="uid://bi7flkdlqqm4v" path="res://Models/ModelAssets/Free Sample/Export/Bunker - Free Sample-80-Dirt-10.png" id="56_x3qqh"]
@@ -1165,12 +1166,14 @@ skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 transform = Transform3D(-2.18557e-08, -0.1, 2.64193e-16, 0.098709, -8.62941e-10, 0.49016, -0.49016, 4.28511e-09, 0.098709, 2.0169, 1.7192, 3.36589)
 skeleton = NodePath("../DoorSymbol/Pivot/Door7")
 
-[node name="DoorSymbol" type="Node3D" parent="." node_paths=PackedStringArray("symbolNode3D", "area", "animationPlayer")]
+[node name="DoorSymbol" type="Node3D" parent="." node_paths=PackedStringArray("symbolNode3D", "area", "animationPlayer", "particle", "particleNode")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177183, -0.0100004, 62.6239)
 script = ExtResource("50_0a576")
 symbolNode3D = NodePath("Pivot/Door7/Area3D/NewMysticSymblo")
 area = NodePath("Pivot/Door7/Area3D")
 animationPlayer = NodePath("Pivot/Door7/AnimationPlayer")
+particle = NodePath("Pivot/Door7/Area3D/Mark/PickupParticle")
+particleNode = NodePath("Pivot/Door7/Area3D/Mark/PickupParticle")
 
 [node name="Pivot" type="Node3D" parent="DoorSymbol"]
 transform = Transform3D(0.699663, 0, -0.714473, 0, 1, 0, 0.714473, 0, 0.699663, -0.501288, -2.98023e-08, -0.616276)
@@ -1193,14 +1196,24 @@ transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.063720
 shape = SubResource("BoxShape3D_t8gjh")
 
 [node name="NewMysticSymblo" parent="DoorSymbol/Pivot/Door7/Area3D" instance=ExtResource("50_5thcb")]
-transform = Transform3D(0.8, 0, 8.9407e-08, 0, 0.8, 0, -8.9407e-08, 0, 0.8, 0.059267, -0.32783, -0.342743)
-visible = false
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0.0552902, -0.230704, -0.356983)
 
 [node name="Mark" type="Node3D" parent="DoorSymbol/Pivot/Door7/Area3D"]
 transform = Transform3D(0.8, 0, 1.19209e-07, 0, 0.8, 0, -1.19209e-07, 0, 0.8, -0.000234604, -0.32783, -0.506218)
 
+[node name="PickupParticle" parent="DoorSymbol/Pivot/Door7/Area3D/Mark" node_paths=PackedStringArray("Particles1", "Particles2") instance=ExtResource("53_y4iq3")]
+transform = Transform3D(-1.24993, 0, -0.0130903, 0, 1.25, 0, 0.0130903, 0, -1.24993, 0.0670929, 0.25857, 0.0144157)
+Particles1 = NodePath("GPUParticles3D")
+Particles2 = NodePath("GPUParticles3D2")
+
+[node name="MeshInstance3D" parent="DoorSymbol/Pivot/Door7/Area3D/Mark/PickupParticle" index="2"]
+visible = false
+
+[node name="AnimationPlayer" parent="DoorSymbol/Pivot/Door7/Area3D/Mark/PickupParticle" index="3"]
+root_node = NodePath("../../../../../..")
+
 [node name="NewMysticSymblo_2_001" type="MeshInstance3D" parent="DoorSymbol/Pivot/Door7/Area3D/Mark"]
-transform = Transform3D(0.2, 0, -2.22045e-16, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 0.0775452, -2.38419e-07, 0.213051)
+transform = Transform3D(0.15, 0, -2.22045e-16, 0, -6.55671e-09, 0.15, 0, -0.15, -6.55671e-09, 0.0686684, 0.0674324, 0.194748)
 material_override = ExtResource("51_t8gjh")
 mesh = SubResource("ArrayMesh_0a576")
 skeleton = NodePath("")
@@ -1526,3 +1539,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96921, 0.771533, 39.5076)
 [editable path="SimpleFloor/Book3"]
 [editable path="SimpleFloor/StudentBag"]
 [editable path="SimpleFloor/Board8"]
+[editable path="DoorSymbol/Pivot/Door7/Area3D/Mark/PickupParticle"]

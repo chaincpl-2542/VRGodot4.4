@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://cghew80d8e872"]
+[gd_scene load_steps=80 format=4 uid="uid://cghew80d8e872"]
 
 [ext_resource type="Script" uid="uid://c4g00y14fo4ng" path="res://Scripts/Scene3FloorController.cs" id="1_1pypn"]
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="2_rf3u7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bdhrn8etx58n2" path="res://Scripts/BlinkingLight.cs" id="4_50eiv"]
 [ext_resource type="Script" uid="uid://f3wjrcxt2cm3" path="res://Scripts/Scene3KumanThong.cs" id="5_0ufsh"]
 [ext_resource type="Material" uid="uid://e781x18efxo7" path="res://Models/KuManThong/KuManThong.tres" id="6_ql8dy"]
+[ext_resource type="PackedScene" uid="uid://dmvbg6icmjpkq" path="res://Particle/spawn_particle.tscn" id="7_4eoc2"]
 [ext_resource type="Texture2D" uid="uid://lfh6l3vmyvo7" path="res://Models/KuManThong/Guman Tong_3_Color.png" id="7_kc07e"]
 [ext_resource type="AudioStream" uid="uid://bksqsvijjffoe" path="res://Sound/Hit_Anvil.wav" id="8_4eoc2"]
 [ext_resource type="AudioStream" uid="uid://p3f0y53ijfmo" path="res://Sound/Kuman1Wav.wav" id="9_50eiv"]
@@ -112,12 +113,6 @@ text = "I am not the one doing this.
 I can help you, but first 
 please give me something to drink."
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_50eiv"]
-size = Vector3(0.879883, 1.62518, 1.08398)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_u6agb"]
-size = Vector3(2.2522, 1.62518, 4.35352)
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50eiv"]
 emission_shape_scale = Vector3(0.3, 0.3, 0.3)
 emission_shape = 2
@@ -141,6 +136,12 @@ scale_max = 0.3
 [sub_resource type="BoxMesh" id="BoxMesh_w7imd"]
 material = ExtResource("15_kc07e")
 size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_50eiv"]
+size = Vector3(0.879883, 1.62518, 1.08398)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u6agb"]
+size = Vector3(2.2522, 1.62518, 4.35352)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_31cuc"]
 size = Vector3(14.8738, 4.06842, 1)
@@ -311,7 +312,7 @@ collision_layer = 65541
 picked_up_layer = 65537
 second_hand_grab = 0
 
-[node name="Kuman Tong_3" type="Node3D" parent="SimpleFloor" node_paths=PackedStringArray("area", "offerNode3D", "dialogue", "OfferSound", "LaughSound", "ClueSound", "KumanSound1", "KumanSound2", "KumanSound3", "areaTrigger", "kumanParent")]
+[node name="Kuman Tong_3" type="Node3D" parent="SimpleFloor" node_paths=PackedStringArray("area", "offerNode3D", "dialogue", "OfferSound", "LaughSound", "ClueSound", "KumanSound1", "KumanSound2", "KumanSound3", "areaTrigger", "kumanParent", "particle")]
 transform = Transform3D(0.999302, 0, -0.0373761, 0, 1, 0, 0.0373761, 0, 0.999302, -8.26926, 1.04148, -6.31888)
 script = ExtResource("5_0ufsh")
 area = NodePath("Area3D")
@@ -325,9 +326,16 @@ KumanSound2 = NodePath("KumanSound2")
 KumanSound3 = NodePath("KumanSound3")
 areaTrigger = NodePath("AreaTrigger")
 kumanParent = NodePath("Guman Tong_3_001")
+particle = NodePath("SpawnParticle")
+
+[node name="SpawnParticle" parent="SimpleFloor/Kuman Tong_3" node_paths=PackedStringArray("Particles1", "Particles2") instance=ExtResource("7_4eoc2")]
+transform = Transform3D(0.9993, 0, 0.037376, 0, 1, 0, -0.037376, 0, 0.9993, 0, 0.351082, 0)
+Particles1 = NodePath("GPUParticles3D")
+Particles2 = NodePath("GPUParticles3D2")
 
 [node name="Guman Tong_3_001" type="MeshInstance3D" parent="SimpleFloor/Kuman Tong_3"]
 transform = Transform3D(0.15, 0, 0, 0, -8.21774e-09, 0.188, 0, -0.188, -8.21774e-09, 0, -4.76837e-07, 0)
+visible = false
 material_override = ExtResource("6_ql8dy")
 mesh = SubResource("ArrayMesh_oye2x")
 skeleton = NodePath("")
@@ -343,6 +351,20 @@ omni_attenuation = 5.69
 transform = Transform3D(5, 5.55111e-16, 9.31323e-10, -1.49012e-08, -1.74845e-07, -0.211507, 0, 4, -9.24523e-09, 0, -4.76837e-07, 6.82172)
 mesh = SubResource("TextMesh_3fasx")
 skeleton = NodePath("../..")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="SimpleFloor/Kuman Tong_3/Guman Tong_3_001"]
+transform = Transform3D(6.66667, -6.54414e-16, 0, -1.49012e-08, -2.32507e-07, -5.31915, 0, 5.31915, -2.32507e-07, 0, 0, 2.38419e-06)
+amount = 30
+visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
+process_material = SubResource("ParticleProcessMaterial_50eiv")
+draw_pass_1 = SubResource("BoxMesh_ql8dy")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="SimpleFloor/Kuman Tong_3/Guman Tong_3_001"]
+transform = Transform3D(6.66667, -6.54414e-16, 0, -1.49012e-08, -2.32507e-07, -5.31915, 0, 5.31915, -2.32507e-07, 0, 0, 2.38419e-06)
+amount = 30
+visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
+process_material = SubResource("ParticleProcessMaterial_kc07e")
+draw_pass_1 = SubResource("BoxMesh_w7imd")
 
 [node name="Area3D" type="Area3D" parent="SimpleFloor/Kuman Tong_3"]
 transform = Transform3D(1, 1.10945e-16, 7.45058e-09, 1.62837e-16, 1, -3.55271e-15, 0, -4.14959e-18, 1, 0, 0, 0)
@@ -366,19 +388,19 @@ shape = SubResource("BoxShape3D_u6agb")
 transform = Transform3D(-0.0578427, 0, 0.998325, 0, 1, 0, -0.998325, 0, -0.0578427, 0, 0, 0)
 stream = ExtResource("9_50eiv")
 volume_db = -5.0
-max_distance = 10.0
+max_distance = 20.0
 
 [node name="KumanSound2" type="AudioStreamPlayer3D" parent="SimpleFloor/Kuman Tong_3"]
 transform = Transform3D(-0.0578427, 0, 0.998325, 0, 1, 0, -0.998325, 0, -0.0578427, 0, 0, 0)
 stream = ExtResource("10_0ufsh")
 volume_db = -5.0
-max_distance = 10.0
+max_distance = 20.0
 
 [node name="KumanSound3" type="AudioStreamPlayer3D" parent="SimpleFloor/Kuman Tong_3"]
 transform = Transform3D(-0.0578427, 0, 0.998325, 0, 1, 0, -0.998325, 0, -0.0578427, 0, 0, 0)
 stream = ExtResource("11_ql8dy")
 volume_db = -5.0
-max_distance = 10.0
+max_distance = 20.0
 
 [node name="OfferSound" type="AudioStreamPlayer3D" parent="SimpleFloor/Kuman Tong_3"]
 transform = Transform3D(-0.0578427, 0, 0.998325, 0, 1, 0, -0.998325, 0, -0.0578427, -7.79596, -0.0059581, 1.97311)
@@ -394,18 +416,6 @@ volume_db = 5.0
 transform = Transform3D(-0.0578427, 0, 0.998325, 0, 1, 0, -0.998325, 0, -0.0578427, -7.79596, -0.0059581, 1.97311)
 stream = ExtResource("8_4eoc2")
 volume_db = -4.0
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="SimpleFloor/Kuman Tong_3"]
-amount = 30
-visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
-process_material = SubResource("ParticleProcessMaterial_50eiv")
-draw_pass_1 = SubResource("BoxMesh_ql8dy")
-
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="SimpleFloor/Kuman Tong_3"]
-amount = 30
-visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
-process_material = SubResource("ParticleProcessMaterial_kc07e")
-draw_pass_1 = SubResource("BoxMesh_w7imd")
 
 [node name="Light06" type="MeshInstance3D" parent="SimpleFloor"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.32436, 3.71921, 2.56586)
@@ -1756,4 +1766,5 @@ transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 
 [editable path="SimpleFloor/Light02"]
 [editable path="SimpleFloor/Light03"]
 [editable path="SimpleFloor/PickableObject"]
+[editable path="SimpleFloor/Kuman Tong_3/SpawnParticle"]
 [editable path="SimpleFloor/Door8"]

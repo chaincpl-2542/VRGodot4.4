@@ -17,6 +17,8 @@ public partial class Scene3KumanThong : BaseFloorController
 
 	[Export] public Area3D areaTrigger;
 	[Export] public Node3D kumanParent;
+
+	[Export] public PlayParticle particle;
 	
 	private TextMesh dialogueText;
 	private bool _triggered = false;
@@ -74,6 +76,9 @@ public partial class Scene3KumanThong : BaseFloorController
 
 	private void ShowHint()
 	{
+		particle.Visible = true;
+		particle.PlayMyParticle();
+		particle.PlayAllParticles();
 		KumanSound1?.Play();
 		dialogueText.Text =
 			"I am not the one doing this. \n" +

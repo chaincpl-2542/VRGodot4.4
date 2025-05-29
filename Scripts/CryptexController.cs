@@ -31,6 +31,8 @@ public partial class CryptexController : Node3D
 	// 🔊 Sound Effects
 	[Export] public AudioStreamPlayer3D TickSound;
 	[Export] public AudioStreamPlayer3D UnlockSound;
+	
+	[Export] public CollisionShape3D CollisionShape;
 
 	private bool _isUnlocked = false;
 
@@ -107,7 +109,7 @@ public partial class CryptexController : Node3D
 		_isUnlocked = true;
 
 		GD.Print("🔓 Cryptex Unlocked! You got the key!");
-
+		CollisionShape.Hide();
 		UnlockSound?.Play();
 
 		// Disable buttons
@@ -126,13 +128,14 @@ public partial class CryptexController : Node3D
 		{
 			Node3D cardInstance = keyCard.Instantiate<Node3D>();
 			GetParent().AddChild(cardInstance);
-			cardInstance.GlobalTransform = this.GlobalTransform;
+			cardInstance.GlobalTransform = dailyNoteSpawnPoint.GlobalTransform;
 		}
 
 		if (dailyNote != null)
 		{
 			Node3D noteInstance = dailyNote.Instantiate<Node3D>();
 			GetParent().AddChild(noteInstance);
+			noteInstance.GlobalTransform = dailyNoteSpawnPoint.GlobalTransform;
 		}
 	}
 

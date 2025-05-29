@@ -5,7 +5,9 @@ public partial class BookPickup : Node3D
 {
 	[Export] public Node RootNode;
 	[Export] public Area3D area;
-
+	[Export] public PlayParticle particle;
+	[Export] public Node3D particleNode;
+	
 	public override void _Ready()
 	{
 		area.Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
@@ -16,6 +18,9 @@ public partial class BookPickup : Node3D
 		if (body.IsInGroup("PlayerHand"))
 		{
 			GD.Print("Picked up: " + RootNode.Name);
+			particleNode.Show();
+			particle.PlayAllParticles();
+			particle.PlayMyParticle();
 			Scene4FloorController.Instance.OnFinishFloor();
 			RootNode.QueueFree();
 		}

@@ -9,7 +9,7 @@ points = PackedVector3Array(-0.407936, -0.00792563, -0.507937, 0.378533, 0.1, 0.
 transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Paper" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.540497, 0, 0, 0, -0.131012, -0.247353, 0, 0.488945, -0.0662781, 0, 0, 0)
+transform = Transform3D(0.540497, 0, 0, 0, -2.21264e-08, -0.256079, 0, 0.506193, -1.11936e-08, 0, 0, 0)
 mesh = ExtResource("1_ytrnw")
 skeleton = NodePath("../StaticBody3D")
 
