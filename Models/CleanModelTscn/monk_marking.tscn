@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs6u63e0efjwy"]
+[gd_scene load_steps=6 format=3 uid="uid://bs6u63e0efjwy"]
 
 [ext_resource type="Texture2D" uid="uid://syefiqw8fa7r" path="res://Models/3D - Vox Cleaner Edited (No Character)/Poster&Picture/MonkMarking/MonkMarking_35_Color.png" id="1_yiay8"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_1rdgy"]
 [ext_resource type="ArrayMesh" uid="uid://bw4bo8p2kkj71" path="res://Models/3D - Vox Cleaner Edited (No Character)/Poster&Picture/MonkMarking/MonkMarking_35.obj" id="2_mka7d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdoqa"]
@@ -13,6 +14,7 @@ points = PackedVector3Array(-0.609524, -0.00932258, -0.509524, 0.55873, 0.976199
 
 [node name="MonkMarking" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_gdoqa")
+material_overlay = ExtResource("2_1rdgy")
 mesh = ExtResource("2_mka7d")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

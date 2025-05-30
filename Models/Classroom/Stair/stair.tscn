@@ -45,70 +45,84 @@ shape = SubResource("BoxShape3D_s5thw")
 
 [node name="Lable7" type="MeshInstance3D" parent="LableGroup" index="0"]
 transform = Transform3D(-1.05373e-07, 0.116606, -1.78307e-08, 0, -5.09702e-09, -0.407919, -2.41065, -5.09702e-09, 7.79405e-16, -3.04683, 7.49787, -7.10317)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable8" type="MeshInstance3D" parent="LableGroup" index="1"]
 transform = Transform3D(-4.65946e-08, 0.116606, -1.98337e-08, 0, -5.09702e-09, -0.453743, -1.06596, -5.09702e-09, 8.66961e-16, -3.04683, 7.97607, -5.36219)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable11" type="MeshInstance3D" parent="LableGroup" index="2"]
 transform = Transform3D(-4.0979e-08, 0.116606, -1.78307e-08, 0, -5.09702e-09, -0.407919, -0.93749, -5.09702e-09, 7.79405e-16, 3.04203, 7.50749, -6.24642)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable12" type="MeshInstance3D" parent="LableGroup" index="3"]
 transform = Transform3D(-4.0979e-08, 0.116606, -1.78307e-08, 0, -5.09702e-09, -0.407919, -0.93749, -5.09702e-09, 7.79405e-16, 3.04203, 7.01773, -5.68234)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable13" type="MeshInstance3D" parent="LableGroup" index="4"]
 transform = Transform3D(-4.0979e-08, 0.116606, -1.78307e-08, 0, -5.09702e-09, -0.407919, -0.93749, -5.09702e-09, 7.79405e-16, 3.04203, 6.52138, -4.97072)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable14" type="MeshInstance3D" parent="LableGroup" index="5"]
 transform = Transform3D(-4.0979e-08, 0.116606, -1.78307e-08, 0, -5.09702e-09, -0.407919, -0.93749, -5.09702e-09, 7.79405e-16, 3.04203, 6.03203, -4.27742)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable15" type="MeshInstance3D" parent="LableGroup" index="6"]
 transform = Transform3D(-2.12781e-07, 0.116606, -1.78307e-08, 0, -5.09702e-09, -0.407919, -4.86786, -5.09702e-09, 7.79405e-16, 3.04203, 5.52267, -2.23189)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable17" type="MeshInstance3D" parent="LableGroup" index="7"]
 transform = Transform3D(-2.12781e-07, 0.116606, -1.78307e-08, 0, -5.09702e-09, -0.407919, -4.86786, -5.09702e-09, 7.79405e-16, -3.03806, 5.51873, -2.23189)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable16" type="MeshInstance3D" parent="LableGroup" index="8"]
 transform = Transform3D(6.76958, 0, 0, 0, -5.09702e-09, -0.407919, 0, 0.116606, -1.78307e-08, 0.31759, 5.52267, -0.117763)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable18" type="MeshInstance3D" parent="LableGroup" index="9"]
 transform = Transform3D(-2.12781e-07, 0.116606, -1.78307e-08, 0, -5.09702e-09, -0.407919, -4.86786, -5.09702e-09, 7.79405e-16, 3.04203, 9.50116, -2.03426)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable19" type="MeshInstance3D" parent="LableGroup" index="10"]
 transform = Transform3D(-2.12781e-07, 0.116606, -1.78307e-08, 0, -5.09702e-09, -0.407919, -4.86786, -5.09702e-09, 7.79405e-16, -3.03806, 9.49722, -1.34534)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable20" type="MeshInstance3D" parent="LableGroup" index="11"]
 transform = Transform3D(6.22089, 0, 0, 0, -5.09702e-09, -0.407919, 0, 0.116606, -1.78307e-08, 0.177148, 9.50116, -0.0782599)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable9" type="MeshInstance3D" parent="LableGroup" index="12"]
 transform = Transform3D(-4.65946e-08, 0.116606, -1.98337e-08, 0, -5.09702e-09, -0.453743, -1.06596, -5.09702e-09, 8.66961e-16, -3.04683, 8.53334, -4.65821)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")
 
 [node name="Lable10" type="MeshInstance3D" parent="LableGroup" index="13"]
 transform = Transform3D(-4.65946e-08, 0.116606, -1.98337e-08, 0, -5.09702e-09, -0.453743, -1.06596, -5.09702e-09, 8.66961e-16, -3.03705, 9.07217, -3.94608)
+material_overlay = ExtResource("3_s5thw")
 mesh = SubResource("BoxMesh_bhkdg")
 skeleton = NodePath("../..")

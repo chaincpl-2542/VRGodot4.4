@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://csob8h6dhyge6"]
+
+[ext_resource type="PackedScene" uid="uid://b7tkwy80t4c6d" path="res://Models/Airconditioner/AirConditioner_4.fbx" id="1_livw0"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_y30ln"]
+
+[node name="AirConditioner_4" instance=ExtResource("1_livw0")]
+
+[node name="AirConditioner_4_001" parent="." index="0"]
+material_overlay = ExtResource("2_y30ln")

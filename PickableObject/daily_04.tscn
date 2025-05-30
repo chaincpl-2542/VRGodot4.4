@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0f6ddai74xpl"]
+[gd_scene load_steps=13 format=3 uid="uid://c0f6ddai74xpl"]
 
 [ext_resource type="Script" uid="uid://cpkarkkjxe5yb" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_iroxm"]
 [ext_resource type="Material" uid="uid://bx5sj0j2jlmkd" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper.tres" id="2_8opkq"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_eftby"]
 [ext_resource type="ArrayMesh" uid="uid://dxiouqr50vdvn" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper_24.obj" id="3_eftby"]
 [ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="4_1dvy4"]
 [ext_resource type="AudioStream" uid="uid://djnlfjxrkoow6" path="res://Sound/Daily4.mp3" id="5_8opkq"]
@@ -71,22 +72,26 @@ shape = SubResource("BoxShape3D_l7cyn")
 
 [node name="Text" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(0.248427, 8.88178e-16, 6.61744e-24, 0, -1.08591e-08, 0.0576352, 8.88178e-16, -0.248427, -2.51931e-09, -0.176104, 0.00117782, 8.74838e-10)
+material_overlay = ExtResource("2_eftby")
 mesh = SubResource("TextMesh_04r6n")
 skeleton = NodePath("../..")
 
 [node name="Text2" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(0.248427, 8.88178e-16, 6.61744e-24, 0, -1.08591e-08, 0.0576352, 8.88178e-16, -0.248427, -2.51931e-09, 0.084573, 0.00117782, -0.256478)
+material_overlay = ExtResource("2_eftby")
 mesh = SubResource("TextMesh_fd856")
 skeleton = NodePath("../..")
 
 [node name="Paper24" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(0.496855, 0, 0, 0, 0.0555491, 0, 1.77636e-15, 0, 0.569479, 0, -0.00345892, 0)
 material_override = ExtResource("2_8opkq")
+material_overlay = ExtResource("2_eftby")
 mesh = ExtResource("3_eftby")
 skeleton = NodePath("../..")
 
 [node name="ItemFrame" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(0.411703, 0, -1.42109e-14, 0, 0.0030354, 0, 1.24345e-14, 0, 0.578236, 0, 0, 0)
+material_overlay = ExtResource("2_eftby")
 mesh = SubResource("BoxMesh_eftby")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

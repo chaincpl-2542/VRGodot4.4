@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://cghew80d8e872"]
+[gd_scene load_steps=81 format=4 uid="uid://cghew80d8e872"]
 
 [ext_resource type="Script" uid="uid://c4g00y14fo4ng" path="res://Scripts/Scene3FloorController.cs" id="1_1pypn"]
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="2_rf3u7"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://bosp3baam0wet" path="res://Models/Desk/desk.tscn" id="18_84kl0"]
 [ext_resource type="PackedScene" uid="uid://ccm70bu4r0y1s" path="res://Models/Board/board.tscn" id="19_qkply"]
 [ext_resource type="PackedScene" uid="uid://biux736h6i365" path="res://Models/StorageCabinet/storage_cabinet.tscn" id="20_spf0q"]
-[ext_resource type="PackedScene" uid="uid://b41045fvgsk7e" path="res://Models/Clock/Clock_13.fbx" id="21_per67"]
 [ext_resource type="PackedScene" uid="uid://0gg542hjyhlu" path="res://PickableObject/RedBottle.tscn" id="22_1cyx7"]
 [ext_resource type="Material" uid="uid://c7smjhndbot3a" path="res://Materials/Number.tres" id="23_mk61o"]
 [ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="24_wekbc"]
@@ -59,8 +58,8 @@
 [ext_resource type="PackedScene" uid="uid://ddhh3k3sp1rlm" path="res://PickableObject/pizza_box.tscn" id="51_arjj4"]
 [ext_resource type="PackedScene" uid="uid://dxxnfw3qy4qdm" path="res://PickableObject/pizza.tscn" id="52_mwbcw"]
 [ext_resource type="PackedScene" uid="uid://tv3hnlfs1aoe" path="res://PickableObject/snack_bar.tscn" id="53_u0oby"]
-[ext_resource type="PackedScene" uid="uid://b7tkwy80t4c6d" path="res://Models/Airconditioner/AirConditioner_4.fbx" id="54_rf3u7"]
 [ext_resource type="PackedScene" uid="uid://by1g4ke1ivpyt" path="res://Scenes/player_voice_trigger.tscn" id="60_4eoc2"]
+[ext_resource type="PackedScene" uid="uid://csob8h6dhyge6" path="res://Models/Classroom/StairConnector/air_conditioner_4.tscn" id="61_bu1b3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjm2i"]
 size = Vector3(2.9668, 2.6012, 1.82428)
@@ -425,8 +424,8 @@ transform = Transform3D(1, 3.10315e-22, 7.10855e-15, -3.10315e-22, 1, -4.75544e-
 shadow_enabled = true
 shadow_bias = 1.0
 shadow_opacity = 0.2
-omni_range = 10.0
-omni_attenuation = 2.336
+omni_range = 28.411
+omni_attenuation = 1.239
 
 [node name="Light07" type="MeshInstance3D" parent="SimpleFloor" node_paths=PackedStringArray("_light")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.58556, 3.71921, 2.56586)
@@ -838,9 +837,6 @@ transform = Transform3D(0.993109, 0, 0.117191, 0, 1, 0, -0.117191, 0, 0.993109, 
 [node name="StorageCabinet_21" parent="Node3D" instance=ExtResource("20_spf0q")]
 transform = Transform3D(0.994056, 0, -0.108867, 0, 1, 0, 0.108867, 0, 0.994056, -9.60607, 0.630665, 23.1405)
 
-[node name="Clock_13" parent="Node3D" instance=ExtResource("21_per67")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.99193, 2.30362, 9.41884)
-
 [node name="Chair" parent="Node3D" instance=ExtResource("14_pnrga")]
 transform = Transform3D(0.375717, 0, -1.13967, 0, 1.2, 0, 1.13967, 0, 0.375717, -6.53537, 0.000664961, 15.0255)
 
@@ -920,6 +916,7 @@ autoplay = true
 
 [node name="Shelf-10" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.384698, 0.923042, 1.68157e-08, 4.37114e-08, 1.91069e-15, -1, -0.923042, 0.384698, -4.03475e-08, -1.85757, 0.358515, 21.4076)
+material_overlay = ExtResource("3_w7imd")
 mesh = ExtResource("27_1bkuw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-10"]
@@ -929,6 +926,7 @@ shape = SubResource("ConcavePolygonShape3D_utcyi")
 
 [node name="Shelf-11" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.03289, 0.358515, 22.5633)
+material_overlay = ExtResource("3_w7imd")
 mesh = ExtResource("27_1bkuw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-11"]
@@ -938,10 +936,12 @@ shape = SubResource("ConcavePolygonShape3D_utcyi")
 
 [node name="Carpet2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.680743, -0.223845, -6.48549e-09, 0, -3.29734e-08, 0.5, -0.211533, -0.720366, -2.08713e-08, -1.69856, -0.0196236, 20.2079)
+material_overlay = ExtResource("3_w7imd")
 mesh = ExtResource("28_rvy0a")
 
 [node name="Shelf-12" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.232257, 0.972654, -1.01523e-08, 4.37114e-08, 1.91069e-15, -1, -0.972654, -0.232257, -4.25161e-08, -1.98865, 0.358515, 10.35)
+material_overlay = ExtResource("3_w7imd")
 mesh = ExtResource("27_1bkuw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-12"]
@@ -951,6 +951,7 @@ shape = SubResource("ConcavePolygonShape3D_utcyi")
 
 [node name="Shelf-13" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.5, -2.18557e-08, -0.866026, 4.37114e-08, -1, 1.16424e-22, -0.866025, -3.78552e-08, 0.5, -1.72178, 0.179634, 11.3664)
+material_overlay = ExtResource("3_w7imd")
 mesh = ExtResource("27_1bkuw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-13"]
@@ -960,6 +961,7 @@ shape = SubResource("ConcavePolygonShape3D_utcyi")
 
 [node name="Carpet3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.567815, 0.456065, 1.32136e-08, 0, -3.29734e-08, 0.5, 0.430979, -0.600865, -1.74089e-08, -1.64347, -0.0196235, 13.0633)
+material_overlay = ExtResource("3_w7imd")
 mesh = ExtResource("28_rvy0a")
 
 [node name="StudentBag" parent="." instance=ExtResource("30_0054s")]
@@ -1749,12 +1751,6 @@ second_hand_grab = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17926, 0.0229838, 14.3902)
 second_hand_grab = 0
 
-[node name="AirConditioner_4" parent="." instance=ExtResource("54_rf3u7")]
-transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, -11.3099, 3.18457, 12.6047)
-
-[node name="AirConditioner_5" parent="." instance=ExtResource("54_rf3u7")]
-transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, -11.3099, 3.18457, 20.2668)
-
 [node name="PlayerVoiceTrigger" parent="." instance=ExtResource("60_4eoc2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021999, -0.000146151, 1.25738)
 VoiceIndex = 5
@@ -1762,6 +1758,12 @@ VoiceIndex = 5
 [node name="PlayerVoiceTrigger2" parent="." instance=ExtResource("60_4eoc2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.46701, -0.0826922, 12.6883)
 VoiceIndex = 6
+
+[node name="AirConditioner_4" parent="." instance=ExtResource("61_bu1b3")]
+transform = Transform3D(-0.8, 0, -8.9407e-08, 0, 0.8, 0, 8.9407e-08, 0, -0.8, -10.769, 3.22371, 12.9127)
+
+[node name="AirConditioner_5" parent="." instance=ExtResource("61_bu1b3")]
+transform = Transform3D(-0.8, 0, -8.9407e-08, 0, 0.8, 0, 8.9407e-08, 0, -0.8, -10.769, 3.22371, 19.9623)
 
 [editable path="SimpleFloor"]
 [editable path="SimpleFloor/Door6"]

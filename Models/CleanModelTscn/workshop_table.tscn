@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dikrxbxrdty82"]
+[gd_scene load_steps=6 format=3 uid="uid://dikrxbxrdty82"]
 
 [ext_resource type="Texture2D" uid="uid://8v4xaawgynb" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Workshop table/Workshop_table_88_Color.png" id="1_0rylb"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_2mqig"]
 [ext_resource type="ArrayMesh" uid="uid://se6527a82skr" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Workshop table/Workshop_table_88.obj" id="2_ja03b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1mxk"]
@@ -13,6 +14,7 @@ data = PackedVector3Array(-3.2, 0, -1.9, -3.2, 1, -2.5001, -3.2, 0, -2.5001, -3.
 [node name="WorkshopTable" type="MeshInstance3D"]
 transform = Transform3D(-0.221614, 0, 1.69451e-08, 0, 0.235, 0, -1.93742e-08, 0, -0.193829, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_b1mxk")
+material_overlay = ExtResource("2_2mqig")
 mesh = ExtResource("2_ja03b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm021fyupj4ua"]
+[gd_scene load_steps=6 format=3 uid="uid://dm021fyupj4ua"]
 
 [ext_resource type="Texture2D" uid="uid://il1kx0nyl2dg" path="res://Models/3D - Vox Cleaner Edited (No Character)/Teacher Desk/teacherTable_20_Color.png" id="1_tfbxf"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_7i7ti"]
 [ext_resource type="ArrayMesh" uid="uid://sbdrj7lc75mh" path="res://Models/3D - Vox Cleaner Edited (No Character)/Teacher Desk/teacherTable_20.obj" id="2_nbo38"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp03j"]
@@ -14,6 +15,7 @@ data = PackedVector3Array(-1, 0.9, 0.5, -1, 1, 0.6, -1, 0.9, 0.6, -1, 1, 0.5, -1
 [node name="TeacherTable" type="MeshInstance3D"]
 transform = Transform3D(-0.6, 0, 9.05975e-08, 0, 0.6, 0, -9.05975e-08, 0, -0.6, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yp03j")
+material_overlay = ExtResource("2_7i7ti")
 mesh = ExtResource("2_nbo38")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

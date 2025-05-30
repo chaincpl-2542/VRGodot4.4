@@ -153,7 +153,6 @@ disabled = true
 
 [node name="CollisionShape3D2" parent="SimpleFloor/Door5/StaticBody3D" index="1"]
 visible = false
-disabled = true
 
 [node name="Door6" parent="SimpleFloor" index="26"]
 visible = false
@@ -164,7 +163,6 @@ disabled = true
 
 [node name="CollisionShape3D2" parent="SimpleFloor/Door6/StaticBody3D" index="1"]
 visible = false
-disabled = true
 
 [node name="OmniLight3D" parent="SimpleFloor/Light01/Light01" index="0"]
 light_energy = 1.0

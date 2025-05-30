@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi0tmm1flhrqa"]
+[gd_scene load_steps=6 format=3 uid="uid://bi0tmm1flhrqa"]
 
 [ext_resource type="Texture2D" uid="uid://cu2vmdritsrwm" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/box(open and closed)/closed box_53_Color.png" id="1_v4vkw"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_difqe"]
 [ext_resource type="ArrayMesh" uid="uid://b656fbretgh82" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/box(open and closed)/closed box_53.obj" id="2_ni1tr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4al6g"]
@@ -14,6 +15,7 @@ data = PackedVector3Array(0.2, 0.5, -0.2, -0.2, 0.5, 0.2, -0.2, 0.5, -0.2, 0.2, 
 [node name="ClosedBox" type="MeshInstance3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_4al6g")
+material_overlay = ExtResource("2_difqe")
 mesh = ExtResource("2_ni1tr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

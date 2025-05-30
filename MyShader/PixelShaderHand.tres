@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://oviup6m4001l"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dc38gououwv72"]
 
-[ext_resource type="Texture2D" uid="uid://cqiu0jl6fyohg" path="res://MyShader/new_noise_texture_2d.tres" id="1_0ko53"]
+[ext_resource type="Texture2D" uid="uid://cqiu0jl6fyohg" path="res://MyShader/new_noise_texture_2d.tres" id="1_ap8tw"]
 
 [sub_resource type="Shader" id="Shader_umafu"]
 code = "shader_type spatial;
@@ -122,14 +122,14 @@ void fragment() {
 render_priority = 0
 shader = SubResource("Shader_umafu")
 shader_parameter/albedo_ceiling = Color(0.758192, 0.758192, 0.758191, 1)
-shader_parameter/texture_albedo_ceiling = ExtResource("1_0ko53")
+shader_parameter/texture_albedo_ceiling = ExtResource("1_ap8tw")
 shader_parameter/albedo_wall = Color(0.737193, 0.737193, 0.737193, 1)
-shader_parameter/texture_albedo_wall = ExtResource("1_0ko53")
+shader_parameter/texture_albedo_wall = ExtResource("1_ap8tw")
 shader_parameter/albedo_floor = Color(0.847474, 0.847474, 0.847474, 1)
-shader_parameter/texture_albedo_floor = ExtResource("1_0ko53")
+shader_parameter/texture_albedo_floor = ExtResource("1_ap8tw")
 shader_parameter/ground_threshold = 0.8
 shader_parameter/blend_smoothness = 0.1
-shader_parameter/transparency = 0.4
+shader_parameter/transparency = 0.26
 shader_parameter/uv1_blend_sharpness = 1.0
 shader_parameter/uv1_scale = Vector3(0.4, 0.4, 0.4)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://o6jgwthmr8mh"]
+[gd_scene load_steps=6 format=3 uid="uid://o6jgwthmr8mh"]
 
 [ext_resource type="Texture2D" uid="uid://bnag4gffxj01" path="res://Models/3D - Vox Cleaner Edited (No Character)/Poster&Picture/Poster/Poster_40_Color.png" id="1_bo3n2"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_50ran"]
 [ext_resource type="ArrayMesh" uid="uid://tihx7hj0bvg4" path="res://Models/3D - Vox Cleaner Edited (No Character)/Poster&Picture/Poster/Poster_40.obj" id="2_p41a5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsaya"]
@@ -13,6 +14,7 @@ points = PackedVector3Array(-0.507937, -0.00773764, -0.507937, 0.479105, 0.97891
 
 [node name="Painting4" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_wsaya")
+material_overlay = ExtResource("2_50ran")
 mesh = ExtResource("2_p41a5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

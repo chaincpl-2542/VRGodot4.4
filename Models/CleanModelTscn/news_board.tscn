@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dog1312s586gy"]
+[gd_scene load_steps=6 format=3 uid="uid://dog1312s586gy"]
 
 [ext_resource type="Texture2D" uid="uid://beoaejeeqsckg" path="res://Models/3D - Vox Cleaner Edited (No Character)/Poster&Picture/NewsBoard/News board_36_Color.png" id="1_q520o"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_jpe8h"]
 [ext_resource type="ArrayMesh" uid="uid://53nkk11va72b" path="res://Models/3D - Vox Cleaner Edited (No Character)/Poster&Picture/NewsBoard/News board_36.obj" id="2_wsfxn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_reu1y"]
@@ -13,6 +14,7 @@ points = PackedVector3Array(-0.507937, -0.00773764, -0.507937, 0.479105, 0.97891
 
 [node name="NewsBoard" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_reu1y")
+material_overlay = ExtResource("2_jpe8h")
 mesh = ExtResource("2_wsfxn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

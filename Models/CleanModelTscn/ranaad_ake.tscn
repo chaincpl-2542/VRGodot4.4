@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://civ8pkcf20cyj"]
+[gd_scene load_steps=6 format=3 uid="uid://civ8pkcf20cyj"]
 
 [ext_resource type="Texture2D" uid="uid://boyrvej1jywbe" path="res://Models/3D - Vox Cleaner Edited (No Character)/RanaadAke/RanaadAke_89_Color.png" id="1_ox82h"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_ni0ur"]
 [ext_resource type="ArrayMesh" uid="uid://bt3bwcq3rx0op" path="res://Models/3D - Vox Cleaner Edited (No Character)/RanaadAke/RanaadAke_89.obj" id="2_pp63u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bsirv"]
@@ -21,6 +22,7 @@ data = PackedVector3Array(0.3, 0.1, 0.4, 0.3, 0.2, 0.4, 0.5, 0.2, 0.4, 0.6, 0.3,
 [node name="Ranaad Ake" type="MeshInstance3D"]
 transform = Transform3D(-2.825, 0, 2.46969e-07, 0, 2.825, 0, -2.46969e-07, 0, -2.825, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bsirv")
+material_overlay = ExtResource("2_ni0ur")
 mesh = ExtResource("2_pp63u")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

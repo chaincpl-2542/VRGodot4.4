@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckugeufmdl37j"]
+[gd_scene load_steps=7 format=3 uid="uid://ckugeufmdl37j"]
 
 [ext_resource type="Texture2D" uid="uid://b8ol8q2cccugv" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/WhiteBoard/whiteBoard_87_Color.png" id="1_xnndy"]
 [ext_resource type="Texture2D" uid="uid://cio4riil0m7lb" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/WhiteBoard/whiteBoard_87_Metallic.png" id="2_r0t6d"]
 [ext_resource type="ArrayMesh" uid="uid://c0328sptdkph3" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/WhiteBoard/whiteBoard_87.obj" id="3_lr1tw"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="3_r0t6d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr4hk"]
 albedo_texture = ExtResource("1_xnndy")
@@ -16,6 +17,7 @@ data = PackedVector3Array(0.8999, 0.1, -0.1, 1, 0, -0.1, 0.8999, 0, -0.1, 1, 0.1
 [node name="WhiteBoard" type="MeshInstance3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_wr4hk")
+material_overlay = ExtResource("3_r0t6d")
 mesh = ExtResource("3_lr1tw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

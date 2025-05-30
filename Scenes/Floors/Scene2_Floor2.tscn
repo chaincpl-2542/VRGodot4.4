@@ -54,7 +54,6 @@
 [ext_resource type="PackedScene" uid="uid://bfbyyc2ojo420" path="res://Models/CleanModelTscn/projector.tscn" id="51_2mmtw"]
 [ext_resource type="PackedScene" uid="uid://brhvebkafgu56" path="res://Models/CleanModelTscn/paper.tscn" id="52_v4a7w"]
 [ext_resource type="PackedScene" uid="uid://dyojqhtmdo7el" path="res://Models/CleanModelTscn/pencil.tscn" id="53_kq42b"]
-[ext_resource type="PackedScene" uid="uid://b7tkwy80t4c6d" path="res://Models/Airconditioner/AirConditioner_4.fbx" id="54_rji1r"]
 [ext_resource type="Material" uid="uid://c7smjhndbot3a" path="res://Materials/Number.tres" id="55_b7a3d"]
 [ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="56_j6x5g"]
 [ext_resource type="AudioStream" uid="uid://07t3l3kiusv3" path="res://Sound/V2.wav" id="57_siqr6"]
@@ -73,6 +72,7 @@
 [ext_resource type="PackedScene" uid="uid://tv3hnlfs1aoe" path="res://PickableObject/snack_bar.tscn" id="70_nq6bx"]
 [ext_resource type="PackedScene" uid="uid://bcl3n8ne3qbnk" path="res://PickableObject/tea_drink.tscn" id="71_h11fi"]
 [ext_resource type="PackedScene" uid="uid://by1g4ke1ivpyt" path="res://Scenes/player_voice_trigger.tscn" id="72_yed7w"]
+[ext_resource type="PackedScene" uid="uid://csob8h6dhyge6" path="res://Models/Classroom/StairConnector/air_conditioner_4.tscn" id="73_nq6bx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kv0hi"]
 size = Vector3(8.63161, 0.678482, 7.50891)
@@ -689,19 +689,21 @@ shadow_opacity = 0.2
 omni_range = 8.0
 omni_attenuation = 2.037
 
-[node name="Light05" parent="SimpleFloor" instance=ExtResource("16_wrlj5")]
+[node name="Light05" type="Node3D" parent="SimpleFloor"]
 transform = Transform3D(-4.37305e-08, 0, -1.00044, 0, 1.00044, 0, 1.00044, 0, -4.37305e-08, -10.3655, 3.72644, -4.80001)
 
-[node name="Light01" parent="SimpleFloor/Light05" index="0"]
+[node name="Light01" type="MeshInstance3D" parent="SimpleFloor/Light05"]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 1.00068e-07, 0, 1.14464)
+material_overlay = ExtResource("6_nq6bx")
+mesh = ExtResource("17_tby0t")
 
-[node name="OmniLight3D" parent="SimpleFloor/Light05/Light01" index="0"]
-light_energy = 1.0
+[node name="OmniLight3D" type="OmniLight3D" parent="SimpleFloor/Light05/Light01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07604, 0)
 shadow_enabled = true
 shadow_bias = 1.0
 shadow_opacity = 0.2
-omni_range = 8.0
-omni_attenuation = 2.037
+omni_range = 10.166
+omni_attenuation = 1.049
 
 [node name="Light02" parent="SimpleFloor" instance=ExtResource("16_wrlj5")]
 transform = Transform3D(-4.37305e-08, 0, -1.00044, 0, 1.00044, 0, 1.00044, 0, -4.37305e-08, 30.4855, 3.72644, -4.80001)
@@ -776,6 +778,7 @@ transform = Transform3D(0.0787049, 0, 0.183863, 0, 0.2, 0, -0.183863, 0, 0.07870
 [node name="South East Asian Straw Hat" type="MeshInstance3D" parent="SimpleFloor"]
 transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 47.6886, 0.15, -12.1838)
 material_override = SubResource("StandardMaterial3D_b5atu")
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("23_tjwuw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SimpleFloor/South East Asian Straw Hat"]
@@ -931,7 +934,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16011, 1.61543, 62.5439)
 transform = Transform3D(-3.4025e-08, 0, 5, 0.205596, 0.93309, 5.77265e-08, -0.75076, 0.255527, -2.10796e-07, -3.59619, 1.8569, 67.2471)
 
 [node name="NewsBoard" parent="." instance=ExtResource("38_iddci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45118, 1.74297, 71.8408)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45118, 1.74297, 72.3116)
 
 [node name="Old Chair" parent="." instance=ExtResource("39_c5srf")]
 transform = Transform3D(-0.933724, 0, -0.357993, 0, 1, 0, 0.357993, 0, -0.933724, 1.19522, -0.00999975, 70.0227)
@@ -984,6 +987,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.030
 [node name="Straw Hat" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.345776, -0.054209, 3.0598e-08, -0.054209, 0.345776, 0, -3.02287e-08, -4.7391e-09, -0.35, 6.75107, -0.0203937, 63.7566)
 material_override = SubResource("StandardMaterial3D_w43u5")
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("44_soti0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Straw Hat"]
@@ -1048,12 +1052,6 @@ transform = Transform3D(0.0691717, 0, 0.495192, 0, 0.1, 0, -0.495192, 0, 0.06917
 
 [node name="Paper5" parent="." instance=ExtResource("52_v4a7w")]
 transform = Transform3D(0.469406, 0, 0.172215, 0, 0.1, 0, -0.172215, 0, 0.469406, -1.69223, 1.2355, 64.0802)
-
-[node name="AirConditioner_4" parent="." instance=ExtResource("54_rji1r")]
-transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, -0.102426, 3.29598, 70.4098)
-
-[node name="AirConditioner_5" parent="." instance=ExtResource("54_rji1r")]
-transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 6.53967, 3.29598, 70.4098)
 
 [node name="Number" type="MeshInstance3D" parent="."]
 transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, -3.29671, 1.85353, 8.9342)
@@ -1130,6 +1128,7 @@ transform = Transform3D(0.1, -0.173205, -1.50996e-08, 3.01992e-08, 3.82137e-16, 
 
 [node name="Shelf-3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 11.174)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-3"]
@@ -1139,6 +1138,7 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Shelf-4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 10.2879)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-4"]
@@ -1148,6 +1148,7 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Shelf-9" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 22.2781)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-9"]
@@ -1157,6 +1158,7 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Shelf-10" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 21.392)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-10"]
@@ -1166,6 +1168,7 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Shelf-5" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 26.375)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-5"]
@@ -1175,6 +1178,7 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Shelf-6" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 25.489)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-6"]
@@ -1184,6 +1188,7 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Shelf-7" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 41.2448)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-7"]
@@ -1193,6 +1198,7 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Shelf-8" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 40.3588)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-8"]
@@ -1202,6 +1208,7 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Shelf-11" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 52.5439)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-11"]
@@ -1211,6 +1218,7 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Shelf-12" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -2.09288, 0.358515, 51.6579)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("66_4j3tu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shelf-12"]
@@ -1220,26 +1228,32 @@ shape = SubResource("ConcavePolygonShape3D_kxr84")
 
 [node name="Carpet" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.712851, 0, 0, 0, -3.29734e-08, 0.5, 0, -0.754344, -2.18557e-08, -1.88034, -0.0196236, 12.7646)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("67_kxr84")
 
 [node name="Carpet2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.712851, 0, 0, 0, -3.29734e-08, 0.5, 0, -0.754344, -2.18557e-08, -1.88034, -0.0196236, 20.0962)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("67_kxr84")
 
 [node name="Carpet3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.712851, 0, 0, 0, -3.29734e-08, 0.5, 0, -0.754344, -2.18557e-08, -1.88034, -0.0196236, 27.741)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("67_kxr84")
 
 [node name="Carpet4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.712851, 0, 0, 0, -3.29734e-08, 0.5, 0, -0.754344, -2.18557e-08, -1.88034, -0.0196236, 35.0726)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("67_kxr84")
 
 [node name="Carpet5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.712851, 0, 0, 0, -3.29734e-08, 0.5, 0, -0.754344, -2.18557e-08, -1.88034, -0.0196236, 42.8488)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("67_kxr84")
 
 [node name="Carpet6" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.712851, 0, 0, 0, -3.29734e-08, 0.5, 0, -0.754344, -2.18557e-08, -1.88034, -0.0196236, 50.1804)
+material_overlay = ExtResource("6_nq6bx")
 mesh = ExtResource("67_kxr84")
 
 [node name="Dirt-48" type="MeshInstance3D" parent="."]
@@ -1534,9 +1548,14 @@ VoiceIndex = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00674541, 0.0222454, 62.3663)
 VoiceIndex = 3
 
+[node name="AirConditioner_6" parent="." instance=ExtResource("73_nq6bx")]
+transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, -0.324915, 3.15238, 70.3408)
+
+[node name="AirConditioner_7" parent="." instance=ExtResource("73_nq6bx")]
+transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 6.92776, 3.15238, 70.3408)
+
 [editable path="SimpleFloor/Light01"]
 [editable path="SimpleFloor/Light04"]
-[editable path="SimpleFloor/Light05"]
 [editable path="SimpleFloor/Light02"]
 [editable path="SimpleFloor/Light03"]
 [editable path="Board"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmwo1q3l2mnnm"]
+[gd_scene load_steps=10 format=3 uid="uid://bmwo1q3l2mnnm"]
 
 [ext_resource type="Texture2D" uid="uid://bcy3oj87btger" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Control Box/control_box_OK_63_Color.png" id="1_d3s5t"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_7gehf"]
 [ext_resource type="ArrayMesh" uid="uid://cwuvk56lqq2vq" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Control Box/control_box_OK_63.obj" id="2_7xdwb"]
 [ext_resource type="Texture2D" uid="uid://mhmqhlybxgoe" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Control Box/control_box_NG_C_62_Color.png" id="3_7gehf"]
 [ext_resource type="ArrayMesh" uid="uid://cglg3dxbh8p8m" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Control Box/control_box_NG_C_62.obj" id="4_thm7s"]
@@ -24,12 +25,14 @@ data = PackedVector3Array(-1.1, 0.4, -0.1, 0.8, 0.3, -0.1, -1.1, 0.3, -0.1, 0.8,
 [node name="ControlBox - Interectable" type="MeshInstance3D"]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_88rlq")
+material_overlay = ExtResource("2_7gehf")
 mesh = ExtResource("2_7xdwb")
 skeleton = NodePath("../..")
 
 [node name="Lid" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9, 0, 0, 0, 0.0999864, -0.0148432, 0, 0.00164924, 0.899878, 0.0130043, 0.899448, 0.00146008)
 material_override = SubResource("StandardMaterial3D_dd84v")
+material_overlay = ExtResource("2_7gehf")
 mesh = ExtResource("4_thm7s")
 skeleton = NodePath("../../..")
 

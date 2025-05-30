@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfbyyc2ojo420"]
+[gd_scene load_steps=7 format=3 uid="uid://bfbyyc2ojo420"]
 
 [ext_resource type="Texture2D" uid="uid://bc7yy2ijyjeni" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Projector/projector_45_Color.png" id="1_l0iyp"]
 [ext_resource type="Texture2D" uid="uid://cr0i7w7oaclwh" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Projector/projector_45_Emission.png" id="2_xnpwa"]
 [ext_resource type="ArrayMesh" uid="uid://capi4dgmpyspc" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Projector/projector_45.obj" id="3_vcwx4"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="3_xnpwa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0a4q0"]
 albedo_color = Color(0.815686, 0.815686, 0.815686, 1)
@@ -20,6 +21,7 @@ data = PackedVector3Array(-0.2, 0.3, 0.2, 0.3, 0, 0.2, -0.2, 0, 0.2, 0.3, 0.3, 0
 [node name="Projector" type="MeshInstance3D"]
 transform = Transform3D(-1.15, 0, 1.00536e-07, 0, 1.15, 0, -1.00536e-07, 0, -1.15, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_0a4q0")
+material_overlay = ExtResource("3_xnpwa")
 mesh = ExtResource("3_vcwx4")
 skeleton = NodePath("../PropGun/StaticBody3D")
 
