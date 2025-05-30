@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0agt0g57afqm"]
+[gd_scene load_steps=6 format=3 uid="uid://d0agt0g57afqm"]
 
 [ext_resource type="Texture2D" uid="uid://ijc8dsekpe37" path="res://Models/3D - Vox Cleaner Edited (No Character)/poster(3types)/poster3_44_Color.png" id="1_lj3el"]
 [ext_resource type="ArrayMesh" uid="uid://croxgf02i0uma" path="res://Models/3D - Vox Cleaner Edited (No Character)/poster(3types)/poster3_44.obj" id="2_0lc1h"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_6dvjp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1d6b"]
 albedo_color = Color(0.878431, 0.878431, 0.878431, 1)
@@ -14,6 +15,7 @@ points = PackedVector3Array(1.02619, 2.31825, 0.0277778, -1.01825, -0.0177966, -
 [node name="Poster2" type="MeshInstance3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_l1d6b")
+material_overlay = ExtResource("2_6dvjp")
 mesh = ExtResource("2_0lc1h")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgdiykssmfgei"]
+[gd_scene load_steps=5 format=3 uid="uid://dgdiykssmfgei"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_1g5n3"]
 [ext_resource type="ArrayMesh" uid="uid://dckmhtha05nk8" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Coffee.obj" id="2_g5qtm"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_jv3r1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jv3r1"]
 size = Vector3(0.120117, 0.15, 0.164868)
@@ -10,6 +11,7 @@ size = Vector3(0.120117, 0.15, 0.164868)
 
 [node name="Coffee" type="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
+material_overlay = ExtResource("2_jv3r1")
 mesh = ExtResource("2_g5qtm")
 
 [node name="CollisionShape3D" parent="." index="1"]

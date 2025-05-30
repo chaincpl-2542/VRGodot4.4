@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2qoc048ajgwg"]
+[gd_scene load_steps=6 format=3 uid="uid://d2qoc048ajgwg"]
 
 [ext_resource type="Texture2D" uid="uid://75mhsb1hyvb4" path="res://Models/3D - Vox Cleaner Edited (No Character)/StudentBag/StudentBag_93_Color.png" id="1_41to6"]
 [ext_resource type="ArrayMesh" uid="uid://62f60uyqrbdv" path="res://Models/3D - Vox Cleaner Edited (No Character)/StudentBag/StudentBag_93.obj" id="2_mfm62"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_uplsg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m38gs"]
 albedo_color = Color(0.815686, 0.815686, 0.815686, 1)
@@ -15,6 +16,7 @@ data = PackedVector3Array(-0.6, 2.1, -0.7, -0.2, 2.1, -0.6, -0.6, 2.1, -0.6, -0.
 [node name="StudentBag" type="MeshInstance3D"]
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_m38gs")
+material_overlay = ExtResource("2_uplsg")
 mesh = ExtResource("2_mfm62")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

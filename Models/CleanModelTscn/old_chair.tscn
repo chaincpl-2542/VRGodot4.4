@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://10i055jwafn1"]
+[gd_scene load_steps=10 format=3 uid="uid://10i055jwafn1"]
 
 [ext_resource type="Texture2D" uid="uid://d2d26fssq16xj" path="res://Models/3D - Vox Cleaner Edited (No Character)/Old Chair/Chair_17_Color.png" id="1_fk3dx"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_7hcg3"]
 [ext_resource type="ArrayMesh" uid="uid://b8xl2hwv1wnfg" path="res://Models/3D - Vox Cleaner Edited (No Character)/Old Chair/Chair_17.obj" id="2_uq03c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d46np"]
@@ -25,6 +26,7 @@ size = Vector3(0.204224, 0.485638, 0.202637)
 
 [node name="Old Chair" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_d46np")
+material_overlay = ExtResource("2_7hcg3")
 mesh = ExtResource("2_uq03c")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

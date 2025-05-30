@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqc8mss40x4xe"]
+[gd_scene load_steps=7 format=3 uid="uid://cqc8mss40x4xe"]
 
 [ext_resource type="PackedScene" uid="uid://c7tmiwb3rdsbd" path="res://Models/Classroom/Pillar/Pillar.fbx" id="1_nm2vt"]
 [ext_resource type="Material" uid="uid://bfl1cxpd5aoqg" path="res://Models/Classroom/Pillar/Pillar.tres" id="2_eodhn"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="3_gu48j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eodhn"]
 size = Vector3(1, 1, 4.00708)
@@ -17,6 +18,7 @@ material = SubResource("StandardMaterial3D_eodhn")
 [node name="Pillar_001" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 material_override = ExtResource("2_eodhn")
+material_overlay = ExtResource("3_gu48j")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pillar_001" index="0"]
 
@@ -26,4 +28,5 @@ shape = SubResource("BoxShape3D_eodhn")
 
 [node name="Lable12" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(-4.45962e-08, 1.01994, -1.78307e-08, 0, -4.4583e-08, -0.407919, -1.02024, -4.4583e-08, 7.79405e-16, 0.00463045, 0.206231, -0.00794327)
+material_overlay = ExtResource("3_gu48j")
 mesh = SubResource("BoxMesh_gu48j")

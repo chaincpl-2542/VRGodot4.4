@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://0gg542hjyhlu"]
+[gd_scene load_steps=7 format=3 uid="uid://0gg542hjyhlu"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_qu22d"]
 [ext_resource type="Texture2D" uid="uid://cydwfs4r4ua7m" path="res://Models/ModelAssets/Free Sample/Export/Bunker - Free Sample-1-Bottle_Blue-0.png" id="2_786mi"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="3_a0dpt"]
 [ext_resource type="ArrayMesh" uid="uid://cv24qglvmsma2" path="res://Models/ModelAssets/Free Sample/Export/Bottle_Blue-0.obj" id="4_a0dpt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_haiq8"]
@@ -20,4 +21,5 @@ shape = SubResource("BoxShape3D_haiq8")
 [node name="BottleBlue-0" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, -0.0147255, 0)
 material_override = SubResource("StandardMaterial3D_a0dpt")
+material_overlay = ExtResource("3_a0dpt")
 mesh = ExtResource("4_a0dpt")

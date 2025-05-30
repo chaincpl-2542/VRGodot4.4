@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc2hgnj1ypchj"]
+[gd_scene load_steps=5 format=3 uid="uid://dc2hgnj1ypchj"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_6pu35"]
 [ext_resource type="ArrayMesh" uid="uid://bov68t5fojh8a" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Drink_Energy.obj" id="2_ipm8w"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_jhagn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jhagn"]
 size = Vector3(0.0796509, 0.189209, 1)
@@ -14,4 +15,5 @@ shape = SubResource("BoxShape3D_jhagn")
 
 [node name="DrinkEnergy" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0)
+material_overlay = ExtResource("2_jhagn")
 mesh = ExtResource("2_ipm8w")

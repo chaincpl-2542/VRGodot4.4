@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dojmkq5eymgqk"]
+[gd_scene load_steps=11 format=3 uid="uid://dojmkq5eymgqk"]
 
 [ext_resource type="PackedScene" uid="uid://wavqnvtpwa2v" path="res://Models/Classroom/StairConnector/StairConnector.fbx" id="1_ftyb1"]
 [ext_resource type="Material" uid="uid://bwuq1s5ynqh1f" path="res://Models/Classroom/StairConnector/Stairconnector.tres" id="2_prb0b"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="3_prb0b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ftyb1"]
 size = Vector3(7.99884, 4.68365, 0.599854)
@@ -29,6 +30,7 @@ material = SubResource("StandardMaterial3D_ftyb1")
 [node name="StairConnector_001" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 material_override = ExtResource("2_prb0b")
+material_overlay = ExtResource("3_prb0b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StairConnector_001" index="0"]
 

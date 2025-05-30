@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bv0wy64hudybk"]
+[gd_scene load_steps=22 format=3 uid="uid://bv0wy64hudybk"]
 
 [ext_resource type="Script" uid="uid://0xvymqopke0y" path="res://Scripts/CryptexController.cs" id="1_no3ku"]
 [ext_resource type="PackedScene" uid="uid://bch53w248llxy" path="res://Models/KeyCard/key_card.tscn" id="2_d0gd2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://bcs7ek5jiv1v0" path="res://Materials/new_standard_material_3d.tres" id="4_63dhp"]
 [ext_resource type="Texture2D" uid="uid://bkqnn4h7ah8k5" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Cryptex/Cryptex_64_Color.png" id="6_u7kle"]
 [ext_resource type="ArrayMesh" uid="uid://dxuj6f5dp0n4m" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Cryptex/Cryptex_64.obj" id="7_sswb8"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="8_a1jls"]
 [ext_resource type="FontFile" uid="uid://c33d6w5xdgwib" path="res://labels_and_texts/fonts/Minecraftia-Regular.ttf" id="12_jmmhe"]
 [ext_resource type="Material" uid="uid://bgqetukp6750q" path="res://Materials/Cryptex font.tres" id="13_uqlrx"]
 
@@ -185,6 +186,7 @@ skeleton = NodePath("../../../../FirstNumber/IncreaseButton1 (Area3D)/IncreaseNu
 [node name="Cryptex" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.31134e-08, -0.3, 0, -1.31134e-08, 5.73206e-16, 0.3, -0.3, 1.31134e-08, -1.31134e-08, 0.674321, 0, -0.032487)
 material_override = SubResource("StandardMaterial3D_a1jls")
+material_overlay = ExtResource("8_a1jls")
 mesh = ExtResource("7_sswb8")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Cryptex"]

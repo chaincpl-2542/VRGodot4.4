@@ -647,16 +647,10 @@ visible = false
 [node name="CollisionShape3D" parent="SimpleFloor/Door2/StaticBody3D" index="0"]
 disabled = true
 
-[node name="CollisionShape3D2" parent="SimpleFloor/Door2/StaticBody3D" index="1"]
-disabled = true
-
 [node name="Door3" parent="SimpleFloor" index="23"]
 visible = false
 
 [node name="CollisionShape3D" parent="SimpleFloor/Door3/StaticBody3D" index="0"]
-disabled = true
-
-[node name="CollisionShape3D2" parent="SimpleFloor/Door3/StaticBody3D" index="1"]
 disabled = true
 
 [node name="Door4" parent="SimpleFloor" index="24"]
@@ -665,25 +659,16 @@ visible = false
 [node name="CollisionShape3D" parent="SimpleFloor/Door4/StaticBody3D" index="0"]
 disabled = true
 
-[node name="CollisionShape3D2" parent="SimpleFloor/Door4/StaticBody3D" index="1"]
-disabled = true
-
 [node name="Door5" parent="SimpleFloor" index="25"]
 visible = false
 
 [node name="CollisionShape3D" parent="SimpleFloor/Door5/StaticBody3D" index="0"]
 disabled = true
 
-[node name="CollisionShape3D2" parent="SimpleFloor/Door5/StaticBody3D" index="1"]
-disabled = true
-
 [node name="Door6" parent="SimpleFloor" index="26"]
 visible = false
 
 [node name="CollisionShape3D" parent="SimpleFloor/Door6/StaticBody3D" index="0"]
-disabled = true
-
-[node name="CollisionShape3D2" parent="SimpleFloor/Door6/StaticBody3D" index="1"]
 disabled = true
 
 [node name="Light01" parent="SimpleFloor/Light01" index="0" node_paths=PackedStringArray("_light")]

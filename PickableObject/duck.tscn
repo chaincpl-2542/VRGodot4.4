@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmawad2wij744"]
+[gd_scene load_steps=5 format=3 uid="uid://bmawad2wij744"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_235xn"]
 [ext_resource type="ArrayMesh" uid="uid://b42ajtxuolku" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Duck.obj" id="2_lw0eo"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_n2er6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n2er6"]
 size = Vector3(0.0900879, 0.119629, 0.135742)
@@ -14,4 +15,5 @@ shape = SubResource("BoxShape3D_n2er6")
 
 [node name="Duck" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
+material_overlay = ExtResource("2_n2er6")
 mesh = ExtResource("2_lw0eo")

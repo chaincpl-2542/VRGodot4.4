@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccm70bu4r0y1s"]
+[gd_scene load_steps=6 format=3 uid="uid://ccm70bu4r0y1s"]
 
 [ext_resource type="PackedScene" uid="uid://oe5oc8rfnrd2" path="res://Models/Board/Board.fbx" id="1_lk2qf"]
 [ext_resource type="Material" uid="uid://dnt8akbyoosdi" path="res://Models/Board/Board.tres" id="2_1epo5"]
 [ext_resource type="ArrayMesh" uid="uid://cko2wfhw14lc2" path="res://Models/ModelAssets/Free Sample/Export/Documents_colored-2.obj" id="3_anypx"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="3_ayo4i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0k73p"]
 size = Vector3(3.00781, 1.50238, 0.108093)
@@ -12,6 +13,7 @@ size = Vector3(3.00781, 1.50238, 0.108093)
 [node name="Board_001" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0, 0, 0)
 material_override = ExtResource("2_1epo5")
+material_overlay = ExtResource("3_ayo4i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 
@@ -21,8 +23,10 @@ shape = SubResource("BoxShape3D_0k73p")
 
 [node name="DocumentsColored-6" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0.769772, 0.725201, -0.114166)
+material_overlay = ExtResource("3_ayo4i")
 mesh = ExtResource("3_anypx")
 
 [node name="DocumentsColored-7" type="MeshInstance3D" parent="." index="3"]
 transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, -0.652912, 0.803845, -0.114934)
+material_overlay = ExtResource("3_ayo4i")
 mesh = ExtResource("3_anypx")

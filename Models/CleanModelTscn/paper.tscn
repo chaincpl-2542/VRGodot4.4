@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://brhvebkafgu56"]
+[gd_scene load_steps=4 format=3 uid="uid://brhvebkafgu56"]
 
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="1_iiwv8"]
 [ext_resource type="ArrayMesh" uid="uid://dlphsx3peri7o" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/Paper.obj" id="1_ytrnw"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o4unr"]
@@ -10,6 +11,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Paper" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.540497, 0, 0, 0, -2.21264e-08, -0.256079, 0, 0.506193, -1.11936e-08, 0, 0, 0)
+material_overlay = ExtResource("1_iiwv8")
 mesh = ExtResource("1_ytrnw")
 skeleton = NodePath("../StaticBody3D")
 

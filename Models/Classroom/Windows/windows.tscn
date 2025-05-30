@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl0ltuo0te1i1"]
+[gd_scene load_steps=5 format=3 uid="uid://cl0ltuo0te1i1"]
 
 [ext_resource type="PackedScene" uid="uid://c51fnaf68xjik" path="res://Models/Classroom/Windows/Windows.fbx" id="1_mtbic"]
 [ext_resource type="Material" uid="uid://bqfnphmskjk6m" path="res://Models/Classroom/Windows/windows.tres" id="2_x2x7v"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="3_km0ii"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x2x7v"]
 size = Vector3(2, 2, 0.1)
@@ -11,6 +12,7 @@ size = Vector3(2, 2, 0.1)
 [node name="Window_001" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0, 0, 0)
 material_override = ExtResource("2_x2x7v")
+material_overlay = ExtResource("3_km0ii")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Window_001" index="0"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 1, 0, -1, -1.19209e-07, 0, 0, 0)
