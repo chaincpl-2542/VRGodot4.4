@@ -24,7 +24,8 @@ public partial class Scene6FloorController : BaseFloorController
 	}
 
 	public void OnFinishFloor()
-	{
+	{            
+		PlayerVoices.Instance.PlayVoice(14);
 		_area.Visible = true;
 		_area.Monitoring = true;
 		_finishedFloor = true;

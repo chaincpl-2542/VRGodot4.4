@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://bk10ug2j36i8r"]
+[gd_scene load_steps=56 format=4 uid="uid://bk10ug2j36i8r"]
 
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="1_cw5vt"]
 [ext_resource type="Script" uid="uid://37xaisjvtc8k" path="res://Scripts/Scene1FloorController.cs" id="1_embbr"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://b7tkwy80t4c6d" path="res://Models/Airconditioner/AirConditioner_4.fbx" id="38_v6ri5"]
 [ext_resource type="Script" uid="uid://borkq14t3josn" path="res://Scripts/TriggerAudioArea.cs" id="39_bky14"]
 [ext_resource type="AudioStream" uid="uid://e3g1k38lpmnp" path="res://Sound/Friend.mp3" id="39_lb5qs"]
+[ext_resource type="PackedScene" uid="uid://by1g4ke1ivpyt" path="res://Scenes/player_voice_trigger.tscn" id="41_a4tqp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpas0"]
 albedo_color = Color(0.237322, 0.00900725, 0, 1)
@@ -919,6 +920,9 @@ mesh = SubResource("TextMesh_bky14")
 stream = ExtResource("39_lb5qs")
 unit_size = 1.5
 max_db = 2.0
+
+[node name="PlayerVoiceTrigger" parent="." instance=ExtResource("41_a4tqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297282, 0.20536, 5.22653)
 
 [editable path="SimpleFloor"]
 [editable path="SimpleFloor/Door5"]

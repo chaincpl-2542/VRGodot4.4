@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://e4nbvwee5ibe"
+path="res://.godot/imported/09_Something not right here.mp3-62757a19fb9eccad310883f7d75e1113.mp3str"
+
+[deps]
+
+source_file="res://Sound/PlayerVoices/09_Something not right here.mp3"
+dest_files=["res://.godot/imported/09_Something not right here.mp3-62757a19fb9eccad310883f7d75e1113.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

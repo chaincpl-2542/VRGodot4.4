@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://bg5dhuw1jx001"]
+[gd_scene load_steps=111 format=4 uid="uid://bg5dhuw1jx001"]
 
 [ext_resource type="Script" uid="uid://bpnulmqen7lg" path="res://Scripts/Scene2FloorController.cs" id="1_2nqf3"]
 [ext_resource type="PackedScene" uid="uid://c3ynhdje3m5r3" path="res://Models/Classroom/class_room.tscn" id="2_4j3tu"]
@@ -71,6 +71,7 @@
 [ext_resource type="PackedScene" uid="uid://0gg542hjyhlu" path="res://PickableObject/RedBottle.tscn" id="69_yed7w"]
 [ext_resource type="PackedScene" uid="uid://tv3hnlfs1aoe" path="res://PickableObject/snack_bar.tscn" id="70_nq6bx"]
 [ext_resource type="PackedScene" uid="uid://bcl3n8ne3qbnk" path="res://PickableObject/tea_drink.tscn" id="71_h11fi"]
+[ext_resource type="PackedScene" uid="uid://by1g4ke1ivpyt" path="res://Scenes/player_voice_trigger.tscn" id="72_yed7w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kv0hi"]
 size = Vector3(8.63161, 0.678482, 7.50891)
@@ -236,7 +237,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eh4k4")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eiqug"]
-size = Vector3(9.10352, 4.5722, 3.46509)
+size = Vector3(9.10352, 4.5722, 4.14465)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f5cao"]
 size = Vector3(1.83105, 3.10541, 1.49561)
@@ -810,10 +811,11 @@ transform = Transform3D(1.62952, 0, 0, 0, 1.37517, 0, 0, 0, 1, -7.46171, 1.15829
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0.122889, 0, 0)
 material_override = ExtResource("25_fuxrn")
 
-[node name="EventAreaStorageRoom" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostEvent")]
+[node name="EventAreaStorageRoom" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostEvent", "voiceTrigger")]
 script = ExtResource("26_y0031")
 _area = NodePath("Area3D")
 ghostEvent = NodePath("../EventAreaGhost")
+voiceTrigger = NodePath("../PlayerVoiceTrigger4")
 
 [node name="Area3D" type="Area3D" parent="EventAreaStorageRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.3784)
@@ -821,7 +823,7 @@ collision_layer = 65537
 collision_mask = 65537
 
 [node name="EventArea" type="CollisionShape3D" parent="EventAreaStorageRoom/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7861, 32.4016)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7861, 32.0618)
 shape = SubResource("BoxShape3D_eiqug")
 
 [node name="EventAreaGhost" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostNode3D", "floorCheck", "_animPlayer", "_nodeArray", "FlickerLights", "GhostSound")]
@@ -1489,6 +1491,26 @@ transform = Transform3D(0.793693, 0, -0.608318, 0, 1, 0, 0.608318, 0, 0.793693, 
 
 [node name="TeaDrink" parent="." instance=ExtResource("71_h11fi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96921, 0.771533, 39.5076)
+
+[node name="PlayerVoiceTrigger" parent="." instance=ExtResource("72_yed7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00674541, 0.0222454, 12.4491)
+VoiceIndex = 1
+
+[node name="PlayerVoiceTrigger4" parent="." instance=ExtResource("72_yed7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00674541, 0.0222454, 30.776)
+VoiceIndex = 4
+
+[node name="PlayerVoiceTrigger2" parent="." instance=ExtResource("72_yed7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00674541, 0.0222454, 55.0416)
+VoiceIndex = 2
+
+[node name="PlayerVoiceTrigger5" parent="." instance=ExtResource("72_yed7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00674541, 0.0222454, 32.7021)
+VoiceIndex = 8
+
+[node name="PlayerVoiceTrigger3" parent="." instance=ExtResource("72_yed7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00674541, 0.0222454, 62.3663)
+VoiceIndex = 3
 
 [editable path="SimpleFloor/Light01"]
 [editable path="SimpleFloor/Light04"]

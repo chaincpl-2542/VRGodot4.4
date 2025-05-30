@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://cghew80d8e872"]
+[gd_scene load_steps=81 format=4 uid="uid://cghew80d8e872"]
 
 [ext_resource type="Script" uid="uid://c4g00y14fo4ng" path="res://Scripts/Scene3FloorController.cs" id="1_1pypn"]
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="2_rf3u7"]
@@ -59,6 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://dxxnfw3qy4qdm" path="res://PickableObject/pizza.tscn" id="52_mwbcw"]
 [ext_resource type="PackedScene" uid="uid://tv3hnlfs1aoe" path="res://PickableObject/snack_bar.tscn" id="53_u0oby"]
 [ext_resource type="PackedScene" uid="uid://b7tkwy80t4c6d" path="res://Models/Airconditioner/AirConditioner_4.fbx" id="54_rf3u7"]
+[ext_resource type="PackedScene" uid="uid://by1g4ke1ivpyt" path="res://Scenes/player_voice_trigger.tscn" id="60_4eoc2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjm2i"]
 size = Vector3(2.9668, 2.6012, 1.82428)
@@ -328,10 +329,8 @@ areaTrigger = NodePath("AreaTrigger")
 kumanParent = NodePath("Guman Tong_3_001")
 particle = NodePath("SpawnParticle")
 
-[node name="SpawnParticle" parent="SimpleFloor/Kuman Tong_3" node_paths=PackedStringArray("Particles1", "Particles2") instance=ExtResource("7_4eoc2")]
+[node name="SpawnParticle" parent="SimpleFloor/Kuman Tong_3" instance=ExtResource("7_4eoc2")]
 transform = Transform3D(0.9993, 0, 0.037376, 0, 1, 0, -0.037376, 0, 0.9993, 0, 0.351082, 0)
-Particles1 = NodePath("GPUParticles3D")
-Particles2 = NodePath("GPUParticles3D2")
 
 [node name="Guman Tong_3_001" type="MeshInstance3D" parent="SimpleFloor/Kuman Tong_3"]
 transform = Transform3D(0.15, 0, 0, 0, -8.21774e-09, 0.188, 0, -0.188, -8.21774e-09, 0, -4.76837e-07, 0)
@@ -1757,6 +1756,14 @@ transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 
 
 [node name="AirConditioner_5" parent="." instance=ExtResource("54_rf3u7")]
 transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, -11.3099, 3.18457, 20.2668)
+
+[node name="PlayerVoiceTrigger" parent="." instance=ExtResource("60_4eoc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021999, -0.000146151, 1.25738)
+VoiceIndex = 5
+
+[node name="PlayerVoiceTrigger2" parent="." instance=ExtResource("60_4eoc2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.46701, -0.0826922, 12.6883)
+VoiceIndex = 6
 
 [editable path="SimpleFloor"]
 [editable path="SimpleFloor/Door6"]

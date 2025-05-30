@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://do7fn1eakgnci"]
+[gd_scene load_steps=102 format=4 uid="uid://do7fn1eakgnci"]
 
 [ext_resource type="Script" uid="uid://bmnjq5edyvf4x" path="res://Scripts/Scene5FloorController.cs" id="1_yspnc"]
 [ext_resource type="PackedScene" uid="uid://c3ynhdje3m5r3" path="res://Models/Classroom/class_room.tscn" id="2_vat50"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cad3hngm1im8j" path="res://Models/CleanModelTscn/poster_1.tscn" id="18_h6bkk"]
 [ext_resource type="PackedScene" uid="uid://dxvocfau8o35b" path="res://Models/CleanModelTscn/new_mystic_symblo.tscn" id="18_yspnc"]
 [ext_resource type="PackedScene" uid="uid://4bh5bvr6jtpr" path="res://Models/Door/Door.tscn" id="21_yh50o"]
+[ext_resource type="PackedScene" uid="uid://dmvbg6icmjpkq" path="res://Particle/spawn_particle.tscn" id="23_puklk"]
 [ext_resource type="Material" uid="uid://woo7mdd3enpj" path="res://Models/Book/Book1/Book_Blue.tres" id="24_07khx"]
 [ext_resource type="AudioStream" uid="uid://b8e77wcayaqeo" path="res://Sound/place-100513.mp3" id="24_nkeua"]
 [ext_resource type="Texture2D" uid="uid://bkymsblas5iam" path="res://Models/3D - Vox Cleaner Edited (No Character)/Puzzle objects/Reagent Bottle_/Reagent Bottle_79_Color.png" id="24_plqna"]
@@ -40,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://chku4rmwfl5p7" path="res://Particle/pickup_particle.tscn" id="33_aoqjn"]
 [ext_resource type="PackedScene" uid="uid://byc817nbfg7oj" path="res://PickableObject/Book.tscn" id="34_ebm1h"]
 [ext_resource type="PackedScene" uid="uid://uhnj1xgnmy66" path="res://PickableObject/daily_03.tscn" id="35_6mjf5"]
+[ext_resource type="PackedScene" uid="uid://by1g4ke1ivpyt" path="res://Scenes/player_voice_trigger.tscn" id="36_c80bb"]
 [ext_resource type="PackedScene" uid="uid://dwo1hjdkq5bqt" path="res://PickableObject/book2.tscn" id="37_afinc"]
 [ext_resource type="Texture2D" uid="uid://bi7flkdlqqm4v" path="res://Models/ModelAssets/Free Sample/Export/Bunker - Free Sample-80-Dirt-10.png" id="37_q257d"]
 [ext_resource type="PackedScene" uid="uid://bme1uh42lhaeo" path="res://PickableObject/book_2.tscn" id="38_6flq3"]
@@ -2345,13 +2347,15 @@ shadow_opacity = 0.2
 omni_range = 10.0
 omni_attenuation = 1.654
 
-[node name="BookShelfInteraction" type="Node3D" parent="." node_paths=PackedStringArray("BookNode", "area", "_animPlayer", "InsertSound")]
+[node name="BookShelfInteraction" type="Node3D" parent="." node_paths=PackedStringArray("BookNode", "area", "_animPlayer", "InsertSound", "particle", "particleNode")]
 transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 0.20595, 0.0126397, 54.3736)
 script = ExtResource("3_yyyt2")
 BookNode = NodePath("InsertBookshelf/Book3")
 area = NodePath("Area3D")
 _animPlayer = NodePath("AnimationPlayer")
 InsertSound = NodePath("InsertSound")
+particle = NodePath("InsertBookshelf/Book3/SpawnParticle")
+particleNode = NodePath("InsertBookshelf/Book3/SpawnParticle")
 
 [node name="InsertBookshelf" parent="BookShelfInteraction" instance=ExtResource("3_7af5d")]
 transform = Transform3D(0.15, 0, 9.53592e-09, 0, 0.15, 0, -9.53592e-09, 0, 0.15, 0, 0, 0)
@@ -2389,6 +2393,9 @@ collision_mask = 65537
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BookShelfInteraction/InsertBookshelf/Book3/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0309448, 0)
 shape = SubResource("BoxShape3D_u7pb8")
+
+[node name="SpawnParticle" parent="BookShelfInteraction/InsertBookshelf/Book3" instance=ExtResource("23_puklk")]
+transform = Transform3D(0.111111, 0, -2.6491e-08, 0, 0.111111, 0, 2.6491e-08, 0, 0.111111, 0, 0, 0)
 
 [node name="Candle2" type="MeshInstance3D" parent="BookShelfInteraction/InsertBookshelf"]
 transform = Transform3D(-8.14603e-08, 0, -0.5, 0, 1, 0, 0.5, 0, -8.14603e-08, 2.60654, 10.1779, 1.16954)
@@ -2492,7 +2499,7 @@ script = ExtResource("25_72eoj")
 RootNode = NodePath(".")
 area = NodePath("Area3D")
 particle = NodePath("PickupParticle")
-particleNode = NodePath("PickupParticle/GPUParticles3D")
+particleNode = NodePath("PickupParticle")
 
 [node name="PickupParticle" parent="WorkshopTable/MysticSymblo" node_paths=PackedStringArray("Particles1", "Particles2") instance=ExtResource("33_aoqjn")]
 transform = Transform3D(-1, 1.4593e-13, 8.74231e-08, -8.74231e-08, -1.31134e-07, -1, -1.34466e-13, -1, 1.31134e-07, 0, -0.192886, 0)
@@ -2517,16 +2524,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00854492, -0.174286, -0.038
 shape = SubResource("BoxShape3D_6c666")
 
 [node name="PickableCandle" parent="." instance=ExtResource("24_vat50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93347, -0.0703956, 55.2016)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93347, 0.0284061, 55.2016)
 
 [node name="PickableCandle2" parent="." instance=ExtResource("24_vat50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6337, -0.0703956, 51.59)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6337, 0.0247012, 51.59)
 
 [node name="PickableCandle3" parent="." instance=ExtResource("24_vat50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31037, -0.0703956, 39.7926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31037, 0.0185003, 39.7926)
 
 [node name="PickableCandle4" parent="." instance=ExtResource("24_vat50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23616, 1.25912, 53.9041)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23616, 1.27002, 53.9041)
 
 [node name="WorkshopTable2" parent="." instance=ExtResource("17_6c666")]
 transform = Transform3D(-0.235, 0, 2.05444e-08, 0, 0.235, 0, -2.05444e-08, 0, -0.235, -6.15198, 0.0235752, 54.385)
@@ -3297,4 +3304,17 @@ transform = Transform3D(-2.14569e-08, 0, -0.2, 0, 0.2, 0, 0.2, 0, -2.14569e-08, 
 [node name="StudentBag3" parent="." instance=ExtResource("51_32smn")]
 transform = Transform3D(-0.2, -8.74228e-09, 3.01992e-08, 3.01992e-08, 3.82137e-16, 0.2, -8.74228e-09, 0.2, 9.37912e-16, 1.9059, 0.837753, 46.7023)
 
+[node name="PlayerVoiceTrigger" parent="." instance=ExtResource("36_c80bb")]
+transform = Transform3D(1, 8.47033e-22, 0, 2.37169e-20, 1, 0, 1.42109e-14, -1.42109e-14, 1, -0.549894, 0.0235738, 41.1367)
+VoiceIndex = 11
+
+[node name="PlayerVoiceTrigger2" parent="." instance=ExtResource("36_c80bb")]
+transform = Transform3D(1, 8.47033e-22, 0, 2.37169e-20, 1, 0, 1.42109e-14, -1.42109e-14, 1, -2.97478, 0.0235738, 51.2813)
+VoiceIndex = 12
+
+[node name="PlayerVoiceTrigger3" parent="." instance=ExtResource("36_c80bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.654, 0.0235741, 45.5198)
+VoiceIndex = 13
+
+[editable path="BookShelfInteraction/InsertBookshelf/Book3/SpawnParticle"]
 [editable path="WorkshopTable/MysticSymblo/PickupParticle"]

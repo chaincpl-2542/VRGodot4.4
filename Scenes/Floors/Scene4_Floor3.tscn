@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=4 uid="uid://box148mntjlle"]
+[gd_scene load_steps=137 format=4 uid="uid://box148mntjlle"]
 
 [ext_resource type="Script" uid="uid://dfqshe4brfxvb" path="res://Scripts/Scene4FloorController.cs" id="1_461ft"]
 [ext_resource type="PackedScene" uid="uid://ddneys6hhnini" path="res://Models/Classroom/SimpleFloor.tscn" id="2_xxsgf"]
@@ -85,6 +85,7 @@
 [ext_resource type="PackedScene" uid="uid://duxle5aqh462g" path="res://PickableObject/book_menu.tscn" id="74_lhgip"]
 [ext_resource type="ArrayMesh" uid="uid://cko2wfhw14lc2" path="res://Models/ModelAssets/Free Sample/Export/Documents_colored-2.obj" id="83_vjqvs"]
 [ext_resource type="PackedScene" uid="uid://cukrs05v6up1q" path="res://PickableObject/daily_02.tscn" id="85_4cjd5"]
+[ext_resource type="PackedScene" uid="uid://by1g4ke1ivpyt" path="res://Scenes/player_voice_trigger.tscn" id="86_hum77"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l244x"]
 size = Vector3(1.83105, 3.10541, 1.49561)
@@ -1243,17 +1244,13 @@ mesh = SubResource("BoxMesh_37xqq")
 transform = Transform3D(1, 0, 0, 0, 1.22981, 0, 0, 0, 1, 0.100598, -0.207572, 0.0240752)
 mesh = SubResource("BoxMesh_37xqq")
 
-[node name="ButtonController" parent="ShadowPuzzle" node_paths=PackedStringArray("PuzzleObject", "RotateStartSound", "RotateLoopSound") instance=ExtResource("8_n4paw")]
+[node name="ButtonController" parent="ShadowPuzzle" node_paths=PackedStringArray("PuzzleObject") instance=ExtResource("8_n4paw")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.730818, -0.0405239, 0.742838)
 PuzzleObject = NodePath("../Node3D")
-RotateStartSound = NodePath("../RotateStartSound")
-RotateLoopSound = NodePath("../RotateLoopSound")
 
-[node name="ButtonController2" parent="ShadowPuzzle" node_paths=PackedStringArray("PuzzleObject", "RotateStartSound", "RotateLoopSound") instance=ExtResource("8_n4paw")]
+[node name="ButtonController2" parent="ShadowPuzzle" node_paths=PackedStringArray("PuzzleObject") instance=ExtResource("8_n4paw")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.704746, -0.0405239, 0.742838)
 PuzzleObject = NodePath("../Node3D")
-RotateStartSound = NodePath("../RotateStartSound")
-RotateLoopSound = NodePath("../RotateLoopSound")
 
 [node name="RotateStartSound" type="AudioStreamPlayer3D" parent="ShadowPuzzle"]
 stream = ExtResource("21_5bhom")
@@ -1429,11 +1426,13 @@ visible = false
 mesh = ExtResource("27_s6w6t")
 script = ExtResource("28_10clf")
 
-[node name="CryptexController" parent="." node_paths=PackedStringArray("TickSound", "UnlockSound", "CollisionShape") instance=ExtResource("10_t5ekp")]
+[node name="CryptexController" parent="." node_paths=PackedStringArray("RootNode", "TickSound", "UnlockSound", "particle", "particleNode") instance=ExtResource("10_t5ekp")]
 transform = Transform3D(0.5, 0, 0, 0, 0.403093, 0.295831, 0, -0.295831, 0.403093, -7.30014, 1.3095, 12.0263)
+RootNode = NodePath(".")
 TickSound = NodePath("../TickSound")
 UnlockSound = NodePath("../UnlockSound")
-CollisionShape = NodePath("Cryptex/StaticBody3D2/CollisionShape3D")
+particle = NodePath("Cryptex/PickupParticle")
+particleNode = NodePath("Cryptex/PickupParticle")
 
 [node name="MeshInstance3D" parent="CryptexController/FirstNumber/IncreaseButton1 (Area3D)/IncreaseNum" index="0"]
 layers = 3
@@ -1452,6 +1451,13 @@ layers = 3
 
 [node name="MeshInstance3D" parent="CryptexController/ThirdNumber/DecreaseButton3 (Area3D)/DecreaseNum" index="0"]
 layers = 3
+
+[node name="StaticBody3D2" parent="CryptexController/Cryptex" index="0"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="PickupParticle" parent="CryptexController/Cryptex" index="1" instance=ExtResource("49_m0lqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35417, 7.10543e-15)
 
 [node name="KeyCardReader" parent="." node_paths=PackedStringArray("doorToOpen", "KeycardSound", "DoorOpenSound") instance=ExtResource("10_6bls3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.30068, 1.59661, 43.896)
@@ -1509,16 +1515,8 @@ second_hand_grab = 0
 particle = NodePath("../PickupParticle")
 particleNode = NodePath("../PickupParticle")
 
-[node name="PickupParticle" parent="Book" node_paths=PackedStringArray("Particles1", "Particles2") instance=ExtResource("49_m0lqr")]
+[node name="PickupParticle" parent="Book" instance=ExtResource("49_m0lqr")]
 transform = Transform3D(0.0601253, 0, -0.998191, 0, 1, 0, 0.998191, 0, 0.0601253, 0, 0, 0)
-Particles1 = NodePath("GPUParticles3D")
-Particles2 = NodePath("GPUParticles3D2")
-
-[node name="GPUParticles3D2" parent="Book/PickupParticle" index="1"]
-emitting = true
-
-[node name="MeshInstance3D" parent="Book/PickupParticle" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.21, 0, 0.2, 0)
 
 [node name="Chair" parent="." instance=ExtResource("7_6bls3")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -5.65333, 0.000664603, 33.2378)
@@ -2741,6 +2739,14 @@ transform = Transform3D(-0.819952, 0, -0.572432, 0, 1, 0, 0.572432, 0, -0.819952
 [node name="Daily02" parent="." instance=ExtResource("85_4cjd5")]
 transform = Transform3D(-0.447993, -0.894037, 5.8662e-08, -4.37114e-08, -4.37114e-08, -1, 0.894037, -0.447993, -1.94972e-08, -3.55176, 0.940752, 44.8018)
 
+[node name="PlayerVoiceTrigger" parent="." instance=ExtResource("86_hum77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00854999, 0.0222455, 12.2822)
+VoiceIndex = 7
+
+[node name="PlayerVoiceTrigger2" parent="." instance=ExtResource("86_hum77")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.89929, -0.045654, 3.15981)
+VoiceIndex = 9
+
 [editable path="SimpleFloor"]
 [editable path="SimpleFloor/Board6"]
 [editable path="SimpleFloor/Door"]
@@ -2757,6 +2763,8 @@ transform = Transform3D(-0.447993, -0.894037, 5.8662e-08, -4.37114e-08, -4.37114
 [editable path="LaserPuzzle/Safebox"]
 [editable path="LaserPuzzle/Safebox/Pivot/Cap/LaserReceiver"]
 [editable path="CryptexController"]
+[editable path="CryptexController/Cryptex/PickupParticle"]
 [editable path="KeyCardReader"]
 [editable path="Book"]
 [editable path="Book/PickupParticle"]
+[editable path="PlayerVoiceTrigger2"]

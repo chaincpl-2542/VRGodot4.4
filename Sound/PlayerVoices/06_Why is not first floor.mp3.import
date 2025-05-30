@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blc6nda3cmdtf"
+path="res://.godot/imported/06_Why is not first floor.mp3-bcb1bb95d439cbbb17852fa5db82d540.mp3str"
+
+[deps]
+
+source_file="res://Sound/PlayerVoices/06_Why is not first floor.mp3"
+dest_files=["res://.godot/imported/06_Why is not first floor.mp3-bcb1bb95d439cbbb17852fa5db82d540.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

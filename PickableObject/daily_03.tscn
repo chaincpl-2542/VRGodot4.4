@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://uhnj1xgnmy66"]
+[gd_scene load_steps=15 format=3 uid="uid://uhnj1xgnmy66"]
 
 [ext_resource type="Script" uid="uid://cpkarkkjxe5yb" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_xmbal"]
 [ext_resource type="Material" uid="uid://bx5sj0j2jlmkd" path="res://Models/3D - Vox Cleaner Edited (No Character)/Paper& MemoPad/paper.tres" id="2_453f1"]
@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bij5nrfimcitv" path="res://Sound/Daily3.mp3" id="5_453f1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l7cyn"]
-size = Vector3(0.398193, 0.00509642, 0.570312)
+size = Vector3(0.398193, 0.0151215, 0.570312)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cjd5"]
 albedo_color = Color(0, 0, 0, 1)
@@ -82,6 +82,13 @@ font = ExtResource("4_fxtsd")
 font_size = 5
 horizontal_alignment = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_453f1"]
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hhn5v"]
+material = SubResource("StandardMaterial3D_453f1")
+
 [node name="Daily03" type="RigidBody3D" node_paths=PackedStringArray("daily_audio")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 4
@@ -92,7 +99,7 @@ is_daily = true
 daily_audio = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.00348081, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.00749082, 0)
 shape = SubResource("BoxShape3D_l7cyn")
 
 [node name="Text" type="MeshInstance3D" parent="CollisionShape3D"]
@@ -125,6 +132,10 @@ transform = Transform3D(0.496855, 0, 0, 0, 0.0555491, 0, 1.77636e-15, 0, 0.56947
 material_override = ExtResource("2_453f1")
 mesh = ExtResource("3_hhn5v")
 skeleton = NodePath("../..")
+
+[node name="ItemFrame" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(0.411703, 0, -1.42109e-14, 0, 0.0030354, 0, 1.24345e-14, 0, 0.578236, 0, 0, 0)
+mesh = SubResource("BoxMesh_hhn5v")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_453f1")

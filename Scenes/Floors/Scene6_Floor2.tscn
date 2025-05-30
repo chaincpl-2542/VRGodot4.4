@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://c8rvtqfnkv2h5"]
+[gd_scene load_steps=106 format=4 uid="uid://c8rvtqfnkv2h5"]
 
 [ext_resource type="Script" uid="uid://b27xntabce4uk" path="res://Scripts/Scene6FloorController.cs" id="1_f8poe"]
 [ext_resource type="PackedScene" uid="uid://c3ynhdje3m5r3" path="res://Models/Classroom/class_room.tscn" id="2_yoxqy"]
@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://cqcsfv8tjs7kt" path="res://Models/CleanModelTscn/prop_gun.tscn" id="44_68aii"]
 [ext_resource type="PackedScene" uid="uid://0p8u36vpgo6n" path="res://Models/CleanModelTscn/projector_ground.tscn" id="45_tod3a"]
 [ext_resource type="PackedScene" uid="uid://bfbyyc2ojo420" path="res://Models/CleanModelTscn/projector.tscn" id="46_0gx30"]
+[ext_resource type="PackedScene" uid="uid://c0f6ddai74xpl" path="res://PickableObject/daily_04.tscn" id="46_nhf5j"]
 [ext_resource type="PackedScene" uid="uid://brhvebkafgu56" path="res://Models/CleanModelTscn/paper.tscn" id="47_3soe3"]
 [ext_resource type="PackedScene" uid="uid://dyojqhtmdo7el" path="res://Models/CleanModelTscn/pencil.tscn" id="48_jjdr1"]
 [ext_resource type="PackedScene" uid="uid://b7tkwy80t4c6d" path="res://Models/Airconditioner/AirConditioner_4.fbx" id="49_1cfmd"]
@@ -858,6 +859,10 @@ skeleton = NodePath("../..")
 transform = Transform3D(-0.840519, 0, -0.541781, 0, 1, 0, 0.541781, 0, -0.840519, 50.9197, 0.0900004, -7.95027)
 skeleton = NodePath("../..")
 
+[node name="Old Chair14" parent="SimpleFloor" instance=ExtResource("33_fe4kl")]
+transform = Transform3D(0.504919, 0, -0.863166, 0, 1, 0, 0.863166, 0, 0.504919, 45.0996, 0.0900004, -6.13337)
+skeleton = NodePath("../..")
+
 [node name="Old Chair13" parent="SimpleFloor" instance=ExtResource("33_fe4kl")]
 transform = Transform3D(0.187724, 0, -0.982221, 0, 1, 0, 0.982221, 0, 0.187724, 50.588, 0.0864365, -10.3341)
 skeleton = NodePath("../..")
@@ -971,6 +976,9 @@ transform = Transform3D(-7.12286e-08, 0, 1, 0, 1.37517, 0, -1.62952, 0, -4.37114
 [node name="Board_001" parent="SimpleFloor/Board8" index="0"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0.122889, 0, 0)
 material_override = ExtResource("19_3p0o5")
+
+[node name="Daily04" parent="SimpleFloor" instance=ExtResource("46_nhf5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9435, 0.796016, -6.06682)
 
 [node name="EventAreaStorageRoom" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostEvent")]
 script = ExtResource("20_lgf0y")

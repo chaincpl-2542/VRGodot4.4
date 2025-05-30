@@ -8,6 +8,9 @@ public partial class Scene2StorageRoom : BaseFloorController
 
 	[Export] 
 	public Node3D ghostEvent;
+	
+	[Export] 
+	public Node3D voiceTrigger;
 	public override void _Ready()
 	{
 		if (_area != null)
@@ -31,6 +34,8 @@ public partial class Scene2StorageRoom : BaseFloorController
 			storageArea3D.Visible = false;
 			storageArea3D.Monitoring = false;
 			this.Visible = false;
+			voiceTrigger.Visible = true;
+			voiceTrigger.GetNode<Area3D>("Area3D").Monitoring = true;
 			ghostEvent.Visible = true;
 			ghostEvent.GetNode<Area3D>("Area3D").Monitoring = true;
 		}

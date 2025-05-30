@@ -7,6 +7,8 @@ public partial class BookShelfInteraction : Node3D
 	[Export] public Area3D area;
 	[Export] public AnimationPlayer _animPlayer;
 	[Export] public AudioStreamPlayer3D InsertSound;
+	[Export] public PlayParticle particle;
+	[Export] public Node3D particleNode;
 
 	private bool _triggered = false;
 
@@ -23,6 +25,8 @@ public partial class BookShelfInteraction : Node3D
 
 		if (body.IsInGroup("PlayerHand"))
 		{
+			particleNode.Show();
+			particle.PlayMyParticle();
 			GD.Print("📚 Book inserted into shelf.");
 			BookNode.Visible = true;
 			InsertSound?.Play();

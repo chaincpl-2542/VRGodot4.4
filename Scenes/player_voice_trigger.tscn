@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://by1g4ke1ivpyt"]
+
+[ext_resource type="Script" uid="uid://tmdlxj7gwlg3" path="res://Scripts/PlayerVoiceTrigger.cs" id="1_hmlc1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c3pre"]
+size = Vector3(4.41187, 2.15051, 1)
+
+[node name="PlayerVoiceTrigger" type="Area3D"]
+script = ExtResource("1_hmlc1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575256, 0)
+shape = SubResource("BoxShape3D_c3pre")

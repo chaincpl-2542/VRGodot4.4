@@ -5,7 +5,7 @@ public partial class CryptexController : Node3D
 {
 	private const string PASS_CODE = "918";
 	private int[] _codeNumbers = new int[3];
-
+	[Export] public Node RootNode;
 	[Export] public MeshInstance3D firstNumber;
 	[Export] public MeshInstance3D secondNumber;
 	[Export] public MeshInstance3D thirdNumber;
@@ -32,8 +32,10 @@ public partial class CryptexController : Node3D
 	[Export] public AudioStreamPlayer3D TickSound;
 	[Export] public AudioStreamPlayer3D UnlockSound;
 	
-	[Export] public CollisionShape3D CollisionShape;
-
+	//Particle
+	[Export] public PlayParticle particle;
+	[Export] public Node3D particleNode;
+	
 	private bool _isUnlocked = false;
 
 	public override void _Ready()
@@ -109,7 +111,6 @@ public partial class CryptexController : Node3D
 		_isUnlocked = true;
 
 		GD.Print("🔓 Cryptex Unlocked! You got the key!");
-		CollisionShape.Hide();
 		UnlockSound?.Play();
 
 		// Disable buttons
@@ -121,7 +122,9 @@ public partial class CryptexController : Node3D
 		DecreaseButton3.Monitoring = false;
 
 		await ToSignal(GetTree().CreateTimer(delay), "timeout");
-
+		particleNode.Show();
+		particle.PlayAllParticles();
+		particle.PlayMyParticle();
 		this.Visible = false;
 
 		if (keyCard != null)
@@ -137,6 +140,8 @@ public partial class CryptexController : Node3D
 			GetParent().AddChild(noteInstance);
 			noteInstance.GlobalTransform = dailyNoteSpawnPoint.GlobalTransform;
 		}
+		
+		RootNode.QueueFree();
 	}
 
 	private void OnIncreaseButton1(Node3D body) { if (body.IsInGroup("PlayerHand")) ChangeNumber(0, 1); }

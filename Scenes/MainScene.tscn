@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdxt84n3f5hyl"]
+[gd_scene load_steps=32 format=3 uid="uid://bdxt84n3f5hyl"]
 
 [ext_resource type="Script" uid="uid://tbh5wu80s6x6" path="res://Scripts/GameManager.cs" id="1_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://dinmhn3cmls06" path="res://Scenes/Elevator.tscn" id="1_hpc76"]
@@ -6,11 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://bk10ug2j36i8r" path="res://Scenes/Floors/Scene1_Floor4.tscn" id="4_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://cghew80d8e872" path="res://Scenes/Floors/Scene3_Floor5.tscn" id="4_f140w"]
 [ext_resource type="PackedScene" uid="uid://box148mntjlle" path="res://Scenes/Floors/Scene4_Floor3.tscn" id="5_0iob3"]
-[ext_resource type="PackedScene" uid="uid://do7fn1eakgnci" path="res://Scenes/Scene5_Floor6.tscn" id="6_0iob3"]
+[ext_resource type="PackedScene" uid="uid://do7fn1eakgnci" path="res://Scenes/Floors/Scene5_Floor6.tscn" id="6_0iob3"]
 [ext_resource type="Script" uid="uid://ch47acqybk1sk" path="res://Scripts/XRViewport.cs" id="6_y4jh7"]
 [ext_resource type="PackedScene" uid="uid://c8rvtqfnkv2h5" path="res://Scenes/Floors/Scene6_Floor2.tscn" id="7_8ju71"]
 [ext_resource type="PackedScene" uid="uid://dyotj43j4mf2p" path="res://Scenes/Floors/Scene7_Floor1.tscn" id="8_xb4mg"]
+[ext_resource type="Script" uid="uid://5brsa4shlx22" path="res://Scripts/PlayerVoices.cs" id="11_4sso6"]
 [ext_resource type="PackedScene" uid="uid://bpfinjadhqgd1" path="res://Scenes/XR_Player.tscn" id="11_8ju71"]
+[ext_resource type="AudioStream" uid="uid://bewyt0qhg1qk4" path="res://Sound/PlayerVoices/01_Storage room.mp3" id="12_r0vnq"]
+[ext_resource type="AudioStream" uid="uid://cww3fq5oa3g0v" path="res://Sound/PlayerVoices/02_So quiet.mp3" id="13_c3pre"]
+[ext_resource type="AudioStream" uid="uid://c0aie35gx1v3i" path="res://Sound/PlayerVoices/03_Check it out.mp3" id="14_u5v48"]
+[ext_resource type="AudioStream" uid="uid://bqloohf0xattp" path="res://Sound/PlayerVoices/04_Where my friends.mp3" id="15_s1acj"]
+[ext_resource type="AudioStream" uid="uid://c4epja43orgvx" path="res://Sound/PlayerVoices/05_What is that.mp3" id="16_t8ijv"]
+[ext_resource type="AudioStream" uid="uid://blc6nda3cmdtf" path="res://Sound/PlayerVoices/06_Why is not first floor.mp3" id="17_rv6c1"]
+[ext_resource type="AudioStream" uid="uid://y114y5dnx7od" path="res://Sound/PlayerVoices/07_Kid help me.mp3" id="18_dtg5n"]
+[ext_resource type="AudioStream" uid="uid://ba6g7n6t51v5h" path="res://Sound/PlayerVoices/08_Puzzle.mp3" id="19_d0jji"]
+[ext_resource type="AudioStream" uid="uid://e4nbvwee5ibe" path="res://Sound/PlayerVoices/09_Something not right here.mp3" id="20_cotnl"]
+[ext_resource type="AudioStream" uid="uid://b836eliahksej" path="res://Sound/PlayerVoices/10_News.mp3" id="21_ypccg"]
+[ext_resource type="AudioStream" uid="uid://dw3v2do81a1ou" path="res://Sound/PlayerVoices/11_Got it.mp3" id="22_rmfi2"]
+[ext_resource type="AudioStream" uid="uid://t0p5wsoyyrf4" path="res://Sound/PlayerVoices/12_library.mp3" id="23_sl126"]
+[ext_resource type="AudioStream" uid="uid://dk1efp82cx54u" path="res://Sound/PlayerVoices/13_Candle.mp3" id="24_ergw4"]
+[ext_resource type="AudioStream" uid="uid://drg1yb22edsb2" path="res://Sound/PlayerVoices/14_There it is.mp3" id="25_75tun"]
+[ext_resource type="AudioStream" uid="uid://c5eumwhqhcsls" path="res://Sound/PlayerVoices/15_Can het out of here.mp3" id="26_oo3wg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tr2i4"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -43,9 +59,8 @@ transform = Transform3D(1, 0, 0, 0, 1.07881, 0, 0, 0, 1, 0, -0.210048, 0.142914)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7rqgy")
 
-[node name="Scene1_Floor4" parent="." node_paths=PackedStringArray("_area") instance=ExtResource("4_7rqgy")]
+[node name="Scene1_Floor4" parent="." instance=ExtResource("4_7rqgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.195)
-_area = NodePath("Area3D2")
 
 [node name="Area3D2" type="Area3D" parent="Scene1_Floor4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.859781, 0)
@@ -57,6 +72,13 @@ shape = SubResource("BoxShape3D_7rqgy")
 
 [node name="XrPlayer" parent="." groups=["Player"] instance=ExtResource("11_8ju71")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23999, 0.14257, 13.2119)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="XrPlayer"]
+
+[node name="VoiceManager" type="Node3D" parent="XrPlayer" node_paths=PackedStringArray("VoicePlayer")]
+script = ExtResource("11_4sso6")
+VoicePlayer = NodePath("../AudioStreamPlayer3D")
+VoiceClips = Array[AudioStream]([ExtResource("12_r0vnq"), ExtResource("13_c3pre"), ExtResource("14_u5v48"), ExtResource("15_s1acj"), ExtResource("16_t8ijv"), ExtResource("17_rv6c1"), ExtResource("18_dtg5n"), ExtResource("19_d0jji"), ExtResource("20_cotnl"), ExtResource("21_ypccg"), ExtResource("22_rmfi2"), ExtResource("23_sl126"), ExtResource("24_ergw4"), ExtResource("25_75tun"), ExtResource("26_oo3wg")])
 
 [node name="XRViewport" type="Node3D" parent="."]
 script = ExtResource("6_y4jh7")

@@ -21,6 +21,7 @@ public partial class SafeBox : Node3D
 			return;
 
 		_isOpen = true;
+		PlayerVoices.Instance.PlayVoice(10);
 		GD.Print("SafeBox opened!");
 		book.Visible = true;
 

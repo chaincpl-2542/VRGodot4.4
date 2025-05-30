@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmvbg6icmjpkq"]
+[gd_scene load_steps=11 format=3 uid="uid://dmvbg6icmjpkq"]
 
 [ext_resource type="Material" uid="uid://ckqw7vfn4ut2a" path="res://addons/godot-xr-tools/materials/EmitWhite.tres" id="1_6wrvm"]
 [ext_resource type="Script" uid="uid://c2abg7vr3ugwn" path="res://Scripts/PlayParticle.cs" id="1_cqttu"]
 [ext_resource type="Material" uid="uid://cs3vnatjcr1s" path="res://addons/godot-xr-tools/materials/EmitYellow.tres" id="2_i4x7u"]
+[ext_resource type="AudioStream" uid="uid://cpokw3gfecf7p" path="res://Sound/Poof.mp3" id="4_c81g7"]
 
 [sub_resource type="Curve" id="Curve_ssirh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.23605, 0.0, 0, 0]
@@ -41,8 +42,11 @@ scale_curve = SubResource("CurveTexture_2xbvh")
 material = ExtResource("2_i4x7u")
 size = Vector3(0.2, 0.2, 0.2)
 
-[node name="SpawnParticle" type="Node3D"]
+[node name="SpawnParticle" type="Node3D" node_paths=PackedStringArray("Particles1", "Particles2", "sound")]
 script = ExtResource("1_cqttu")
+Particles1 = NodePath("GPUParticles3D")
+Particles2 = NodePath("GPUParticles3D2")
+sound = NodePath("AudioStreamPlayer3D")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false
@@ -61,3 +65,6 @@ one_shot = true
 visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
 process_material = SubResource("ParticleProcessMaterial_02jbs")
 draw_pass_1 = SubResource("BoxMesh_p6js5")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_c81g7")
