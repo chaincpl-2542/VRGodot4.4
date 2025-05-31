@@ -13,10 +13,14 @@ public partial class Scene2GhostEventTrigger : BaseFloorController
 	[Export] public Array<Node3D> _nodeArray = new();
 	[Export] public Array<OmniLight3D> FlickerLights = new();
 	[Export] public AudioStreamPlayer3D GhostSound;
+	[Export] public AudioStreamPlayer3D ScreamSound;
+	[Export] public AudioStreamPlayer3D NoiseSound;
+	[Export] public String AnimationName = "NungRumHead";
 
 	private bool _triggered = false;
+	private bool _isTriggeredGhost = false;
 	private double _timer = 0;
-
+	
 	public override void _Ready()
 	{
 		ghostNode3D.Visible = false;
@@ -36,48 +40,64 @@ public partial class Scene2GhostEventTrigger : BaseFloorController
 				SetProcess(false);
 				ActiveNodeArray(true);
 				RestoreLights();
+				GhostSound?.Stop();
+				ScreamSound?.Stop();
+				NoiseSound?.Stop();
+
+				_isTriggeredGhost = true;
 			}
 		}
 	}
 
 	private void OnBodyEntered(Node3D body)
 	{
-		if (body.IsInGroup("Player") && !_triggered)
+		if (_isTriggeredGhost == false)
 		{
-			GD.Print("👻 Ghost triggered!");
-			_triggered = true;
-			_timer = 0;
+			if (body.IsInGroup("Player") && !_triggered)
+			{
+				GD.Print("👻 Ghost triggered!");
+				_triggered = true;
+				_timer = 0;
 
-			ActiveNodeArray(false);
-			ghostNode3D.Visible = true;
-			_animPlayer?.Play("NungRumHead");
+				ActiveNodeArray(false);
+				ghostNode3D.Visible = true;
+				_animPlayer?.Play(AnimationName);
 
-			GhostSound?.Play();
-			FlickerLightsCrazy();
+				GhostSound?.Play();
+				ScreamSound?.Play();
+				NoiseSound?.Play();
+				FlickerLightsCrazy();
 
-			_area.Visible = false;
-			_area.Monitoring = false;
+				_area.Visible = false;
+				_area.Monitoring = false;
 
-			floorCheck.Visible = true;
-			floorCheck.GetNode<Area3D>("Area3D").Monitoring = true;
+				if (floorCheck != null)
+				{
+					floorCheck.Visible = true;
+					floorCheck.GetNode<Area3D>("Area3D").Monitoring = true;
+				}
+			}
 		}
 	}
 
 	private async void FlickerLightsCrazy()
 	{
-		foreach (var light in FlickerLights)
-			light.LightColor = new Color(1, 0, 0); // Red
-
-		for (int i = 0; i < 12; i++)
+		if (FlickerLights.Count > 0)
 		{
 			foreach (var light in FlickerLights)
-				light.Visible = !light.Visible;
+				light.LightColor = new Color(1, 0, 0); // Red
 
-			await ToSignal(GetTree().CreateTimer(0.04f + (float)GD.RandRange(0.01, 0.03)), "timeout");
+			for (int i = 0; i < 12; i++)
+			{
+				foreach (var light in FlickerLights)
+					light.Visible = !light.Visible;
+
+				await ToSignal(GetTree().CreateTimer(0.04f + (float)GD.RandRange(0.01, 0.03)), "timeout");
+			}
+
+			foreach (var light in FlickerLights)
+				light.Visible = true;
 		}
-
-		foreach (var light in FlickerLights)
-			light.Visible = true;
 	}
 
 	private void RestoreLights()
@@ -91,7 +111,10 @@ public partial class Scene2GhostEventTrigger : BaseFloorController
 
 	public void ActiveNodeArray(bool active)
 	{
-		for (int i = 0; i < _nodeArray.Count; i++)
-			_nodeArray[i].Visible = active;
+		if (_nodeArray.Count > 0)
+		{
+			for (int i = 0; i < _nodeArray.Count; i++)
+				_nodeArray[i].Visible = active;
+		}
 	}
 }

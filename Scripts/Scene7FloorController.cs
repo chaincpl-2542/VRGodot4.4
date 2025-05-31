@@ -3,13 +3,12 @@ using Godot;
 
 public partial class Scene7FloorController : BaseFloorController
 {
-	private Area3D _area;
+	[Export] public Area3D _area;
 	private bool _isTrigger = false;
 	public static Scene7FloorController Instance { get; private set; }
 	
 	public override void _Ready()
 	{
-		_area = null;
 		if (Instance == null)
 		{
 			Instance = this;
@@ -21,24 +20,20 @@ public partial class Scene7FloorController : BaseFloorController
 		}
 		SetProcess(true);
 	}
-
+	
 	public void OnFinishFloor()
 	{
-		_area = GetNode<Area3D>("Area3D");
+		if (_area.IsConnected("body_entered", new Callable(this, nameof(OnBodyEntered))))
+			_area.Disconnect("body_entered", new Callable(this, nameof(OnBodyEntered)));
+
 		_area.Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
-	}
-	
-	public override void LoadFloor(int floorNumber)
-	{
-		base.LoadFloor(floorNumber);
 	}
 	
 	public async Task OnBodyEntered(Node3D body)
 	{
 		if (body.IsInGroup("Player"))
 		{
-			await Task.Delay(3000);
-			this.LoadFloor(7);
+			this.ForceLoadFloor(7);
 		}
 	}
 }

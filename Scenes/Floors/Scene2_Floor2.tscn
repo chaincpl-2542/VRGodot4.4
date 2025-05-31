@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=4 uid="uid://bg5dhuw1jx001"]
+[gd_scene load_steps=116 format=4 uid="uid://bg5dhuw1jx001"]
 
 [ext_resource type="Script" uid="uid://bpnulmqen7lg" path="res://Scripts/Scene2FloorController.cs" id="1_2nqf3"]
 [ext_resource type="PackedScene" uid="uid://c3ynhdje3m5r3" path="res://Models/Classroom/class_room.tscn" id="2_4j3tu"]
@@ -31,6 +31,8 @@
 [ext_resource type="Script" uid="uid://bwrv6e2r1ogsb" path="res://Scripts/Scene2FloorCheck.cs" id="28_f2dqa"]
 [ext_resource type="PackedScene" uid="uid://b52o3vypq51bv" path="res://Models/NangRum/Nang_rum.tscn" id="29_bwh6n"]
 [ext_resource type="AudioStream" uid="uid://dh5p4kak6hb08" path="res://Sound/Hit_stress.wav" id="30_1jbrb"]
+[ext_resource type="AudioStream" uid="uid://b30auxvx0nrxl" path="res://Sound/NewSound/SPLC-2133_FX_Oneshot_Dancehall_Female_Scream.wav" id="30_fu773"]
+[ext_resource type="AudioStream" uid="uid://diivpobujf4hi" path="res://Sound/NewSound/GhostShriekWhoosh_SFXB.1372.wav" id="31_j17di"]
 [ext_resource type="PackedScene" uid="uid://bwdqct432a0or" path="res://Models/CleanModelTscn/old_mystic_symblo.tscn" id="31_tkdc1"]
 [ext_resource type="PackedScene" uid="uid://bi0tmm1flhrqa" path="res://Models/CleanModelTscn/closed_box.tscn" id="32_28bkd"]
 [ext_resource type="PackedScene" uid="uid://bmwo1q3l2mnnm" path="res://Models/CleanModelTscn/control_box___interectable.tscn" id="33_kt7yd"]
@@ -73,6 +75,8 @@
 [ext_resource type="PackedScene" uid="uid://bcl3n8ne3qbnk" path="res://PickableObject/tea_drink.tscn" id="71_h11fi"]
 [ext_resource type="PackedScene" uid="uid://by1g4ke1ivpyt" path="res://Scenes/player_voice_trigger.tscn" id="72_yed7w"]
 [ext_resource type="PackedScene" uid="uid://csob8h6dhyge6" path="res://Models/Classroom/StairConnector/air_conditioner_4.tscn" id="73_nq6bx"]
+[ext_resource type="PackedScene" uid="uid://b4xq88h1brxdw" path="res://Scenes/audio_trigger.tscn" id="74_h11fi"]
+[ext_resource type="AudioStream" uid="uid://eqo6gv2mljnq" path="res://Sound/NewSound/FF_HFFX_vocal_laughter_child_pitched.wav" id="75_u55c1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kv0hi"]
 size = Vector3(8.63161, 0.678482, 7.50891)
@@ -405,7 +409,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2, -1.93715e-07, -5)
 
 [node name="Stair" parent="SimpleFloor" instance=ExtResource("4_jkxt6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2, -7.19997, 5.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1741, -7.19997, 5.6)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SimpleFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8, -3.57628e-07, -5)
@@ -486,17 +490,17 @@ skeleton = NodePath("")
 transform = Transform3D(-1, -1.98952e-13, -3.78926e-15, 1.98952e-13, -1, -7.54979e-08, -7.6233e-21, 1.09681e-08, -0.690112, 0, -9.53674e-07, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SimpleFloor/Stair2/Stair_001/StaticBody3D2"]
-transform = Transform3D(1, 5.31983e-40, -4.65166e-19, 0, 1, 2.40119e-21, 3.21025e-19, -1.65714e-21, 1.449, 3.8147e-06, 3.15875, -7.37574)
+transform = Transform3D(1, 0, -4.65166e-19, 0, 1, 2.40119e-21, 3.21025e-19, -1.65714e-21, 1.449, 3.8147e-06, 3.15875, -7.37574)
 shape = SubResource("BoxShape3D_bhkdg")
 disabled = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="SimpleFloor/Stair2/Stair_001/StaticBody3D2"]
-transform = Transform3D(1, 8.19732e-40, -7.16773e-19, 0, 1, 2.40119e-21, 4.94667e-19, -1.65714e-21, 1.449, 3.8147e-06, 5.48383, -7.02886)
+transform = Transform3D(1, 0, -7.16773e-19, 0, 1, 2.40119e-21, 4.94667e-19, -1.65714e-21, 1.449, 3.8147e-06, 5.48383, -7.02886)
 shape = SubResource("BoxShape3D_s5thw")
 disabled = true
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="SimpleFloor/Stair2/Stair_001/StaticBody3D2"]
-transform = Transform3D(1, 7.57971e-40, -6.62769e-19, 0, 1, 2.40119e-21, 4.57398e-19, -1.65714e-21, 1.449, 3.8147e-06, 5.48383, -11.1377)
+transform = Transform3D(1, 0, -6.62769e-19, 0, 1, 2.40119e-21, 4.57398e-19, -1.65714e-21, 1.449, 3.8147e-06, 5.48383, -11.1377)
 shape = SubResource("BoxShape3D_s5thw")
 disabled = true
 
@@ -851,7 +855,7 @@ collision_mask = 65537
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7861, 32.0618)
 shape = SubResource("BoxShape3D_eiqug")
 
-[node name="EventAreaGhost" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostNode3D", "floorCheck", "_animPlayer", "_nodeArray", "FlickerLights", "GhostSound")]
+[node name="EventAreaGhost" type="Node3D" parent="." node_paths=PackedStringArray("_area", "ghostNode3D", "floorCheck", "_animPlayer", "_nodeArray", "FlickerLights", "GhostSound", "ScreamSound", "NoiseSound")]
 visible = false
 script = ExtResource("27_i6vpu")
 _area = NodePath("Area3D")
@@ -862,6 +866,8 @@ _animPlayer = NodePath("../Nang_Rum_1/AnimationPlayer")
 _nodeArray = [NodePath("../SimpleFloor/Light03/Light03/OmniLight3D"), NodePath("../SimpleFloor/Light03/Light02/OmniLight3D"), NodePath("../SimpleFloor/Light03/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light02/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light05/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light04/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light01/Light01/OmniLight3D")]
 FlickerLights = [NodePath("../SimpleFloor/Light03/Light03/OmniLight3D"), NodePath("../SimpleFloor/Light03/Light02/OmniLight3D"), NodePath("../SimpleFloor/Light03/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light02/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light05/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light04/Light01/OmniLight3D"), NodePath("../SimpleFloor/Light01/Light01/OmniLight3D")]
 GhostSound = NodePath("../Nang_Rum_1/AudioStreamPlayer3D3")
+ScreamSound = NodePath("Scream")
+NoiseSound = NodePath("Noise")
 
 [node name="Area3D" type="Area3D" parent="EventAreaGhost"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.3784)
@@ -872,6 +878,12 @@ monitoring = false
 [node name="EventArea" type="CollisionShape3D" parent="EventAreaGhost/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7861, -0.231201)
 shape = SubResource("BoxShape3D_eiqug")
+
+[node name="Scream" type="AudioStreamPlayer3D" parent="EventAreaGhost"]
+stream = ExtResource("30_fu773")
+
+[node name="Noise" type="AudioStreamPlayer3D" parent="EventAreaGhost"]
+stream = ExtResource("31_j17di")
 
 [node name="EventAreaFloorCheck" type="Node3D" parent="." node_paths=PackedStringArray("_area")]
 visible = false
@@ -1058,16 +1070,15 @@ transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, -3.296
 material_override = ExtResource("55_b7a3d")
 mesh = SubResource("TextMesh_km3kn")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.440193, 1.78875, 68.7707)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-0.440193, 1.78875)
 stream = ExtResource("57_siqr6")
-volume_db = -5.0
-unit_size = 5.0
-max_db = -2.0
+volume_db = -20.0
 autoplay = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer3D"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer2D"]
 stream = ExtResource("58_5amom")
+volume_db = -2.0
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.612958, 1.78875, 65.7803)
@@ -1534,6 +1545,7 @@ VoiceIndex = 1
 
 [node name="PlayerVoiceTrigger4" parent="." instance=ExtResource("72_yed7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00674541, 0.0222454, 30.776)
+monitoring = false
 VoiceIndex = 4
 
 [node name="PlayerVoiceTrigger2" parent="." instance=ExtResource("72_yed7w")]
@@ -1554,6 +1566,15 @@ transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 
 [node name="AirConditioner_7" parent="." instance=ExtResource("73_nq6bx")]
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 6.92776, 3.15238, 70.3408)
 
+[node name="AudioTrigger" parent="." instance=ExtResource("74_h11fi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16454, 0, 55.3685)
+
+[node name="CollisionShape3D" parent="AudioTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03639, 1.04883, -0.331543)
+
+[node name="AudioStreamPlayer3D" parent="AudioTrigger" index="1"]
+stream = ExtResource("75_u55c1")
+
 [editable path="SimpleFloor/Light01"]
 [editable path="SimpleFloor/Light04"]
 [editable path="SimpleFloor/Light02"]
@@ -1564,3 +1585,5 @@ transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 
 [editable path="Book2"]
 [editable path="Book3"]
 [editable path="StudentBag"]
+[editable path="PlayerVoiceTrigger4"]
+[editable path="AudioTrigger"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwgkqf4utergo"]
+[gd_scene load_steps=6 format=3 uid="uid://dwgkqf4utergo"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_uo7st"]
 [ext_resource type="ArrayMesh" uid="uid://u3ixyhcf2udg" path="res://Models/ModelAssets/Voxel Universe v1.0/Export/computerBot.obj" id="2_po34s"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_qteoq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qteoq"]
 size = Vector3(0.463379, 0.57135, 0.476807)
@@ -17,6 +18,7 @@ shape = SubResource("BoxShape3D_qteoq")
 
 [node name="ComputerBot" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0)
+material_overlay = ExtResource("2_qteoq")
 mesh = ExtResource("2_po34s")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]

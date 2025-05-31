@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3ynhdje3m5r3"]
+[gd_scene load_steps=22 format=3 uid="uid://c3ynhdje3m5r3"]
 
 [ext_resource type="PackedScene" uid="uid://c6yuu88sy01w6" path="res://Models/Classroom/ClassRoom2_461.fbx" id="1_xnwnx"]
 [ext_resource type="Material" uid="uid://bra55taik0qvn" path="res://Models/Classroom/Classroom.tres" id="2_giqsi"]
@@ -7,6 +7,15 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_giqsi"]
 size = Vector3(15.0393, 14.7784, 3.24405)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_fucn1"]
+size = Vector3(5.59811, 0.253764, 3.7342)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_kkmoy"]
+size = Vector3(9.96705, 0.253764, 3.7342)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_lha0m"]
+size = Vector3(3.11671, 0.253764, 3.7342)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fucn1"]
 size = Vector3(15.3189, 0.202576, 3.99585)
@@ -59,6 +68,26 @@ material_overlay = ExtResource("3_fucn1")
 [node name="CollisionFloor" type="CollisionShape3D" parent="ClassRoom2_461_001/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.294, 7.169, 2.99978)
 shape = SubResource("BoxShape3D_giqsi")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="ClassRoom2_461_001/StaticBody3D/CollisionFloor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0355195, -2.62725, -3.49935)
+occluder = SubResource("BoxOccluder3D_fucn1")
+
+[node name="OccluderInstance3D4" type="OccluderInstance3D" parent="ClassRoom2_461_001/StaticBody3D/CollisionFloor" index="1"]
+transform = Transform3D(2.98023e-08, 1, -1.19209e-07, -1, 2.98023e-08, 1.19209e-07, 1.19209e-07, 1.19209e-07, 1, 7.47317, 2.30858, -3.49935)
+occluder = SubResource("BoxOccluder3D_kkmoy")
+
+[node name="OccluderInstance3D5" type="OccluderInstance3D" parent="ClassRoom2_461_001/StaticBody3D/CollisionFloor" index="2"]
+transform = Transform3D(2.98023e-08, 1, -1.19209e-07, -1, 2.98023e-08, 1.19209e-07, 1.19209e-07, 1.19209e-07, 1, -7.35834, 2.30858, -3.49935)
+occluder = SubResource("BoxOccluder3D_kkmoy")
+
+[node name="OccluderInstance3D2" type="OccluderInstance3D" parent="ClassRoom2_461_001/StaticBody3D/CollisionFloor" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99951, -2.62725, -3.49935)
+occluder = SubResource("BoxOccluder3D_lha0m")
+
+[node name="OccluderInstance3D3" type="OccluderInstance3D" parent="ClassRoom2_461_001/StaticBody3D/CollisionFloor" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95881, -2.62725, -3.49935)
+occluder = SubResource("BoxOccluder3D_lha0m")
 
 [node name="CollisionCelling" type="CollisionShape3D" parent="ClassRoom2_461_001/StaticBody3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.294312, 7.16883, -2.44745)

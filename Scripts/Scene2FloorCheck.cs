@@ -7,6 +7,9 @@ public partial class Scene2FloorCheck : Node3D
 	
 	public override void _Ready()
 	{
+		if (_area.IsConnected("body_entered", new Callable(this, nameof(OnBodyEntered))))
+			_area.Disconnect("body_entered", new Callable(this, nameof(OnBodyEntered)));
+
 		_area.Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
 	}
 	

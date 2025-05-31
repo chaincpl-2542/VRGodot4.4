@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyojqhtmdo7el"]
+[gd_scene load_steps=6 format=3 uid="uid://dyojqhtmdo7el"]
 
 [ext_resource type="Texture2D" uid="uid://bltvlnenoc4am" path="res://Models/3D - Vox Cleaner Edited (No Character)/Pencil/pencil_25_Color.png" id="1_ydg7a"]
 [ext_resource type="ArrayMesh" uid="uid://dd36c5dw5limx" path="res://Models/3D - Vox Cleaner Edited (No Character)/Pencil/pencil_25.obj" id="2_add57"]
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="2_n3osk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhfbx"]
 albedo_color = Color(0.878431, 0.878431, 0.878431, 1)
@@ -14,6 +15,7 @@ points = PackedVector3Array(0.11745, 0.287302, 0.0173982, -0.2, 0.616446, -0.3, 
 [node name="Pencil" type="MeshInstance3D"]
 transform = Transform3D(4.55426e-16, -6.93436e-09, -0.0660644, -0.0833595, -6.93437e-09, -1.02594e-23, -3.64376e-09, 0.15864, -2.88777e-09, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_uhfbx")
+material_overlay = ExtResource("2_n3osk")
 mesh = ExtResource("2_add57")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

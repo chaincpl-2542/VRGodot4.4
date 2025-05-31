@@ -31,6 +31,13 @@ public partial class Scene6FloorController : BaseFloorController
 		_finishedFloor = true;
 		
 		_finishedFloor = true;
+		
+		if (_area.IsConnected("body_entered", new Callable(this, nameof(OnBodyEntered))))
+			_area.Disconnect("body_entered", new Callable(this, nameof(OnBodyEntered)));
+
+		if (_area.IsConnected("body_exited", new Callable(this, nameof(OnBodyExited))))
+			_area.Disconnect("body_exited", new Callable(this, nameof(OnBodyExited)));
+
 		_area.Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
 		_area.Connect("body_exited", new Callable(this, nameof(OnBodyExited)));
 	}

@@ -80,15 +80,13 @@ public partial class CryptexController : Node3D
 			_codeNumbers[position] += change;
 			if (_codeNumbers[position] > 9) _codeNumbers[position] = 0;
 			if (_codeNumbers[position] < 0) _codeNumbers[position] = 9;
-
-			// Lock first number to 9 (hardcoded clue)
 			_codeNumbers[0] = 9;
 
 			firstNumberText.Text = _codeNumbers[0].ToString();
 			secondNumberText.Text = _codeNumbers[1].ToString();
 			thirdNumberText.Text = _codeNumbers[2].ToString();
 
-			TickSound?.Play(); // 🔊
+			TickSound?.Play(); 
 
 			GD.Print($"Updated Code: {_codeNumbers[0]} {_codeNumbers[1]} {_codeNumbers[2]}");
 

@@ -3,10 +3,11 @@ using System;
 
 public partial class MysticSymbolPickup : Node3D
 {
-	[Export] public Node RootNode;
+	[Export] public Node3D Model;
 	[Export] public Area3D area;
 	[Export] public PlayParticle particle;
 	[Export] public Node3D particleNode;
+	bool isTriggered = false;
 
 	public override void _Ready()
 	{
@@ -17,12 +18,16 @@ public partial class MysticSymbolPickup : Node3D
 	{
 		if (body.IsInGroup("PlayerHand"))
 		{
-			GD.Print("Picked up: Mystic Symbol");
-			particleNode.Show();
-			particle.PlayAllParticles();
-			particle.PlayMyParticle();
-			Scene5FloorController.Instance.OnFinishFloor();
-			RootNode.QueueFree();
+			if (isTriggered == false)
+			{
+				Model.Hide();
+				GD.Print("Picked up: Mystic Symbol");
+				particleNode.Show();
+				particle.PlayAllParticles();
+				particle.PlayMyParticle();
+				Scene5FloorController.Instance.OnFinishFloor();
+				isTriggered = true;
+			}
 		}
 	}
 }

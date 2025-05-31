@@ -134,6 +134,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.800
 [node name="ClassRoom" parent="SimpleFloor" index="0"]
 transform = Transform3D(1, -5.32056e-05, 6.50193e-05, 5.32056e-05, 1, 0.000172628, -6.50193e-05, -0.000172628, 1, 0, 0, 0)
 
+[node name="Stair" parent="SimpleFloor" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1738, -7.19997, 5.6)
+
 [node name="StairConnector_001" parent="SimpleFloor/StairConnector2" index="0"]
 material_overlay = ExtResource("12_d27kw")
 

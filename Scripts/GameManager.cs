@@ -108,6 +108,11 @@ public partial class GameManager : Node
 			await LoadFloorAsync(scene);
 		}
 	}
+    
+	public void ForceLoadScene(PackedScene scene)
+	{
+		LoadFloorAsync(scene);
+	}
 	
 	private async Task DelayLoadScene()
 	{

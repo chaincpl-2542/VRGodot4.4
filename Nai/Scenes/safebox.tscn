@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dq85p7v4jggu0"]
+[gd_scene load_steps=12 format=3 uid="uid://dq85p7v4jggu0"]
 
+[ext_resource type="Material" uid="uid://oviup6m4001l" path="res://MyShader/PixelShader.tres" id="1_46wr3"]
 [ext_resource type="ArrayMesh" uid="uid://bubg8b6k8kpr5" path="res://Nai/Asssets/safe_open.vox" id="1_a1oe4"]
 [ext_resource type="ArrayMesh" uid="uid://brjodvvnojlbw" path="res://Nai/Asssets/safe_cap.vox" id="2_46wr3"]
 
@@ -56,6 +57,7 @@ _data = {
 }
 
 [node name="Safebox" type="MeshInstance3D"]
+material_overlay = ExtResource("1_46wr3")
 mesh = ExtResource("1_a1oe4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -85,6 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81077, 5.96046e-08, 0.96682
 
 [node name="Cap" type="MeshInstance3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81077, -0.0018242, -0.833524)
+material_overlay = ExtResource("1_46wr3")
 mesh = ExtResource("2_46wr3")
 skeleton = NodePath("../..")
 

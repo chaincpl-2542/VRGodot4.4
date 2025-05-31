@@ -22,7 +22,6 @@ public partial class CastShadowPuzzleController : Node3D
 
 	public override void _Ready()
 	{
-		// Button input connections
 		ButtonLeft.BodyEntered += body => { if (body.IsInGroup("PlayerHand")) activeDirections.Add("L"); };
 		ButtonLeft.BodyExited += body => { if (body.IsInGroup("PlayerHand")) activeDirections.Remove("L"); };
 
@@ -35,7 +34,6 @@ public partial class CastShadowPuzzleController : Node3D
 		ButtonDown.BodyEntered += body => { if (body.IsInGroup("PlayerHand")) activeDirections.Add("D"); };
 		ButtonDown.BodyExited += body => { if (body.IsInGroup("PlayerHand")) activeDirections.Remove("D"); };
 
-		// Find sounds
 		RotateStartSound = GetNodeOrNull<AudioStreamPlayer3D>("RotateStartSound");
 		RotateLoopSound = GetNodeOrNull<AudioStreamPlayer3D>("RotateLoopSound");
 

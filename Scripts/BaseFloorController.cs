@@ -8,4 +8,9 @@ public partial class BaseFloorController : Node3D
     {
         GameManager.Instance.LoadScene(GameManager.Instance.SceneList[floorNumber]);
     }
+    
+    public virtual void ForceLoadFloor(int floorNumber)
+    {
+        GameManager.Instance.LoadScene(GameManager.Instance.SceneList[floorNumber]);
+    }
 }
