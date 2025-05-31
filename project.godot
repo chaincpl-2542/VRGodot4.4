@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="GodotVR4.4"
+config/name="Eternal Intermission"
 run/main_scene="uid://bdxt84n3f5hyl"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
+boot_splash/image="uid://bf4mr5qcdxvx5"
 config/icon="res://icon.svg"
 
 [autoload]
